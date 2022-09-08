@@ -17,6 +17,15 @@
   },
   "plugins": ["react", "import"],
   "rules": {
+    "import/extensions": [
+      "error",
+      "ignorePackages",
+      { "js": "never", "jsx": "never", "ts": "never", "tsx": "never" }
+    ],
+    "react/jsx-filename-extension": [
+      2,
+      { "extensions": [".js", ".jsx", ".ts", ".tsx"] }
+    ],
     "no-console": "off",
     "no-restricted-syntax": [
       "error",
@@ -44,7 +53,7 @@
           "@pages": "./src/pages",
           "@services": "./src/services"
         },
-        "extensions": [".js", ".jsx"]
+        "extensions": [".js", ".jsx", ".ts", ".tsx"]
       }
     }
   }

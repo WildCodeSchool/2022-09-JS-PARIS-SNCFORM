@@ -1,3 +1,4 @@
+import React from "react";
 import Counter from "@components/Counter";
 import logo from "@assets/logo.svg";
 
