@@ -84,6 +84,40 @@ CREATE TABLE notification (
   PRIMARY KEY (id)
 );
 
+INSERT INTO
+  notification (title, description, date)
+VALUES
+  (
+    'Inscription confirmée',
+    'Votre manager a confirmé votre inscription',
+    '2022-02-13'
+  ),
+  (
+    'Inscription non confirmée',
+    'Votre manager a refusé votre inscription',
+    '2022-12-13'
+  ),
+  (
+    'Nouvelle formation disponible',
+    'Une nouvelle formation pour votre métier vous est proposé',
+    '2023-07-19'
+  ),
+  (
+    'Avertissement',
+    'Votre formation arrive à échéance',
+    '2023-05-03'
+  ),
+  (
+    'Avertissement',
+    'Votre formation débute',
+    '2021-12-29'
+  ),
+  (
+    'Avertissement',
+    'Votre formation en cours arrive à échéance',
+    '2023-07-17'
+  );
+
 CREATE TABLE user_learning (
   id INT NOT NULL AUTO_INCREMENT,
   user_id INT NOT NULL,
@@ -104,6 +138,24 @@ CREATE TABLE learning_category (
   FOREIGN KEY (learning_id) REFERENCES learning(id)
 );
 
+INSERT INTO learning_category (category_id, learning_id)
+VALUES 
+(1,15),
+(2,14),
+(3,13),
+(4,12),
+(4,11),
+(6,10),
+(7,9),
+(8,8),
+(9,7),
+(1,6),
+(9,4),
+(8,3),
+(7,2),
+(6,1),
+(5,1);
+
 CREATE TABLE job_type_category (
   id INT NOT NULL AUTO_INCREMENT,
   job_type_id INT NOT NULL,
@@ -113,12 +165,45 @@ CREATE TABLE job_type_category (
   FOREIGN KEY (category_id) REFERENCES category(id)
 );
 
-CREATE TABLE job_type_learning (
-  job_type_id INT NOT NULL,
-  learning_id INT NOT NULL,
-  FOREIGN KEY (job_type_id) REFERENCES job_type(id),
-  FOREIGN KEY (learning_id) REFERENCES learning(id)
-);
+INSERT INTO
+  job_type_category (job_type_id, category_id)
+VALUES
+  (1, 10),
+  (2, 9),
+  (3, 8),
+  (4, 7),
+  (5, 6),
+  (6, 5),
+  (7, 4),
+  (8, 3),
+  (9, 2),
+  (10, 1);
+
+  CREATE TABLE job_type_learning (
+    job_type_id INT NOT NULL,
+    learning_id INT NOT NULL,
+    FOREIGN KEY (job_type_id) REFERENCES job_type(id),
+    FOREIGN KEY (learning_id) REFERENCES learning(id)
+  );
+
+INSERT INTO
+  job_type_learning (job_type_id, learning_id)
+VALUES
+  (1, 15),
+  (2, 14),
+  (3, 13),
+  (4, 12),
+  (5, 11),
+  (6, 10),
+  (7, 9),
+  (8, 8),
+  (9, 7),
+  (10, 6),
+  (1, 5),
+  (2, 4),
+  (3, 3),
+  (4, 2),
+  (5, 1);
 
 CREATE TABLE learning_grade (
   id INT NOT NULL AUTO_INCREMENT,
@@ -129,10 +214,31 @@ CREATE TABLE learning_grade (
   FOREIGN KEY (grade_id) REFERENCES grade(id)
 );
 
+-- Fake learning table
+-- INSERT INTO table1 (field1, field2) VALUES (value1, value2);
+INSERT INTO
+  learning_grade (grade_id, learning_id)
+VALUES
+  (1, 15),
+  (2, 14),
+  (3, 13),
+  (4, 12),
+  (5, 11),
+  (6, 10),
+  (7, 9),
+  (8, 8),
+  (1, 7),
+  (2, 6),
+  (3, 5),
+  (4, 4),
+  (5, 3),
+  (6, 2),
+  (7, 1);
+
 CREATE TABLE user_notification (
   id INT NOT NULL AUTO_INCREMENT,
   user_id INT NOT NULL,
-  status VARCHAR (150) NOT NULL,
+  status VARCHAR (150),
   notifications_id INT NOT NULL,
   PRIMARY KEY (id),
   FOREIGN KEY (user_id) REFERENCES user(id),
@@ -147,25 +253,13 @@ VALUES
   ("Non lu", 1, 1),
   ("Lu", 2, 2),
   ("Non lu", 3, 3),
-  ("Lu", 4, 8),
-  ("Non lu", 5, 11),
-  ("Lu", 6, 13),
+  ("Lu", 4, 4),
+  ("Non lu", 5, 5),
+  ("Lu", 6, 6),
   ("Non lu", 7, 1),
   ("Lu", 8, 2),
   ("Non lu", 9, 3),
-  ("Lu", 10, 8);
-
--- test de requête user_notification 
--- SELECT ... FROM t1 JOIN t2 ON t1.id1 = t2.id2 WHERE condition;
-SELECT
-  first_name,
-  last_name,
-  status
-FROM
-  user
-  JOIN user_notification ON user.id = user_notification.user_id
-WHERE
-  user.id = 2;
+  ("Lu", 10, 4);
 
 INSERT INTO
   job_type (name)
