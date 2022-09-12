@@ -1,16 +1,17 @@
 import React, { useRef, useState } from "react";
 import "./SignUpPage.scss";
 import { Field } from "@components/index";
+import { UserSignUpType } from "../../types/index";
 
-export type UserSignUpType = {
-  firstName: string;
-  lastName: string;
-  genre: string;
-  cpNumber: string;
-  email: string;
-  jobType: string | null | undefined;
-  password: string;
-};
+// export type UserSignUpType = {
+//   firstName: string;
+//   lastName: string;
+//   genre: string;
+//   cpNumber: string;
+//   email: string;
+//   jobType: string | null | undefined;
+//   password: string;
+// };
 
 export const SignUp: React.FC = () => {
   const intialSignUp: UserSignUpType = {

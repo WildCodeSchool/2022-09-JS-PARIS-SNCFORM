@@ -1,5 +1,5 @@
-import { UserSignUpType } from "@pages/index";
 import React, { Dispatch, SetStateAction, useRef } from "react";
+import { UserSignUpType } from "@types/index";
 import "./Field.scss";
 
 type FieldType = {
