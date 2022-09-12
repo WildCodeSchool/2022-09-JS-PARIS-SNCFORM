@@ -1,12 +1,10 @@
-import Home from "@pages/Home";
-
 import "./App.scss";
+import { Field } from "@components/index";
 
 function App() {
   return (
     <div className="App">
-      <Home />
-      <p>coucou</p>
+      <Field label="Prénom" inputId="first-name" inputName="firstName" />
     </div>
   );
 }

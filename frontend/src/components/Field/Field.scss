@@ -1,0 +1,19 @@
+@import "../../theme-sncf.scss";
+
+.field {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.25em;
+
+  label {
+    color: $cool-gray--11;
+  }
+
+  input {
+    height: 2.25em;
+    border-radius: 5px;
+    border: none;
+    border: 1px solid $cool-gray--11;
+  }
+}
