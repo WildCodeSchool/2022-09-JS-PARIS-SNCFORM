@@ -75,6 +75,16 @@ CREATE TABLE notification (
   PRIMARY KEY (id)
 );
 
+CREATE TABLE user_notification (
+  id INT NOT NULL AUTO_INCREMENT,
+  user_id INT NOT NULL, 
+  notification_id INT NOT NULL,
+  status VARCHAR(50) NOT NULL,
+  PRIMARY KEY (id),
+  FOREIGN KEY (user_id) REFERENCES user(id),
+  FOREIGN KEY (notification_id) REFERENCES notification(id)
+);
+
 
 CREATE TABLE user_learning (
   id INT NOT NULL AUTO_INCREMENT,
@@ -125,15 +135,6 @@ CREATE TABLE learning_grade (
   FOREIGN KEY (grade_id) REFERENCES grade(id)
 );
 
-
-CREATE TABLE user_notification (
-  id INT NOT NULL AUTO_INCREMENT,
-  user_id INT NOT NULL, 
-  notifications_id INT NOT NULL,
-  PRIMARY KEY (id),
-  FOREIGN KEY (user_id) REFERENCES user(id),
-  FOREIGN KEY (notifications_id) REFERENCES notification(id)
-);
 
 INSERT INTO job_type (name)
 VALUES
@@ -227,20 +228,91 @@ VALUES
   (9, 6, "in progress", "2022-11-25"),
   (7, 6, "in progress", "2022-11-25");
 
-INSERT INTO notification (title, description, date)
+INSERT INTO notification (title, description, date) 
+VALUES  
+('Inscription confirmée', 'Votre manager a confirmé votre inscription', '2022-02-13'), 
+('Inscription non confirmée', 'Votre manager a refusé votre inscription', '2022-12-13'), 
+('Nouvelle formation disponible', 'Une nouvelle formation pour votre métier vous est proposé', '2023-07-19'), 
+('Avertissement', 'Votre formation arrive à échéance', '2023-05-03'), 
+('Avertissement', 'Votre formation débute', '2021-12-29'), 
+('Avertissement', 'Votre formation en cours arrive à échéance', '2023-07-17');
+
+INSERT INTO learning_category (category_id, learning_id)
 VALUES 
-('Inscription confirmée', 'Votre manager a confirmé votre inscription', '2022-02-13'),
-('Inscription non confirmée', 'Votre manager a refusé votre inscription', '2022-12-13'),
-('Nouvelle formation disponible', 'Une nouvelle formation pour votre métier vous est proposé', '2023-07-19'),
-('Nouvelle formation disponible', 'Une nouvelle formation pour votre métier vous est proposé', '2022-11-17'),
-('Nouvelle formation disponible', 'Une nouvelle formation pour votre métier vous est proposé', '2021-11-20'),
-('Nouvelle formation disponible', 'Une nouvelle formation pour votre métier vous est proposé', '2022-01-09'),
-('Nouvelle formation disponible', 'Une nouvelle formation pour votre métier vous est proposé', '2022-07-19'),
-('Avertissement', 'Votre formation arrive à échéance', '2023-05-03'),
-('Avertissement', 'Votre formation arrive à échéance', '2022-12-29'),
-('Avertissement', 'Votre formation arrive à échéance', '2023-08-28'),
-('Inscription confirmée', 'Une nouvelle formation pour votre métier vous est proposé', '2021-10-04'),
-('Inscription confirmée', 'Une nouvelle formation pour votre métier vous est proposé', '2022-07-29'),
-('Inscription non confirmée', 'Votre manager a refusé votre inscription', '2022-10-17'),
-('Inscription non confirmée', 'Votre manager a refusé votre inscription', '2023-07-17'),
-('Avertissement', 'Votre formation débute', '2021-12-29');
+(1,15),
+(2,14),
+(3,13),
+(4,12),
+(4,11),
+(6,10),
+(7,9),
+(8,8),
+(9,7),
+(1,6),
+(9,4),
+(8,3),
+(7,2),
+(6,1),
+(5,1);
+
+INSERT INTO job_type_category (job_type_id, category_id)
+VALUES
+  (1, 10),
+  (2, 9),
+  (3, 8),
+  (4, 7),
+  (5, 6),
+  (6, 5),
+  (7, 4),
+  (8, 3),
+  (9, 2),
+  (10, 1);
+
+INSERT INTO job_type_learning (job_type_id, learning_id)
+VALUES
+  (1, 15),
+  (2, 14),
+  (3, 13),
+  (4, 12),
+  (5, 11),
+  (6, 10),
+  (7, 9),
+  (8, 8),
+  (9, 7),
+  (10, 6),
+  (1, 5),
+  (2, 4),
+  (3, 3),
+  (4, 2),
+  (5, 1);
+
+INSERT INTO learning_grade (grade_id, learning_id)
+VALUES
+  (1, 15),
+  (2, 14),
+  (3, 13),
+  (4, 12),
+  (5, 11),
+  (6, 10),
+  (7, 9),
+  (8, 8),
+  (1, 7),
+  (2, 6),
+  (3, 5),
+  (4, 4),
+  (5, 3),
+  (6, 2),
+  (7, 1);
+
+INSERT INTO user_notification (status, user_id, notification_id)
+VALUES
+  ("Non lu", 1, 1),
+  ("Lu", 2, 2),
+  ("Non lu", 3, 3),
+  ("Lu", 4, 4),
+  ("Non lu", 5, 5),
+  ("Lu", 6, 6),
+  ("Non lu", 7, 1),
+  ("Lu", 8, 2),
+  ("Non lu", 9, 3),
+  ("Lu", 10, 4);
