@@ -1,8 +1,9 @@
-import React, { useRef, useState } from "react";
+import React, { Dispatch, SetStateAction, useState } from "react";
 import "./SignUpPage.scss";
-import { Field } from "@components/index";
+import { Field, Select } from "@components/index";
 import { UserSignUpType } from "../../types/index";
 
+export type SetUserSignUp = Dispatch<SetStateAction<UserSignUpType>>;
 export const SignUpPage: React.FC = () => {
   const intialSignUp: UserSignUpType = {
     firstName: "",
@@ -14,13 +15,16 @@ export const SignUpPage: React.FC = () => {
     password: "",
   };
 
+  const selectOptions = [
+    { value: "", label: "Corp de Métier" },
+    { value: "option1", label: "Option 1" },
+    { value: "option2", label: "Option 2" },
+    { value: "option3", label: "Option 3" },
+    { value: "option4", label: "Option 4" },
+    { value: "option5", label: "Option 5" },
+  ];
+
   const [userSignUp, setUserSignUp] = useState<UserSignUpType>(intialSignUp);
-  const selectRef = useRef<HTMLSelectElement>(null);
-  const onChangeSelect = () => {
-    setUserSignUp((prev) => {
-      return { ...prev, jobType: selectRef.current?.value };
-    });
-  };
 
   const onChangeRadio = (e: React.ChangeEvent<HTMLInputElement>) => {
     setUserSignUp((prev) => {
@@ -88,22 +92,12 @@ export const SignUpPage: React.FC = () => {
             Mme
           </label>
         </div>
-        <div className="signup__select-group">
-          <label htmlFor="job-type">Métier *</label>
-          <select
-            ref={selectRef}
-            name="job-type"
-            id="job-type"
-            onChange={onChangeSelect}
-          >
-            <option value="">Corp de Métier</option>
-            <option value="option1">Option 1</option>
-            <option value="option2">Option 2</option>
-            <option value="option3">Option 3</option>
-            <option value="option4">Option 4</option>
-            <option value="option5">Option 5</option>
-          </select>
-        </div>
+        <Select
+          onChange={setUserSignUp}
+          selectLabel="Métier"
+          selectId="job-type"
+          options={selectOptions}
+        />
         {inputData.map((data) => (
           <Field key={data.inputId} {...data} onChange={setUserSignUp} />
         ))}
