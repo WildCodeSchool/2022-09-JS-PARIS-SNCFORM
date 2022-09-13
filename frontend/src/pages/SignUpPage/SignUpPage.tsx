@@ -1,6 +1,7 @@
 import React, { Dispatch, SetStateAction, useState } from "react";
 import "./SignUpPage.scss";
 import { Field, Select } from "@components/index";
+import { userFetch } from "@services/apiRequest/fetchUser";
 import { UserSignUpType } from "../../types/index";
 
 export type SetUserSignUp = Dispatch<SetStateAction<UserSignUpType>>;
@@ -55,7 +56,7 @@ export const SignUpPage: React.FC = () => {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    console.warn("userSignUp:", userSignUp);
+    userFetch.signUp(userSignUp);
   };
 
   const inputData = [

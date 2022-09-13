@@ -37,19 +37,16 @@ class UserManager extends AbstractManager {
   }
 
   findAll() {
-    return this.connection.query(`select * from  ${this.table}`);
-  }
-
-  delete(id) {
-    return this.connection.query(`delete from ${this.table} where id = ?`, [
-      id,
-    ]);
+    return this.connection.query(
+      `select id, first_name,last_name,email,cp_number, role,genre,avatar,grade_id,job_type_id,manager_id from  ${this.table}`
+    );
   }
 
   find(id) {
-    return this.connection.query(`select * from  ${this.table} where id = ?`, [
-      id,
-    ]);
+    return this.connection.query(
+      `select id, first_name,last_name,email,cp_number, role,genre,avatar,grade_id,job_type_id,manager_id from  ${this.table} where id = ?`,
+      [id]
+    );
   }
 
   update(user) {

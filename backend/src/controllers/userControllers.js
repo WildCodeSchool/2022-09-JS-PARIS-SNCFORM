@@ -60,7 +60,7 @@ const destroyUser = (req, res) => {
   const { id } = req.params;
 
   models.user
-    .destroy(id)
+    .delete(id)
     .then(([result]) => {
       if (result.affectedRows === 0) {
         res.sendStatus(404);
