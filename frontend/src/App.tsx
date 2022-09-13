@@ -1,10 +1,16 @@
 import "./App.scss";
-import { SignUp } from "@pages/index";
+import { SignUpPage } from "@pages/index";
+import { Layout } from "@components/Layout/Layout";
+import { Routes, Route } from "react-router-dom";
 
 function App() {
   return (
     <div className="App">
-      <SignUp />
+      <Routes>
+        <Route path="/" element={<Layout />}>
+          <Route path="inscription" element={<SignUpPage />} />
+        </Route>
+      </Routes>
     </div>
   );
 }
