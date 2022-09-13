@@ -11,17 +11,38 @@ export const SignUpPage: React.FC = () => {
     genre: "",
     cpNumber: "",
     email: "",
-    jobType: "",
+    jobType: 0,
     password: "",
+    grade: 0,
+    manager: 0,
   };
 
   const selectOptions = [
-    { value: "", label: "Corp de Métier" },
-    { value: "option1", label: "Option 1" },
-    { value: "option2", label: "Option 2" },
-    { value: "option3", label: "Option 3" },
-    { value: "option4", label: "Option 4" },
-    { value: "option5", label: "Option 5" },
+    { value: 0, label: "Corp de Métier" },
+    { value: 1, label: "Option 1" },
+    { value: 2, label: "Option 2" },
+    { value: 3, label: "Option 3" },
+    { value: 4, label: "Option 4" },
+    { value: 5, label: "Option 5" },
+  ];
+
+  const gradeOptions = [
+    { value: 0, label: "Qualif" },
+    { value: 1, label: "Qualif 1" },
+    { value: 2, label: "Qualif 2" },
+    { value: 3, label: "Qualif 3" },
+    { value: 4, label: "Qualif 4" },
+    { value: 5, label: "Qualif 5" },
+    { value: 6, label: "Qualif 6" },
+    { value: 7, label: "Qualif 7" },
+    { value: 8, label: "Qualif 8" },
+  ];
+
+  const managerOptions = [
+    { value: 0, label: "Manager" },
+    { value: 1, label: "Manager 1" },
+    { value: 2, label: "Manager 2" },
+    { value: 3, label: "Manager 3" },
   ];
 
   const [userSignUp, setUserSignUp] = useState<UserSignUpType>(intialSignUp);
@@ -30,6 +51,11 @@ export const SignUpPage: React.FC = () => {
     setUserSignUp((prev) => {
       return { ...prev, genre: e.target.value };
     });
+  };
+
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    console.warn("userSignUp:", userSignUp);
   };
 
   const inputData = [
@@ -68,7 +94,7 @@ export const SignUpPage: React.FC = () => {
   return (
     <div className="signup">
       <h2>Inscription</h2>
-      <form>
+      <form onSubmit={handleSubmit}>
         <div className="signup__radio">
           <p>Civilité *</p>
           <label htmlFor="male">
@@ -94,9 +120,24 @@ export const SignUpPage: React.FC = () => {
         </div>
         <Select
           onChange={setUserSignUp}
-          selectLabel="Métier"
-          selectId="job-type"
+          label="Métier"
+          selectId="jobType"
           options={selectOptions}
+          isRequire
+        />
+        <Select
+          onChange={setUserSignUp}
+          label="Grade"
+          selectId="grade"
+          options={gradeOptions}
+          isRequire
+        />
+        <Select
+          onChange={setUserSignUp}
+          label="Manager"
+          selectId="manager"
+          options={managerOptions}
+          isRequire
         />
         {inputData.map((data) => (
           <Field key={data.inputId} {...data} onChange={setUserSignUp} />

@@ -4,28 +4,32 @@ import "./Select.scss";
 
 type SelectType = {
   onChange: SetUserSignUp;
-  selectLabel: string;
+  label: string;
   selectId: string;
-  options: { value: string; label: string }[];
+  options: { value: number; label: string }[];
+  isRequire?: boolean;
 };
 
 export const Select: React.FC<SelectType> = ({
   onChange,
-  selectLabel,
+  label,
   selectId,
   options,
+  isRequire,
 }) => {
   const selectRef = useRef<HTMLSelectElement>(null);
 
   const onChangeSelect = () => {
+    const { value } = selectRef.current!;
     onChange((prev) => {
-      return { ...prev, jobType: selectRef.current?.value };
+      return { ...prev, [selectId]: parseInt(value, 10) };
     });
   };
+  const labelField = isRequire ? `${label} *` : label;
 
   return (
     <div className="select">
-      <label htmlFor={selectId}>{`${selectLabel} *`}</label>
+      <label htmlFor={selectId}>{labelField}</label>
       <select
         ref={selectRef}
         name={selectId}
@@ -33,7 +37,9 @@ export const Select: React.FC<SelectType> = ({
         onChange={onChangeSelect}
       >
         {options.map((option) => (
-          <option value={option.value}>{option.label}</option>
+          <option key={option.value} value={option.value}>
+            {option.label}
+          </option>
         ))}
       </select>
     </div>

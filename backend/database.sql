@@ -26,15 +26,15 @@ CREATE TABLE job_type (
 
 CREATE TABLE user (
   id INT NOT NULL AUTO_INCREMENT,
-  first_name VARCHAR(150),
-  last_name VARCHAR(150),
-  cp_number VARCHAR(8),
-  email VARCHAR(255),
-  password VARCHAR(255),
-  role VARCHAR(20),
-  genre VARCHAR(20),
+  first_name VARCHAR(150) NOT NULL,
+  last_name VARCHAR(150) NOT NULL,
+  cp_number VARCHAR(8) NOT NULL,
+  email VARCHAR(255) NOT NULL,
+  password VARCHAR(255) NOT NULL,
+  role VARCHAR(20) NOT NULL,
+  genre VARCHAR(20) NOT NULL,
   avatar BLOB, 
-  manager_id INT,
+  manager_id INT NOT NULL,
   grade_id INT NOT NULL,
   job_type_id INT NOT NULL,
   PRIMARY KEY (id),
@@ -49,11 +49,11 @@ REFERENCES user(id);
 
 CREATE TABLE learning (
   id INT NOT NULL AUTO_INCREMENT, 
-  title VARCHAR(255),
-  description VARCHAR(10000),
-  type VARCHAR(50),
-  duration INT, 
-  instructor VARCHAR(150),
+  title VARCHAR(255) NOT NULL,
+  description VARCHAR(10000) NOT NULL,
+  type VARCHAR(50) NOT NULL,
+  duration INT NOT NULL, 
+  instructor VARCHAR(150) NOT NULL,
   capacity_learner INT, 
   start_registration DATE,
   end_registration DATE,
@@ -63,14 +63,14 @@ CREATE TABLE learning (
 
 CREATE TABLE category (
   id INT NOT NULl AUTO_INCREMENT,
-  title VARCHAR(150),
+  title VARCHAR(150) NOT NULL,
   PRIMARY KEY (id)
 );
 
 CREATE TABLE notification (
   id INT NOT NULL AUTO_INCREMENT,
-  title VARCHAR(255),
-  description VARCHAR(10000), 
+  title VARCHAR(255) NOT NULL,
+  description VARCHAR(10000) NOT NULL, 
   date DATE, 
   PRIMARY KEY (id)
 );
@@ -90,7 +90,7 @@ CREATE TABLE user_learning (
   id INT NOT NULL AUTO_INCREMENT,
   user_id INT NOT NULL,
   learning_id INT NOT NULL,
-  status VARCHAR(150),
+  status VARCHAR(150) NOT NULL,
   start_learning DATE,
   PRIMARY KEY (id),
   FOREIGN KEY (user_id) REFERENCES user(id),

@@ -4,6 +4,8 @@ export type UserSignUpType = {
   genre: string;
   cpNumber: string;
   email: string;
-  jobType: string | null | undefined;
+  jobType: number | null | undefined;
   password: string;
+  manager: number | null | undefined;
+  grade: number | null | undefined;
 };
