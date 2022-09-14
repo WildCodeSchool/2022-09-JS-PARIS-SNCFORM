@@ -1,7 +1,12 @@
-.header-logo {
-  width: 4em;
-  height: 2.5em;
-  position: fixed;
-  left: 1em;
-  top: 1em;
+.layout {
+  height: 100%;
+  width: 100%;
+
+  &__logo {
+    width: 4em;
+    height: 2.5em;
+    position: absolute;
+    left: 1em;
+    top: 1em;
+  }
 }

@@ -2,13 +2,13 @@ import React from "react";
 import { Outlet } from "react-router-dom";
 import "./Layout.scss";
 
-export const Layout = () => {
+export const Layout: React.FC = () => {
   return (
-    <div>
+    <div className="layout">
       <img
         src="src/assets/images/logo-sncf.png"
         alt="Logo d'entreprise"
-        className="header-logo"
+        className="layout__logo"
       />
       <Outlet />
     </div>
