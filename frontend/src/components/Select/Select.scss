@@ -1,0 +1,17 @@
+@import "../../theme-sncf.scss";
+
+.select {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+
+  select {
+    margin-top: 0.5em;
+    height: 2.25em;
+    border-radius: 5px;
+    border: none;
+    border: 1px solid $cool-gray--07;
+    width: 100%;
+  }
+}
