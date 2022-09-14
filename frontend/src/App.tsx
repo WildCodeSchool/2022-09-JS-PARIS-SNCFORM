@@ -4,7 +4,6 @@ import { Layout } from "@components/Layout/Layout";
 import { HomePage } from "@pages/HomePage/HomePage";
 import { SignUpPage } from "@pages/index";
 
-
 function App() {
   return (
     <div className="App">
