@@ -1,12 +1,12 @@
 import React, { useRef } from "react";
-import { SetUserSignUp } from "@pages/index";
+import { SetUserSignUpType } from "@pages/index";
 import "./Select.scss";
 
 type SelectType = {
-  onChange: SetUserSignUp;
+  onChange: SetUserSignUpType;
   label: string;
   selectId: string;
-  options: { value: number; label: string }[];
+  options: { id: number; name: string }[];
   isRequire?: boolean;
 };
 
@@ -37,8 +37,8 @@ export const Select: React.FC<SelectType> = ({
         onChange={onChangeSelect}
       >
         {options.map((option) => (
-          <option key={option.value} value={option.value}>
-            {option.label}
+          <option key={option.id} value={option.id}>
+            {option.name}
           </option>
         ))}
       </select>

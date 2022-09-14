@@ -22,6 +22,18 @@ const getUser = (req, res) => {
     });
 };
 
+const getUserByRole = (req, res) => {
+  const { role } = req.params;
+
+  models.user
+    .findByRole(role)
+    .then(([result]) => res.status(200).json(result))
+    .catch((err) => {
+      console.error(err);
+      res.status(500).send("Error in user getUserByRole request");
+    });
+};
+
 const addUser = (req, res) => {
   const user = req.body;
 
@@ -80,4 +92,5 @@ module.exports = {
   addUser,
   editUser,
   destroyUser,
+  getUserByRole,
 };

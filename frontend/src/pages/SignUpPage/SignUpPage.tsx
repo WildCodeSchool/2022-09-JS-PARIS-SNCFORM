@@ -1,10 +1,18 @@
-import React, { Dispatch, SetStateAction, useState } from "react";
+import React, { Dispatch, SetStateAction, useEffect, useState } from "react";
 import "./SignUpPage.scss";
 import { Field, Select } from "@components/index";
-import { userFetch } from "@services/apiRequest/fetchUser";
-import { UserSignUpType } from "../../types/index";
+import { userFetch, jobFetch, gradeFetch } from "@services/index";
+import { UserSignUpType, UserType } from "../../types/index";
 
-export type SetUserSignUp = Dispatch<SetStateAction<UserSignUpType>>;
+type JobGradeType = {
+  id: number;
+  name: string;
+};
+
+export type SetUserSignUpType = Dispatch<SetStateAction<UserSignUpType>>;
+export type SetJobGradeType = Dispatch<SetStateAction<JobGradeType[]>>;
+export type SetUser = React.Dispatch<React.SetStateAction<UserType[]>>;
+
 export const SignUpPage: React.FC = () => {
   const intialSignUp: UserSignUpType = {
     firstName: "",
@@ -18,41 +26,35 @@ export const SignUpPage: React.FC = () => {
     manager: 0,
   };
 
-  const selectOptions = [
-    { value: 0, label: "Corp de Métier" },
-    { value: 1, label: "Option 1" },
-    { value: 2, label: "Option 2" },
-    { value: 3, label: "Option 3" },
-    { value: 4, label: "Option 4" },
-    { value: 5, label: "Option 5" },
-  ];
-
-  const gradeOptions = [
-    { value: 0, label: "Qualif" },
-    { value: 1, label: "Qualif 1" },
-    { value: 2, label: "Qualif 2" },
-    { value: 3, label: "Qualif 3" },
-    { value: 4, label: "Qualif 4" },
-    { value: 5, label: "Qualif 5" },
-    { value: 6, label: "Qualif 6" },
-    { value: 7, label: "Qualif 7" },
-    { value: 8, label: "Qualif 8" },
-  ];
-
-  const managerOptions = [
-    { value: 0, label: "Manager" },
-    { value: 1, label: "Manager 1" },
-    { value: 2, label: "Manager 2" },
-    { value: 3, label: "Manager 3" },
-  ];
-
   const [userSignUp, setUserSignUp] = useState<UserSignUpType>(intialSignUp);
+  const [jobs, setJobs] = useState<JobGradeType[]>([]);
+  const [grades, setGrades] = useState<JobGradeType[]>([]);
+  const [managers, setManagers] = useState<UserType[]>([]);
 
   const onChangeRadio = (e: React.ChangeEvent<HTMLInputElement>) => {
     setUserSignUp((prev) => {
       return { ...prev, genre: e.target.value };
     });
   };
+
+  const managerData = managers.map((manager) => {
+    return {
+      id: manager.id,
+      name: `${manager.first_name} ${manager.last_name}`,
+    };
+  });
+
+  const managerOptions = [{ id: 0, name: "Manager" }, ...managerData];
+
+  const selectOptions = [{ id: 0, name: "Corp de Métier" }, ...jobs];
+
+  const gradeOptions = [{ id: 0, name: "Qualif" }, ...grades];
+
+  useEffect(() => {
+    gradeFetch.getAllGrade(setGrades);
+    jobFetch.getAllJob(setJobs);
+    userFetch.getUserByRole("manager", setManagers);
+  }, []);
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
@@ -101,7 +103,7 @@ export const SignUpPage: React.FC = () => {
           <label htmlFor="male">
             <input
               type="radio"
-              value="male"
+              value="Homme"
               id="male"
               name="gender"
               onChange={onChangeRadio}
@@ -111,7 +113,7 @@ export const SignUpPage: React.FC = () => {
           <label htmlFor="female">
             <input
               type="radio"
-              value="female"
+              value="Femme"
               id="female"
               name="gender"
               onChange={onChangeRadio}

@@ -1,1 +1,1 @@
-export { UserSignUpType } from "./userTypes";
+export * from "./userTypes";
