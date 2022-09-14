@@ -1,8 +1,7 @@
 import axios from "axios";
 import { SetUser } from "@pages/index";
-import { UserSignUpType } from "../../types";
+import { UserSignUpType } from "../../type";
 
-// FIXME:
 const BASE_URL = import.meta.env.VITE_BACKEND_URL;
 
 const addUser = (userData: UserSignUpType) => {

@@ -2,7 +2,7 @@ import React, { Dispatch, SetStateAction, useEffect, useState } from "react";
 import "./SignUpPage.scss";
 import { Field, Select } from "@components/index";
 import { userFetch, jobFetch, gradeFetch } from "@services/index";
-import { UserSignUpType, UserType } from "../../types/index";
+import { UserSignUpType, UserType } from "@type/index";
 
 type JobGradeType = {
   id: number;
