@@ -1,2 +1,3 @@
 export { Layout } from "./Layout/Layout";
-export { ProfilBar } from "./ProfilBar/ProfilBar";
+export { ProfileBar } from "./ProfileBar/ProfileBar";
+export { ProfileCard } from "./ProfileCard/ProfileCard";
