@@ -1,1 +1,1 @@
-export { SignUpPage } from "./SignUpPage/SignUpPage";
+export { SignUpPage, SetUserSignUp } from "./SignUpPage/SignUpPage";

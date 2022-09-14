@@ -1,5 +1,5 @@
 import React, { useRef } from "react";
-import { SetUserSignUp } from "@pages/SignUpPage/SignUpPage";
+import { SetUserSignUp } from "@pages/index";
 import "./Select.scss";
 
 type SelectType = {

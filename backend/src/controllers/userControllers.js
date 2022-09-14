@@ -6,7 +6,7 @@ const getAllUser = (_, res) => {
     .then(([result]) => res.status(200).json(result))
     .catch((err) => {
       console.error(err);
-      res.status(500).send("Error in user getAllUser resquest");
+      res.status(500).send("Error in user getAllUser request");
     });
 };
 
@@ -18,7 +18,7 @@ const getUser = (req, res) => {
     .then(([result]) => res.status(200).json(result))
     .catch((err) => {
       console.error(err);
-      res.status(500).send("Error in user getUser resquest");
+      res.status(500).send("Error in user getUser request");
     });
 };
 
@@ -32,7 +32,7 @@ const addUser = (req, res) => {
     })
     .catch((err) => {
       console.error(err);
-      res.status(500).send("Error in user addUser resquest");
+      res.status(500).send("Error in user addUser request");
     });
 };
 
