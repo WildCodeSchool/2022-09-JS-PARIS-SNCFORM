@@ -2,7 +2,7 @@ import React from "react";
 import { Outlet } from "react-router-dom";
 import "./Layout.scss";
 
-export const Layout = () => {
+export const Layout: React.FC = () => {
   return (
     <div className="layout">
       <img

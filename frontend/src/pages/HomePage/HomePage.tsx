@@ -1,10 +1,9 @@
 import React from "react";
 import "./HomePage.scss";
-import { Button } from "@components/Button/Button";
-import { AppCarousel } from "@components/AppCarousel/AppCarousel";
+import { Button, AppCarousel } from "@components/index";
 import { Link, useNavigate } from "react-router-dom";
 
-export const HomePage = () => {
+export const HomePage: React.FC = () => {
   const navigate = useNavigate();
   return (
     <div className="home-page">
