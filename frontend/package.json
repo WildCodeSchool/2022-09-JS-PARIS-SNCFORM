@@ -23,6 +23,7 @@
     "prop-types": "^15.8.1",
     "react": "^18.0.0",
     "react-dom": "^18.0.0",
+    "react-grid-carousel": "^1.0.1",
     "react-router-dom": "^6.3.0",
     "sass": "^1.54.9",
     "template-fullstack": "file:.."
@@ -30,6 +31,7 @@
   "devDependencies": {
     "@types/react": "^18.0.20",
     "@typescript-eslint/eslint-plugin": "^5.36.2",
+    "@typescript-eslint/parser": "^5.37.0",
     "@vitejs/plugin-react": "^1.0.7",
     "eslint": "^8.11.0",
     "eslint-config-airbnb": "^19.0.4",
