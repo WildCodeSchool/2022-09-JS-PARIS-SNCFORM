@@ -11,7 +11,10 @@ export const HomePage: React.FC = () => {
         <Link to="/about">Connexion</Link>
       </h3>
       <AppCarousel />
-      <Button textButton="Inscription" onClick={() => navigate("/about")} />
+      <Button
+        textButton="Inscription"
+        onClick={() => navigate("/inscription")}
+      />
     </div>
   );
 };

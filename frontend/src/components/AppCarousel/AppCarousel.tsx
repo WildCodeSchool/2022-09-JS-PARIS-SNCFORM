@@ -7,7 +7,7 @@ export const AppCarousel: React.FC = () => {
     <div className="app-carousel">
       <Carousel cols={1} rows={1} gap={35} loop autoplay={5000}>
         <Carousel.Item>
-          <img src="https://picsum.photos/800/600?random=1" alt="image1" />
+          <img src="src/assets/images/logo-sncf.png" alt="image1" />
         </Carousel.Item>
         <Carousel.Item>
           <img src="https://picsum.photos/800/600?random=2" alt="image2" />
