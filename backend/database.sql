@@ -14,7 +14,7 @@ DROP TABLE IF EXISTS learning;
 
 CREATE TABLE grade (
   id INT NOT NULL AUTO_INCREMENT,
-  name INT,
+  name VARCHAR(150),
   PRIMARY KEY (id)
 );
 
@@ -151,14 +151,14 @@ VALUES
 
 INSERT INTO grade (name)
 VALUES
-(1),
-(2),
-(3),
-(4),
-(5),
-(6),
-(7),
-(8);
+("1"),
+("2"),
+("3"),
+("4"),
+("5"),
+("6"),
+("7"),
+("8");
 
 INSERT INTO user (first_name,last_name,email,cp_number,password,role,genre,avatar,grade_id,job_type_id,manager_id)
 VALUES
