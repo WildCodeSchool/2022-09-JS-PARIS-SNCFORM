@@ -1,5 +1,5 @@
 import React from "react";
-import "@components/ProfilBar/ProfilBar.scss";
+import "./ProfilBar.scss";
 
 export const ProfilBar: React.FC = () => {
   return (
