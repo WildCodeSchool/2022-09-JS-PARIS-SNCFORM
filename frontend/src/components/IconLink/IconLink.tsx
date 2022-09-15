@@ -9,7 +9,12 @@ type IconLinkProps = {
   iconPage: string;
 };
 
-export const IconLink: React.FC<IconLinkProps> = ({ icon, iconAlt, title, iconPage }) => {
+export const IconLink: React.FC<IconLinkProps> = ({
+  icon,
+  iconAlt,
+  title,
+  iconPage,
+}) => {
   return (
     <NavLink to={iconPage}>
       <div className="iconlink">
