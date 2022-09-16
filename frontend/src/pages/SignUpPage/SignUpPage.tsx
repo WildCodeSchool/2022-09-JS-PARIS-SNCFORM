@@ -87,12 +87,14 @@ export const SignUpPage: React.FC = () => {
       inputId: "password",
       isRequire: true,
       inputType: "password",
+      autoComplete: "on",
     },
     {
       label: "Confirmation",
       inputId: "confirm-password",
       isRequire: true,
       inputType: "password",
+      autoComplete: "on",
     },
   ];
 
