@@ -8,6 +8,7 @@ type FieldType = {
   label: string;
   isRequire?: boolean;
   onChange: Dispatch<SetStateAction<UserSignUpType>>;
+  autoComplete?: string;
 };
 
 export const Field: React.FC<FieldType> = ({
@@ -16,6 +17,7 @@ export const Field: React.FC<FieldType> = ({
   label,
   isRequire,
   onChange,
+  autoComplete,
 }) => {
   const inputRef = useRef<HTMLInputElement>(null);
   const labelField = isRequire ? `${label} *` : label;
@@ -33,6 +35,8 @@ export const Field: React.FC<FieldType> = ({
         name={inputId}
         onChange={handleChange}
         ref={inputRef}
+        required={isRequire}
+        autoComplete={autoComplete}
       />
     </div>
   );

@@ -10,7 +10,7 @@ const gradeControllers = require("./controllers/gradeControllers");
 router.get("/api/users", userControllers.getAllUser);
 router.get("/api/users/:id", userControllers.getUser);
 router.get("/api/users/role/:role", userControllers.getUserByRole);
-router.post("/api/users", userControllers.addUser);
+router.post("/api/signup", userControllers.signup);
 router.put("/api/users/:id", userControllers.editUser);
 router.delete("/api/users/:id", userControllers.destroyUser);
 
