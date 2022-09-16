@@ -1,14 +1,16 @@
+import "./App.scss";
 import { Routes, Route } from "react-router-dom";
 import { Layout } from "@components/Layout/Layout";
-import { MenuPage } from "@pages/MenuPage/MenuPage";
-import "./App.scss";
+import { HomePage } from "@pages/HomePage/HomePage";
+import { SignUpPage } from "@pages/index";
 
 function App() {
   return (
     <div className="App">
       <Routes>
         <Route path="/" element={<Layout />}>
-          <Route path="/iconlink" element={<MenuPage />} />
+          <Route path="inscription" element={<SignUpPage />} />
+          <Route path="/" element={<HomePage />} />
         </Route>
       </Routes>
     </div>
