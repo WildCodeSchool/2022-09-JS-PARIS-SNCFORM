@@ -34,7 +34,7 @@ const getUserByRole = (req, res) => {
     });
 };
 
-const addUser = (req, res) => {
+const signup = (req, res) => {
   const user = req.body;
 
   models.user
@@ -44,7 +44,7 @@ const addUser = (req, res) => {
     })
     .catch((err) => {
       console.error(err);
-      res.status(500).send("Error in user addUser request");
+      res.status(500).send("Error in user signup request");
     });
 };
 
@@ -89,7 +89,7 @@ const destroyUser = (req, res) => {
 module.exports = {
   getAllUser,
   getUser,
-  addUser,
+  signup,
   editUser,
   destroyUser,
   getUserByRole,

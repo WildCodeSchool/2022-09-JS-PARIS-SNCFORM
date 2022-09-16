@@ -58,7 +58,7 @@ export const SignUpPage: React.FC = () => {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    userFetch.addUser(userSignUp);
+    userFetch.signup(userSignUp);
   };
 
   const inputData = [
