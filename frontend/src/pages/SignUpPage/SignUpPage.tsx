@@ -86,11 +86,13 @@ export const SignUpPage: React.FC = () => {
       label: "Mot de passe",
       inputId: "password",
       isRequire: true,
+      inputType: "password",
     },
     {
       label: "Confirmation",
       inputId: "confirm-password",
       isRequire: true,
+      inputType: "password",
     },
   ];
 

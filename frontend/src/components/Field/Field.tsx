@@ -33,6 +33,7 @@ export const Field: React.FC<FieldType> = ({
         name={inputId}
         onChange={handleChange}
         ref={inputRef}
+        required={isRequire}
       />
     </div>
   );
