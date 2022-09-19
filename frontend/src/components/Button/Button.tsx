@@ -3,12 +3,21 @@ import "./Button.scss";
 
 type ButtonType = {
   textButton: string;
-  onClick: () => void;
+  onClick?: () => void;
+  isSubmit?: boolean;
 };
 
-export const Button: React.FC<ButtonType> = ({ textButton, onClick }) => {
+export const Button: React.FC<ButtonType> = ({
+  textButton,
+  onClick,
+  isSubmit,
+}) => {
   return (
-    <button type="button" onClick={onClick} className="button">
+    <button
+      type={isSubmit ? "submit" : "button"}
+      onClick={onClick}
+      className="button"
+    >
       {textButton}
     </button>
   );

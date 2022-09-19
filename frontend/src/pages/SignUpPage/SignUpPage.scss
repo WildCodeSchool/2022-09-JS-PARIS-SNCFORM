@@ -43,3 +43,18 @@
     width: 100%;
   }
 }
+
+@media (min-width: 767px) {
+  .signup {
+    form {
+      flex-direction: row;
+      flex-wrap: wrap;
+      justify-content: space-between;
+    }
+
+    &__radio {
+      justify-content: center;
+      width: 100%;
+    }
+  }
+}
