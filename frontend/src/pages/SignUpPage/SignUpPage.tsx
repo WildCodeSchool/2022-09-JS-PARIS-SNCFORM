@@ -142,9 +142,11 @@ export const SignUpPage: React.FC = () => {
           options={managerOptions}
           isRequire
         />
-        {inputData.map((data) => (
-          <Field key={data.inputId} {...data} onChange={setUserSignUp} />
-        ))}
+        <div className="signup__field">
+          {inputData.map((data) => (
+            <Field key={data.inputId} {...data} onChange={setUserSignUp} />
+          ))}
+        </div>
         <Button textButton="Envoie" isSubmit />
       </form>
     </div>
