@@ -1,6 +1,6 @@
 import { Routes, Route } from "react-router-dom";
 import { Layout } from "@components/Layout/Layout";
-import { ProfilePage } from "@pages/ProfilePage";
+import { ProfilePage } from "@pages/ProfilePage/ProfilePage";
 import "./App.scss";
 import { HomePage } from "@pages/HomePage/HomePage";
 import { SignUpPage } from "@pages/index";

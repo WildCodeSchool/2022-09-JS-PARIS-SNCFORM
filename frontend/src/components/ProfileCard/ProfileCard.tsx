@@ -1,28 +1,32 @@
 import React from "react";
+import "./ProfileCard.scss";
 
 export const ProfileCard: React.FC = () => {
   return (
     <div className="profile-card">
-      <div className="profile-card__background-container">
+      <div>
         <img
           src="src/assets/images/profile-card__background-img.jpg"
           alt="background-img"
-          className="profile-card__background-img"
         />
       </div>
-
-      <div className="profile-card__avatar-container">
+      <div className="profile-card__avatar-id-container">
         <img
           src="src/assets/images/profile-card__avatar-img.jpg"
           alt="user-img"
           className="profile-card__avatar-img"
         />
+        <div>
+          <p> John - Doe </p>
+          <p> Agent commercial </p>
+        </div>
       </div>
-
-      <div className="profile-card__user-id">
-        <p className="user-id__name"> John Smith </p>
-        <p className="user-id__job"> Agent commercial </p>
-        <p className="user-id__bio"> Lorem Ipsum </p>
+      <div className="profile-card__bio-container">
+        <p className="profile-card__bio">
+          Lorem Ipsum Lorem IpsumLorem IpsumLorem IpsumLorem IpsumLorem
+          IpsumLorem IpsumLorem IpsumLorem IpsumLorem IpsumLorem IpsumLorem
+          IpsumLorem IpsumLorem Ipsum{" "}
+        </p>
       </div>
     </div>
   );
