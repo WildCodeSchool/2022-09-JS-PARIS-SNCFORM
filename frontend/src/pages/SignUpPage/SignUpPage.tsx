@@ -58,7 +58,7 @@ export const SignUpPage: React.FC = () => {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    userFetch.addUser(userSignUp);
+    userFetch.signup(userSignUp);
   };
 
   const inputData = [
@@ -86,11 +86,15 @@ export const SignUpPage: React.FC = () => {
       label: "Mot de passe",
       inputId: "password",
       isRequire: true,
+      inputType: "password",
+      autoComplete: "on",
     },
     {
       label: "Confirmation",
       inputId: "confirm-password",
       isRequire: true,
+      inputType: "password",
+      autoComplete: "on",
     },
   ];
 
