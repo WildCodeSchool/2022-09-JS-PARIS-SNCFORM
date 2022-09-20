@@ -9,13 +9,6 @@ const gradeControllers = require("./controllers/gradeControllers");
 const categoryControllers = require("./controllers/categoryControllers");
 const { validateUser } = require("./middlewares/validator");
 
-// Authentification wall
-router.use(authMiddlewares.verifyToken);
-
-// *Routes User
-router.get("/api/users", userControllers.getAllUser);
-router.get("/api/users/:id", userControllers.getUser);
-router.get("/api/users/role/:role", userControllers.getUserByRole);
 router.post(
   "/api/signup",
   validateUser,
@@ -23,6 +16,13 @@ router.post(
   userControllers.signup
 );
 
+// Authentification wall
+// router.use(authMiddlewares.verifyToken);
+
+// *Routes User
+router.get("/api/users", userControllers.getAllUser);
+router.get("/api/users/:id", userControllers.getUser);
+router.get("/api/users/role/:role", userControllers.getUserByRole);
 router.put("/api/users/:id", userControllers.editUser);
 router.delete("/api/users/:id", userControllers.destroyUser);
 

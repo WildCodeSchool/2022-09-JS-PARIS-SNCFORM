@@ -4,22 +4,24 @@ import "./IconLink.scss";
 
 type IconLinkProps = {
   icon: string;
-  title: string;
+  title?: string;
   iconAlt: string;
-  iconPage: string;
+  path: string;
+  styles?: { [key: string]: string };
 };
 
 export const IconLink: React.FC<IconLinkProps> = ({
   icon,
   iconAlt,
   title,
-  iconPage,
+  path,
+  styles,
 }) => {
   return (
-    <NavLink to={iconPage}>
+    <NavLink to={path} style={{ ...styles }}>
       <div className="iconlink">
         <img src={icon} alt={iconAlt} />
-        <h3>{title}</h3>
+        {title && <h3>{title}</h3>}
       </div>
     </NavLink>
   );

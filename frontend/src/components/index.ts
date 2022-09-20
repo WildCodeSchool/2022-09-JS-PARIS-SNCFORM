@@ -5,3 +5,4 @@ export { Button } from "./Button/Button";
 export { AppCarousel } from "./AppCarousel/AppCarousel";
 export { RoundCard } from "./RoundCard/RoundCard";
 export { RoundCardList } from "./RoundCardList/RoundCardList";
+export { IconLink } from "./IconLink/IconLink";

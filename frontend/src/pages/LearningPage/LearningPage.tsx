@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { RoundCardList } from "@components/index";
+import { IconLink, RoundCardList } from "@components/index";
 import { categoryFetch } from "@services/index";
 import { CategoryType } from "@type/index";
 import "./LearningPage.scss";
@@ -13,9 +13,19 @@ export const LearningPage: React.FC = () => {
 
   return (
     <div className="learning-page">
-      <div className="learning-page__icon-home">
-        <img src="src/assets/images/iconHome.jpg" alt="" />
-      </div>
+      <IconLink
+        icon="src/assets/images/iconHome.jpg"
+        iconAlt="Icone Home"
+        path="/menu"
+        styles={{
+          top: "1em",
+          right: "1em",
+          position: "absolute",
+          width: "3em",
+          height: "3em",
+        }}
+      />
+
       <RoundCardList list={categories} label="Catégories" />
     </div>
   );
