@@ -4,14 +4,14 @@
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  gap: 1em 0;
+  gap: 0.5em 0;
 
   &__items {
     background-color: $cool-gray--03;
     display: flex;
     justify-content: space-around;
     flex-wrap: wrap;
-    gap: 1em 1.5em;
+    gap: 2em 1.5em;
     padding: 1em 0;
   }
 
