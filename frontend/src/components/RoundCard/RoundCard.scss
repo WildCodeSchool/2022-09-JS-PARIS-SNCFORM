@@ -1,0 +1,12 @@
+@import "../../theme-sncf.scss";
+
+.round-card {
+  width: 68px;
+  height: 68px;
+
+  img {
+    height: 100%;
+    width: 100%;
+    border-radius: 50%;
+  }
+}
