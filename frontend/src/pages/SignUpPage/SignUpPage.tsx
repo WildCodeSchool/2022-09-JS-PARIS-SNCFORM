@@ -1,6 +1,6 @@
 import React, { Dispatch, SetStateAction, useEffect, useState } from "react";
 import "./SignUpPage.scss";
-import { Field, Select } from "@components/index";
+import { Field, Select, Button } from "@components/index";
 import { userFetch, jobFetch, gradeFetch } from "@services/index";
 import { UserSignUpType, UserType } from "@type/index";
 
@@ -63,7 +63,7 @@ export const SignUpPage: React.FC = () => {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    userFetch.addUser(userSignUp);
+    userFetch.signup(userSignUp);
   };
 
   const inputData = [
@@ -92,12 +92,14 @@ export const SignUpPage: React.FC = () => {
       inputId: "password",
       isRequire: true,
       inputType: "password",
+      autoComplete: "on",
     },
     {
       label: "Confirmation",
       inputId: "confirm-password",
       isRequire: true,
       inputType: "password",
+      autoComplete: "on",
     },
   ];
 
@@ -149,10 +151,12 @@ export const SignUpPage: React.FC = () => {
           options={managerOptions}
           isRequire
         />
-        {inputData.map((data) => (
-          <Field key={data.inputId} {...data} onChange={setUserSignUp} />
-        ))}
-        <button type="submit">Envoie</button>
+        <div className="signup__field">
+          {inputData.map((data) => (
+            <Field key={data.inputId} {...data} onChange={setUserSignUp} />
+          ))}
+        </div>
+        <Button textButton="Envoie" isSubmit />
       </form>
     </div>
   );

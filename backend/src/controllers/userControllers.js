@@ -1,4 +1,5 @@
 const models = require("../models");
+const { createToken } = require("../middlewares/auth");
 
 const getAllUser = (_, res) => {
   models.user
@@ -46,17 +47,30 @@ const getUserByCp = (req, res) => {
     });
 };
 
-const addUser = (req, res) => {
+const signup = (req, res) => {
   const user = req.body;
 
   models.user
     .insert(user)
     .then(([result]) => {
-      res.location(`/users/${result.insertId}`).sendStatus(201);
+      if (result.affectedRows === 0) {
+        return false;
+      }
+      return result.insertId;
+    })
+    .then((insertId) => {
+      if (!insertId) {
+        res.status(400).json({ message: "User not created" });
+      }
+      const token = createToken(insertId);
+      res
+        .location(`api/users/${insertId}`)
+        .status(201)
+        .json({ message: "User created", token });
     })
     .catch((err) => {
       console.error(err);
-      res.status(500).send("Error in user addUser request");
+      res.status(500).send("Error in user signup request");
     });
 };
 
@@ -101,7 +115,7 @@ const destroyUser = (req, res) => {
 module.exports = {
   getAllUser,
   getUser,
-  addUser,
+  signup,
   editUser,
   destroyUser,
   getUserByRole,

@@ -4,9 +4,9 @@ import { UserSignInType, UserSignUpType } from "../../type";
 
 const BASE_URL = import.meta.env.VITE_BACKEND_URL;
 
-const addUser = (userData: UserSignUpType) => {
+const signup = (userData: UserSignUpType) => {
   axios
-    .post(`${BASE_URL}/users`, { ...userData })
+    .post(`${BASE_URL}/signup`, { ...userData })
     .then((response) => {
       if (response.status !== 201) {
         throw new Error(response.data.message);
@@ -30,7 +30,7 @@ const getUserByRole = (role: string, setState: SetUsersType) => {
 };
 
 export const userFetch = {
-  addUser,
+  signup,
   getUserByRole,
   login,
 };

@@ -17,6 +17,10 @@
   "license": "ISC",
   "devDependencies": {
     "concurrently": "^7.0.0",
-    "husky": "^7.0.0"
+    "husky": "^7.0.0",
+    "sass": "^1.54.9"
+  },
+  "dependencies": {
+    "react-router-dom": "^6.3.0"
   }
 }

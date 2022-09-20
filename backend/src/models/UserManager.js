@@ -11,7 +11,7 @@ class UserManager extends AbstractManager {
       lastName,
       email,
       cpNumber,
-      password,
+      hashedPassword,
       genre,
       avatar,
       grade,
@@ -19,13 +19,13 @@ class UserManager extends AbstractManager {
       manager,
     } = user;
     return this.connection.query(
-      `insert into ${this.table} (first_name,last_name,email,cp_number,password,role,genre,avatar,grade_id,job_type_id,manager_id) values (?,?,?,?,?,?,?,?,?,?,?)`,
+      `insert into ${this.table} (first_name,last_name,email,cp_number,hashedPassword,role,genre,avatar,grade_id,job_type_id,manager_id) values (?,?,?,?,?,?,?,?,?,?,?)`,
       [
         firstName,
         lastName,
         email,
         cpNumber,
-        password,
+        hashedPassword,
         "agent",
         genre,
         avatar || null,
