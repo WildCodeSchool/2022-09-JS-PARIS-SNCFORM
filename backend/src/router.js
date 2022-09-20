@@ -8,6 +8,9 @@ const jobTypeControllers = require("./controllers/jobTypeControllers");
 const gradeControllers = require("./controllers/gradeControllers");
 const { validateUser } = require("./middlewares/validator");
 
+// Authentification wall
+router.use(authMiddlewares.verifyToken);
+
 // *Routes User
 router.get("/api/users", userControllers.getAllUser);
 router.get("/api/users/:id", userControllers.getUser);
@@ -18,6 +21,7 @@ router.post(
   authMiddlewares.hashPassword,
   userControllers.signup
 );
+
 router.put("/api/users/:id", userControllers.editUser);
 router.delete("/api/users/:id", userControllers.destroyUser);
 
