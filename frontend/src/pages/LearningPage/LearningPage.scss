@@ -1,0 +1,19 @@
+.learning-page {
+  display: flex;
+  height: 100%;
+  align-items: center;
+  justify-content: center;
+
+  &__icon-home {
+    position: absolute;
+    height: 3em;
+    width: 3em;
+    top: 1em;
+    right: 1em;
+
+    img {
+      height: 100%;
+      width: 100%;
+    }
+  }
+}
