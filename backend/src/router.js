@@ -5,6 +5,7 @@ const router = express.Router();
 const userControllers = require("./controllers/userControllers");
 const jobTypeControllers = require("./controllers/jobTypeControllers");
 const gradeControllers = require("./controllers/gradeControllers");
+const categoryControllers = require("./controllers/categoryControllers");
 const { validateUser } = require("./middlewares/validator");
 
 // *Routes User
@@ -22,5 +23,8 @@ router.delete("/api/jobs/:id", jobTypeControllers.destroyJobType);
 
 // *Routes Grade
 router.get("/api/grades", gradeControllers.getAllGrade);
+
+// *Routes Category
+router.get("/api/categories", categoryControllers.getAllCategory);
 
 module.exports = router;
