@@ -11,7 +11,10 @@ type JobGradeType = {
 
 export type SetUserSignUpType = Dispatch<SetStateAction<UserSignUpType>>;
 export type SetJobGradeType = Dispatch<SetStateAction<JobGradeType[]>>;
-export type SetUser = React.Dispatch<React.SetStateAction<UserType[]>>;
+export type SetUser = React.Dispatch<React.SetStateAction<UserType | null>>;
+export type SetUsersType = React.Dispatch<
+  React.SetStateAction<UserType[] | null>
+>;
 
 export const SignUpPage: React.FC = () => {
   const intialSignUp: UserSignUpType = {
@@ -29,7 +32,7 @@ export const SignUpPage: React.FC = () => {
   const [userSignUp, setUserSignUp] = useState<UserSignUpType>(intialSignUp);
   const [jobs, setJobs] = useState<JobGradeType[]>([]);
   const [grades, setGrades] = useState<JobGradeType[]>([]);
-  const [managers, setManagers] = useState<UserType[]>([]);
+  const [managers, setManagers] = useState<UserType[] | null>(null);
 
   const onChangeRadio = (e: React.ChangeEvent<HTMLInputElement>) => {
     setUserSignUp((prev) => {
@@ -37,14 +40,16 @@ export const SignUpPage: React.FC = () => {
     });
   };
 
-  const managerData = managers.map((manager) => {
+  const managerData = managers?.map((manager) => {
     return {
       id: manager.id,
       name: `${manager.first_name} ${manager.last_name}`,
     };
   });
 
-  const managerOptions = [{ id: 0, name: "Manager" }, ...managerData];
+  const managerOptions = managerData
+    ? [{ id: 0, name: "Manager" }, ...managerData]
+    : [{ id: 0, name: "Manager" }];
 
   const selectOptions = [{ id: 0, name: "Corp de Métier" }, ...jobs];
 
@@ -86,11 +91,13 @@ export const SignUpPage: React.FC = () => {
       label: "Mot de passe",
       inputId: "password",
       isRequire: true,
+      inputType: "password",
     },
     {
       label: "Confirmation",
       inputId: "confirm-password",
       isRequire: true,
+      inputType: "password",
     },
   ];
 

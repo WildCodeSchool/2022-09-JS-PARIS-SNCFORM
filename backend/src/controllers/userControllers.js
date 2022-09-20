@@ -34,6 +34,18 @@ const getUserByRole = (req, res) => {
     });
 };
 
+const getUserByCp = (req, res) => {
+  const { cpNumber } = req.body;
+
+  models.user
+    .findByCp(cpNumber)
+    .then(([result]) => res.status(200).json(result))
+    .catch((err) => {
+      console.error(err);
+      res.status(500).send("Error in user getUserByCp request");
+    });
+};
+
 const addUser = (req, res) => {
   const user = req.body;
 
@@ -93,4 +105,5 @@ module.exports = {
   editUser,
   destroyUser,
   getUserByRole,
+  getUserByCp,
 };
