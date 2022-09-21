@@ -1,7 +1,7 @@
 import React, { Dispatch, SetStateAction, useEffect, useState } from "react";
 import "./SignUpPage.scss";
 import { Field, Select, Button } from "@components/index";
-import { userFetch, jobFetch, gradeFetch } from "@services/index";
+import { userFetch, jobFetch, gradeFetch, authFetch } from "@services/index";
 import { UserSignUpType, UserType } from "@type/index";
 
 type JobGradeType = {
@@ -63,7 +63,7 @@ export const SignUpPage: React.FC = () => {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    userFetch.signup(userSignUp);
+    authFetch.signup(userSignUp);
   };
 
   const inputData = [
