@@ -44,7 +44,6 @@
   .menu-page__profil,
   .menu-page__notification {
     width: 80%;
-    
   }
   .menu-page__formation,
   .menu-page__notification {
@@ -54,9 +53,9 @@
     background-color: #b9b9b9;
   }
   .menu-page__deconnexion {
-   path{
-    display: none;
-   }
-   right: 5em;
+    path {
+      display: none;
+    }
+    right: 5em;
   }
 }

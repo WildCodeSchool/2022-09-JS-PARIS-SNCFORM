@@ -11,7 +11,6 @@ type IconLinkProps = {
 
 export const IconLink: React.FC<IconLinkProps> = ({
   iconComponent,
-  // iconAlt,
   title,
   iconPage,
 }) => {
@@ -24,9 +23,3 @@ export const IconLink: React.FC<IconLinkProps> = ({
     </NavLink>
   );
 };
-
-/* Associer iconlink a une URL qui amène a la page concerné :
-iconFormations => PageFormations
-iconProfil => PageProfil
-iconNotif => PageNotifications 
-et à appliquer sur le compaosant de "base", structure, soit IconLink */

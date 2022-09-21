@@ -1,5 +1,4 @@
 import React from "react";
-import { NavLink } from "react-router-dom";
 import { IconLink } from "@components/IconLink/IconLink";
 import "./MenuPage.scss";
 import { HatIcon } from "@assets/images/SvgComponent/HatIcon";
@@ -13,7 +12,6 @@ export const MenuPage: React.FC = () => {
       <div className="menu-page__formation">
         <IconLink
           title="Formations"
-          // iconAlt="Icon de Formations"
           iconComponent={<HatIcon />}
           iconPage="########"
         />
@@ -21,7 +19,6 @@ export const MenuPage: React.FC = () => {
       <div className="menu-page__profil">
         <IconLink
           title="Profil"
-          // iconAlt="Icon de Profil"
           iconComponent={<ProfilIcon />}
           iconPage="########"
         />
@@ -29,7 +26,6 @@ export const MenuPage: React.FC = () => {
       <div className="menu-page__notification">
         <IconLink
           title="Notifications"
-          // iconAlt="Icon de Notifications"
           iconComponent={<NotificationIcon />}
           iconPage="########"
         />
