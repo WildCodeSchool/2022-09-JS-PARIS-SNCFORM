@@ -1,8 +1,10 @@
 .learning-page {
   display: flex;
-  height: 100%;
+  flex-direction: column;
   align-items: center;
-  justify-content: center;
+  justify-content: space-between;
+  padding-top: 2em;
+  height: 100%;
 
   &__icon-home {
     position: absolute;

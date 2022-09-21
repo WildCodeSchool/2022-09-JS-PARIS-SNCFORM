@@ -33,6 +33,7 @@ export const SignInPage: React.FC = () => {
 
   return (
     <div className="signin">
+      <h2>Connexion</h2>
       <form onSubmit={handleSubmit}>
         {inputData.map((data) => (
           <Field key={data.inputId} {...data} onChange={setUserSignIn} />

@@ -9,3 +9,4 @@ export { IconLink } from "./IconLink/IconLink";
 export { RedirectLink } from "./RedirectLink/RedirectLink";
 export { ProfileBar } from "./ProfileBar/ProfileBar";
 export { ProfileCard } from "./ProfileCard/ProfileCard";
+export { LearningCard } from "./LearningCard/LearningCard";
