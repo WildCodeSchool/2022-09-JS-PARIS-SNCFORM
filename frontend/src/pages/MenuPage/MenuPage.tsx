@@ -1,43 +1,45 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
-import { IconLink } from "../../components/IconLink/IconLink";
+import { IconLink } from "@components/IconLink/IconLink";
 import "./MenuPage.scss";
+import { HatIcon } from "@assets/images/SvgComponent/HatIcon";
+import { ProfilIcon } from "@assets/images/SvgComponent/ProfilIcon";
+import { NotificationIcon } from "@assets/images/SvgComponent/NotificationIcon";
+import { DeconnexionIcon } from "@assets/images/SvgComponent/DeconnexionIcon";
 
 export const MenuPage: React.FC = () => {
   return (
     <div className="menu-page">
-      <div className="menu-page-formation">
+      <div className="menu-page__formation">
         <IconLink
           title="Formations"
-          iconAlt="Icon de Formations"
-          icon="src\assets\images\iconFormation.jpg"
+          // iconAlt="Icon de Formations"
+          iconComponent={<HatIcon />}
           iconPage="########"
         />
       </div>
-      <div className="menu-page-profil">
+      <div className="menu-page__profil">
         <IconLink
           title="Profil"
-          iconAlt="Icon de Profil"
-          icon="src\assets\images\iconProfil.jpg"
+          // iconAlt="Icon de Profil"
+          iconComponent={<ProfilIcon />}
           iconPage="########"
         />
       </div>
-      <div className="menu-page-notification">
+      <div className="menu-page__notification">
         <IconLink
           title="Notifications"
-          iconAlt="Icon de Notifications"
-          icon="src\assets\images\iconNotif.png"
+          // iconAlt="Icon de Notifications"
+          iconComponent={<NotificationIcon />}
           iconPage="########"
         />
       </div>
-      <div className="menu-page-header">
-        <NavLink to="######">
-          {/* pour le lien navlink to= ajouter le composant logout {Logout} */}
-          <img
-            src="src\assets\images\deconnexion.png"
-            alt="Icon de Déconnection"
-          />
-        </NavLink>
+      <div className="menu-page__deconnexion">
+        <IconLink
+          title="Déconnexion"
+          iconComponent={<DeconnexionIcon />}
+          iconPage="########"
+        />
       </div>
     </div>
   );
