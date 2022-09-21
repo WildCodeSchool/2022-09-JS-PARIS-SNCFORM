@@ -74,6 +74,23 @@ const signup = (req, res) => {
     });
 };
 
+const login = (req, res, next) => {
+  const { cpNumber } = req.body;
+  models.user
+    .findByCp(cpNumber)
+    .then(([data]) => {
+      if (!data) {
+        res.sendStatus(401);
+      }
+      [req.user] = data;
+      next();
+    })
+    .catch((err) => {
+      console.warn("ERROR IN LOGIN", err);
+      res.sendStatus(400);
+    });
+};
+
 const editUser = (req, res) => {
   const user = req.body;
 
@@ -120,4 +137,5 @@ module.exports = {
   destroyUser,
   getUserByRole,
   getUserByCp,
+  login,
 };

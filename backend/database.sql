@@ -22,6 +22,8 @@ DROP TABLE IF EXISTS grade;
 
 DROP TABLE IF EXISTS learning;
 
+DROP TABLE IF EXISTS token_blacklist;
+
 CREATE TABLE grade (
   id INT NOT NULL AUTO_INCREMENT,
   name VARCHAR(150),
@@ -137,6 +139,11 @@ CREATE TABLE learning_grade (
   PRIMARY KEY (id),
   FOREIGN KEY (learning_id) REFERENCES learning(id),
   FOREIGN KEY (grade_id) REFERENCES grade(id)
+);
+
+CREATE TABLE token_blacklist (
+  token VARCHAR(255) NOT NULL,
+  PRIMARY KEY (token)
 );
 
 INSERT INTO
