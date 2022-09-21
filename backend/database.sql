@@ -40,7 +40,7 @@ CREATE TABLE user (
   id INT NOT NULL AUTO_INCREMENT,
   first_name VARCHAR(150) NOT NULL,
   last_name VARCHAR(150) NOT NULL,
-  cp_number VARCHAR(8) NOT NULL,
+  cp_number VARCHAR(8) NOT NULL UNIQUE,
   email VARCHAR(255) NOT NULL,
   hashedPassword VARCHAR(255) NOT NULL,
   role VARCHAR(20) NOT NULL,

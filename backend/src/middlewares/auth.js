@@ -66,9 +66,6 @@ const verifyToken = (req, res, next) => {
   }
 };
 
-// token
-// "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjE5LCJpYXQiOjE2NjM2NjcwMTAsImV4cCI6MTY2MzY3MDYxMH0.POnKeNTDh1DuiY9Jx25KyPBP_QFe97GB1VPDdrLuxiM"
-
 module.exports = {
   hashPassword,
   createToken,
