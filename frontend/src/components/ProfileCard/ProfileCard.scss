@@ -1,0 +1,39 @@
+@import "../../theme-sncf.scss";
+
+.profile-card {
+  &__avatar-id-container {
+    display: flex;
+    justify-content: space-around;
+  }
+  &__background-img {
+    width: 100%;
+    padding-bottom: 67%;
+    background: url(./src/assets/images/profileBackground.jpg);
+    @media screen and (min-width: 376px) {
+      background: url(./src/assets/images/profil-card__background-img-768px.jpg);
+    }
+    @media screen and (min-width: 769px) {
+      background: url(./src/assets/images/profil-card__background-img-1024px.jpg);
+    }
+  }
+  &__avatar-img {
+    position: relative;
+    left: 0.5em;
+    top: -2em;
+    z-index: 1;
+  }
+  &__name {
+    font-weight: bold;
+  }
+  &__bio-container {
+    display: flex;
+    border: 1px solid $carbone;
+    justify-content: space-evenly;
+    flex-direction: column;
+    position: relative;
+    bottom: 2.5em;
+  }
+  &__bio {
+    margin-top: 1em;
+  }
+}
