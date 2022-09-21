@@ -1,20 +1,23 @@
 /*mise en page des images de menupage*/
-.iconlink img {
+.iconlink svg {
   width: 5em;
   height: 5em;
 }
 
 @media (min-width: 768px) {
-  .iconlink img {
+  .iconlink svg {
     width: 7em;
     height: 7em;
   }
 }
 @media (min-width: 1024px) {
-.iconlink {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: space-around;
- }
+  .iconlink {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+    h3 {
+      width: 50%;
+    }
+  }
 }
