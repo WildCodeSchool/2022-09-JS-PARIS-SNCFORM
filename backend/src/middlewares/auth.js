@@ -30,6 +30,20 @@ const createToken = (id) => {
   });
   return token;
 };
+
+const verifyPassword = (req, res) => {
+  const { password } = req.body;
+  const { hashedPassword, id: userId } = req.user;
+  argon2.verify(hashedPassword, password).then((isVerified) => {
+    if (!isVerified) {
+      res.sendStatus(401);
+    }
+    const token = createToken(userId);
+    delete req.user.hashedPassword;
+    res.send({ token, user: req.user });
+  });
+};
+
 const verifyToken = (req, res, next) => {
   try {
     const authorizationHeader = req.get("Authorization");
@@ -45,18 +59,16 @@ const verifyToken = (req, res, next) => {
     }
 
     req.payload = jwt.verify(token, process.env.JWT_SECRET);
-
     next();
   } catch (err) {
     console.error(err);
     res.sendStatus(401);
   }
 };
-// token
-// "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjE5LCJpYXQiOjE2NjM2NjcwMTAsImV4cCI6MTY2MzY3MDYxMH0.POnKeNTDh1DuiY9Jx25KyPBP_QFe97GB1VPDdrLuxiM"
 
 module.exports = {
   hashPassword,
   createToken,
   verifyToken,
+  verifyPassword,
 };

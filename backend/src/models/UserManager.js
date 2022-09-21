@@ -63,6 +63,13 @@ class UserManager extends AbstractManager {
       [role]
     );
   }
+
+  findByCp(cpNumber) {
+    return this.connection.query(
+      `select * from  ${this.table} where cp_number = ?`,
+      [cpNumber]
+    );
+  }
 }
 
 module.exports = UserManager;

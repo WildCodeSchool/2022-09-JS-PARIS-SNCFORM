@@ -22,6 +22,8 @@ DROP TABLE IF EXISTS grade;
 
 DROP TABLE IF EXISTS learning;
 
+DROP TABLE IF EXISTS token_blacklist;
+
 CREATE TABLE grade (
   id INT NOT NULL AUTO_INCREMENT,
   name VARCHAR(150),
@@ -38,7 +40,7 @@ CREATE TABLE user (
   id INT NOT NULL AUTO_INCREMENT,
   first_name VARCHAR(150) NOT NULL,
   last_name VARCHAR(150) NOT NULL,
-  cp_number VARCHAR(8) NOT NULL,
+  cp_number VARCHAR(8) NOT NULL UNIQUE,
   email VARCHAR(255) NOT NULL,
   hashedPassword VARCHAR(255) NOT NULL,
   role VARCHAR(20) NOT NULL,
@@ -137,6 +139,11 @@ CREATE TABLE learning_grade (
   PRIMARY KEY (id),
   FOREIGN KEY (learning_id) REFERENCES learning(id),
   FOREIGN KEY (grade_id) REFERENCES grade(id)
+);
+
+CREATE TABLE token_blacklist (
+  token VARCHAR(255) NOT NULL,
+  PRIMARY KEY (token)
 );
 
 INSERT INTO
@@ -502,6 +509,7 @@ VALUES
     "2023-05-20",
     "2023-11-22"
   ),
+
   (
     "parturient montes,",
     "consequat nec, mollis vitae, posuere at, velit. Cras lorem lorem, luctus ut, pellentesque eget, dictum placerat, augue. Sed molestie. Sed id risus quis diam luctus lobortis. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos hymenaeos. Mauris ut quam vel sapien imperdiet ornare. In faucibus. Morbi vehicula. Pellentesque tincidunt tempus risus. Donec egestas. Duis ac arcu. Nunc mauris. Morbi non sapien molestie orci tincidunt adipiscing. Mauris molestie pharetra nibh. Aliquam ornare, libero at auctor ullamcorper,",
