@@ -24,7 +24,7 @@ export const MenuPage: React.FC = () => {
       <IconLink
         title="Profil"
         iconComponent={<ProfilIcon />}
-        path="########"
+        path="/profile"
         styles={iconStyles}
       />
       <IconLink

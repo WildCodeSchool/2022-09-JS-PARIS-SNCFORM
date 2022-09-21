@@ -16,11 +16,11 @@ function App() {
       <Routes>
         <Route path="/" element={<Layout />}>
           <Route path="inscription" element={<SignUpPage />} />
-          <Route path="profilepage" element={<ProfilePage />} />
+          <Route path="profile" element={<ProfilePage />} />
           <Route path="formations" element={<LearningPage />} />
-          <Route path="/" element={<HomePage />} />
           <Route path="menu" element={<MenuPage />} />
           <Route path="connexion" element={<SignInPage />} />
+          <Route path="/" element={<HomePage />} />
         </Route>
       </Routes>
     </div>

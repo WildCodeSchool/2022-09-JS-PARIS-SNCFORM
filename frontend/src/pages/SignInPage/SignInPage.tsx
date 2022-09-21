@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import "./SignInPage.scss";
-import { Field, Button } from "@components/index";
+import { Field, Button, RedirectLink } from "@components/index";
 import { UserSignInType, UserType } from "@type/userTypes";
 import { authFetch } from "@services/index";
 
@@ -40,6 +40,11 @@ export const SignInPage: React.FC = () => {
         ))}
         <Button textButton="Connexion" isSubmit />
       </form>
+      <RedirectLink
+        message="Pas encore inscrit ? "
+        span="Inscription"
+        path="/inscription"
+      />
     </div>
   );
 };
