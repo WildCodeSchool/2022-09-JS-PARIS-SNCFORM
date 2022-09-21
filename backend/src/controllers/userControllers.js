@@ -35,6 +35,18 @@ const getUserByRole = (req, res) => {
     });
 };
 
+const getUserByCp = (req, res) => {
+  const { cpNumber } = req.body;
+
+  models.user
+    .findByCp(cpNumber)
+    .then(([result]) => res.status(200).json(result))
+    .catch((err) => {
+      console.error(err);
+      res.status(500).send("Error in user getUserByCp request");
+    });
+};
+
 const signup = (req, res) => {
   const user = req.body;
 
@@ -59,6 +71,23 @@ const signup = (req, res) => {
     .catch((err) => {
       console.error(err);
       res.status(500).send("Error in user signup request");
+    });
+};
+
+const login = (req, res, next) => {
+  const { cpNumber } = req.body;
+  models.user
+    .findByCp(cpNumber)
+    .then(([data]) => {
+      if (!data) {
+        res.sendStatus(401);
+      }
+      [req.user] = data;
+      next();
+    })
+    .catch((err) => {
+      console.warn("ERROR IN LOGIN", err);
+      res.sendStatus(400);
     });
 };
 
@@ -107,4 +136,6 @@ module.exports = {
   editUser,
   destroyUser,
   getUserByRole,
+  getUserByCp,
+  login,
 };

@@ -1,5 +1,5 @@
 import React, { Dispatch, SetStateAction, useRef } from "react";
-import { UserSignUpType } from "src/type/index";
+import { UserSignUpType, UserSignInType } from "src/type/index";
 import "./Field.scss";
 
 type FieldType = {
@@ -7,7 +7,9 @@ type FieldType = {
   inputId: string;
   label: string;
   isRequire?: boolean;
-  onChange: Dispatch<SetStateAction<UserSignUpType>>;
+  onChange:
+    | Dispatch<SetStateAction<UserSignInType>>
+    | Dispatch<SetStateAction<UserSignUpType>>;
   autoComplete?: string;
 };
 
@@ -22,7 +24,7 @@ export const Field: React.FC<FieldType> = ({
   const inputRef = useRef<HTMLInputElement>(null);
   const labelField = isRequire ? `${label} *` : label;
   const handleChange = () => {
-    onChange((prev) => {
+    onChange((prev: UserSignUpType | UserSignInType) => {
       return { ...prev, [inputId]: inputRef.current?.value };
     });
   };
