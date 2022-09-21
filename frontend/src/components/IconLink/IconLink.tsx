@@ -3,22 +3,22 @@ import { NavLink } from "react-router-dom";
 import "./IconLink.scss";
 
 type IconLinkProps = {
-  icon: string;
+  iconComponent: JSX.Element | JSX.Element[];
   title: string;
-  iconAlt: string;
+  // iconAlt: string;
   iconPage: string;
 };
 
 export const IconLink: React.FC<IconLinkProps> = ({
-  icon,
-  iconAlt,
+  iconComponent,
+  // iconAlt,
   title,
   iconPage,
 }) => {
   return (
     <NavLink to={iconPage}>
       <div className="iconlink">
-        <img src={icon} alt={iconAlt} />
+        {iconComponent}
         <h3>{title}</h3>
       </div>
     </NavLink>

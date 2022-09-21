@@ -4,4 +4,59 @@
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;
+  a {
+    text-decoration-line: none;
+  }
+}
+.menu-page__deconnexion {
+  position: absolute;
+  top: -0.2em;
+  right: 1em;
+  svg {
+    width: 2em;
+  }
+}
+@media (max-width: 1023px) {
+  .menu-page__deconnexion h3 {
+    display: none;
+  }
+}
+@media (min-width: 768px) {
+  .menu-page {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+  }
+  .menu-page__deconnexion {
+    top: -1em;
+    right: 1em;
+  }
+}
+@media (min-width: 1024px) {
+  .menu-page {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+  }
+
+  .menu-page__formation,
+  .menu-page__profil,
+  .menu-page__notification {
+    width: 80%;
+    
+  }
+  .menu-page__formation,
+  .menu-page__notification {
+    background-color: #cd0037;
+  }
+  .menu-page__profil {
+    background-color: #b9b9b9;
+  }
+  .menu-page__deconnexion {
+   path{
+    display: none;
+   }
+   right: 5em;
+  }
 }
