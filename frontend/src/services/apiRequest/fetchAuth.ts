@@ -27,7 +27,24 @@ const login = (userLogin: UserSignInType, setState: SetUser) => {
     .catch((err) => console.error(err));
 };
 
+const logout = () => {
+  const token = sessionStorage.getItem("token");
+  const headers = {
+    "Content-Type": "application/json",
+    Authorization: `Bearer ${token}`,
+  };
+  axios
+    .post(`${BASE_URL}/logout`, {}, { headers })
+    .then(({ data }) => {
+      console.warn("data in logout", data);
+      sessionStorage.removeItem("token");
+    })
+
+    .catch((err) => console.error(err));
+};
+
 export const authFetch = {
   signup,
   login,
+  logout,
 };

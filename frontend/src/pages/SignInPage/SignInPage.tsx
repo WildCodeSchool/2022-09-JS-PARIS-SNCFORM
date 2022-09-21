@@ -38,6 +38,7 @@ export const SignInPage: React.FC = () => {
           <Field key={data.inputId} {...data} onChange={setUserSignIn} />
         ))}
         <Button textButton="Connexion" isSubmit />
+        <Button textButton="Deconnexion" onClick={authFetch.logout} />
       </form>
     </div>
   );
