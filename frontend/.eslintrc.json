@@ -18,6 +18,7 @@
     "ecmaVersion": "latest",
     "sourceType": "module"
   },
+
   "plugins": ["react", "import", "@typescript-eslint"],
   "rules": {
     "import/extensions": [
