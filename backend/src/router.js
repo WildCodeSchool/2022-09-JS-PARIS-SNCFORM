@@ -1,4 +1,5 @@
 const express = require("express");
+const authMiddlewares = require("./middlewares/auth");
 
 const router = express.Router();
 
@@ -7,11 +8,20 @@ const jobTypeControllers = require("./controllers/jobTypeControllers");
 const gradeControllers = require("./controllers/gradeControllers");
 const { validateUser } = require("./middlewares/validator");
 
+// Authentification wall
+router.use(authMiddlewares.verifyToken);
+
 // *Routes User
 router.get("/api/users", userControllers.getAllUser);
 router.get("/api/users/:id", userControllers.getUser);
 router.get("/api/users/role/:role", userControllers.getUserByRole);
-router.post("/api/signup", validateUser, userControllers.signup);
+router.post(
+  "/api/signup",
+  validateUser,
+  authMiddlewares.hashPassword,
+  userControllers.signup
+);
+
 router.put("/api/users/:id", userControllers.editUser);
 router.delete("/api/users/:id", userControllers.destroyUser);
 

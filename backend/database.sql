@@ -40,7 +40,7 @@ CREATE TABLE user (
   last_name VARCHAR(150) NOT NULL,
   cp_number VARCHAR(8) NOT NULL,
   email VARCHAR(255) NOT NULL,
-  password VARCHAR(255) NOT NULL,
+  hashedPassword VARCHAR(255) NOT NULL,
   role VARCHAR(20) NOT NULL,
   genre VARCHAR(20) NOT NULL,
   avatar BLOB,
@@ -171,7 +171,7 @@ INSERT INTO
     last_name,
     email,
     cp_number,
-    password,
+    hashedPassword,
     role,
     genre,
     avatar,
@@ -502,7 +502,7 @@ VALUES
     "2023-05-20",
     "2023-11-22"
   ),
-(
+  (
     "parturient montes,",
     "consequat nec, mollis vitae, posuere at, velit. Cras lorem lorem, luctus ut, pellentesque eget, dictum placerat, augue. Sed molestie. Sed id risus quis diam luctus lobortis. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos hymenaeos. Mauris ut quam vel sapien imperdiet ornare. In faucibus. Morbi vehicula. Pellentesque tincidunt tempus risus. Donec egestas. Duis ac arcu. Nunc mauris. Morbi non sapien molestie orci tincidunt adipiscing. Mauris molestie pharetra nibh. Aliquam ornare, libero at auctor ullamcorper,",
     "presentiel",

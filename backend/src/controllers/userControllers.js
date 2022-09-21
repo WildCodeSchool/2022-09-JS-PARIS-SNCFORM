@@ -1,4 +1,5 @@
 const models = require("../models");
+const { createToken } = require("../middlewares/auth");
 
 const getAllUser = (_, res) => {
   models.user
@@ -40,7 +41,20 @@ const signup = (req, res) => {
   models.user
     .insert(user)
     .then(([result]) => {
-      res.location(`/users/${result.insertId}`).sendStatus(201);
+      if (result.affectedRows === 0) {
+        return false;
+      }
+      return result.insertId;
+    })
+    .then((insertId) => {
+      if (!insertId) {
+        res.status(400).json({ message: "User not created" });
+      }
+      const token = createToken(insertId);
+      res
+        .location(`api/users/${insertId}`)
+        .status(201)
+        .json({ message: "User created", token });
     })
     .catch((err) => {
       console.error(err);
