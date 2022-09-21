@@ -1,21 +1,9 @@
 import axios from "axios";
-import { SetUser } from "@pages/index";
-import { UserSignUpType } from "../../type";
+import { SetUsersType } from "@pages/index";
 
 const BASE_URL = import.meta.env.VITE_BACKEND_URL;
 
-const signup = (userData: UserSignUpType) => {
-  axios
-    .post(`${BASE_URL}/signup`, { ...userData })
-    .then((response) => {
-      if (response.status !== 201) {
-        throw new Error(response.data.message);
-      }
-    })
-    .catch((err) => console.error(err));
-};
-
-const getUserByRole = (role: string, setState: SetUser) => {
+const getUserByRole = (role: string, setState: SetUsersType) => {
   axios
     .get(`${BASE_URL}/users/role/${role}`)
     .then(({ data }) => setState(data))
@@ -23,6 +11,5 @@ const getUserByRole = (role: string, setState: SetUser) => {
 };
 
 export const userFetch = {
-  signup,
   getUserByRole,
 };

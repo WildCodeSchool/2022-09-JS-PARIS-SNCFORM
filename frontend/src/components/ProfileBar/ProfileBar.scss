@@ -1,0 +1,21 @@
+@import "../../theme-sncf.scss";
+
+.profile-bar {
+  &__items-list {
+    display: flex;
+    background-color: $framboise;
+    color: $carbone;
+    font-weight: bold;
+    font-size: 16px;
+    justify-content: space-around;
+    align-items: center;
+    height: 3em;
+  }
+  .items-list {
+    &__profile,
+    &__edit-profile {
+      border-right: 2px solid;
+      padding-right: 15px;
+    }
+  }
+}

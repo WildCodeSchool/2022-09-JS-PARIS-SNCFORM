@@ -1,6 +1,11 @@
 import React from "react";
-import { IconLink } from "../../components/IconLink/IconLink";
+import { NavLink } from "react-router-dom";
+import { IconLink } from "@components/IconLink/IconLink";
 import "./MenuPage.scss";
+import { HatIcon } from "@assets/images/SvgComponent/HatIcon";
+import { ProfilIcon } from "@assets/images/SvgComponent/ProfilIcon";
+import { NotificationIcon } from "@assets/images/SvgComponent/NotificationIcon";
+import { DeconnexionIcon } from "@assets/images/SvgComponent/DeconnexionIcon";
 
 export const MenuPage: React.FC = () => {
   const iconStyles = {
@@ -12,25 +17,29 @@ export const MenuPage: React.FC = () => {
     <div className="menu-page">
       <IconLink
         title="Formations"
-        iconAlt="Icon de Formations"
-        icon="src\assets\images\iconFormation.jpg"
+        iconComponent={<HatIcon />}
         path="/formations"
         styles={iconStyles}
       />
       <IconLink
         title="Profil"
-        iconAlt="Icon de Profil"
-        icon="src\assets\images\iconProfil.jpg"
+        iconComponent={<ProfilIcon />}
         path="########"
         styles={iconStyles}
       />
       <IconLink
         title="Notifications"
-        iconAlt="Icon de Notifications"
-        icon="src\assets\images\iconNotif.png"
+        iconComponent={<NotificationIcon />}
         path="########"
         styles={iconStyles}
       />
+      <div className="menu-page__deconnexion">
+        <IconLink
+          title="Déconnexion"
+          iconComponent={<DeconnexionIcon />}
+          path="########"
+        />
+      </div>
     </div>
   );
 };
