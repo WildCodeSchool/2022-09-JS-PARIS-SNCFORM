@@ -13,15 +13,11 @@
     background-repeat: no-repeat;
     background-size: cover;
   }
-  &__avatar-img {
-    background-image: url(./src/assets/images/profile-card__avatar-img.jpg);
-    background-repeat: no-repeat;
-    background-position-x: -1em;
-    width: 7em;
+  .round-card {
+    width: 5em;
     height: 5em;
-    clip-path: ellipse(35% 48%);
     position: relative;
-    top: -2em;
+    top: -1em;
     z-index: 1;
   }
   &__name-job {
@@ -40,7 +36,7 @@
     bottom: 2.5em;
   }
   &__bio {
-    margin-top: 1em;
+    margin: 1em 0;
   }
 }
 @media screen and (min-width: 376px) and (max-width: 768px) {
