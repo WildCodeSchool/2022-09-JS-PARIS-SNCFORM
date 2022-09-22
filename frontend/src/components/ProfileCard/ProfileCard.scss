@@ -43,3 +43,13 @@
     margin-top: 1em;
   }
 }
+@media screen and (min-width: 376px) and (max-width: 768px) {
+  .profile-card {
+    &__background-img {
+      background: url(./src/assets/images/backgroundProfileTablettePortrait.jpg);
+      background-repeat: no-repeat;
+      background-size: cover;
+      padding-bottom: 34%;
+    }
+  }
+}
