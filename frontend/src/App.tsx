@@ -1,5 +1,5 @@
 import { Routes, Route } from "react-router-dom";
-import { Layout } from "@components/Layout/Layout";
+import { Layout, PrivateRoute } from "@components/index";
 import { ProfilePage } from "@pages/ProfilePage/ProfilePage";
 import "./App.scss";
 import {
@@ -15,11 +15,20 @@ function App() {
     <div className="App">
       <Routes>
         <Route path="/" element={<Layout />}>
-          <Route path="inscription" element={<SignUpPage />} />
-          <Route path="profile" element={<ProfilePage />} />
-          <Route path="formations" element={<LearningPage />} />
-          <Route path="menu" element={<MenuPage />} />
-          <Route path="connexion" element={<SignInPage />} />
+          {/* PrivateRoute prevents connected users from accessing it */}
+          <Route element={<PrivateRoute isLoading={!false} />}>
+            <Route path="inscription" element={<SignUpPage />} />
+            <Route path="connexion" element={<SignInPage />} />
+          </Route>
+
+          {/* PrivateRoute prevents not connected users from accessing it */}
+          <Route element={<PrivateRoute isLoading={false} />}>
+            <Route path="profile" element={<ProfilePage />} />
+            <Route path="formations" element={<LearningPage />} />
+            <Route path="menu" element={<MenuPage />} />
+          </Route>
+
+          {/* Routes accessible to all users */}
           <Route path="/" element={<HomePage />} />
         </Route>
       </Routes>
