@@ -23,6 +23,7 @@ export const SignInPage: React.FC = () => {
       inputId: "password",
       isRequire: true,
       inputType: "password",
+      autoComplete: "on",
     },
   ];
 
