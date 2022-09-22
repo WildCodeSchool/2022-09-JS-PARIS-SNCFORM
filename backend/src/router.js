@@ -35,7 +35,11 @@ router.use(
 router.get("/api/users", userControllers.getAllUser);
 router.get("/api/users/:id", userControllers.getUser);
 
-router.put("/api/users/:id", userControllers.editUser);
+router.put(
+  "/api/users/:id",
+  authMiddlewares.hashPassword,
+  userControllers.editUser
+);
 router.delete("/api/users/:id", userControllers.destroyUser);
 
 // *Routes Job Type

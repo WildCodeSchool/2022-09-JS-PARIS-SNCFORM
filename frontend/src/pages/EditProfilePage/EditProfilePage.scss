@@ -1,1 +1,9 @@
 @import "../../theme-sncf.scss";
+
+.edit-profile-page {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 1.5em;
+}
