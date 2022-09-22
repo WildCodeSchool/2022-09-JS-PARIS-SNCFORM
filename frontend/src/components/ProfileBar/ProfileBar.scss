@@ -19,3 +19,13 @@
     }
   }
 }
+@media screen and (min-width: 376px) and (max-width: 768px) {
+  .profile-bar {
+    .items-list {
+      &__profile,
+      &__edit-profile {
+        padding-right: 80px;
+      }
+    }
+  }
+}
