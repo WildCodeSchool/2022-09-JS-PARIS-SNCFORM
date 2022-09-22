@@ -1,6 +1,7 @@
 @import "../../theme-sncf.scss";
 
 .profile-card {
+  height: 100%;
   &__avatar-id-container {
     display: flex;
     justify-content: space-around;

@@ -1,12 +1,11 @@
 @import "../../theme-sncf.scss";
 
 .profile-bar {
+  width: 100%;
   &__items-list {
     display: flex;
     background-color: $framboise;
     color: $carbone;
-    font-weight: bold;
-    font-size: 16px;
     justify-content: space-around;
     align-items: center;
     height: 3em;
@@ -15,7 +14,12 @@
     &__profile,
     &__edit-profile {
       border-right: 2px solid;
-      padding-right: 15px;
+      padding-right: 10px;
+    }
+    &__profile,
+    &__edit-profile,
+    &__learning {
+      font-weight: bold;
     }
   }
 }

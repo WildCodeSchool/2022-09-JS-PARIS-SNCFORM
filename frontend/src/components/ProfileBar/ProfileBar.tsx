@@ -7,7 +7,7 @@ export const ProfileBar: React.FC = () => {
       <ul className="profile-bar__items-list">
         <li className="items-list__profile">Mon Profil</li>
         <li className="items-list__edit-profile">Editer Profil</li>
-        <li className="items-list__leaning">Mes formations</li>
+        <li className="items-list__learning">Mes formations</li>
       </ul>
     </div>
   );
