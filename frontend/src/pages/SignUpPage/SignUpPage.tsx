@@ -1,6 +1,6 @@
 import React, { Dispatch, SetStateAction, useEffect, useState } from "react";
 import "./SignUpPage.scss";
-import { Field, Select, Button } from "@components/index";
+import { Field, Select, Button, RedirectLink } from "@components/index";
 import { userFetch, jobFetch, gradeFetch, authFetch } from "@services/index";
 import { UserSignUpType, UserType } from "@type/index";
 
@@ -158,6 +158,11 @@ export const SignUpPage: React.FC = () => {
         </div>
         <Button textButton="Envoie" isSubmit />
       </form>
+      <RedirectLink
+        message="Déjà inscrit ? "
+        span="Connexion"
+        path="/connexion"
+      />
     </div>
   );
 };

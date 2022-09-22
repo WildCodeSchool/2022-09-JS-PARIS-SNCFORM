@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import "./SignInPage.scss";
-import { Field, Button } from "@components/index";
+import { Field, Button, RedirectLink } from "@components/index";
 import { UserSignInType, UserType } from "@type/userTypes";
 import { authFetch } from "@services/index";
 
@@ -33,12 +33,18 @@ export const SignInPage: React.FC = () => {
 
   return (
     <div className="signin">
+      <h2>Connexion</h2>
       <form onSubmit={handleSubmit}>
         {inputData.map((data) => (
           <Field key={data.inputId} {...data} onChange={setUserSignIn} />
         ))}
         <Button textButton="Connexion" isSubmit />
       </form>
+      <RedirectLink
+        message="Pas encore inscrit ? "
+        span="Inscription"
+        path="/inscription"
+      />
     </div>
   );
 };
