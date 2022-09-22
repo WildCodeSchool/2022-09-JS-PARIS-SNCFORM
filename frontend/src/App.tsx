@@ -8,6 +8,7 @@ import {
   ProfilePage,
   EditProfilePage,
   MenuPage,
+  LearningPage,
 } from "@pages/index";
 
 function App() {
@@ -16,9 +17,10 @@ function App() {
       <Routes>
         <Route path="/" element={<Layout />}>
           <Route path="inscription" element={<SignUpPage />} />
-          <Route path="profilepage" element={<ProfilePage />} />
           <Route path="editprofile" element={<EditProfilePage />} />
           <Route path="/" element={<HomePage />} />
+          <Route path="profile" element={<ProfilePage />} />
+          <Route path="formations" element={<LearningPage />} />
           <Route path="menu" element={<MenuPage />} />
           <Route path="connexion" element={<SignInPage />} />
         </Route>

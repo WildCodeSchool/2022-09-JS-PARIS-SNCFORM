@@ -1,0 +1,10 @@
+@import "../../theme-sncf.scss";
+
+.redirect-link {
+  font-size: 0.75em;
+
+  a {
+    text-decoration: none;
+    color: $bleu-primaire;
+  }
+}

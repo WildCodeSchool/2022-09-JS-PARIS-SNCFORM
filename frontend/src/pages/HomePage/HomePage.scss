@@ -5,24 +5,19 @@
   width: 100%;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: space-between;
+  justify-content: space-around;
   background-color: $warm-gray--01;
-  .button {
-    width: 50%;
-    height: 5%;
-    border-radius: 5px;
-    margin-bottom: 4em;
-  }
+  margin-top: 0.5em;
+
   &__connexion {
-    align-self: flex-end;
-    margin-right: -11em;
-    margin-top: 2em;
   }
   a {
+    position: absolute;
+    align-self: flex-end;
+    top: 2.5em;
+    right: 1em;
     text-decoration: none;
     color: $carbone;
     font-weight: bold;
-    font-size: 20px;
   }
 }

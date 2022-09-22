@@ -19,25 +19,20 @@ export const LearningCard: React.FC<LearningCardType> = ({
 }) => {
   return (
     <div className="learning-card">
-      <h1>{title}</h1>
-      <Carousel
-        className="carousel-card__container"
-        cols={1}
-        rows={1}
-        gap={35}
-        loop
-        autoplay={autoplay}
-      >
-        {/* loop on array itemsCompleted in ProfilePage */}
-        {items.map((item) => {
-          const { image, alt } = item;
-          return (
-            <Carousel.Item key={alt}>
-              <img src={image} alt={alt} />
-            </Carousel.Item>
-          );
-        })}
-      </Carousel>
+      <h2>{title}</h2>
+      <div>
+        <Carousel cols={1} rows={1} gap={35} loop autoplay={autoplay}>
+          {/* loop on array itemsCompleted in ProfilePage */}
+          {items.map((item) => {
+            const { image, alt } = item;
+            return (
+              <Carousel.Item key={alt}>
+                <img src={image} alt={alt} />
+              </Carousel.Item>
+            );
+          })}
+        </Carousel>
+      </div>
     </div>
   );
 };
