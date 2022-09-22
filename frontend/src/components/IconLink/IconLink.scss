@@ -1,5 +1,19 @@
 /*mise en page des images de menupage*/
-.iconlink img {
-  width: 5em;
-  height: 5em;
+.iconlink svg {
+  width: 100%;
+  height: 100%;
+}
+
+@media (min-width: 768px) {
+}
+@media (min-width: 1024px) {
+  .iconlink {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+    h3 {
+      width: 50%;
+    }
+  }
 }

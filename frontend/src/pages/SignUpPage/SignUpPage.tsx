@@ -1,8 +1,9 @@
 import React, { Dispatch, SetStateAction, useEffect, useState } from "react";
 import "./SignUpPage.scss";
-import { Field, Select, Button } from "@components/index";
-import { userFetch, jobFetch, gradeFetch } from "@services/index";
+import { Field, Select, Button, RedirectLink } from "@components/index";
+import { userFetch, jobFetch, gradeFetch, authFetch } from "@services/index";
 import { UserSignUpType, UserType } from "@type/index";
+import { useNavigate } from "react-router-dom";
 
 type JobGradeType = {
   id: number;
@@ -11,7 +12,10 @@ type JobGradeType = {
 
 export type SetUserSignUpType = Dispatch<SetStateAction<UserSignUpType>>;
 export type SetJobGradeType = Dispatch<SetStateAction<JobGradeType[]>>;
-export type SetUser = React.Dispatch<React.SetStateAction<UserType[]>>;
+export type SetUser = React.Dispatch<React.SetStateAction<UserType | null>>;
+export type SetUsersType = React.Dispatch<
+  React.SetStateAction<UserType[] | null>
+>;
 
 export const SignUpPage: React.FC = () => {
   const intialSignUp: UserSignUpType = {
@@ -29,7 +33,7 @@ export const SignUpPage: React.FC = () => {
   const [userSignUp, setUserSignUp] = useState<UserSignUpType>(intialSignUp);
   const [jobs, setJobs] = useState<JobGradeType[]>([]);
   const [grades, setGrades] = useState<JobGradeType[]>([]);
-  const [managers, setManagers] = useState<UserType[]>([]);
+  const [managers, setManagers] = useState<UserType[] | null>(null);
 
   const onChangeRadio = (e: React.ChangeEvent<HTMLInputElement>) => {
     setUserSignUp((prev) => {
@@ -37,14 +41,16 @@ export const SignUpPage: React.FC = () => {
     });
   };
 
-  const managerData = managers.map((manager) => {
+  const managerData = managers?.map((manager) => {
     return {
       id: manager.id,
       name: `${manager.first_name} ${manager.last_name}`,
     };
   });
 
-  const managerOptions = [{ id: 0, name: "Manager" }, ...managerData];
+  const managerOptions = managerData
+    ? [{ id: 0, name: "Manager" }, ...managerData]
+    : [{ id: 0, name: "Manager" }];
 
   const selectOptions = [{ id: 0, name: "Corp de Métier" }, ...jobs];
 
@@ -56,9 +62,11 @@ export const SignUpPage: React.FC = () => {
     userFetch.getUserByRole("manager", setManagers);
   }, []);
 
+  const navigate = useNavigate();
+
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    userFetch.signup(userSignUp);
+    authFetch.signup(userSignUp, navigate);
   };
 
   const inputData = [
@@ -153,6 +161,11 @@ export const SignUpPage: React.FC = () => {
         </div>
         <Button textButton="Envoie" isSubmit />
       </form>
+      <RedirectLink
+        message="Déjà inscrit ? "
+        span="Connexion"
+        path="/connexion"
+      />
     </div>
   );
 };
