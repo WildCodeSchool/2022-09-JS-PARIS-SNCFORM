@@ -7,20 +7,26 @@
   }
   &__background-img {
     width: 100%;
-    padding-bottom: 67%;
-    background: url(./src/assets/images/profileBackground.jpg);
-    @media screen and (min-width: 376px) {
-      background: url(./src/assets/images/profil-card__background-img-768px.jpg);
-    }
-    @media screen and (min-width: 769px) {
-      background: url(./src/assets/images/profil-card__background-img-1024px.jpg);
-    }
+    margin-bottom: 2%;
+    padding-bottom: 48%;
+    background: url(./src/assets/images/backgroundProfileMobile.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
   }
   &__avatar-img {
+    background-image: url(./src/assets/images/profile-card__avatar-img.jpg);
+    background-repeat: no-repeat;
+    background-position-x: -1em;
+    width: 7em;
+    height: 5em;
+    clip-path: ellipse(35% 48%);
     position: relative;
-    left: 0.5em;
     top: -2em;
     z-index: 1;
+  }
+  &__name-job {
+    height: 100%;
+    width: 45%;
   }
   &__name {
     font-weight: bold;
