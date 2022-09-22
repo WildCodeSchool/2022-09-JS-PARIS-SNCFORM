@@ -50,3 +50,17 @@
     }
   }
 }
+@media screen and (min-width: 376px) and (max-width: 768px) {
+  .profile-card {
+    .round-card {
+      width: 6em;
+      height: 6em;
+      top: -2em;
+      left: -1em;
+    }
+    .round-card img {
+      height: 100%;
+      width: 100%;
+    }
+  }
+}
