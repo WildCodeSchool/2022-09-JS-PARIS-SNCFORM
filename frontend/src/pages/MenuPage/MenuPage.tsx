@@ -1,5 +1,4 @@
 import React from "react";
-import { NavLink } from "react-router-dom";
 import { IconLink } from "@components/IconLink/IconLink";
 import "./MenuPage.scss";
 import { HatIcon } from "@assets/images/SvgComponent/HatIcon";
