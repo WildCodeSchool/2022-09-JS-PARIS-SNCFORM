@@ -35,17 +35,7 @@ export const LearningPage: React.FC = () => {
   ];
   return (
     <div className="learning-page">
-      <IconLink
-        iconComponent={<HomeIcon />}
-        path="/menu"
-        styles={{
-          top: "1em",
-          right: "1em",
-          position: "absolute",
-          width: "3em",
-          height: "3em",
-        }}
-      />
+      <IconLink iconComponent={<HomeIcon />} path="/menu" />
 
       <RoundCardList list={categories} label="Catégories" />
       <LearningCard title="Recommandées pour vous" items={itemsCompleted} />

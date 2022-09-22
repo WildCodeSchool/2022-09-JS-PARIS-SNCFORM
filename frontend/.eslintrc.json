@@ -1,14 +1,16 @@
 {
   "env": {
     "browser": true,
-    "es2021": true
+    "es2021": true,
+    "jest": true
   },
   "extends": [
     "plugin:react/recommended",
     "airbnb",
     "plugin:prettier/recommended",
     "plugin:@typescript-eslint/eslint-recommended",
-    "plugin:@typescript-eslint/recommended"
+    "plugin:@typescript-eslint/recommended",
+    "prettier"
   ],
   "parser": "@typescript-eslint/parser",
   "parserOptions": {
@@ -19,7 +21,7 @@
     "sourceType": "module"
   },
 
-  "plugins": ["react", "import", "@typescript-eslint"],
+  "plugins": ["react", "import", "@typescript-eslint", "react-hooks"],
   "rules": {
     "import/extensions": [
       "error",
@@ -44,6 +46,8 @@
     "react/react-in-jsx-scope": "off",
     "react/jsx-one-expression-per-line": "off",
     "react/no-unescaped-entities": "off",
+    "spaced-comment": "error",
+    "camelcase": "error",
     "jsx-a11y/label-has-associated-control": [
       "error",
       {

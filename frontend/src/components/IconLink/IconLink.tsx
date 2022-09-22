@@ -16,12 +16,12 @@ export const IconLink: React.FC<IconLinkProps> = ({
   styles,
 }) => {
   return (
-    <NavLink to={path} style={{ ...styles }}>
-      <div className="iconlink">
+    <div className="iconlink" style={{ ...styles }}>
+      <NavLink to={path}>
         {iconComponent}
         {title && <h3>{title}</h3>}
-      </div>
-    </NavLink>
+      </NavLink>
+    </div>
   );
 };
 
