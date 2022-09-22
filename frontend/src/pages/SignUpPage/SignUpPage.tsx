@@ -3,6 +3,7 @@ import "./SignUpPage.scss";
 import { Field, Select, Button, RedirectLink } from "@components/index";
 import { userFetch, jobFetch, gradeFetch, authFetch } from "@services/index";
 import { UserSignUpType, UserType } from "@type/index";
+import { useNavigate } from "react-router-dom";
 
 type JobGradeType = {
   id: number;
@@ -61,9 +62,11 @@ export const SignUpPage: React.FC = () => {
     userFetch.getUserByRole("manager", setManagers);
   }, []);
 
+  const navigate = useNavigate();
+
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    authFetch.signup(userSignUp);
+    authFetch.signup(userSignUp, navigate);
   };
 
   const inputData = [
