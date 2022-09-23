@@ -9,6 +9,7 @@ import {
   MenuPage,
   LearningPage,
 } from "@pages/index";
+import { ProfileBar } from "./components";
 
 function App() {
   return (
@@ -16,7 +17,9 @@ function App() {
       <Routes>
         <Route path="/" element={<Layout />}>
           <Route path="inscription" element={<SignUpPage />} />
-          <Route path="profile" element={<ProfilePage />} />
+          <Route element={<ProfileBar />}>
+            <Route path="profile" element={<ProfilePage />} />
+          </Route>
           <Route path="formations" element={<LearningPage />} />
           <Route path="menu" element={<MenuPage />} />
           <Route path="connexion" element={<SignInPage />} />
