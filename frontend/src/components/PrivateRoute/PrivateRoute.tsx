@@ -2,11 +2,19 @@ import React from "react";
 import { Navigate, Outlet } from "react-router-dom";
 
 type PrivateRouteProps = {
-  isLoading: boolean;
+  isAuth: boolean;
+  isConnected?: boolean;
 };
-export const PrivateRoute: React.FC<PrivateRouteProps> = ({ isLoading }) => {
-  if (!isLoading) {
-    return <Navigate to="/connexion" replace />;
+export const PrivateRoute: React.FC<PrivateRouteProps> = ({
+  isAuth,
+  isConnected,
+}) => {
+  if (!isAuth && isConnected) {
+    return <Navigate to="/connexion" />;
+  }
+
+  if (!isAuth) {
+    return <Navigate to="/menu" />;
   }
 
   return <Outlet />;

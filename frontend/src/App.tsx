@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { Routes, Route } from "react-router-dom";
 import { Layout, PrivateRoute } from "@components/index";
 import { ProfilePage } from "@pages/ProfilePage/ProfilePage";
@@ -11,28 +11,24 @@ import {
   LearningPage,
 } from "@pages/index";
 import { ContextProvider } from "@context/index";
-import { UserType } from "@type/index";
+import { useToken } from "./hooks/useToken";
 
 function App() {
-  const [user, setUser] = useState<UserType | null>(null);
-
-  useEffect(() => {
-    setUser(null);
-  }, []);
+  const { isLogin } = useToken();
 
   return (
     <div className="App">
-      <ContextProvider user={user}>
+      <ContextProvider user={null}>
         <Routes>
           <Route path="/" element={<Layout />}>
             {/* PrivateRoute prevents connected users from accessing it */}
-            <Route element={<PrivateRoute isLoading={!false} />}>
+            <Route element={<PrivateRoute isAuth={!isLogin} />}>
               <Route path="inscription" element={<SignUpPage />} />
               <Route path="connexion" element={<SignInPage />} />
             </Route>
 
             {/* PrivateRoute prevents not connected users from accessing it */}
-            <Route element={<PrivateRoute isLoading />}>
+            <Route element={<PrivateRoute isAuth={isLogin} isConnected />}>
               <Route path="profile" element={<ProfilePage />} />
               <Route path="formations" element={<LearningPage />} />
               <Route path="menu" element={<MenuPage />} />
