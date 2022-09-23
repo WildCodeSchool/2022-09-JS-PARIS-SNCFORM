@@ -35,6 +35,7 @@
 }
 @media screen and (orientation: landscape) and (min-width: 813px) and (max-width: 1200px) {
   .profile-bar {
+    margin-bottom: 2%;
     .items-list {
       &__profile,
       &__edit-profile {

@@ -25,6 +25,7 @@
     height: 100%;
     width: 45%;
   }
+
   &__name {
     font-weight: bold;
   }
@@ -58,9 +59,52 @@
       top: -2em;
       left: -1em;
     }
+
     .round-card img {
       height: 100%;
       width: 100%;
+    }
+  }
+}
+@media screen and (orientation: landscape) and (min-width: 813px) and (max-width: 1200px) {
+  .profile-card {
+    &__background-img {
+      background: url(./src/assets/images/backgroundProfileTabletteLandscape.jpg);
+      background-repeat: no-repeat;
+      width: 42%;
+      padding-bottom: 14%;
+    }
+  }
+}
+@media screen and (orientation: landscape) and (min-width: 813px) and (max-width: 1200px) {
+  .profile-card {
+    &__avatar-id-container {
+      justify-content: flex-start;
+    }
+  }
+}
+@media screen and (orientation: landscape) and (min-width: 813px) and (max-width: 1200px) {
+  .profile-card {
+    .round-card {
+      width: 6em;
+      height: 6em;
+      top: -1.5em;
+    }
+  }
+}
+@media screen and (orientation: landscape) and (min-width: 813px) and (max-width: 1200px) {
+  .profile-card {
+    &__name-job {
+      height: 100%;
+      width: 30%;
+    }
+  }
+}
+@media screen and (orientation: landscape) and (min-width: 813px) and (max-width: 1200px) {
+  .profile-card {
+    &__bio-container {
+      width: 42%;
+      bottom: 3.5em;
     }
   }
 }
