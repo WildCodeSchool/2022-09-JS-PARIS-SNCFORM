@@ -6,3 +6,9 @@
   padding-top: 2em;
   height: 100%;
 }
+
+@media screen and (orientation: landscape) and (min-width: 813px) and (max-width: 1200px) {
+  .profile-page {
+    flex-direction: row;
+  }
+}

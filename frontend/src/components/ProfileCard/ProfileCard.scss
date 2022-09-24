@@ -3,6 +3,8 @@
 .profile-card {
   height: 100%;
   width: 100%;
+  display: flex;
+  flex-direction: column;
   &__avatar-id-container {
     display: flex;
     justify-content: space-around;
@@ -69,18 +71,17 @@
 }
 @media screen and (orientation: landscape) and (min-width: 813px) and (max-width: 1200px) {
   .profile-card {
-    &__background-img {
-      background: url(./src/assets/images/backgroundProfileTabletteLandscape.jpg);
-      background-repeat: no-repeat;
-      width: 42%;
-      padding-bottom: 14%;
-    }
+    width: 50%;
   }
 }
 @media screen and (orientation: landscape) and (min-width: 813px) and (max-width: 1200px) {
   .profile-card {
-    &__avatar-id-container {
-      justify-content: flex-start;
+    &__background-img {
+      background: url(./src/assets/images/backgroundProfileTabletteLandscape.jpg);
+      background-repeat: no-repeat;
+      background-size: cover;
+      width: 100%;
+      padding-bottom: 34%;
     }
   }
 }
@@ -90,6 +91,7 @@
       width: 6em;
       height: 6em;
       top: -1.5em;
+      left: -2em;
     }
   }
 }
@@ -97,14 +99,14 @@
   .profile-card {
     &__name-job {
       height: 100%;
-      width: 30%;
+      width: 33%;
     }
   }
 }
 @media screen and (orientation: landscape) and (min-width: 813px) and (max-width: 1200px) {
   .profile-card {
     &__bio-container {
-      width: 42%;
+      width: 100%;
       bottom: 3.5em;
     }
   }
