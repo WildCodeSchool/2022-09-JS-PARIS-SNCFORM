@@ -5,7 +5,7 @@ import "./Field.scss";
 type FieldType = {
   inputType?: string;
   inputId: string;
-  label: string;
+  label?: string;
   isRequire?: boolean;
   onChange:
     | Dispatch<SetStateAction<UserSignInType>>
@@ -30,7 +30,7 @@ export const Field: React.FC<FieldType> = ({
   };
   return (
     <div className="field">
-      <label htmlFor={inputId}>{labelField}</label>
+      {label && <label htmlFor={inputId}>{labelField}</label>}
       <input
         type={inputType}
         id={inputId}

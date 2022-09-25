@@ -10,3 +10,4 @@ export { RedirectLink } from "./RedirectLink/RedirectLink";
 export { ProfileBar } from "./ProfileBar/ProfileBar";
 export { ProfileCard } from "./ProfileCard/ProfileCard";
 export { LearningCard } from "./LearningCard/LearningCard";
+export { SearchBar } from "./SearchBar/SearchBar";
