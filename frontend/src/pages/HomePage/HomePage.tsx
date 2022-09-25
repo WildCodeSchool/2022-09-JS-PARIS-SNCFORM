@@ -7,14 +7,16 @@ export const HomePage: React.FC = () => {
   const navigate = useNavigate();
   return (
     <div className="home-page">
-      <Link to="connexion">
-        <h3 className="home-page__connexion">Connexion</h3>
-      </Link>
-      <AppCarousel />
-      <Button
-        textButton="Inscription"
-        onClick={() => navigate("/inscription")}
-      />
+      <div className="home-page__content">
+        <Link to="connexion">
+          <h3 className="home-page__connexion">Connexion</h3>
+        </Link>
+        <AppCarousel />
+        <Button
+          textButton="Inscription"
+          onClick={() => navigate("/inscription")}
+        />
+      </div>
     </div>
   );
 };
