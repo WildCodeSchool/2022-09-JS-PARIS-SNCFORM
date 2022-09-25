@@ -7,10 +7,10 @@ import "./LearningPage.scss";
 
 export const LearningPage: React.FC = () => {
   const [categories, setCategories] = useState<CategoryType[]>([]);
-
   useEffect(() => {
     categoryFetch.getAllCategory(setCategories);
   }, []);
+
   const itemsCompleted = [
     {
       image: "src/assets/images/learning-card__img-cybersecurity.jpg",

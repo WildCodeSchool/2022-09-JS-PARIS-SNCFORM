@@ -16,7 +16,7 @@ export const RoundCardList: React.FC<RoundCardListProps> = ({
     <div className="round-card-list">
       <h2>{label}</h2>
       <div className="round-card-list__items">
-        {list.length > 0 &&
+        {list?.length > 0 &&
           list.map((listItem) => (
             <RoundCard key={listItem.id} label={listItem.title} />
           ))}
