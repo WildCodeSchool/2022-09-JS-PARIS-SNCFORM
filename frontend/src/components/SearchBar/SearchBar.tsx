@@ -12,7 +12,7 @@ export const SearchBar: React.FC<SearchBarProps> = ({ onChange }) => {
   };
 
   const handleClick = () => {
-    console.log("test search");
+    console.warn("test search");
   };
 
   return (

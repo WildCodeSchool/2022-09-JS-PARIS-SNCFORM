@@ -11,3 +11,4 @@ export { ProfileBar } from "./ProfileBar/ProfileBar";
 export { ProfileCard } from "./ProfileCard/ProfileCard";
 export { LearningCard } from "./LearningCard/LearningCard";
 export { SearchBar } from "./SearchBar/SearchBar";
+export { LearningDisplay } from "./LearningDisplay/LearningDisplay";
