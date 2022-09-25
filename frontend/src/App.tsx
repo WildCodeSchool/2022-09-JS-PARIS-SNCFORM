@@ -1,4 +1,3 @@
-import { useState } from "react";
 import { Routes, Route } from "react-router-dom";
 import { Layout, PrivateRoute } from "@components/index";
 import { ProfilePage } from "@pages/ProfilePage/ProfilePage";
@@ -35,7 +34,7 @@ function App() {
             </Route>
 
             {/* Routes accessible to all users */}
-            <Route path="/" element={<HomePage />} />
+            <Route path="/" element={<HomePage isAuth={isLogin} />} />
           </Route>
         </Routes>
       </ContextProvider>
