@@ -21,23 +21,22 @@ router.post(
   userControllers.login,
   authMiddlewares.verifyPassword
 );
-router.post("/api/logout", blackListTokenControllers.blackListToken);
 
 router.get("/api/users/role/:role", userControllers.getUserByRole);
 router.get("/api/jobs", jobTypeControllers.getAllJobType);
 router.get("/api/grades", gradeControllers.getAllGrade);
+
 // Authentification wall
 router.use(
   authMiddlewares.verifyToken,
   blackListTokenControllers.isTokenBlackListed
 );
 
+router.post("/api/logout", blackListTokenControllers.blackListToken);
+
 // *Routes User
 router.get("/api/users", userControllers.getAllUser);
 router.get("/api/users/:id", userControllers.getUser);
-
-// Authentification wall
-// router.use(authMiddlewares.verifyToken);
 
 // *Routes User
 router.get("/api/users", userControllers.getAllUser);
