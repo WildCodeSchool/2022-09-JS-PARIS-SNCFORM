@@ -152,3 +152,24 @@ code {
   font-family: ubuntu;
   color: $cool-gray--11;
 }
+
+// Icon top right
+
+.icon-top-right {
+  position: absolute;
+  height: 3em;
+  width: 3em;
+  top: 1em;
+  right: 1em;
+
+  img {
+    height: 100%;
+    width: 100%;
+  }
+}
+
+@media (min-width: 1440px) {
+  .icon-top-right {
+    right: 5em;
+  }
+}
