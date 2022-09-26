@@ -27,13 +27,13 @@ function App() {
               <Route path="connexion" element={<SignInPage />} />
             </Route>
 
+            <Route
+              path="catalogue-formations/:catId"
+              element={<LearningCatalogPage />}
+            />
             {/* PrivateRoute prevents not connected users from accessing it */}
             <Route element={<PrivateRoute isAuth={isLogin} isConnected />}>
               <Route path="profile" element={<ProfilePage />} />
-              <Route
-                path="catalogue-formations"
-                element={<LearningCatalogPage />}
-              />
               <Route path="formations" element={<LearningPage />} />
               <Route path="menu" element={<MenuPage />} />
             </Route>

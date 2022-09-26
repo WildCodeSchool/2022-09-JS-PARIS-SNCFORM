@@ -24,8 +24,8 @@ const hashPassword = (req, res, next) => {
     });
 };
 
-const createToken = (id) => {
-  const token = jwt.sign({ sub: id }, process.env.JWT_SECRET, {
+const createToken = (id, user) => {
+  const token = jwt.sign({ sub: id, user }, process.env.JWT_SECRET, {
     expiresIn: "1h",
   });
   return token;
@@ -38,8 +38,8 @@ const verifyPassword = (req, res) => {
     if (!isVerified) {
       res.sendStatus(401);
     }
-    const token = createToken(userId);
     delete req.user.hashedPassword;
+    const token = createToken(userId, req.user);
     res.send({ token, user: req.user });
   });
 };

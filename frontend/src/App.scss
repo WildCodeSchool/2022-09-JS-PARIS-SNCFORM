@@ -124,6 +124,11 @@ table {
   border-spacing: 0;
 }
 
+a {
+  text-decoration: none;
+  color: $cool-gray--11;
+}
+
 * {
   box-sizing: border-box;
 }
