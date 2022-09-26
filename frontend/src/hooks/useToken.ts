@@ -19,7 +19,7 @@ export const useToken = () => {
       setUserId(decodedToken.sub);
       setIsLogin(isTokenExpired);
     }
-  }, [location]);
+  }, [location, token]);
 
   return {
     userId,
