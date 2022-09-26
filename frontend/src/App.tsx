@@ -11,7 +11,7 @@ import {
   LearningCatalogPage,
 } from "@pages/index";
 import { ContextProvider } from "@context/index";
-import { useToken } from "./hooks/useToken";
+import { useToken } from "@hooks/useToken";
 
 function App() {
   const { isLogin } = useToken();

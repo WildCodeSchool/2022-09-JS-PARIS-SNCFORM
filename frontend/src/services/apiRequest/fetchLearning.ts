@@ -1,6 +1,6 @@
 import { LearningType, SetStateType } from "@type/index";
 import axios from "axios";
-import { tokenApp } from "../../tools/utils";
+import { tokenApp } from "@tools/utils";
 
 const BASE_URL = import.meta.env.VITE_BACKEND_URL;
 
