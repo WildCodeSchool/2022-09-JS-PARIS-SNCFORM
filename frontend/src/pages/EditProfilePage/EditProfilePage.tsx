@@ -1,8 +1,9 @@
 import React, { useEffect, useState } from "react";
 import "./EditProfilePage.scss";
-import { Button, Field } from "@components/index";
+import { Button, Field, ProfileBar, IconLink } from "@components/index";
 import { UserEditType } from "@type/userTypes";
 import { userFetch } from "@services/index";
+import { HomeIcon } from "@assets/images/SvgComponent/HomeIcon";
 
 export const EditProfilePage: React.FC = () => {
   const [editUser, setEditUser] = useState<UserEditType | null>(null);
@@ -49,7 +50,9 @@ export const EditProfilePage: React.FC = () => {
   }, []);
 
   return (
-    <div className="edit-profile-page">
+    <div className="edit-profile">
+      <IconLink iconComponent={<HomeIcon />} path="/menu" />
+      <ProfileBar />
       <form>
         {inputData.map((data) => (
           <Field key={data.inputId} {...data} onChange={setEditUser} />
