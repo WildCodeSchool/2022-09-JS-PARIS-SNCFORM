@@ -27,7 +27,8 @@
     "react-grid-carousel": "^1.0.1",
     "react-router-dom": "^6.3.0",
     "sass": "^1.54.9",
-    "template-fullstack": "file:.."
+    "template-fullstack": "file:..",
+    "yup": "^0.32.11"
   },
   "devDependencies": {
     "@types/react": "^18.0.20",

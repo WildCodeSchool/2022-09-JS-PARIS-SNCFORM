@@ -4,6 +4,8 @@ import { Field, Select, Button, RedirectLink } from "@components/index";
 import { userFetch, jobFetch, gradeFetch, authFetch } from "@services/index";
 import { UserSignUpType, UserType } from "@type/index";
 import { useNavigate } from "react-router-dom";
+import * as yup from "yup";
+import { UserSchema } from "../../validations/UserValidation";
 
 type JobGradeType = {
   id: number;
@@ -66,6 +68,7 @@ export const SignUpPage: React.FC = () => {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
+    const formData = {};
     authFetch.signup(userSignUp, navigate);
   };
 
