@@ -1,5 +1,4 @@
 import React from "react";
-import { ProfileBar } from "@components/ProfileBar/ProfileBar";
 import { ProfileCard } from "@components/ProfileCard/ProfileCard";
 import { LearningCard } from "@components/LearningCard/LearningCard";
 import "./ProfilePage.scss";
@@ -37,7 +36,7 @@ export const ProfilePage: React.FC = () => {
         path="/menu"
         className="icon-top-right"
       />
-      <ProfileBar />
+
       <ProfileCard />
       <LearningCard title="Formation complétées" items={itemsCompleted} />
     </div>

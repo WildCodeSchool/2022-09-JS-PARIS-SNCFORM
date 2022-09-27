@@ -4,3 +4,4 @@ export * from "./LearningPage/LearningPage";
 export * from "./SignInPage/SignInPage";
 export * from "./HomePage/HomePage";
 export * from "./LearningCatalogPage/LearningCatalogPage";
+export * from "./ProfilePage/ProfilePage";
