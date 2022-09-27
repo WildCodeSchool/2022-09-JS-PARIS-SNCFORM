@@ -6,7 +6,7 @@ const getAllGrade = (_, res) => {
     .then(([result]) => res.status(200).send(result))
     .catch((err) => {
       console.error(err);
-      res.status(500).send("Error in grade getAllGrade request");
+      res.status(500).send("Error in getAllGrade request");
     });
 };
 

@@ -5,12 +5,13 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
+  padding-bottom: 1em;
 
   h2 {
     text-transform: uppercase;
     font-weight: bold;
     font-size: 1.5em;
-    margin-bottom: 1.5em;
+    margin-bottom: 1em;
   }
 
   form {
@@ -51,10 +52,15 @@
   .button {
     width: 100%;
   }
+
+  .redirect-link {
+    margin-top: 0.5em;
+  }
 }
 
-@media (min-width: 767px) {
+@media (min-width: 768px) {
   .signup {
+    height: 100%;
     form {
       flex-direction: row;
       flex-wrap: wrap;
@@ -74,5 +80,13 @@
   }
 }
 
-@media (min-width: 1439px) {
+@media (min-width: 1440px) {
+  .signup {
+    form {
+      justify-content: center;
+    }
+    .button {
+      width: 40%;
+    }
+  }
 }

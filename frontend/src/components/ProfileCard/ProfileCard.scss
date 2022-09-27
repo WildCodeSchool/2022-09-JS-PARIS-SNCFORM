@@ -1,27 +1,34 @@
 @import "../../theme-sncf.scss";
 
 .profile-card {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
   &__avatar-id-container {
     display: flex;
     justify-content: space-around;
   }
   &__background-img {
     width: 100%;
-    padding-bottom: 67%;
-    background: url(./src/assets/images/profileBackground.jpg);
-    @media screen and (min-width: 376px) {
-      background: url(./src/assets/images/profil-card__background-img-768px.jpg);
-    }
-    @media screen and (min-width: 769px) {
-      background: url(./src/assets/images/profil-card__background-img-1024px.jpg);
-    }
+    margin-bottom: 2%;
+    padding-bottom: 48%;
+    background: url(./src/assets/images/backgroundProfileMobile.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
   }
-  &__avatar-img {
+  .round-card {
+    width: 5em;
+    height: 5em;
     position: relative;
-    left: 0.5em;
-    top: -2em;
+    top: -1em;
     z-index: 1;
   }
+  &__name-job {
+    height: 100%;
+    width: 45%;
+  }
+
   &__name {
     font-weight: bold;
   }
@@ -34,6 +41,106 @@
     bottom: 2.5em;
   }
   &__bio {
-    margin-top: 1em;
+    margin: 1em 0;
+  }
+}
+@media screen and (min-width: 768px) {
+  .profile-card {
+    &__background-img {
+      background: url(./src/assets/images/backgroundProfileTabletPortrait.jpg);
+      background-repeat: no-repeat;
+      background-size: cover;
+      padding-bottom: 34%;
+    }
+  }
+}
+@media screen and (min-width: 768px) {
+  .profile-card {
+    .round-card {
+      width: 6em;
+      height: 6em;
+      top: -2em;
+      left: -1em;
+    }
+
+    .round-card img {
+      height: 100%;
+      width: 100%;
+    }
+  }
+}
+@media screen and (orientation: landscape) and (min-width: 768px) {
+  .profile-card {
+    width: 50%;
+  }
+}
+@media screen and (orientation: landscape) and (min-width: 768px) {
+  .profile-card {
+    &__background-img {
+      background: url(./src/assets/images/backgroundProfileTabletLandscape.jpg);
+      background-repeat: no-repeat;
+      background-size: cover;
+      width: 100%;
+      padding-bottom: 34%;
+    }
+  }
+}
+@media screen and (orientation: landscape) and (min-width: 1200px) {
+  .profile-card {
+    .round-card {
+      width: 6em;
+      height: 6em;
+      top: -1.5em;
+      left: -2em;
+    }
+  }
+}
+@media screen and (orientation: landscape) and (min-width: 1200px) {
+  .profile-card {
+    &__name-job {
+      height: 100%;
+      width: 33%;
+    }
+  }
+}
+@media screen and (orientation: landscape) and (min-width: 1200px) {
+  .profile-card {
+    &__bio-container {
+      width: 100%;
+      bottom: 2em;
+    }
+  }
+}
+@media screen and (min-width: 1440px) {
+  .profile-card {
+    &__background-img {
+      background: url(./src/assets/images/backgroundProfileDesktop.jpg);
+      background-repeat: no-repeat;
+      background-size: cover;
+      width: 100%;
+    }
+  }
+}
+@media screen and (min-width: 1440px) {
+  .profile-card {
+    width: 70%;
+  }
+}
+
+@media screen and (min-width: 1440px) {
+  .profile-card {
+    .round-card {
+      width: 5em;
+      height: 5em;
+      top: -1.5em;
+    }
+  }
+}
+@media screen and (min-width: 1440px) {
+  .profile-card {
+    &__name-job {
+      height: 100%;
+      width: 33%;
+    }
   }
 }
