@@ -1,26 +1,33 @@
 
   -- list of category
-SELECT * FROM category;
+SELECT * FROM category
+ORDER BY category.title;
+
+-- list one categorie
+SELECT * FROM category
+WHERE category.title = 'Informatique';
 
 -- list of all Formations & all categories
  --*title.learning & title.category
-SELECT learning.title AS title_learning, category.title AS title_category 
+SELECT category.title AS title_category, learning.title AS title_learning  
 FROM learning 
 INNER JOIN learning_category ON learning.id = learning_id 
-RIGHT JOIN category ON category.id = category_id;
+RIGHT JOIN category ON category.id = category_id
+ORDER BY category.title;
 
--- list of formations for all categories
+-- list of all categories & all formations 
  --*by title_formation,type,duration,instructor,capacity_learners,start_registration,end_registration & title_category
-SELECT learning.title AS title_learning, 
-type, duration, instructor, capacity_learner,start_registration, end_registration, category.title AS title_category 
+SELECT category.title AS title_category, learning.title AS title_learning, 
+type, duration, instructor, capacity_learner AS nbr_learn, start_registration, end_registration 
 FROM learning 
 INNER JOIN learning_category ON learning.id = learning_id 
-RIGHT JOIN category ON category.id = category_id;
+RIGHT JOIN category ON category.id = category_id
+ORDER BY category.title;
 
 
---list of al formations & one category 'Informatique'
-SELECT learning.title AS title_learning,
-type, duration, instructor, capacity_learner,start_registration, end_registration, category.title AS title_category  
+--list of all formations & one category 'Informatique'
+SELECT category.title AS title_category, learning.title AS title_learning,
+type, duration, instructor, capacity_learner,start_registration, end_registration  
 FROM learning
 INNER JOIN learning_category ON learning.id = learning_category.learning_id
 RIGHT JOIN category ON category.id = learning_category.category_id 
@@ -91,12 +98,35 @@ INNER JOIN learning_category ON learning.id = learning_category.learning_id
 RIGHT JOIN category ON category.id = learning_category.category_id
 WHERE category.title = 'Immobilier';
 
--- List of formations by all grades
+-- List of all formations & all grades
 SELECT learning.title AS title_learning,
 grade.name AS number_of_grade
 FROM learning
 INNER JOIN learning_grade ON learning.id = learning_grade.learning_id
 LEFT JOIN grade ON grade.id = learning_grade.grade_id;
+
+-- List of all formations & all categories & all job_type & all grades
+SELECT job_type.name AS job, grade.name AS grade, learning.title AS title_learning, category.title AS category 
+FROM learning
+INNER JOIN job_type_learning ON job_type_learning.learning_id = learning.id
+INNER JOIN learning_grade ON learning_grade.learning_id = learning.id
+INNER JOIN learning_category ON learning_category.learning_id = learning.id
+WHERE job_type_learning.job_type_id BETWEEN '1' AND '10'
+AND learning_grade.grade_id BETWEEN '1' AND '8'
+AND learning_category.category_id BETWEEN '1' AND '10'
+ORDER BY learning.title;
+
+-- list of all formations for one job_type, one grade, one category
+SELECT learning.* 
+FROM learning
+INNER JOIN job_type_learning ON job_type_learning.learning_id = learning.id
+INNER JOIN learning_grade ON learning_grade.learning_id = learning.id
+INNER JOIN learning_category ON learning_category.learning_id = learning.id
+WHERE job_type_learning.job_type_id = '10'
+AND learning_grade.grade_id = '7'
+AND learning_category.category_id = '1'
+ORDER BY learning.title;
+
 
 -- list of formations by all categories & all grades
 SELECT learning.title AS title_learning, type, duration, instructor, capacity_learner,start_registration, end_registration, category.title AS title_category, grade.name AS number_of_grade
@@ -350,7 +380,36 @@ WHERE first_name = 'Shellie';
  INNER JOIN job_type_category ON job_type_category.job_type_id = job_type.id
  INNER JOIN category ON category.id = job_type_category.category_id
  INNER JOIN learning_category ON learning_category.category_id = category.id
- WHERE user.first_name = 'Thor';
+ WHERE user.id = '4' AND job_type.id = 10 AND grade.id = '7';
+
+-- list all formations for one user this job_type and this grade all categories
+-- SELECT learning.*
+--  FROM learning
+--  INNER JOIN user_learning ON user_learning.learning_id = learning.id
+--  INNER JOIN job_type_learning ON job_type_learning.learning_id = learning.id
+--  INNER JOIN learning_grade ON learning_grade.learning_id = learning.id
+--  INNER JOIN learning_category ON learning_category.learning_id = learning.id
+--  WHERE user_learning.user_id = 'user.id'
+--  AND job_type_learning.job_type_id = 'job_type.id'
+--  AND learning_grade.grade_id = 'grade.id'
+--  ORDER BY learning.title;
+
+
+SELECT learning.title
+ FROM learning
+ INNER JOIN user_learning ON user_learning.learning_id = learning.id
+ INNER JOIN job_type_learning ON job_type_learning.learning_id = learning.id
+ INNER JOIN learning_grade ON learning_grade.learning_id = learning.id
+ INNER JOIN learning_category ON learning_category.learning_id = learning.id
+ WHERE user_learning.user_id = '4'
+ AND job_type_learning.job_type_id = '10'
+ AND learning_grade.grade_id = '7'
+ AND learning_category.category_id = ''
+ ORDER BY learning.title;
+ --(learning_id = '6')
+
+
+
 
 -- nbr of users group by each formations
 -- SELECT learning.title AS title_learning, COUNT(user.first-name) AS nb_learners
@@ -396,10 +455,28 @@ WHERE learning_grade.grade_id = 7 AND Job_type.id = 10;
 -- ON learning_grade.learning_id = learning.id
 -- where job_type_learning.job_type_id = job_type.id AND learning_grade.grade_id = grade.id;
 
-
+-- list of all formations & one job_type & one grade
+ -- *model:
 -- SELECT learning.* FROM learning
 -- INNER JOIN job_type_learning 
 -- ON job_type_learning.learning_id = learning.id
 -- INNER JOIN learning_grade
 -- ON learning_grade.learning_id = learning.id
--- where job_type_learning.job_type_id = 10 AND learning_grade.grade_id = 7;
+-- where job_type_learning.job_type_id = hob_type.id AND learning_grade.grade_id = grade.id;
+
+ -- * list of all formations & job_type 'commercial' & grade '2' :
+SELECT learning.* FROM learning
+INNER JOIN job_type_learning 
+ON job_type_learning.learning_id = learning.id
+INNER JOIN learning_grade
+ON learning_grade.learning_id = learning.id
+WHERE job_type_learning.job_type_id = '2' AND learning_grade.grade_id = '2';
+
+-- list of formations for one job_type & one grade
+SELECT learning.title
+
+
+
+UPDATE learning_grade
+SET learning_id = '6'
+WHERE grade_id = 7;
