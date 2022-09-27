@@ -15,7 +15,7 @@ const blackListToken = (req, res) => {
       res.send({ message: "USER LOGGED OUT" });
     })
     .catch((err) => {
-      console.warn("ERROR IN blackListToken", err);
+      console.error("ERROR IN blackListToken", err);
       res.sendStatus(400);
     });
 };

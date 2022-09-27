@@ -1,7 +1,7 @@
 import React from "react";
 
 type SearchIconProps = {
-  onClick: () => void;
+  onClick?: () => void;
 };
 
 export const SearchIcon: React.FC<SearchIconProps> = ({ onClick }) => {

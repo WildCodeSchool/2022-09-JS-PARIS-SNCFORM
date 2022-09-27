@@ -11,14 +11,10 @@ export const SearchBar: React.FC<SearchBarProps> = ({ onChange }) => {
     onChange(e.target.value);
   };
 
-  const handleClick = () => {
-    console.warn("test search");
-  };
-
   return (
     <div className="search-bar">
       <input type="text" onChange={handleChange} />
-      <SearchIcon onClick={handleClick} />
+      <SearchIcon />
     </div>
   );
 };

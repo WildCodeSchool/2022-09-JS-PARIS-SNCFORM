@@ -11,8 +11,7 @@ export const SignInPage: React.FC = () => {
     password: "",
   };
   const [userSignIn, setUserSignIn] = useState<UserSignInType>(intialSignIn);
-  const [user, setUser] = useState<UserType | null>(null);
-  console.warn("User", user);
+  const [setUser] = useState<UserType | null>(null);
   const inputData = [
     {
       label: "CP",
