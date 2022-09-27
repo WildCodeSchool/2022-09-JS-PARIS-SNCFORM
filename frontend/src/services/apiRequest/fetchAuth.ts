@@ -19,16 +19,11 @@ const signup = (userData: UserSignUpType, navigate: NavigateFunction) => {
     .catch((err) => console.error(err));
 };
 
-const login = (
-  userLogin: UserSignInType,
-  setState: SetUser,
-  navigate: NavigateFunction
-) => {
+const login = (userLogin: UserSignInType, navigate: NavigateFunction) => {
   axios
     .post(`${BASE_URL}/login`, { ...userLogin })
     .then(({ data }) => {
-      const { token, user } = data;
-      setState(user);
+      const { token } = data;
       sessionStorage.setItem("token", token);
       navigate("/menu");
     })
