@@ -1,20 +1,28 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import "./EditProfilePage.scss";
 import { Button, Field } from "@components/index";
+import { UserEditType } from "@type/userTypes";
+import { userFetch } from "@services/index";
 
 export const EditProfilePage: React.FC = () => {
+  const [editUser, setEditUser] = useState<UserEditType | null>(null);
+  console.warn("test", editUser);
+
   const inputData = [
     {
       label: "Nom",
       inputId: "lastName",
+      value: editUser?.lastName,
     },
     {
       label: "Prénom",
       inputId: "firstName",
+      value: editUser?.firstName,
     },
     {
       label: "Email",
       inputId: "email",
+      value: editUser?.email,
     },
     {
       label: "Nouveau mot de passe",
@@ -36,14 +44,18 @@ export const EditProfilePage: React.FC = () => {
     },
   ];
 
+  useEffect(() => {
+    userFetch.getUserById(setEditUser);
+  }, []);
+
   return (
     <div className="edit-profile-page">
-      {/* <form>
+      <form>
         {inputData.map((data) => (
-          <Field key={data.inputId} {...data} />
+          <Field key={data.inputId} {...data} onChange={setEditUser} />
         ))}
         <Button textButton="Modifier" isSubmit />
-      </form> */}
+      </form>
     </div>
   );
 };

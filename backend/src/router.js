@@ -45,6 +45,7 @@ router.get("/api/users/:id", userControllers.getUser);
 router.get("/api/users/role/:role", userControllers.getUserByRole);
 router.put(
   "/api/users/:id",
+  authMiddlewares.verifyNewPassword,
   authMiddlewares.hashPassword,
   userControllers.editUser
 );

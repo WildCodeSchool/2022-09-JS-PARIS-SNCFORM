@@ -1,5 +1,5 @@
 import React, { Dispatch, SetStateAction, useRef } from "react";
-import { UserSignUpType, UserSignInType } from "src/type/index";
+import { UserSignUpType, UserSignInType, UserEditType } from "src/type/index";
 import "./Field.scss";
 
 type FieldType = {
@@ -9,8 +9,10 @@ type FieldType = {
   isRequire?: boolean;
   onChange:
     | Dispatch<SetStateAction<UserSignInType>>
-    | Dispatch<SetStateAction<UserSignUpType>>;
+    | Dispatch<SetStateAction<UserSignUpType>>
+    | Dispatch<SetStateAction<UserEditType>>;
   autoComplete?: string;
+  value?: string;
 };
 
 export const Field: React.FC<FieldType> = ({
@@ -20,11 +22,12 @@ export const Field: React.FC<FieldType> = ({
   isRequire,
   onChange,
   autoComplete,
+  value,
 }) => {
   const inputRef = useRef<HTMLInputElement>(null);
   const labelField = isRequire ? `${label} *` : label;
   const handleChange = () => {
-    onChange((prev: UserSignUpType | UserSignInType) => {
+    onChange((prev: UserSignUpType | UserSignInType | UserEditType) => {
       return { ...prev, [inputId]: inputRef.current?.value };
     });
   };
@@ -39,6 +42,7 @@ export const Field: React.FC<FieldType> = ({
         ref={inputRef}
         required={isRequire}
         autoComplete={autoComplete}
+        value={value}
       />
     </div>
   );

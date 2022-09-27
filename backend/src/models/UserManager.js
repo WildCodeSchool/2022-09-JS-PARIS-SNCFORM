@@ -43,18 +43,16 @@ class UserManager extends AbstractManager {
   }
 
   find(id) {
-    return this.connection.query(
-      `select id, first_name,last_name,email,cp_number, role,genre,avatar,grade_id,job_type_id,manager_id from  ${this.table} where id = ?`,
-      [id]
-    );
+    return this.connection.query(`select * from  ${this.table} where id = ?`, [
+      id,
+    ]);
   }
 
   update(user) {
-    const { firstName, lastName, email, hashedPassword, avatar, manager, id } =
-      user;
+    const { firstName, lastName, email, hashedPassword, id } = user;
     return this.connection.query(
-      `update ${this.table} set first_name = ?, last_name = ?, email = ?, hashedPassword = ?, avatar = ? , manager_id = ? where id = ?`,
-      [firstName, lastName, email, hashedPassword, avatar, manager, id]
+      `update ${this.table} set first_name = ?, last_name = ?, email = ?, hashedPassword = ? where id = ?`,
+      [firstName, lastName, email, hashedPassword, id]
     );
   }
 

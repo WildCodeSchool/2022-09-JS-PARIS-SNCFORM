@@ -3,25 +3,29 @@ const jwt = require("jsonwebtoken");
 
 const hashPassword = (req, res, next) => {
   const { password } = req.body;
-  const hashingOptions = {
-    type: argon2.argon2id,
-    memoryCost: 2 ** 16,
-    timeCost: 5,
-    parallelism: 1,
-  };
-  argon2
-    .hash(password, hashingOptions)
+  if (!password) {
+    next();
+  } else {
+    const hashingOptions = {
+      type: argon2.argon2id,
+      memoryCost: 2 ** 16,
+      timeCost: 5,
+      parallelism: 1,
+    };
+    argon2
+      .hash(password, hashingOptions)
 
-    .then((hashedPassword) => {
-      req.body.hashedPassword = hashedPassword;
-      delete req.body.password;
+      .then((hashedPassword) => {
+        req.body.hashedPassword = hashedPassword;
+        delete req.body.password;
 
-      next();
-    })
-    .catch((err) => {
-      console.error(`Error in hashPassword ${err}`);
-      res.sendStatus(500);
-    });
+        next();
+      })
+      .catch((err) => {
+        console.error(`Error in hashPassword ${err}`);
+        res.sendStatus(500);
+      });
+  }
 };
 
 const createToken = (id) => {
@@ -62,7 +66,24 @@ const verifyToken = (req, res, next) => {
     next();
   } catch (err) {
     console.error(err);
-    res.sendStatus(401);
+    res.status(401);
+  }
+};
+
+const verifyNewPassword = (req, res, next) => {
+  const { newPassword, oldPassword, hashedPassword } = req.body;
+  if (!newPassword) {
+    next();
+  }
+  if (newPassword) {
+    argon2.verify(hashedPassword, oldPassword).then((isVerified) => {
+      if (!isVerified) {
+        res.sendStatus(401);
+      } else {
+        req.body.password = newPassword;
+        next();
+      }
+    });
   }
 };
 
@@ -71,4 +92,5 @@ module.exports = {
   createToken,
   verifyToken,
   verifyPassword,
+  verifyNewPassword,
 };

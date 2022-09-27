@@ -93,8 +93,8 @@ const login = (req, res, next) => {
 
 const editUser = (req, res) => {
   const user = req.body;
-
   user.id = parseInt(req.params.id, 10);
+  user.hashedPassword = req.body.hashedPassword;
 
   models.user
     .update(user)
