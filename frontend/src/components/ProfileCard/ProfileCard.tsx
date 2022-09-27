@@ -1,4 +1,5 @@
 import React from "react";
+import { RoundCard } from "../index";
 import "./ProfileCard.scss";
 
 export const ProfileCard: React.FC = () => {
@@ -6,12 +7,8 @@ export const ProfileCard: React.FC = () => {
     <div className="profile-card">
       <div className="profile-card__background-img" />
       <div className="profile-card__avatar-id-container">
-        <img
-          src="src/assets/images/profile-card__avatar-img.jpg"
-          alt="user-img"
-          className="profile-card__avatar-img"
-        />
-        <div>
+        <RoundCard imgUrl="./src/assets/images/avatar-img.jpg" label="" />
+        <div className="profile-card__name-job">
           <p className="profile-card__name"> John - Doe </p>
           <p> Agent commercial </p>
         </div>

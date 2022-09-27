@@ -20,10 +20,12 @@ export const Select: React.FC<SelectType> = ({
   const selectRef = useRef<HTMLSelectElement>(null);
 
   const onChangeSelect = () => {
-    const { value } = selectRef.current!;
-    onChange((prev) => {
-      return { ...prev, [selectId]: parseInt(value, 10) };
-    });
+    if (selectRef.current) {
+      const { value } = selectRef.current;
+      onChange((prev) => {
+        return { ...prev, [selectId]: parseInt(value, 10) };
+      });
+    }
   };
   const labelField = isRequire ? `${label} *` : label;
 
