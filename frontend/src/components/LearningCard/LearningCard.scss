@@ -2,9 +2,22 @@
   display: flex;
   flex-direction: column;
   gap: 0.5em 0;
+  height: 100%;
   width: 100%;
 
   h2 {
     align-self: flex-start;
+  }
+}
+@media screen and (orientation: landscape) and (min-width: 813px) and (max-width: 1200px) {
+  .learning-card {
+    width: 50%;
+  }
+}
+@media screen and (orientation: landscape) and (min-width: 813px) and (max-width: 1200px) {
+  .learning-card {
+    h2 {
+      align-self: center;
+    }
   }
 }
