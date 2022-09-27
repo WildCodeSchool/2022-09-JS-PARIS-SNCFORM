@@ -1,7 +1,6 @@
 import axios from "axios";
-import { SetUser } from "@pages/index";
 import { NavigateFunction } from "react-router-dom";
-import { UserSignInType, UserSignUpType } from "../../type";
+import { UserSignUpType } from "../../type";
 
 const BASE_URL = import.meta.env.VITE_BACKEND_URL;
 
@@ -19,7 +18,10 @@ const signup = (userData: UserSignUpType, navigate: NavigateFunction) => {
     .catch((err) => console.error(err));
 };
 
-const login = (userLogin: UserSignInType, navigate: NavigateFunction) => {
+const login = (
+  userLogin: Partial<UserSignUpType>,
+  navigate: NavigateFunction
+) => {
   axios
     .post(`${BASE_URL}/login`, { ...userLogin })
     .then(({ data }) => {

@@ -3,7 +3,10 @@ import { SetStateType, UserType } from "@type/index";
 
 const BASE_URL = import.meta.env.VITE_BACKEND_URL;
 
-const getUserByRole = (role: string, setState: SetStateType<UserType>) => {
+const getUserByRole = (
+  role: string,
+  setState: SetStateType<UserType[] | null>
+) => {
   axios
     .get(`${BASE_URL}/users/role/${role}`)
     .then(({ data }) => setState(data))

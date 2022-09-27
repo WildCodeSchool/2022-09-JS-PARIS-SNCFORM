@@ -1,16 +1,17 @@
 import React, { useState } from "react";
 import "./SignInPage.scss";
 import { Field, Button, RedirectLink } from "@components/index";
-import { UserSignInType } from "@type/userTypes";
+import { UserSignUpType } from "@type/userTypes";
 import { authFetch } from "@services/index";
 import { useNavigate } from "react-router-dom";
 
 export const SignInPage: React.FC = () => {
-  const intialSignIn: UserSignInType = {
+  const intialSignIn: Partial<UserSignUpType> = {
     cpNumber: "",
     password: "",
   };
-  const [userSignIn, setUserSignIn] = useState<UserSignInType>(intialSignIn);
+  const [userSignIn, setUserSignIn] =
+    useState<Partial<UserSignUpType>>(intialSignIn);
 
   const inputData = [
     {
