@@ -8,4 +8,5 @@ export type LearningType = {
   capacityLearner: number;
   startRegistration: Date;
   endRegistration: Date;
+  status?: string;
 };

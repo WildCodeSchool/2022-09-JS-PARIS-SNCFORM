@@ -133,18 +133,6 @@ const destroyUser = (req, res) => {
     });
 };
 
-const getUserLearningByStatus = (req, res) => {
-  const { userId, status } = req.params;
-
-  models.user
-    .findUserLearningByStatus(parseInt(userId, 10), status)
-    .then(([result]) => res.status(200).json(result))
-    .catch((err) => {
-      console.error(err);
-      res.status(500).send("Error in user getUserLearningByStatus request");
-    });
-};
-
 module.exports = {
   getAllUser,
   getUser,
@@ -154,5 +142,4 @@ module.exports = {
   getUserByRole,
   getUserByCp,
   login,
-  getUserLearningByStatus,
 };

@@ -41,10 +41,6 @@ router.get("/api/users/:id", userControllers.getUser);
 router.get("/api/users/role/:role", userControllers.getUserByRole);
 router.put("/api/users/:id", userControllers.editUser);
 router.delete("/api/users/:id", userControllers.destroyUser);
-router.get(
-  "/api/users/:userId/:status",
-  userControllers.getUserLearningByStatus
-);
 
 // *Routes Job Type
 router.post("/api/jobs", jobTypeControllers.addJobType);
@@ -60,5 +56,7 @@ router.get(
   "/api/learnings/:categoryId/:gradeId",
   learningControllers.getByCatAndUserGrade
 );
+
+router.get("/api/user-learnings/:userId", learningControllers.getUserLearnings);
 
 module.exports = router;

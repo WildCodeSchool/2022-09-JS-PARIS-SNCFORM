@@ -5,16 +5,30 @@ import "./ProfilePage.scss";
 import { IconLink } from "@components/index";
 import { HomeIcon } from "@assets/index";
 import { tokenApp } from "@tools/utils";
-import { userFetch } from "@services/index";
-import { UserType } from "@type/index";
+import { learningFetch, userFetch } from "@services/index";
+import { LearningType, UserType } from "@type/index";
 
 export const ProfilePage: React.FC = () => {
   const { id } = tokenApp();
   const [user, setUser] = useState<UserType | null>(null);
+  const [userLearnings, setUserLearnings] = useState<
+    Partial<LearningType>[] | null
+  >(null);
+
+  const learningsByStatus = (
+    learnings: Partial<LearningType>[] | null,
+    status: string
+  ) => {
+    return learnings?.filter((learning) => learning.status === status);
+  };
+
+  const userLearningsCompleted = learningsByStatus(userLearnings, "completed");
+  console.warn("userLearningsCompleted:", userLearningsCompleted);
 
   useEffect(() => {
     if (id) {
       userFetch.getUserById(id, setUser);
+      learningFetch.fetchUserLearnings(id, setUserLearnings);
     }
   }, []);
   // Array of images
