@@ -4,8 +4,7 @@ import { Field, Select, Button, RedirectLink } from "@components/index";
 import { userFetch, jobFetch, gradeFetch, authFetch } from "@services/index";
 import { UserSignUpType, UserType } from "@type/index";
 import { useNavigate } from "react-router-dom";
-import * as yup from "yup";
-import { UserSchema } from "../../validations/UserValidation";
+import { userSchema } from "../../validations/UserValidation";
 
 type JobGradeType = {
   id: number;
@@ -20,7 +19,7 @@ export type SetUsersType = React.Dispatch<
 >;
 
 export const SignUpPage: React.FC = () => {
-  const intialSignUp: UserSignUpType = {
+  const initialSignUp: UserSignUpType = {
     firstName: "",
     lastName: "",
     genre: "",
@@ -32,7 +31,7 @@ export const SignUpPage: React.FC = () => {
     manager: 0,
   };
 
-  const [userSignUp, setUserSignUp] = useState<UserSignUpType>(intialSignUp);
+  const [userSignUp, setUserSignUp] = useState<UserSignUpType>(initialSignUp);
   const [jobs, setJobs] = useState<JobGradeType[]>([]);
   const [grades, setGrades] = useState<JobGradeType[]>([]);
   const [managers, setManagers] = useState<UserType[] | null>(null);
@@ -66,44 +65,51 @@ export const SignUpPage: React.FC = () => {
 
   const navigate = useNavigate();
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    const formData = {};
-    authFetch.signup(userSignUp, navigate);
-  };
 
+    // check validity
+    userSchema
+      .validate(userSignUp)
+      .then(() => {
+        authFetch.signup(userSignUp, navigate);
+      })
+      .catch((err) => {
+        return alert(`${err}`);
+      });
+  };
   const inputData = [
     {
       label: "Nom",
       inputId: "lastName",
-      isRequire: true,
+      // isRequire: true,
     },
     {
       label: "Prénom",
       inputId: "firstName",
-      isRequire: true,
+      // isRequire: true,
     },
     {
       label: "CP",
       inputId: "cpNumber",
-      isRequire: true,
+      // isRequire: true,
     },
     {
       label: "Email",
       inputId: "email",
-      isRequire: true,
+      // isRequire: true,
     },
     {
       label: "Mot de passe",
       inputId: "password",
-      isRequire: true,
+      // isRequire: true,
       inputType: "password",
       autoComplete: "on",
     },
     {
       label: "Confirmation",
-      inputId: "confirm-password",
-      isRequire: true,
+      inputId: "confirmPassword",
+      // isRequire: true,
       inputType: "password",
       autoComplete: "on",
     },
