@@ -70,6 +70,20 @@ class UserManager extends AbstractManager {
       [cpNumber]
     );
   }
+
+  findUserLearningByStatus(userId, status) {
+    return this.connection.query(
+      `select status, learning.title
+      from ${this.table}
+      inner join user_learning 
+      on ${this.table}.id = user_learning.user_id
+      inner join learning
+      on user_learning.learning_id = learning.id
+      where user.id = ? and status = ?
+      `,
+      [userId, status]
+    );
+  }
 }
 
 module.exports = UserManager;

@@ -4,8 +4,10 @@ import { LearningCard } from "@components/LearningCard/LearningCard";
 import "./ProfilePage.scss";
 import { IconLink } from "@components/index";
 import { HomeIcon } from "@assets/index";
+import { tokenApp } from "@tools/utils";
 
 export const ProfilePage: React.FC = () => {
+  const { user } = tokenApp();
   // Array of images
   const itemsCompleted = [
     {
@@ -37,7 +39,7 @@ export const ProfilePage: React.FC = () => {
         className="icon-top-right"
       />
 
-      <ProfileCard />
+      {user && <ProfileCard user={user} />}
       <LearningCard title="Formation complétées" items={itemsCompleted} />
     </div>
   );

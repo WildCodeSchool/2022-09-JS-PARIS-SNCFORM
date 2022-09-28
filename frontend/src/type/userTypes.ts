@@ -9,6 +9,7 @@ export interface UserType {
   grade_id: number;
   job_type_id: number;
   role: string;
+  bio: string;
 }
 
 export interface UserSignUpType {

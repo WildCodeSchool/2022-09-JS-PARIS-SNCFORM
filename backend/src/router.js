@@ -41,6 +41,10 @@ router.get("/api/users/:id", userControllers.getUser);
 router.get("/api/users/role/:role", userControllers.getUserByRole);
 router.put("/api/users/:id", userControllers.editUser);
 router.delete("/api/users/:id", userControllers.destroyUser);
+router.get(
+  "/api/users/:userId/:status",
+  userControllers.getUserLearningByStatus
+);
 
 // *Routes Job Type
 router.post("/api/jobs", jobTypeControllers.addJobType);
