@@ -57,4 +57,6 @@ router.get(
   learningControllers.getByCatAndUserGrade
 );
 
+router.get("/api/user-learnings/:userId", learningControllers.getUserLearnings);
+
 module.exports = router;

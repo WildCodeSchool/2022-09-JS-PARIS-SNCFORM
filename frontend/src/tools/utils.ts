@@ -16,3 +16,17 @@ export const tokenApp = () => {
     user,
   };
 };
+
+export const useHearders = () => {
+  const { token, id } = tokenApp();
+
+  const headers = {
+    "Content-Type": "application/json",
+    Authorization: `Bearer ${token}`,
+  };
+
+  return {
+    headers,
+    id,
+  };
+};
