@@ -22,8 +22,3 @@ export interface UserSignUpType {
   jobType: number | null | undefined;
   password: string;
 }
-
-export interface UserSignInType {
-  cpNumber: string;
-  password: string;
-}

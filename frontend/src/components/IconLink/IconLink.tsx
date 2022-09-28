@@ -7,6 +7,7 @@ type IconLinkProps = {
   title?: string;
   path: string;
   styles?: { [key: string]: string };
+  className?: string;
 };
 
 export const IconLink: React.FC<IconLinkProps> = ({
@@ -14,9 +15,10 @@ export const IconLink: React.FC<IconLinkProps> = ({
   title,
   path,
   styles,
+  className,
 }) => {
   return (
-    <div className="iconlink" style={{ ...styles }}>
+    <div className={`${className} iconlink`} style={{ ...styles }}>
       <NavLink to={path}>
         {iconComponent}
         {title && <h3>{title}</h3>}

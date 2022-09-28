@@ -86,7 +86,7 @@ const login = (req, res, next) => {
       next();
     })
     .catch((err) => {
-      console.warn("ERROR IN LOGIN", err);
+      console.error("ERROR IN LOGIN", err);
       res.sendStatus(400);
     });
 };

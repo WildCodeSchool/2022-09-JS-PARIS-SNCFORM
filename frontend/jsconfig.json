@@ -8,7 +8,9 @@
       "@pages/*": ["src/pages/*"],
       "@services/*": ["src/services/*"],
       "@type/*": ["src/type/*"],
-      "@context/*": ["src/context/*"]
+      "@context/*": ["src/context/*"],
+      "@hooks/*": ["src/hooks/*"],
+      "@tools/*": ["src/tools/*"]
     }
   }
 }

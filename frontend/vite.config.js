@@ -14,6 +14,8 @@ export default defineConfig({
       "@services": path.resolve(__dirname, "src/services"),
       "@type": path.resolve(__dirname, "src/type"),
       "@context": path.resolve(__dirname, "src/context"),
+      "@hooks": path.resolve(__dirname, "src/hooks"),
+      "@tools": path.resolve(__dirname, "src/tools"),
     },
   },
 });

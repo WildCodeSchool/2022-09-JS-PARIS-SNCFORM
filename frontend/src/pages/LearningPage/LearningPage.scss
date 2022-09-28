@@ -5,25 +5,4 @@
   justify-content: space-between;
   padding-top: 2em;
   height: 100%;
-
-  .iconlink {
-    position: absolute;
-    height: 3em;
-    width: 3em;
-    top: 1em;
-    right: 1em;
-
-    img {
-      height: 100%;
-      width: 100%;
-    }
-  }
-}
-
-@media (min-width: 1440px) {
-  .learning-page {
-    .iconlink {
-      right: 5em;
-    }
-  }
 }

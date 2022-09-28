@@ -2,6 +2,8 @@ import React from "react";
 import { ProfileCard } from "@components/ProfileCard/ProfileCard";
 import { LearningCard } from "@components/LearningCard/LearningCard";
 import "./ProfilePage.scss";
+import { IconLink } from "@components/index";
+import { HomeIcon } from "@assets/index";
 
 export const ProfilePage: React.FC = () => {
   // Array of images
@@ -29,6 +31,12 @@ export const ProfilePage: React.FC = () => {
   ];
   return (
     <div className="profile-page">
+      <IconLink
+        iconComponent={<HomeIcon />}
+        path="/menu"
+        className="icon-top-right"
+      />
+
       <ProfileCard />
       <LearningCard title="Formation complétées" items={itemsCompleted} />
     </div>

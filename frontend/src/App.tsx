@@ -7,10 +7,11 @@ import {
   HomePage,
   MenuPage,
   LearningPage,
+  LearningCatalogPage,
   ProfilePage,
 } from "@pages/index";
 import { ContextProvider } from "@context/index";
-import { useToken } from "./hooks/useToken";
+import { useToken } from "@hooks/useToken";
 
 function App() {
   const { isLogin } = useToken();
@@ -26,6 +27,10 @@ function App() {
               <Route path="connexion" element={<SignInPage />} />
             </Route>
 
+            <Route
+              path="catalogue-formations/:catId"
+              element={<LearningCatalogPage />}
+            />
             {/* PrivateRoute prevents not connected users from accessing it */}
             <Route element={<PrivateRoute isAuth={isLogin} isConnected />}>
               <Route path="formations" element={<LearningPage />} />
