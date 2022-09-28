@@ -8,7 +8,12 @@ type ProfileCardProps = {
 };
 
 export const ProfileCard: React.FC<ProfileCardProps> = ({ user }) => {
-  const { first_name: firstName, last_name: lastName, bio } = user;
+  const {
+    first_name: firstName,
+    last_name: lastName,
+    bio,
+    job_type_name: jobName,
+  } = user;
   return (
     <div className="profile-card">
       <div className="profile-card__background-img" />
@@ -16,7 +21,7 @@ export const ProfileCard: React.FC<ProfileCardProps> = ({ user }) => {
         <RoundCard imgUrl="./src/assets/images/avatar-img.jpg" label="" />
         <div className="profile-card__name-job">
           <p className="profile-card__name">{`${firstName} - ${lastName}`}</p>
-          <p> Agent commercial </p>
+          <p>{jobName}</p>
         </div>
       </div>
       <div className="profile-card__bio-container">

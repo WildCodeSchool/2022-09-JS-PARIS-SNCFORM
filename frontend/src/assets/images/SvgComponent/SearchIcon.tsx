@@ -1,10 +1,7 @@
 import React from "react";
+import { SVGIconProps } from "@type/index";
 
-type SearchIconProps = {
-  onClick?: () => void;
-};
-
-export const SearchIcon: React.FC<SearchIconProps> = ({ onClick }) => {
+export const SearchIcon: React.FC<SVGIconProps> = ({ onClick }) => {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"

@@ -44,7 +44,12 @@ class UserManager extends AbstractManager {
 
   find(id) {
     return this.connection.query(
-      `select id, first_name,last_name,email,cp_number, role,genre,avatar,grade_id,job_type_id,manager_id from  ${this.table} where id = ?`,
+      `select ${this.table}.*,job_type.name as job_type_name , manager.last_name as manager_last_name from  ${this.table} 
+      inner join job_type 
+      on ${this.table}.job_type_id = job_type.id
+      inner join ${this.table} as manager
+      on ${this.table}.manager_id = manager.id
+      where ${this.table}.id = ?`,
       [id]
     );
   }

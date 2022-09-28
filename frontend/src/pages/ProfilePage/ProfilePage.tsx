@@ -1,13 +1,22 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { ProfileCard } from "@components/ProfileCard/ProfileCard";
 import { LearningCard } from "@components/LearningCard/LearningCard";
 import "./ProfilePage.scss";
 import { IconLink } from "@components/index";
 import { HomeIcon } from "@assets/index";
 import { tokenApp } from "@tools/utils";
+import { userFetch } from "@services/index";
+import { UserType } from "@type/index";
 
 export const ProfilePage: React.FC = () => {
-  const { user } = tokenApp();
+  const { id } = tokenApp();
+  const [user, setUser] = useState<UserType | null>(null);
+
+  useEffect(() => {
+    if (id) {
+      userFetch.getUserById(id, setUser);
+    }
+  }, []);
   // Array of images
   const itemsCompleted = [
     {
