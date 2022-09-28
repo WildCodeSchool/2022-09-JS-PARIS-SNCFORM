@@ -1,6 +1,6 @@
 import React from "react";
-import { ProfileCard } from "@components/ProfileCard/ProfileCard";
-import { LearningCard } from "@components/LearningCard/LearningCard";
+import { ProfileCard, LearningCard, IconLink } from "@components/index";
+import { HomeIcon } from "@assets/images/SvgComponent/HomeIcon";
 import "./ProfilePage.scss";
 
 export const ProfilePage: React.FC = () => {
@@ -29,6 +29,7 @@ export const ProfilePage: React.FC = () => {
   ];
   return (
     <div className="profile-page">
+      <IconLink iconComponent={<HomeIcon />} path="/menu" />
       <ProfileCard />
       <LearningCard title="Formation complétées" items={itemsCompleted} />
     </div>

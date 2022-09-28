@@ -36,6 +36,7 @@ function App() {
             {/* Routes accessible to all users */}
             <Route element={<ProfileBar />}>
               <Route path="profile" element={<ProfilePage />} />
+              <Route path="editprofile" element={<EditProfilePage />} />
             </Route>
             <Route path="/" element={<HomePage isAuth={isLogin} />} />
           </Route>

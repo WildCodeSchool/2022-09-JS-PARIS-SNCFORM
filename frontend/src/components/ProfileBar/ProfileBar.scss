@@ -3,26 +3,26 @@
 .profile-bar {
   width: 100%;
   height: 12%;
-  padding-top: 2em;
+  padding-top: 2rem;
   &__items-list {
     display: flex;
     background-color: $framboise;
     color: $carbone;
     justify-content: space-around;
     align-items: center;
-    height: 3em;
+    height: 4rem;
   }
   .items-list {
     &__profile,
     &__edit-profile {
-      border-right: 2px solid;
+      border-right: 0.2rem solid $carbone;
       padding-right: 3%;
-    }
-    &__profile,
-    &__edit-profile,
-    &__learning {
       font-weight: bold;
     }
+  }
+  a {
+    text-decoration: none;
+    color: $carbone;
   }
 }
 @media screen and (min-width: 768px) {
