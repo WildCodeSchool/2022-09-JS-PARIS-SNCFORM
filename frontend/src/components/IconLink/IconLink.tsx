@@ -7,6 +7,7 @@ type IconLinkProps = {
   title?: string;
   path: string;
   styles?: { [key: string]: string };
+  className?: string;
 };
 
 export const IconLink: React.FC<IconLinkProps> = ({
@@ -14,9 +15,10 @@ export const IconLink: React.FC<IconLinkProps> = ({
   title,
   path,
   styles,
+  className,
 }) => {
   return (
-    <div className="iconlink" style={{ ...styles }}>
+    <div className={`${className} iconlink`} style={{ ...styles }}>
       <NavLink to={path}>
         {iconComponent}
         {title && <h3>{title}</h3>}
@@ -24,9 +26,3 @@ export const IconLink: React.FC<IconLinkProps> = ({
     </div>
   );
 };
-
-/* Associer iconlink a une URL qui amène a la page concerné :
-iconFormations => PageFormations
-iconProfil => PageProfil
-iconNotif => PageNotifications 
-et à appliquer sur le compaosant de "base", structure, soit IconLink */

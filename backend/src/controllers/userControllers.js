@@ -16,7 +16,11 @@ const getUser = (req, res) => {
 
   models.user
     .find(id)
-    .then(([result]) => res.status(200).json(result))
+    .then(([result]) => {
+      const userFinded = result[0];
+      delete userFinded.hashedPassword;
+      res.status(200).json(userFinded);
+    })
     .catch((err) => {
       console.error(err);
       res.status(500).send("Error in user getUser request");
@@ -86,7 +90,7 @@ const login = (req, res, next) => {
       next();
     })
     .catch((err) => {
-      console.warn("ERROR IN LOGIN", err);
+      console.error("ERROR IN LOGIN", err);
       res.sendStatus(400);
     });
 };

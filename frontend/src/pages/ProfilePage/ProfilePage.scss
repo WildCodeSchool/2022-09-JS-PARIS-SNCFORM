@@ -3,20 +3,7 @@
   flex-direction: column;
   align-items: center;
   justify-content: space-between;
-  padding-top: 2em;
-  height: 100%;
-  .iconlink {
-    position: absolute;
-    height: 3em;
-    width: 3em;
-    top: 1em;
-    right: 1em;
-
-    img {
-      height: 100%;
-      width: 100%;
-    }
-  }
+  height: 95%;
 }
 
 @media screen and (orientation: landscape) and (min-width: 813px) and (max-width: 1200px) {

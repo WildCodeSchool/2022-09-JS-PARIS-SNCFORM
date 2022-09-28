@@ -4,7 +4,7 @@ import { Outlet, Link } from "react-router-dom";
 
 export const ProfileBar: React.FC = () => {
   return (
-    <>
+    <div>
       <div className="profile-bar">
         <ul className="profile-bar__items-list">
           <Link to="/profile">
@@ -17,6 +17,6 @@ export const ProfileBar: React.FC = () => {
         </ul>
       </div>
       <Outlet />
-    </>
+    </div>
   );
 };

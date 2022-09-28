@@ -9,13 +9,9 @@ export const PrivateRoute: React.FC<PrivateRouteProps> = ({
   isAuth,
   isConnected,
 }) => {
-  if (!isAuth && isConnected) {
-    return <Navigate to="/connexion" />;
-  }
-
   if (!isAuth) {
+    if (isConnected) return <Navigate to="/connexion" />;
     return <Navigate to="/menu" />;
   }
-
   return <Outlet />;
 };

@@ -18,7 +18,11 @@ export const RoundCardList: React.FC<RoundCardListProps> = ({
       <div className="round-card-list__items">
         {list?.length > 0 &&
           list.map((listItem) => (
-            <RoundCard key={listItem.id} label={listItem.title} />
+            <RoundCard
+              key={listItem.id}
+              label={listItem.title}
+              path={`/catalogue-formations/${listItem.id}`}
+            />
           ))}
       </div>
     </div>
