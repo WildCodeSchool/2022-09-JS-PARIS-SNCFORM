@@ -24,9 +24,3 @@ export const IconLink: React.FC<IconLinkProps> = ({
     </div>
   );
 };
-
-/* Associer iconlink a une URL qui amène a la page concerné :
-iconFormations => PageFormations
-iconProfil => PageProfil
-iconNotif => PageNotifications 
-et à appliquer sur le compaosant de "base", structure, soit IconLink */

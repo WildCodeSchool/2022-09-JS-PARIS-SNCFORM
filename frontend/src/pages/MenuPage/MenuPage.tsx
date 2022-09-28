@@ -23,24 +23,30 @@ export const MenuPage: React.FC = () => {
 
   return (
     <div className="menu-page">
-      <IconLink
-        title="Formations"
-        iconComponent={<HatIcon />}
-        path="/formations"
-        styles={iconStyles}
-      />
-      <IconLink
-        title="Profil"
-        iconComponent={<ProfilIcon />}
-        path="/profile"
-        styles={iconStyles}
-      />
-      <IconLink
-        title="Notifications"
-        iconComponent={<NotificationIcon />}
-        path="########"
-        styles={iconStyles}
-      />
+      <div className="menu-page__formation">
+        <IconLink
+          title="Formations"
+          iconComponent={<HatIcon />}
+          path="/formations"
+          styles={iconStyles}
+        />
+      </div>
+      <div className="menu-page__profil">
+        <IconLink
+          title="Profil"
+          iconComponent={<ProfilIcon />}
+          path="/profile"
+          styles={iconStyles}
+        />
+      </div>
+      <div className="menu-page__notification">
+        <IconLink
+          title="Notifications"
+          iconComponent={<NotificationIcon />}
+          path="########"
+          styles={iconStyles}
+        />
+      </div>
       <div className="menu-page__deconnexion">
         <button type="button" onClick={handleSubmit}>
           <DeconnexionIcon />
