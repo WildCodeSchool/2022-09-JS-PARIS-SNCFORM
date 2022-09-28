@@ -26,26 +26,27 @@ DROP TABLE IF EXISTS token_blacklist;
 
 CREATE TABLE grade (
   id INT NOT NULL AUTO_INCREMENT,
-  name VARCHAR(150),
+  name VARCHAR(255),
   PRIMARY KEY (id)
 );
 
 CREATE TABLE job_type (
   id INT NOT NULL AUTO_INCREMENT,
-  name VARCHAR(150),
+  name VARCHAR(255),
   PRIMARY KEY (id)
 );
 
 CREATE TABLE user (
   id INT NOT NULL AUTO_INCREMENT,
-  first_name VARCHAR(150) NOT NULL,
-  last_name VARCHAR(150) NOT NULL,
+  first_name VARCHAR(255) NOT NULL,
+  last_name VARCHAR(255) NOT NULL,
   cp_number VARCHAR(8) NOT NULL UNIQUE,
   email VARCHAR(255) NOT NULL,
   hashedPassword VARCHAR(255) NOT NULL,
   role VARCHAR(20) NOT NULL,
   genre VARCHAR(20) NOT NULL,
   avatar BLOB,
+  bio TEXT,
   manager_id INT,
   grade_id INT NOT NULL,
   job_type_id INT NOT NULL,
@@ -62,10 +63,10 @@ ADD
 CREATE TABLE learning (
   id INT NOT NULL AUTO_INCREMENT,
   title VARCHAR(255) NOT NULL,
-  description VARCHAR(10000) NOT NULL,
+  description TEXT NOT NULL,
   type VARCHAR(50) NOT NULL,
   duration INT NOT NULL,
-  instructor VARCHAR(150) NOT NULL,
+  instructor VARCHAR(255) NOT NULL,
   capacity_learner INT,
   start_registration DATE,
   end_registration DATE,
@@ -74,14 +75,14 @@ CREATE TABLE learning (
 
 CREATE TABLE category (
   id INT NOT NULl AUTO_INCREMENT,
-  title VARCHAR(150) NOT NULL,
+  title VARCHAR(255) NOT NULL,
   PRIMARY KEY (id)
 );
 
 CREATE TABLE notification (
   id INT NOT NULL AUTO_INCREMENT,
   title VARCHAR(255) NOT NULL,
-  description VARCHAR(10000) NOT NULL,
+  description TEXT NOT NULL,
   date DATE,
   PRIMARY KEY (id)
 );
@@ -100,7 +101,7 @@ CREATE TABLE user_learning (
   id INT NOT NULL AUTO_INCREMENT,
   user_id INT NOT NULL,
   learning_id INT NOT NULL,
-  status VARCHAR(150) NOT NULL,
+  status VARCHAR(255) NOT NULL,
   start_learning DATE,
   PRIMARY KEY (id),
   FOREIGN KEY (user_id) REFERENCES user(id),
@@ -142,7 +143,7 @@ CREATE TABLE learning_grade (
 );
 
 CREATE TABLE token_blacklist (
-  token VARCHAR(255) NOT NULL,
+  token VARCHAR(755) NOT NULL,
   PRIMARY KEY (token)
 );
 
@@ -568,14 +569,14 @@ VALUES
 INSERT INTO
   user_learning (user_id, learning_id, status, start_learning)
 VALUES
-  (4, 6, "in progress", "2022-11-25"),
-  (8, 1, "in progress", "2022-11-25"),
-  (5, 2, "in progress", "2022-11-25"),
-  (4, 5, "in progress", "2022-11-25"),
-  (4, 9, "in progress", "2022-11-25"),
-  (10, 6, "in progress", "2022-11-25"),
-  (9, 6, "in progress", "2022-11-25"),
-  (7, 6, "in progress", "2022-11-25");
+  (4, 6, "pending", "2022-11-25"),
+  (8, 1, "pending", "2022-11-25"),
+  (5, 2, "pending", "2022-11-25"),
+  (4, 5, "pending", "2022-11-25"),
+  (4, 9, "pending", "2022-11-25"),
+  (10, 6, "pending", "2022-11-25"),
+  (9, 6, "pending", "2022-11-25"),
+  (7, 6, "pending", "2022-11-25");
 
 INSERT INTO
   notification (title, description, date)
