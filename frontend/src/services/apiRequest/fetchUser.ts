@@ -1,5 +1,5 @@
 import axios from "axios";
-import { SetStateType, UserType, UserEditType } from "@type/index";
+import { SetStateType, UserType } from "@type/index";
 import { useHearders } from "@tools/utils";
 
 const BASE_URL = import.meta.env.VITE_BACKEND_URL;
