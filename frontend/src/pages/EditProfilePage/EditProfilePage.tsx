@@ -58,9 +58,11 @@ export const EditProfilePage: React.FC = () => {
     <div className="edit-profile">
       <IconLink iconComponent={<HomeIcon />} path="/menu" />
       <form className="edit-profile__form" onSubmit={handleSubmit}>
-        {inputData.map((data) => (
-          <Field key={data.inputId} {...data} onChange={setEditUser} />
-        ))}
+        <div className="edit-profile__fields">
+          {inputData.map((data) => (
+            <Field key={data.inputId} {...data} onChange={setEditUser} />
+          ))}
+        </div>
         <Button textButton="Modifier" isSubmit />
       </form>
     </div>
