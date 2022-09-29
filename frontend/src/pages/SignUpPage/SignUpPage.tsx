@@ -52,7 +52,7 @@ export const SignUpPage: React.FC = () => {
     ? [{ id: 0, name: "Manager" }, ...managerData]
     : [{ id: 0, name: "Manager" }];
 
-  const selectOptions = [{ id: 0, name: "Corp de Métier" }, ...jobs];
+  const selectOptions = [{ id: 0, name: "Corps de Métier" }, ...jobs];
 
   const gradeOptions = [{ id: 0, name: "Qualif" }, ...grades];
 
