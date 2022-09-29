@@ -37,7 +37,7 @@ router.post("/api/logout", blackListTokenControllers.blackListToken);
 
 // *Routes User
 router.get("/api/users", userControllers.getAllUser);
-router.get("/api/users/:id", userControllers.getUser);
+router.get("/api/users/:id/profil", userControllers.getUserWhithHashedPassword);
 router.get("/api/users/role/:role", userControllers.getUserByRole);
 router.put(
   "/api/users/:id",

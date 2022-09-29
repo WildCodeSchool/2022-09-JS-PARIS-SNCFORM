@@ -14,40 +14,33 @@ const getUserByRole = (
     .catch((err) => console.error(err));
 };
 
-const getUserById = (
+const getUserProfilById = (
   userId: number,
   setState: SetStateType<UserType | null>
 ) => {
   const { headers } = useHearders();
 
   return axios
-    .get(`${BASE_URL}/users/${userId}`, { headers })
+    .get(`${BASE_URL}/users/${userId}/profil`, { headers })
     .then(({ data }) => {
       setState(data);
     })
     .catch((err) => console.error(err));
 };
 
-const editUser = (
-  user: UserEditType,
-  setState: SetStateType<UserEditType | null>
-) => {
-  const token = sessionStorage.getItem("token");
-  if (!token) {
-    return false;
-  }
-  const headers = {
-    "Content-Type": "application/json",
-    Authorization: `Bearer ${token}`,
-  };
+const editUser = (user: Partial<UserType> | null) => {
+  const { headers } = useHearders();
   return axios
-    .post(`${BASE_URL}/users/${user.id}`, { ...user }, { headers })
-    .then(({ data }) => setState(data))
+    .put(`${BASE_URL}/users/${user?.id}`, { ...user }, { headers })
+    .then(({ data }) => {
+      const { token } = data;
+      sessionStorage.setItem("token", token);
+    })
     .catch((err) => console.error(err));
 };
 
 export const userFetch = {
   getUserByRole,
-  getUserById,
+  getUserProfilById,
   editUser,
 };

@@ -1,58 +1,63 @@
 import React, { useEffect, useState } from "react";
 import "./EditProfilePage.scss";
-import { Button, Field, IconLink } from "@components/index";
-import { UserEditType } from "@type/userTypes";
-import { userFetch } from "@services/index";
+import { Button, Field, IconLink, useProfilContext } from "@components/index";
+import { UserType } from "@type/userTypes";
 import { HomeIcon } from "@assets/images/SvgComponent/HomeIcon";
+import { userFetch } from "@services/index";
 
 export const EditProfilePage: React.FC = () => {
-  const [editUser, setEditUser] = useState<UserEditType | null>(null);
-  console.warn("test", editUser);
+  const { user } = useProfilContext();
+  const [editUser, setEditUser] = useState<Partial<UserType> | null>(null);
+
+  useEffect(() => {
+    setEditUser(user);
+  }, [user]);
+
+  const handleSubmit = () => {
+    userFetch.editUser(editUser);
+  };
 
   const inputData = [
     {
       label: "Nom",
-      inputId: "lastName",
-      value: editUser?.lastName,
+      inputId: "last_name",
+      value: editUser?.last_name,
     },
     {
       label: "Prénom",
-      inputId: "firstName",
-      value: editUser?.firstName,
+      inputId: "first_name",
+      value: editUser?.first_name,
     },
     {
       label: "Email",
       inputId: "email",
+      inputType: "email",
       value: editUser?.email,
     },
     {
       label: "Nouveau mot de passe",
-      inputId: "password",
+      inputId: "newPassword",
       inputType: "password",
       autoComplete: "on",
     },
     {
       label: "Confirmation",
-      inputId: "confirm-password",
+      inputId: "confirm_password",
       inputType: "password",
       autoComplete: "on",
     },
     {
       label: "Mot de passe actuel",
-      inputId: "old-password",
+      inputId: "oldPassword",
       inputType: "password",
       autoComplete: "on",
     },
   ];
 
-  useEffect(() => {
-    userFetch.getUserById(setEditUser);
-  }, []);
-
   return (
     <div className="edit-profile">
       <IconLink iconComponent={<HomeIcon />} path="/menu" />
-      <form className="edit-profile__form">
+      <form className="edit-profile__form" onSubmit={handleSubmit}>
         {inputData.map((data) => (
           <Field key={data.inputId} {...data} onChange={setEditUser} />
         ))}

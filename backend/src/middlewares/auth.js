@@ -3,6 +3,7 @@ const jwt = require("jsonwebtoken");
 
 const hashPassword = (req, res, next) => {
   const { password } = req.body;
+
   if (!password) {
     next();
   } else {
@@ -73,18 +74,17 @@ const verifyToken = (req, res, next) => {
 const verifyNewPassword = (req, res, next) => {
   const { newPassword, oldPassword, hashedPassword } = req.body;
   if (!newPassword) {
-    next();
+    return next();
   }
-  if (newPassword) {
-    argon2.verify(hashedPassword, oldPassword).then((isVerified) => {
-      if (!isVerified) {
-        res.sendStatus(401);
-      } else {
-        req.body.password = newPassword;
-        next();
-      }
-    });
-  }
+
+  return argon2.verify(hashedPassword, oldPassword).then((isVerified) => {
+    if (!isVerified) {
+      res.sendStatus(401);
+    } else {
+      req.body.password = newPassword;
+      next();
+    }
+  });
 };
 
 module.exports = {

@@ -6,7 +6,7 @@ import React, {
   useRef,
   useState,
 } from "react";
-import { UserSignUpType } from "src/type/index";
+import { UserType } from "src/type/index";
 import "./Field.scss";
 
 type FieldType = {
@@ -14,8 +14,9 @@ type FieldType = {
   inputId: string;
   label?: string;
   isRequire?: boolean;
-  onChange: Dispatch<SetStateAction<Partial<UserSignUpType>>>;
+  onChange: Dispatch<SetStateAction<Partial<UserType> | null>>;
   autoComplete?: string;
+  value?: string;
 };
 
 export const Field: React.FC<FieldType> = ({
@@ -25,6 +26,7 @@ export const Field: React.FC<FieldType> = ({
   isRequire,
   onChange,
   autoComplete,
+  value,
 }) => {
   const inputRef = useRef<HTMLInputElement>(null);
   const [isHiden, setIsHiden] = useState<boolean>(true);
@@ -57,6 +59,7 @@ export const Field: React.FC<FieldType> = ({
           ref={inputRef}
           required={isRequire}
           autoComplete={autoComplete}
+          placeholder={value}
         />
         {isPassword ? <EyeSlashIcon onClick={toogleInputShow} /> : null}
       </div>
