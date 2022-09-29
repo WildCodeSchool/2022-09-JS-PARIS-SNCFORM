@@ -37,7 +37,9 @@ export const ProfileBar: React.FC = () => {
         <Link to="/editprofile">
           <li className="items-list__edit-profile">Editer Profil</li>
         </Link>
-        <li className="items-list__learning">Mes formations</li>
+        <Link to="/learning-profile">
+          <li className="items-list__learning">Mes formations</li>
+        </Link>
       </ul>
       <Outlet context={{ user, userLearnings }} />
     </div>

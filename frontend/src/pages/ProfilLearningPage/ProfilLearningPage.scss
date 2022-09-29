@@ -1,0 +1,10 @@
+.profile-learning {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+  .learning-card {
+    height: 30%;
+  }
+}

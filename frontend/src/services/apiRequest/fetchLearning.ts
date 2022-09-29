@@ -29,7 +29,21 @@ const fetchUserLearnings = (
     .catch((err) => console.error(err));
 };
 
+const fetchByJobAndGrade = (
+  jobId: number,
+  gradeId: number,
+  setState: SetStateType<LearningType[] | null>
+) => {
+  const { headers } = useHearders();
+
+  axios
+    .get(`${BASE_URL}/learnings/job/${jobId}/grade/${gradeId}`, { headers })
+    .then(({ data }) => setState(data))
+    .catch((err) => console.error(err));
+};
+
 export const learningFetch = {
   fetchByCatAndUserGrade,
   fetchUserLearnings,
+  fetchByJobAndGrade,
 };
