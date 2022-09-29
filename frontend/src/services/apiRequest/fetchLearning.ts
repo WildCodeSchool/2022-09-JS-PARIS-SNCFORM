@@ -4,6 +4,22 @@ import { tokenApp } from "@tools/utils";
 
 const BASE_URL = import.meta.env.VITE_BACKEND_URL;
 
+const getLearningsById = (
+  learningId: string | undefined,
+  setState: SetStateType<LearningType | null>
+) => {
+  const { token } = tokenApp();
+
+  const headers = {
+    "Content-Type": "application/json",
+    Authorization: `Bearer ${token}`,
+  };
+  axios
+    .get(`${BASE_URL}/learnings/${learningId}`, { headers })
+    .then(({ data }) => setState(data))
+    .catch((err) => console.error(err));
+};
+
 const fetchByCatAndUserGrade = (
   categoryId: string,
   setState: SetStateType<LearningType[] | null>
@@ -22,5 +38,6 @@ const fetchByCatAndUserGrade = (
 };
 
 export const learningFetch = {
+  getLearningsById,
   fetchByCatAndUserGrade,
 };

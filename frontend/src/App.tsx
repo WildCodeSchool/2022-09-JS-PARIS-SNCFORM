@@ -9,6 +9,7 @@ import {
   LearningPage,
   LearningCatalogPage,
   ProfilePage,
+  LearningDetailPage,
 } from "@pages/index";
 import { ContextProvider } from "@context/index";
 import { useToken } from "@hooks/useToken";
@@ -35,12 +36,15 @@ function App() {
             <Route element={<PrivateRoute isAuth={isLogin} isConnected />}>
               <Route path="formations" element={<LearningPage />} />
               <Route path="menu" element={<MenuPage />} />
+              <Route element={<ProfileBar />}>
+                <Route path="profile" element={<ProfilePage />} />
+              </Route>
+              <Route
+                path="detail-formations/:learningId"
+                element={<LearningDetailPage />}
+              />
             </Route>
-
             {/* Routes accessible to all users */}
-            <Route element={<ProfileBar />}>
-              <Route path="profile" element={<ProfilePage />} />
-            </Route>
             <Route path="/" element={<HomePage isAuth={isLogin} />} />
           </Route>
         </Routes>

@@ -52,6 +52,7 @@ router.delete("/api/jobs/:id", jobTypeControllers.destroyJobType);
 router.get("/api/categories", categoryControllers.getAllCategory);
 
 // *Routes Learning
+router.get("/api/learnings/:id", learningControllers.getLearningsById);
 router.get(
   "/api/learnings/:categoryId/:gradeId",
   learningControllers.getByCatAndUserGrade

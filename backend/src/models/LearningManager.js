@@ -5,6 +5,12 @@ class LearningManager extends AbstractManager {
     super({ table: "learning" });
   }
 
+  find(id) {
+    return this.connection.query(`select * from  ${this.table} where id = ?`, [
+      id,
+    ]);
+  }
+
   findByCatAndUserGrade(categoryId, userGrade) {
     return this.connection.query(
       `select ${this.table}.* from  ${this.table} 
