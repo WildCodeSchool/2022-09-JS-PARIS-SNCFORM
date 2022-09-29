@@ -1,0 +1,19 @@
+@import "../../theme-sncf.scss";
+
+.learning-display {
+  padding: 1rem 0;
+  border-top: 1px solid $cool-gray--07;
+  border-bottom: 1px solid $cool-gray--07;
+
+  h3 {
+    color: $bleu-primaire;
+  }
+
+  &__bottom {
+    margin-top: 1rem;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.75rem;
+  }
+}

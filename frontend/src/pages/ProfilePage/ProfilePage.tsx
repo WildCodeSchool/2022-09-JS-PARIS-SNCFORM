@@ -1,9 +1,27 @@
 import React from "react";
-import { ProfileCard } from "@components/ProfileCard/ProfileCard";
-import { LearningCard } from "@components/LearningCard/LearningCard";
+import {
+  ProfileCard,
+  LearningCard,
+  IconLink,
+  useProfilContext,
+} from "@components/index";
+import { HomeIcon } from "@assets/images/SvgComponent/HomeIcon";
 import "./ProfilePage.scss";
+import { LearningType } from "@type/index";
 
 export const ProfilePage: React.FC = () => {
+  const { user, userLearnings } = useProfilContext();
+
+  const learningsByStatus = (
+    learnings: Partial<LearningType>[] | null,
+    status: string
+  ) => {
+    return learnings?.filter((learning) => learning.status === status);
+  };
+
+  const userLearningsCompleted = learningsByStatus(userLearnings, "completed");
+  console.warn("userLearningsCompleted:", userLearningsCompleted);
+
   // Array of images
   const itemsCompleted = [
     {
@@ -29,7 +47,13 @@ export const ProfilePage: React.FC = () => {
   ];
   return (
     <div className="profile-page">
-      <ProfileCard />
+      <IconLink
+        iconComponent={<HomeIcon />}
+        path="/menu"
+        className="icon-top-right"
+      />
+
+      {user && <ProfileCard user={user} />}
       <LearningCard title="Formation complétées" items={itemsCompleted} />
     </div>
   );

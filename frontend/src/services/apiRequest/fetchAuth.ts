@@ -1,11 +1,10 @@
 import axios from "axios";
-import { SetUser } from "@pages/index";
 import { NavigateFunction } from "react-router-dom";
-import { UserSignInType, UserSignUpType } from "../../type";
+import { UserType } from "../../type";
 
 const BASE_URL = import.meta.env.VITE_BACKEND_URL;
 
-const signup = (userData: UserSignUpType, navigate: NavigateFunction) => {
+const signup = (userData: UserType, navigate: NavigateFunction) => {
   axios
     .post(`${BASE_URL}/signup`, { ...userData })
     .then((response) => {
@@ -20,15 +19,13 @@ const signup = (userData: UserSignUpType, navigate: NavigateFunction) => {
 };
 
 const login = (
-  userLogin: UserSignInType,
-  setState: SetUser,
+  userLogin: Partial<UserType> | null,
   navigate: NavigateFunction
 ) => {
   axios
     .post(`${BASE_URL}/login`, { ...userLogin })
     .then(({ data }) => {
-      const { token, user } = data;
-      setState(user);
+      const { token } = data;
       sessionStorage.setItem("token", token);
       navigate("/menu");
     })

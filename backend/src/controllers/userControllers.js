@@ -11,12 +11,14 @@ const getAllUser = (_, res) => {
     });
 };
 
-const getUser = (req, res) => {
+const getUserWhithHashedPassword = (req, res) => {
   const { id } = req.params;
 
   models.user
     .find(id)
-    .then(([result]) => res.status(200).json(result))
+    .then(([result]) => {
+      res.status(200).json(result[0]);
+    })
     .catch((err) => {
       console.error(err);
       res.status(500).send("Error in user getUser request");
@@ -86,15 +88,15 @@ const login = (req, res, next) => {
       next();
     })
     .catch((err) => {
-      console.warn("ERROR IN LOGIN", err);
+      console.error("ERROR IN LOGIN", err);
       res.sendStatus(400);
     });
 };
 
 const editUser = (req, res) => {
   const user = req.body;
-
-  user.id = parseInt(req.params.id, 10);
+  user.id = req.params.id;
+  user.hashedPassword = req.body.hashedPassword;
 
   models.user
     .update(user)
@@ -102,7 +104,10 @@ const editUser = (req, res) => {
       if (result.affectedRows === 0) {
         res.sendStatus(404);
       } else {
-        res.sendStatus(204);
+        const { id, first_name, last_name, email } = user;
+        const userToken = { id, first_name, last_name, email };
+        const token = createToken(user.id, userToken);
+        res.status(200).json({ message: "User updated", token });
       }
     })
     .catch((err) => {
@@ -131,7 +136,7 @@ const destroyUser = (req, res) => {
 
 module.exports = {
   getAllUser,
-  getUser,
+  getUserWhithHashedPassword,
   signup,
   editUser,
   destroyUser,

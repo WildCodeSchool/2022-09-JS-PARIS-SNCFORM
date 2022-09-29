@@ -1,0 +1,15 @@
+.catalog {
+  height: 100%;
+  width: 100%;
+  padding-top: 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+@media (min-width: 1440px) {
+  .catalog {
+    margin: 0 auto;
+    width: 70%;
+  }
+}

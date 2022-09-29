@@ -7,6 +7,7 @@ const userControllers = require("./controllers/userControllers");
 const jobTypeControllers = require("./controllers/jobTypeControllers");
 const gradeControllers = require("./controllers/gradeControllers");
 const categoryControllers = require("./controllers/categoryControllers");
+const learningControllers = require("./controllers/learningControllers");
 const { validateUser } = require("./middlewares/validator");
 const blackListTokenControllers = require("./controllers/blackListTokenControllers");
 
@@ -36,13 +37,15 @@ router.post("/api/logout", blackListTokenControllers.blackListToken);
 
 // *Routes User
 router.get("/api/users", userControllers.getAllUser);
-router.get("/api/users/:id", userControllers.getUser);
-
-// *Routes User
-router.get("/api/users", userControllers.getAllUser);
-router.get("/api/users/:id", userControllers.getUser);
+router.get("/api/users/:id/profil", userControllers.getUserWhithHashedPassword);
 router.get("/api/users/role/:role", userControllers.getUserByRole);
-router.put("/api/users/:id", userControllers.editUser);
+router.put(
+  "/api/users/:id",
+  authMiddlewares.verifyNewPassword,
+  authMiddlewares.hashPassword,
+  userControllers.editUser
+);
+
 router.delete("/api/users/:id", userControllers.destroyUser);
 
 // *Routes Job Type
@@ -53,5 +56,13 @@ router.delete("/api/jobs/:id", jobTypeControllers.destroyJobType);
 
 // *Routes Category
 router.get("/api/categories", categoryControllers.getAllCategory);
+
+// *Routes Learning
+router.get(
+  "/api/learnings/:categoryId/:gradeId",
+  learningControllers.getByCatAndUserGrade
+);
+
+router.get("/api/user-learnings/:userId", learningControllers.getUserLearnings);
 
 module.exports = router;

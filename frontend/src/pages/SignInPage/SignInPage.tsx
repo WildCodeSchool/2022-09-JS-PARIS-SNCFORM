@@ -1,18 +1,13 @@
 import React, { useState } from "react";
 import "./SignInPage.scss";
 import { Field, Button, RedirectLink } from "@components/index";
-import { UserSignInType, UserType } from "@type/userTypes";
+import { UserType } from "@type/userTypes";
 import { authFetch } from "@services/index";
 import { useNavigate } from "react-router-dom";
 
 export const SignInPage: React.FC = () => {
-  const intialSignIn: UserSignInType = {
-    cpNumber: "",
-    password: "",
-  };
-  const [userSignIn, setUserSignIn] = useState<UserSignInType>(intialSignIn);
-  const [user, setUser] = useState<UserType | null>(null);
-  console.warn("User", user);
+  const [userSignIn, setUserSignIn] = useState<Partial<UserType> | null>(null);
+
   const inputData = [
     {
       label: "CP",
@@ -24,6 +19,7 @@ export const SignInPage: React.FC = () => {
       inputId: "password",
       isRequire: true,
       inputType: "password",
+      autoComplete: "on",
     },
   ];
 
@@ -31,7 +27,7 @@ export const SignInPage: React.FC = () => {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    authFetch.login(userSignIn, setUser, navigate);
+    authFetch.login(userSignIn, navigate);
   };
 
   return (

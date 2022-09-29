@@ -15,7 +15,7 @@ const blackListToken = (req, res) => {
       res.send({ message: "USER LOGGED OUT" });
     })
     .catch((err) => {
-      console.warn("ERROR IN blackListToken", err);
+      console.error("ERROR IN blackListToken", err);
       res.sendStatus(400);
     });
 };
@@ -30,9 +30,9 @@ const isTokenBlackListed = (req, res, next) => {
     .findByToken(token)
     .then(([result]) => {
       if (result[0] != null) {
-        res.send({ message: "Token expired" });
+        return res.send({ message: "Token expired" });
       }
-      next();
+      return next();
     })
     .catch((err) => {
       console.error(err);
