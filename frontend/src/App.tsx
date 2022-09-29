@@ -5,6 +5,7 @@ import {
   SignUpPage,
   SignInPage,
   HomePage,
+  EditProfilePage,
   MenuPage,
   LearningPage,
   LearningCatalogPage,
@@ -38,6 +39,7 @@ function App() {
               <Route path="menu" element={<MenuPage />} />
               <Route element={<ProfileBar />}>
                 <Route path="profile" element={<ProfilePage />} />
+                <Route path="editprofile" element={<EditProfilePage />} />
               </Route>
               <Route
                 path="detail-formations/:learningId"

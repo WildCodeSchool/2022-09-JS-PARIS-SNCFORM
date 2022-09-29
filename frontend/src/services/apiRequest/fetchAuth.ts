@@ -1,10 +1,10 @@
 import axios from "axios";
 import { NavigateFunction } from "react-router-dom";
-import { UserSignUpType } from "../../type";
+import { UserType } from "../../type";
 
 const BASE_URL = import.meta.env.VITE_BACKEND_URL;
 
-const signup = (userData: UserSignUpType, navigate: NavigateFunction) => {
+const signup = (userData: UserType, navigate: NavigateFunction) => {
   axios
     .post(`${BASE_URL}/signup`, { ...userData })
     .then((response) => {
@@ -19,7 +19,7 @@ const signup = (userData: UserSignUpType, navigate: NavigateFunction) => {
 };
 
 const login = (
-  userLogin: Partial<UserSignUpType>,
+  userLogin: Partial<UserType> | null,
   navigate: NavigateFunction
 ) => {
   axios

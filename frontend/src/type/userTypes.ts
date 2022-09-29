@@ -9,6 +9,9 @@ export interface UserType {
   grade_id: number;
   job_type_id: number;
   role: string;
+  bio: string;
+  manager_last_name: string;
+  job_type_name: string;
 }
 
 export interface UserSignUpType {
@@ -21,4 +24,19 @@ export interface UserSignUpType {
   grade: number | null | undefined;
   jobType: number | null | undefined;
   password: string;
+}
+
+export interface UserSignInType {
+  cpNumber: string;
+  password: string;
+}
+
+export interface UserEditType {
+  id: number;
+  firstName: string;
+  lastName: string;
+  email: string;
+  hashedPassword: string;
+  newPassword: string;
+  oldPassword: string;
 }

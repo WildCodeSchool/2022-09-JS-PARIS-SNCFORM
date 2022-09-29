@@ -7,5 +7,5 @@ export type TokenType = {
   sub: number;
   iat: number;
   exp: number;
-  user: UserType;
+  user: Partial<UserType>;
 };

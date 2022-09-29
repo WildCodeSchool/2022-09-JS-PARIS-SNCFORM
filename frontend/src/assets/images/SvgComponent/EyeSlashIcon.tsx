@@ -1,10 +1,7 @@
 import React from "react";
+import { SVGIconProps } from "@type/index";
 
-type EyeSlashIconProps = {
-  onClick?: () => void;
-};
-
-export const EyeSlashIcon: React.FC<EyeSlashIconProps> = ({ onClick }) => {
+export const EyeSlashIcon: React.FC<SVGIconProps> = ({ onClick }) => {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
