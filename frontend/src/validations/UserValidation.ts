@@ -14,7 +14,10 @@ export const userSchema = yup.object().shape({
   manager: yup.number().integer().required("selectioner votre manager"),
   grade: yup.number().integer().required("selectioner votre grade"),
   jobType: yup.number().integer().required("selectioner votre métier"),
-  password: yup.string().min(6).required("6 charactères minimum"),
+  password: yup
+    .string()
+    .min(6, "6 charactères minimum")
+    .required("le mot de passe  obligatoire"),
   confirmPassword: yup
     .string()
     .oneOf([
@@ -22,5 +25,5 @@ export const userSchema = yup.object().shape({
       null,
       "les mots de passe doivent être similaires",
     ])
-    .required(),
+    .required("les mots de passe doivent être similaires"),
 });
