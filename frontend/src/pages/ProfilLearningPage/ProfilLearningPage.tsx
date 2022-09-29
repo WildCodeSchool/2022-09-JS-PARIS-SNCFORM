@@ -1,7 +1,8 @@
 import React from "react";
-import { LearningCard, useProfilContext } from "@components/index";
+import { IconLink, LearningCard, useProfilContext } from "@components/index";
 import { learningsByStatus } from "@tools/index";
 import "./ProfilLearningPage.scss";
+import { HomeIcon } from "@assets/index";
 
 export const ProfilLearningPage: React.FC = () => {
   const { userLearnings } = useProfilContext();
@@ -12,6 +13,11 @@ export const ProfilLearningPage: React.FC = () => {
 
   return (
     <div className="profile-learning">
+      <IconLink
+        iconComponent={<HomeIcon />}
+        path="/menu"
+        className="icon-top-right"
+      />
       <LearningCard
         cardTitle="Formations en cours"
         items={learningsInProgess}

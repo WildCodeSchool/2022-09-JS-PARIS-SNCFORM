@@ -30,8 +30,8 @@ const fetchUserLearnings = (
 };
 
 const fetchByJobAndGrade = (
-  jobId: number,
-  gradeId: number,
+  jobId: number | undefined,
+  gradeId: number | undefined,
   setState: SetStateType<LearningType[] | null>
 ) => {
   const { headers } = useHearders();

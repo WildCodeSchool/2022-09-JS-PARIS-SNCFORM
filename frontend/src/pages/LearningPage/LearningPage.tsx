@@ -4,15 +4,21 @@ import { categoryFetch, learningFetch } from "@services/index";
 import { CategoryType, LearningType } from "@type/index";
 import { HomeIcon } from "@assets/images/SvgComponent/HomeIcon";
 import "./LearningPage.scss";
+import { tokenApp } from "@tools/index";
 
 export const LearningPage: React.FC = () => {
   const [categories, setCategories] = useState<CategoryType[]>([]);
   const [recommendedLearnings, setRecommendedLearnings] = useState<
     LearningType[] | null
   >(null);
+  const { user } = tokenApp();
   useEffect(() => {
-    categoryFetch.getAllCategory(setCategories);
-    learningFetch.fetchByJobAndGrade(2, 2, setRecommendedLearnings);
+    categoryFetch.getByJob(user?.job_type_id, setCategories);
+    learningFetch.fetchByJobAndGrade(
+      user?.job_type_id,
+      user?.grade_id,
+      setRecommendedLearnings
+    );
   }, []);
 
   return (
