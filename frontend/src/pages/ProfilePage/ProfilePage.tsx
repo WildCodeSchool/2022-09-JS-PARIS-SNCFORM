@@ -1,19 +1,16 @@
-import React, { useEffect, useState } from "react";
-import { ProfileCard } from "@components/ProfileCard/ProfileCard";
-import { LearningCard } from "@components/LearningCard/LearningCard";
+import React from "react";
+import {
+  ProfileCard,
+  LearningCard,
+  IconLink,
+  useProfilContext,
+} from "@components/index";
+import { HomeIcon } from "@assets/images/SvgComponent/HomeIcon";
 import "./ProfilePage.scss";
-import { IconLink } from "@components/index";
-import { HomeIcon } from "@assets/index";
-import { tokenApp } from "@tools/utils";
-import { learningFetch, userFetch } from "@services/index";
-import { LearningType, UserType } from "@type/index";
+import { LearningType } from "@type/index";
 
 export const ProfilePage: React.FC = () => {
-  const { id } = tokenApp();
-  const [user, setUser] = useState<UserType | null>(null);
-  const [userLearnings, setUserLearnings] = useState<
-    Partial<LearningType>[] | null
-  >(null);
+  const { user, userLearnings } = useProfilContext();
 
   const learningsByStatus = (
     learnings: Partial<LearningType>[] | null,
@@ -25,12 +22,6 @@ export const ProfilePage: React.FC = () => {
   const userLearningsCompleted = learningsByStatus(userLearnings, "completed");
   console.warn("userLearningsCompleted:", userLearningsCompleted);
 
-  useEffect(() => {
-    if (id) {
-      userFetch.getUserById(id, setUser);
-      learningFetch.fetchUserLearnings(id, setUserLearnings);
-    }
-  }, []);
   // Array of images
   const itemsCompleted = [
     {

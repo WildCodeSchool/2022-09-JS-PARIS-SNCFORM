@@ -7,7 +7,7 @@ export { RoundCard } from "./RoundCard/RoundCard";
 export { RoundCardList } from "./RoundCardList/RoundCardList";
 export { IconLink } from "./IconLink/IconLink";
 export { RedirectLink } from "./RedirectLink/RedirectLink";
-export { ProfileBar } from "./ProfileBar/ProfileBar";
+export * from "./ProfileBar/ProfileBar";
 export { ProfileCard } from "./ProfileCard/ProfileCard";
 export { LearningCard } from "./LearningCard/LearningCard";
 export { SearchBar } from "./SearchBar/SearchBar";

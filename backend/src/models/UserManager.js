@@ -55,10 +55,10 @@ class UserManager extends AbstractManager {
   }
 
   update(user) {
-    const { email, password, avatar, manager, id } = user;
+    const { first_name, last_name, email, hashedPassword, id } = user;
     return this.connection.query(
-      `update ${this.table} set email = ?, password = ?, avatar = ? , manager_id = ? where id = ?`,
-      [email, password, avatar, manager, id]
+      `update ${this.table} set first_name = ?, last_name = ?, email = ?, hashedPassword = ?  where id = ?`,
+      [first_name, last_name, email, hashedPassword, id]
     );
   }
 

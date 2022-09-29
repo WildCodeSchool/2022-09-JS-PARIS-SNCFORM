@@ -25,3 +25,18 @@ export interface UserSignUpType {
   jobType: number | null | undefined;
   password: string;
 }
+
+export interface UserSignInType {
+  cpNumber: string;
+  password: string;
+}
+
+export interface UserEditType {
+  id: number;
+  firstName: string;
+  lastName: string;
+  email: string;
+  hashedPassword: string;
+  newPassword: string;
+  oldPassword: string;
+}

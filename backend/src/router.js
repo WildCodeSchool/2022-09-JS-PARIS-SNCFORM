@@ -37,9 +37,15 @@ router.post("/api/logout", blackListTokenControllers.blackListToken);
 
 // *Routes User
 router.get("/api/users", userControllers.getAllUser);
-router.get("/api/users/:id", userControllers.getUser);
+router.get("/api/users/:id/profil", userControllers.getUserWhithHashedPassword);
 router.get("/api/users/role/:role", userControllers.getUserByRole);
-router.put("/api/users/:id", userControllers.editUser);
+router.put(
+  "/api/users/:id",
+  authMiddlewares.verifyNewPassword,
+  authMiddlewares.hashPassword,
+  userControllers.editUser
+);
+
 router.delete("/api/users/:id", userControllers.destroyUser);
 
 // *Routes Job Type
