@@ -25,7 +25,6 @@
     "react": "^18.0.0",
     "react-dom": "^18.0.0",
     "react-grid-carousel": "^1.0.1",
-    "react-hook-form": "^7.36.1",
     "react-router-dom": "^6.3.0",
     "sass": "^1.54.9",
     "template-fullstack": "file:..",

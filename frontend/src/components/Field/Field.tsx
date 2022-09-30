@@ -1,3 +1,4 @@
+/* eslint-disable react/no-array-index-key */
 import { EyeSlashIcon } from "@assets/images";
 import React, {
   Dispatch,
@@ -17,6 +18,7 @@ type FieldType = {
   onChange: Dispatch<SetStateAction<Partial<UserType> | null>>;
   autoComplete?: string;
   value?: string;
+  errors?: string[] | null;
 };
 
 export const Field: React.FC<FieldType> = ({
@@ -27,6 +29,7 @@ export const Field: React.FC<FieldType> = ({
   onChange,
   autoComplete,
   value,
+  errors,
 }) => {
   const inputRef = useRef<HTMLInputElement>(null);
   const [isHiden, setIsHiden] = useState<boolean>(true);
@@ -61,6 +64,12 @@ export const Field: React.FC<FieldType> = ({
           autoComplete={autoComplete}
           placeholder={value}
         />
+        <div>
+          {errors?.map((errorString, index) => (
+            <p key={index}>{errorString}</p>
+          ))}
+        </div>
+
         {isPassword ? <EyeSlashIcon onClick={toogleInputShow} /> : null}
       </div>
     </div>

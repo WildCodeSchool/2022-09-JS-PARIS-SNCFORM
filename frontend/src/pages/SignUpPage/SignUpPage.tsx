@@ -4,11 +4,16 @@ import { Field, Select, Button, RedirectLink } from "@components/index";
 import { userFetch, jobFetch, gradeFetch, authFetch } from "@services/index";
 import { UserSignUpType, UserType } from "@type/index";
 import { useNavigate } from "react-router-dom";
+import { ValidationError } from "yup";
 import { userSchema } from "../../validations/UserValidation";
 
 type JobGradeType = {
   id: number;
   name: string;
+};
+
+type ErrorsType = {
+  [key: string]: string[]; // [firstname ou lastname etcc : string] : string[]
 };
 
 export type SetUserSignUpType = Dispatch<SetStateAction<UserSignUpType>>;
@@ -35,6 +40,7 @@ export const SignUpPage: React.FC = () => {
   const [jobs, setJobs] = useState<JobGradeType[]>([]);
   const [grades, setGrades] = useState<JobGradeType[]>([]);
   const [managers, setManagers] = useState<UserType[] | null>(null);
+  const [errors, setErrors] = useState<ErrorsType>();
 
   const onChangeRadio = (e: React.ChangeEvent<HTMLInputElement>) => {
     setUserSignUp((prev) => {
@@ -65,19 +71,27 @@ export const SignUpPage: React.FC = () => {
 
   const navigate = useNavigate();
 
-  const handleSubmit = async (e: React.FormEvent) => {
+  const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
 
-    // check validity
+    // check field validity
     userSchema
-      .validate(userSignUp)
+      .validate(userSignUp, { abortEarly: false })
       .then(() => {
         authFetch.signup(userSignUp, navigate);
       })
-      .catch((err) => {
-        return alert(`${err}`);
+      .catch((err: ValidationError) => {
+        const yupErrors: ErrorsType = {};
+        err.inner.forEach((element) => {
+          // L'element est la propriete name : "ValidationError"
+          if (element.path !== undefined) {
+            yupErrors[element.path] = element.errors; // voir doc module YUP
+          }
+        });
+        setErrors(yupErrors);
       });
   };
+
   const inputData = [
     {
       label: "Nom",
@@ -163,9 +177,24 @@ export const SignUpPage: React.FC = () => {
           options={managerOptions}
           isRequire
         />
+        {/* firstname */}
+        {/* error:{
+          firstname: ["error", "error2"]
+        lastname: ["error3", "error4"]
+        ect...
+        } */}
         <div className="signup__field">
           {inputData.map((data) => (
-            <Field key={data.inputId} {...data} onChange={setUserSignUp} />
+            <Field
+              key={data.inputId}
+              errors={
+                errors && errors[data.inputId] // ou errors.firstname ( lastname etcc..) [data.inputId] represente la valeur du champ
+                  ? errors[data.inputId]
+                  : undefined
+              }
+              {...data}
+              onChange={setUserSignUp}
+            />
           ))}
         </div>
         <Button textButton="Envoie" isSubmit />
