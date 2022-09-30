@@ -26,11 +26,11 @@
     &--edit-profile {
       border-right: 1px solid $carbone;
     }
-  }
-  a {
-    color: $carbone;
-    color: white;
-    margin: auto;
+    a {
+      color: $carbone;
+      color: white;
+      margin: auto;
+    }
   }
 }
 @media screen and (min-width: 768px) {
