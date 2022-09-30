@@ -10,23 +10,27 @@
   gap: 2rem;
   &__items-list {
     display: flex;
-    background-color: $framboise;
+    background: linear-gradient(90deg, #6e1e78, #cd0037 50%);
     color: $carbone;
-    justify-content: space-around;
+    justify-content: space-between;
     align-items: center;
-    height: 5%;
   }
   .items-list {
-    &__profile,
-    &__edit-profile {
-      border-right: 0.2rem solid $carbone;
-      padding-right: 3%;
-      font-weight: bold;
+    height: 100%;
+    width: 30%;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    padding: 0.5rem 0;
+    &--profile,
+    &--edit-profile {
+      border-right: 1px solid $carbone;
     }
-  }
-  a {
-    text-decoration: none;
-    color: $carbone;
+    a {
+      color: $carbone;
+      color: white;
+      margin: auto;
+    }
   }
 }
 @media screen and (min-width: 768px) {

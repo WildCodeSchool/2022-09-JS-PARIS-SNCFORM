@@ -7,3 +7,4 @@ export * from "./EditProfilePage/EditProfilePage";
 export * from "./MenuPage/MenuPage";
 export * from "./LearningCatalogPage/LearningCatalogPage";
 export * from "./ProfilePage/ProfilePage";
+export * from "./ProfilLearningPage/ProfilLearningPage";

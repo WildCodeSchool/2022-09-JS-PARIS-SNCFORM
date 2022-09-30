@@ -10,6 +10,7 @@ import {
   LearningPage,
   LearningCatalogPage,
   ProfilePage,
+  ProfilLearningPage,
 } from "@pages/index";
 import { ContextProvider } from "@context/index";
 import { useToken } from "@hooks/useToken";
@@ -42,6 +43,7 @@ function App() {
             <Route element={<ProfileBar />}>
               <Route path="profile" element={<ProfilePage />} />
               <Route path="editprofile" element={<EditProfilePage />} />
+              <Route path="learning-profile" element={<ProfilLearningPage />} />
             </Route>
             <Route path="/" element={<HomePage isAuth={isLogin} />} />
           </Route>

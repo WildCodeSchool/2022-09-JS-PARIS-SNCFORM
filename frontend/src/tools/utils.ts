@@ -17,7 +17,7 @@ export const tokenApp = () => {
   };
 };
 
-export const useHearders = () => {
+export const useHeaders = () => {
   const { token, id } = tokenApp();
 
   const headers = {
