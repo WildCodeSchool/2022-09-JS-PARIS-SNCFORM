@@ -1,11 +1,11 @@
 import axios from "axios";
 import { CategoryType, SetStateType } from "@type/index";
-import { useHearders } from "@tools/index";
+import { useHeaders } from "@tools/index";
 
 const BASE_URL = import.meta.env.VITE_BACKEND_URL;
 
 const getAllCategory = (setState: SetStateType<CategoryType[]>) => {
-  const { headers } = useHearders();
+  const { headers } = useHeaders();
 
   axios
     .get(`${BASE_URL}/categories`, { headers })
@@ -17,7 +17,7 @@ const getByJob = (
   jobId: number | undefined,
   setState: SetStateType<CategoryType[]>
 ) => {
-  const { headers } = useHearders();
+  const { headers } = useHeaders();
 
   axios
     .get(`${BASE_URL}/categories/job/${jobId}`, { headers })
