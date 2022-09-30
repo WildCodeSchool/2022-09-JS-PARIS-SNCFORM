@@ -18,7 +18,10 @@ export const IconLink: React.FC<IconLinkProps> = ({
   className,
 }) => {
   return (
-    <div className={`${className} iconlink`} style={{ ...styles }}>
+    <div
+      className={className ? `${className} iconlink` : "iconlink"}
+      style={{ ...styles }}
+    >
       <NavLink to={path}>
         {iconComponent}
         {title && <h3>{title}</h3>}
