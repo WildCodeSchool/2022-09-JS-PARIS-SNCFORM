@@ -25,15 +25,26 @@ class LearningManager extends AbstractManager {
 
   findUserLearnings(userId) {
     return this.connection.query(
-      `select status, ${this.table}.title, ${this.table}.id
+      `
+      select status, ${this.table}.title, ${this.table}.id
       from user
-      inner join user_learning 
-      on user.id = user_learning.user_id
-      inner join ${this.table}
-      on user_learning.learning_id = ${this.table}.id
+      inner join user_learning  on user.id = user_learning.user_id
+      inner join ${this.table} on user_learning.learning_id = ${this.table}.id
       where user.id = ?
       `,
       [userId]
+    );
+  }
+
+  findByJobAndGrade(jobId, gradeId) {
+    return this.connection.query(
+      `
+      select * from ${this.table}
+      inner join job_type_learning on job_type_learning.learning_id = ${this.table}.id
+      inner join learning_grade on learning_grade.learning_id = ${this.table}.id
+      where job_type_learning.job_type_id = ? and learning_grade.grade_id = ?
+      `,
+      [jobId, gradeId]
     );
   }
 }

@@ -35,8 +35,21 @@ const getUserLearnings = (req, res) => {
     });
 };
 
+const getByJobAndGrade = (req, res) => {
+  const { jobId, gradeId } = req.params;
+
+  models.learning
+    .findByJobAndGrade(jobId, gradeId)
+    .then(([result]) => res.status(200).json(result))
+    .catch((error) => {
+      console.error(error);
+      res.status(500).send("Error in learning getByJobAndGrade request");
+    });
+};
+
 module.exports = {
   getLearningsById,
   getByCatAndUserGrade,
   getUserLearnings,
+  getByJobAndGrade,
 };

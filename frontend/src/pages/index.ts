@@ -8,3 +8,4 @@ export * from "./MenuPage/MenuPage";
 export * from "./LearningCatalogPage/LearningCatalogPage";
 export * from "./ProfilePage/ProfilePage";
 export * from "./LearningDetailPage/LearningDetailPage";
+export * from "./ProfilLearningPage/ProfilLearningPage";

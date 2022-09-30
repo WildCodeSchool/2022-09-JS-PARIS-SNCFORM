@@ -17,19 +17,19 @@ export const MenuPage: React.FC = () => {
     authFetch.logout(navigate);
   };
 
-  const iconStyles = {
-    width: "5em",
-    height: "5em",
-  };
-
   return (
     <div className="menu-page">
+      <IconLink
+        className="icon-top-right"
+        iconComponent={<DeconnexionIcon onClick={handleSubmit} />}
+        path="#"
+      />
       <div className="menu-page__formation">
         <IconLink
           title="Formations"
           iconComponent={<HatIcon />}
           path="/formations"
-          styles={iconStyles}
+          className="menu-page__iconlink"
         />
       </div>
       <div className="menu-page__profil">
@@ -37,7 +37,7 @@ export const MenuPage: React.FC = () => {
           title="Profil"
           iconComponent={<ProfilIcon />}
           path="/profile"
-          styles={iconStyles}
+          className="menu-page__iconlink"
         />
       </div>
       <div className="menu-page__notification">
@@ -45,14 +45,9 @@ export const MenuPage: React.FC = () => {
           title="Notifications"
           iconComponent={<NotificationIcon />}
           path="########"
-          styles={iconStyles}
+          className="menu-page__iconlink"
         />
       </div>
-      <IconLink
-        className="icon-top-right"
-        iconComponent={<DeconnexionIcon onClick={handleSubmit} />}
-        path="#"
-      />
     </div>
   );
 };
