@@ -61,7 +61,7 @@ router.get("/api/categories", categoryControllers.getAllCategory);
 // *Routes Learning
 router.get("/api/learnings/:id", learningControllers.getLearningsById);
 router.get(
-  "/api/learnings/:categoryId/:gradeId",
+  "/api/learnings/:categoryId/:gradeId/user/:userId",
   learningControllers.getByCatAndUserGrade
 );
 

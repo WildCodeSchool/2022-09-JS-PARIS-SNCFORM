@@ -28,7 +28,10 @@ const fetchByCatAndUserGrade = (
   const { headers } = useHearders();
 
   axios
-    .get(`${BASE_URL}/learnings/${categoryId}/${user?.grade_id}`, { headers })
+    .get(
+      `${BASE_URL}/learnings/${categoryId}/${user?.grade_id}/user/${user?.id}`,
+      { headers }
+    )
     .then(({ data }) => setState(data))
     .catch((err) => console.error(err));
 };

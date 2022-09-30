@@ -12,10 +12,10 @@ const getLearningsById = (req, res) => {
 };
 
 const getByCatAndUserGrade = (req, res) => {
-  const { categoryId, gradeId } = req.params;
+  const { categoryId, gradeId, userId } = req.params;
 
   models.learning
-    .findByCatAndUserGrade(categoryId, gradeId)
+    .findByCatAndUserGrade(categoryId, gradeId, userId)
     .then(([result]) => res.status(200).json(result))
     .catch((err) => {
       console.error(err);

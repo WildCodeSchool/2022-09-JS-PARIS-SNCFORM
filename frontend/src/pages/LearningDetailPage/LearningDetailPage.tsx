@@ -19,14 +19,20 @@ export const LearningDetailPage: React.FC = () => {
     userLearningFetch.addUserLearning(id, learningId);
   };
   return learning ? (
-    <div>
-      <h2>{learning.title}</h2>
-      <p>{`${learning.start_registration} au ${learning.end_registration}`}</p>
-      <div>
-        <h4>Description de la formation</h4>
-        {learning.description}
+    <div className="learning-detail-page">
+      <div className="learning-detail-page__body">
+        <div className="learning-detail-page__header">
+          <h2>{learning.title}</h2>
+          <p>{`${learning.start_registration} au ${learning.end_registration}`}</p>
+        </div>
+        <div className="learning-detail-page__description">
+          <h4>Description de la formation</h4>
+          {learning.description}
+        </div>
+        <div className="learning-detail-page__instructor">
+          <h4>Instructeur : {learning.instructor}</h4>
+        </div>
       </div>
-      <h4>{learning.instructor}</h4>
       <Button textButton="S'inscrire" onClick={handleClick} />
     </div>
   ) : (

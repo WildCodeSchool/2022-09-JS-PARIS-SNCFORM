@@ -11,18 +11,15 @@ class LearningManager extends AbstractManager {
     ]);
   }
 
-  findByCatAndUserGrade(categoryId, userGrade) {
+  findByCatAndUserGrade(categoryId, userGrade, userId) {
     return this.connection.query(
-      `select ${this.table}.* from  ${this.table} 
-      inner join learning_category 
-      on ${this.table}.id = learning_category.learning_id
-    
-      inner join learning_grade
-      on ${this.table}.id = learning_grade.learning_id
-      where learning_category.category_id = ? and learning_grade.grade_id = ? 
-     ;
+      `
+      select ${this.table}.* from  ${this.table} 
+      inner join learning_category on ${this.table}.id = learning_category.learning_id
+      inner join learning_grade on ${this.table}.id = learning_grade.learning_id
+      where ${this.table}.id not in (select learning_id from user_learning where user_id = ? )  and learning_category.category_id = ? and learning_grade.grade_id = ? 
       `,
-      [categoryId, userGrade]
+      [userId, categoryId, userGrade]
     );
   }
 
