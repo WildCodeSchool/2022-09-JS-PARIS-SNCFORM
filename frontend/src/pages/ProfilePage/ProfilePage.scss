@@ -1,0 +1,13 @@
+.profile-page {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  height: 95%;
+}
+
+@media screen and (orientation: landscape) and (min-width: 813px) and (max-width: 1200px) {
+  .profile-page {
+    flex-direction: row;
+  }
+}

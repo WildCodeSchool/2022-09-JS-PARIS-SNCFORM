@@ -1,0 +1,36 @@
+@import "../../theme-sncf.scss";
+
+.home-page {
+  height: 100%;
+  width: 100%;
+  padding-top: 2rem;
+
+  &__content {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    background-color: $cool-gray--01;
+  }
+
+  a {
+    position: absolute;
+    align-self: flex-end;
+    top: 2.5rem;
+    text-decoration: none;
+    color: $carbone;
+    font-weight: bold;
+  }
+}
+
+@media (min-width: 1440px) {
+  .home-page {
+    width: 80%;
+    margin: auto;
+    a {
+      right: 5rem;
+      transform: translate(-50%);
+    }
+  }
+}
