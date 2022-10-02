@@ -15,7 +15,7 @@ export const LearningCatalogPage = () => {
     if (catId) {
       learningFetch.fetchByCatAndUserGrade(catId, setLearningList);
     }
-  });
+  }, []);
 
   const handleClickIcon = () => {
     navigate(-1);
