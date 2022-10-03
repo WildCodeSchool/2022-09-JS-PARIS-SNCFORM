@@ -17,11 +17,11 @@ export const tokenApp = () => {
   };
 };
 
-export const useHearders = () => {
+export const useHeaders = () => {
   const { token, id } = tokenApp();
 
   const headers = {
-    "Content-Type": "application/json",
+    "Content-Type": "multipart/form-data",
     Authorization: `Bearer ${token}`,
   };
 

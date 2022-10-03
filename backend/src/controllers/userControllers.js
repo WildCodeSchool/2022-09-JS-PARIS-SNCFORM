@@ -94,8 +94,12 @@ const login = (req, res, next) => {
 };
 
 const editUser = (req, res) => {
+  // console.log("&&&&&&file", req.file);
+  // console.log("######body", req.body);
   const user = req.body;
   user.id = req.params.id;
+  user.avatar = req.file.path;
+
   user.hashedPassword = req.body.hashedPassword;
 
   models.user
@@ -105,7 +109,12 @@ const editUser = (req, res) => {
         res.sendStatus(404);
       } else {
         const { id, first_name, last_name, email } = user;
-        const userToken = { id, first_name, last_name, email };
+        const userToken = {
+          id,
+          first_name,
+          last_name,
+          email,
+        };
         const token = createToken(user.id, userToken);
         res.status(200).json({ message: "User updated", token });
       }

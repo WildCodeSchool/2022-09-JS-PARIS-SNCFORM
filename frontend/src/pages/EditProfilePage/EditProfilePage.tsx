@@ -13,7 +13,8 @@ export const EditProfilePage: React.FC = () => {
     setEditUser(user);
   }, [user]);
 
-  const handleSubmit = () => {
+  const handleSubmit = (e) => {
+    e.preventDefault();
     userFetch.editUser(editUser);
   };
 
@@ -33,6 +34,18 @@ export const EditProfilePage: React.FC = () => {
       inputId: "email",
       inputType: "email",
       value: editUser?.email,
+    },
+    {
+      label: "Photo Profil",
+      inputId: "avatar",
+      inputType: "file",
+      value: editUser?.avatar,
+    },
+    {
+      label: "Photo de couverture",
+      inputId: "background_profil",
+      inputType: "file",
+      value: editUser?.background_profil,
     },
     {
       label: "Nouveau mot de passe",
@@ -57,7 +70,11 @@ export const EditProfilePage: React.FC = () => {
   return (
     <div className="edit-profile">
       <IconLink iconComponent={<HomeIcon />} path="/menu" />
-      <form className="edit-profile__form" onSubmit={handleSubmit}>
+      <form
+        className="edit-profile__form"
+        onSubmit={handleSubmit}
+        encType="multipart/form-data"
+      >
         <div className="edit-profile__fields">
           {inputData.map((data) => (
             <Field key={data.inputId} {...data} onChange={setEditUser} />

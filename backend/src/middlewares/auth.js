@@ -72,6 +72,7 @@ const verifyToken = (req, res, next) => {
 };
 
 const verifyNewPassword = (req, res, next) => {
+  // console.log(req);
   const { newPassword, oldPassword, hashedPassword } = req.body;
   if (!newPassword) {
     return next();
@@ -93,4 +94,5 @@ module.exports = {
   verifyToken,
   verifyPassword,
   verifyNewPassword,
+  // uploadImage,
 };

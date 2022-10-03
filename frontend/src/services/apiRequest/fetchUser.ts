@@ -1,6 +1,6 @@
 import axios from "axios";
 import { SetStateType, UserType, UserEditType } from "@type/index";
-import { useHearders } from "@tools/utils";
+import { useHeaders } from "@tools/utils";
 
 const BASE_URL = import.meta.env.VITE_BACKEND_URL;
 
@@ -18,7 +18,7 @@ const getUserProfilById = (
   userId: number,
   setState: SetStateType<UserType | null>
 ) => {
-  const { headers } = useHearders();
+  const { headers } = useHeaders();
 
   return axios
     .get(`${BASE_URL}/users/${userId}/profil`, { headers })
@@ -29,9 +29,12 @@ const getUserProfilById = (
 };
 
 const editUser = (user: Partial<UserType> | null) => {
-  const { headers } = useHearders();
+  const { headers } = useHeaders();
+  const formData = new FormData();
+  // formData.append("user", user);
+  formData.append("avatar", user?.avatar);
   return axios
-    .put(`${BASE_URL}/users/${user?.id}`, { ...user }, { headers })
+    .put(`${BASE_URL}/users/${user?.id}`, formData, { headers })
     .then(({ data }) => {
       const { token } = data;
       sessionStorage.setItem("token", token);
