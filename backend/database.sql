@@ -411,13 +411,43 @@ INSERT INTO
   )
 VALUES
   (
-    "nec tempus scelerisque, lorem",
-    "lacinia mattis. Integer eu lacus. Quisque imperdiet, erat nonummy ultricies ornare, elit elit fermentum risus, at fringilla purus mauris a nunc. In at pede. Cras vulputate velit eu sem. Pellentesque ut ipsum ac mi eleifend egestas. Sed pharetra, felis eget varius ultrices, mauris ipsum porta elit, a feugiat tellus lorem eu metus. In lorem. Donec elementum, lorem ut aliquam iaculis, lacus pede sagittis augue, eu tempor erat neque non quam. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Aliquam fringilla cursus purus. Nullam scelerisque neque sed sem egestas blandit. Nam nulla magna, malesuada vel, convallis in, cursus et, eros. Proin ultrices. Duis volutpat nunc sit amet metus. Aliquam erat volutpat. Nulla facilisis. Suspendisse commodo tincidunt nibh. Phasellus nulla. Integer vulputate, risus a ultricies adipiscing, enim mi tempor lorem, eget mollis lectus pede et risus. Quisque libero lacus, varius et, euismod et, commodo at, libero. Morbi accumsan laoreet ipsum. Curabitur consequat, lectus sit amet luctus vulputate, nisi sem semper erat, in consectetuer ipsum nunc id enim. Curabitur massa. Vestibulum accumsan neque et nunc. Quisque ornare tortor at risus. Nunc ac sem ut dolor dapibus gravida. Aliquam tincidunt,",
-    "presentiel",
-    45,
-    "Leslie Dawson",
+    "Numérique et bien-être au travail",
+    "Avez-vous réfléchi aux impacts du numérique sur votre travail ? 
+
+Pour vous, c'est plutôt positif, négatif ou les deux ? 
+
+ La digitalisation apporte de nombreux avantages : 
+
+- elle permet de fluidifier les process ; 
+- d'organiser plus efficacement ses projets et ses journées ;
+- de mieux communiquer avec son équipe malgré la distance
+Mais aussi d’accroître largement les possibilités offertes aux collaborateurs de communiquer, de développer leurs compétences et d’évoluer! Bien accompagné, le numérique peut donc être un vrai vecteur de bien être au travail 😉 
+
+Mais attention à ne pas se laisser dépasser par la multiplicité de ces usages ! 
+
+Comment la transformation digitale impacte-t-elle le bien-être au travail ? 
+De mon côté, quelles bonnes pratiques puis-je mettre en place pour préserver ma charge mentale digitale ?
+
+Nous avons conçu ce parcours de formation pour répondre à la prise de conscience collective de ces problématiques. L'objectif est de vous aider à vous adapter à des modes de travail qui intègrent de plus en plus le numérique tout en préservant votre charge mentale digitale. C'est parti !
+
+Ce parcours de formation contient :
+
+ - Une introduction interactive
+ - 4 vidéos courtes avec des quiz, des jeux, des bonnes pratiques téléchargeables
+ A la fin de ce parcours, vous serez en mesure de :  
+
+- Définir le concept de charge mentale digitale ;
+- Réaliser un auto positionnement par rapport à son usage du numérique ;
+- Evaluer son bien être numérique au travail ;
+- Comprendre le rôle des outils numériques et leurs impacts sur la charge mentale digitale ;
+- Mettre en place des bonnes pratiques numériques pour préserver sa charge mentale digitale ;
+- Comprendre l'importance du droit à la déconnexion.",
+ 
+    "Distanciel",
+    20,
+    "Pas d'instructeur",
     31,
-    "2023-03-19",
+    "2022-09-25",
     "2024-04-10"
   ),
   (
