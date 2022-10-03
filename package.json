@@ -7,7 +7,7 @@
     "node": "16.x"
   },
   "scripts": {
-    "start": "npm --prefix ./backend run start",
+    "start": "npm --prefix ./backend i npm --prefix ./backend run start",
     "setup": " npm config set legacy-peer-deps true && npm i && husky install && npm --prefix ./frontend i && npm --prefix ./backend i",
     "migrate": "cd backend/ && node migrate.js && cd ..",
     "dev": "concurrently -n front,back -c green,yellow -t \"HH:mm:ss\" -p \"{name} {time}\" \"npm --prefix ./frontend run dev\" \"npm --prefix ./backend run dev\"",
