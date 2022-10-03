@@ -10,6 +10,7 @@ import {
   LearningPage,
   LearningCatalogPage,
   ProfilePage,
+  LearningDetailPage,
   ProfilLearningPage,
 } from "@pages/index";
 import { ContextProvider } from "@context/index";
@@ -37,8 +38,15 @@ function App() {
             <Route element={<PrivateRoute isAuth={isLogin} isConnected />}>
               <Route path="formations" element={<LearningPage />} />
               <Route path="menu" element={<MenuPage />} />
+              <Route element={<ProfileBar />}>
+                <Route path="profile" element={<ProfilePage />} />
+                <Route path="editprofile" element={<EditProfilePage />} />
+              </Route>
+              <Route
+                path="detail-formations/:learningId"
+                element={<LearningDetailPage />}
+              />
             </Route>
-
             {/* Routes accessible to all users */}
             <Route element={<ProfileBar />}>
               <Route path="profile" element={<ProfilePage />} />

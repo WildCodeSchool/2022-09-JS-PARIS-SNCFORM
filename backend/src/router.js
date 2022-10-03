@@ -1,5 +1,6 @@
 const express = require("express");
 const authMiddlewares = require("./middlewares/auth");
+const { validateUser } = require("./middlewares/validator");
 
 const router = express.Router();
 
@@ -8,8 +9,8 @@ const jobTypeControllers = require("./controllers/jobTypeControllers");
 const gradeControllers = require("./controllers/gradeControllers");
 const categoryControllers = require("./controllers/categoryControllers");
 const learningControllers = require("./controllers/learningControllers");
-const { validateUser } = require("./middlewares/validator");
 const blackListTokenControllers = require("./controllers/blackListTokenControllers");
+const userLearningControllers = require("./controllers/userLearningControllers");
 
 router.post(
   "/api/signup",
@@ -57,8 +58,9 @@ router.get("/api/categories", categoryControllers.getAllCategory);
 router.get("/api/categories/job/:jobId", categoryControllers.getByJob);
 
 // *Routes Learning
+router.get("/api/learnings/:id", learningControllers.getLearningsById);
 router.get(
-  "/api/learnings/:categoryId/:gradeId",
+  "/api/learnings/:categoryId/:gradeId/user/:userId",
   learningControllers.getByCatAndUserGrade
 );
 
@@ -68,5 +70,11 @@ router.get(
 );
 
 router.get("/api/user-learnings/:userId", learningControllers.getUserLearnings);
+
+// *Routes UserLearning
+router.get(
+  "/api/user-learnings/:userId/:learningId",
+  userLearningControllers.addUserLearning
+);
 
 module.exports = router;
