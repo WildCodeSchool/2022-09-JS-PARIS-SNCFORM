@@ -30,10 +30,10 @@ export const SignUpPage: React.FC = () => {
     genre: "",
     cpNumber: "",
     email: "",
-    jobType: 0,
+    jobType: "",
     password: "",
-    grade: 0,
-    manager: 0,
+    grade: "",
+    manager: "",
   };
 
   const [userSignUp, setUserSignUp] = useState<UserSignUpType>(initialSignUp);
@@ -59,7 +59,7 @@ export const SignUpPage: React.FC = () => {
     ? [{ id: 0, name: "Manager" }, ...managerData]
     : [{ id: 0, name: "Manager" }];
 
-  const selectOptions = [{ id: 0, name: "Corp de Métier" }, ...jobs];
+  const selectOptions = [{ id: 0, name: "Corps de Métier" }, ...jobs];
 
   const gradeOptions = [{ id: 0, name: "Qualif" }, ...grades];
 
@@ -128,7 +128,23 @@ export const SignUpPage: React.FC = () => {
       autoComplete: "on",
     },
   ];
-
+  const selectOptionData = [
+    {
+      label: "Métier",
+      selectId: "jobType",
+      options: selectOptions,
+    },
+    {
+      label: "Grade",
+      selectId: "grade",
+      options: gradeOptions,
+    },
+    {
+      label: "Manager",
+      selectId: "manager",
+      options: managerOptions,
+    },
+  ];
   return (
     <div className="signup">
       <h2>Inscription</h2>
@@ -156,43 +172,35 @@ export const SignUpPage: React.FC = () => {
             Mme
           </label>
         </div>
-        <Select
-          onChange={setUserSignUp}
-          label="Métier"
-          selectId="jobType"
-          options={selectOptions}
-          isRequire
-        />
-        <Select
-          onChange={setUserSignUp}
-          label="Grade"
-          selectId="grade"
-          options={gradeOptions}
-          isRequire
-        />
-        <Select
-          onChange={setUserSignUp}
-          label="Manager"
-          selectId="manager"
-          options={managerOptions}
-          isRequire
-        />
-        {/* firstname */}
-        {/* error:{
-          firstname: ["error", "error2"]
-        lastname: ["error3", "error4"]
-        ect...
-        } */}
-        <div className="signup__field">
-          {inputData.map((data) => (
-            <Field
-              key={data.inputId}
+
+        {selectOptionData.map((optionData) => {
+          const { label, selectId, options } = optionData;
+          return (
+            <Select
+              onChange={setUserSignUp}
+              label={label}
+              selectId={selectId}
+              options={options}
+              isRequire
               errors={
-                errors && errors[data.inputId] // ou errors.firstname ( lastname etcc..) [data.inputId] represente la valeur du champ
-                  ? errors[data.inputId]
+                errors && errors[selectId] // [data.inputId] is the field's value (firstname,lastname...)
+                  ? errors[selectId]
                   : undefined
               }
-              {...data}
+            />
+          );
+        })}
+
+        <div className="signup__field">
+          {inputData.map((fieldData) => (
+            <Field
+              key={fieldData.inputId}
+              errors={
+                errors && errors[fieldData.inputId] // or errors.firstname [data.inputId] is the field's value
+                  ? errors[fieldData.inputId]
+                  : undefined
+              }
+              {...fieldData}
               onChange={setUserSignUp}
             />
           ))}

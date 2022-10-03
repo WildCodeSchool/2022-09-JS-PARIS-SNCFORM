@@ -64,9 +64,11 @@ export const Field: React.FC<FieldType> = ({
           autoComplete={autoComplete}
           placeholder={value}
         />
-        <div>
-          {errors?.map((errorString, index) => (
-            <p key={index}>{errorString}</p>
+        <div className="field__errors">
+          {errors?.map((errorString) => (
+            <p className="" key={null}>
+              {errorString}
+            </p>
           ))}
         </div>
 
