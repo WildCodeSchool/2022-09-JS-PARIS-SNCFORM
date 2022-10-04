@@ -28,7 +28,6 @@ export const LearningPage: React.FC = () => {
         path="/menu"
         className="icon-top-right"
       />
-
       <RoundCardList list={categories} label="Catégories" />
       <LearningCard
         cardTitle="Recommandées pour vous"
