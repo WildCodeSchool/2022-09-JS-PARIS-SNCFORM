@@ -13,7 +13,7 @@ type JobGradeType = {
 };
 
 type ErrorsType = {
-  [key: string]: string[]; // [firstname ou lastname etcc : string] : string[]
+  [key: string]: string[]; // [firstname or lastname etcc : string] : string[]
 };
 
 export type SetUserSignUpType = Dispatch<SetStateAction<UserSignUpType>>;
@@ -83,9 +83,8 @@ export const SignUpPage: React.FC = () => {
       .catch((err: ValidationError) => {
         const yupErrors: ErrorsType = {};
         err.inner.forEach((element) => {
-          // L'element est la propriete name : "ValidationError"
           if (element.path !== undefined) {
-            yupErrors[element.path] = element.errors; // voir doc module YUP
+            yupErrors[element.path] = element.errors;
           }
         });
         setErrors(yupErrors);
@@ -96,34 +95,28 @@ export const SignUpPage: React.FC = () => {
     {
       label: "Nom",
       inputId: "lastName",
-      // isRequire: true,
     },
     {
       label: "Prénom",
       inputId: "firstName",
-      // isRequire: true,
     },
     {
       label: "CP",
       inputId: "cpNumber",
-      // isRequire: true,
     },
     {
       label: "Email",
       inputId: "email",
-      // isRequire: true,
     },
     {
       label: "Mot de passe",
       inputId: "password",
-      // isRequire: true,
       inputType: "password",
       autoComplete: "on",
     },
     {
       label: "Confirmation",
       inputId: "confirmPassword",
-      // isRequire: true,
       inputType: "password",
       autoComplete: "on",
     },

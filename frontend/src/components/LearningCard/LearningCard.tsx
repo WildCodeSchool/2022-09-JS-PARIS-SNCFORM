@@ -1,37 +1,42 @@
+import { LearningType } from "@type/index";
 import React from "react";
 import Carousel from "react-grid-carousel";
 import "./LearningCard.scss";
 
-type CarouselItems = {
-  image: string;
-  alt: string;
-};
 type LearningCardType = {
-  title: string;
-  items: CarouselItems[];
+  cardTitle: string;
+  items: Partial<LearningType>[] | LearningType[] | undefined | null;
   autoplay?: number;
 };
 
 export const LearningCard: React.FC<LearningCardType> = ({
-  title,
+  cardTitle,
   items,
   autoplay = 5000,
 }) => {
   return (
     <div className="learning-card">
-      <h2>{title}</h2>
+      <h2>{cardTitle}</h2>
       <div>
-        <Carousel cols={1} rows={1} gap={35} loop autoplay={autoplay}>
-          {/* loop on array itemsCompleted in ProfilePage */}
-          {items.map((item) => {
-            const { image, alt } = item;
-            return (
-              <Carousel.Item key={alt}>
-                <img src={image} alt={alt} />
-              </Carousel.Item>
-            );
-          })}
-        </Carousel>
+        {items?.length ? (
+          <Carousel cols={1} rows={1} gap={35} loop autoplay={autoplay}>
+            {/* loop on array itemsCompleted in ProfilePage */}
+            {items.map((item) => {
+              const { id, title } = item;
+              return (
+                <Carousel.Item key={id}>
+                  <img
+                    src="src/assets/images/learning-card__img-cybersecurity.jpg"
+                    alt="Carte couverture"
+                  />
+                  <h2>{title}</h2>
+                </Carousel.Item>
+              );
+            })}
+          </Carousel>
+        ) : (
+          <h2>Pas de formations</h2>
+        )}
       </div>
     </div>
   );

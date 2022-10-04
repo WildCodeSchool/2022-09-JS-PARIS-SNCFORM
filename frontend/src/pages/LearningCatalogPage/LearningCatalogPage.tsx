@@ -15,7 +15,7 @@ export const LearningCatalogPage = () => {
     if (catId) {
       learningFetch.fetchByCatAndUserGrade(catId, setLearningList);
     }
-  });
+  }, []);
 
   const handleClickIcon = () => {
     navigate(-1);
@@ -38,7 +38,7 @@ export const LearningCatalogPage = () => {
       {learningListSearched?.length ? (
         <LearningDisplayList learningList={learningListSearched} />
       ) : (
-        <h3>Pas encore de formations pour cette catégories</h3>
+        <h3>Pas de formations pour cette catégories</h3>
       )}
     </div>
   );

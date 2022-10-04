@@ -56,7 +56,11 @@ export const EditProfilePage: React.FC = () => {
 
   return (
     <div className="edit-profile">
-      <IconLink iconComponent={<HomeIcon />} path="/menu" />
+      <IconLink
+        iconComponent={<HomeIcon />}
+        path="/menu"
+        className="icon-top-right"
+      />
       <form className="edit-profile__form" onSubmit={handleSubmit}>
         <div className="edit-profile__fields">
           {inputData.map((data) => (

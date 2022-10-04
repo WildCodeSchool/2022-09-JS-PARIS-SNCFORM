@@ -1,7 +1,7 @@
 import * as yup from "yup";
 
 const mailFormat = /^[\w-.]+@([\w-]+\.)+[\w-]{2,4}$/g;
-// exemple de mail autorisé : a-z.A-Z_123@aZ123.1234
+// valid email example : a-z.A-Z_123@aZ123.1234
 
 export const userSchema = yup.object().shape({
   firstName: yup.string().min(3, "Prénom doit contenir 3 charactères minimum"), // mettre les maximum sur tout les champs
