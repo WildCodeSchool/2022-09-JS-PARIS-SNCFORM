@@ -152,12 +152,12 @@ INSERT INTO
 VALUES
   ("Conduite et manoeuvre"),
   ("Commercial"),
-  ("Surete"),
+  ("Sûreté"),
   ("Maintenance"),
-  ("Medical et social"),
+  ("Médical et social"),
   ("Fonctions transverses"),
-  ("Gestion fonciere et immobiliere"),
-  ("Systeme d'information et digital"),
+  ("Gestion foncière et immobilière"),
+  ("Système d'information et digital"),
   ("Production ferroviaire"),
   ("Marketing");
 
@@ -388,15 +388,11 @@ INSERT INTO
   category (title)
 VALUES
   ("Informatique"),
-  ("Securite"),
   ("Ethique"),
-  ("Commercial"),
-  ("Traction"),
+  ("Circulation"),
   ("Ressources Humaines"),
   ("Maintenance"),
-  ("Comptabilite"),
-  ("Logistique"),
-  ("Immobilier");
+  ("Management");
 
 INSERT INTO
   learning (
@@ -411,7 +407,7 @@ INSERT INTO
   )
 VALUES
   (
-    "Numérique et bien-être au travail",
+    "Numérique et bien-être au travail", -- INFORMATIQUE
     "Avez-vous réfléchi aux impacts du numérique sur votre travail ? 
 
 Pour vous, c'est plutôt positif, négatif ou les deux ? 
@@ -421,7 +417,7 @@ Pour vous, c'est plutôt positif, négatif ou les deux ?
 - elle permet de fluidifier les process ; 
 - d'organiser plus efficacement ses projets et ses journées ;
 - de mieux communiquer avec son équipe malgré la distance
-Mais aussi d’accroître largement les possibilités offertes aux collaborateurs de communiquer, de développer leurs compétences et d’évoluer! Bien accompagné, le numérique peut donc être un vrai vecteur de bien être au travail 😉 
+Mais aussi d’accroître largement les possibilités offertes aux collaborateurs de communiquer, de développer leurs compétences et d’évoluer! Bien accompagné, le numérique peut donc être un vrai vecteur de bien être au travail
 
 Mais attention à ne pas se laisser dépasser par la multiplicité de ces usages ! 
 
@@ -446,156 +442,384 @@ Ce parcours de formation contient :
     "Distanciel",
     20,
     "Pas d'instructeur",
-    31,
+    100,
     "2022-09-25",
     "2024-04-10"
   ),
   (
-    "vitae, sodales at,",
-    "accumsan convallis, ante lectus convallis est, vitae sodales nisi magna sed dui. Fusce aliquam, enim nec tempus scelerisque, lorem ipsum sodales purus, in molestie tortor nibh sit amet orci. Ut sagittis lobortis mauris. Suspendisse aliquet molestie tellus. Aenean egestas hendrerit neque. In ornare sagittis felis. Donec tempor, est ac mattis semper, dui lectus rutrum urna, nec luctus felis purus ac tellus. Suspendisse sed dolor. Fusce mi lorem, vehicula et, rutrum eu, ultrices sit amet, risus. Donec nibh enim, gravida sit amet, dapibus id, blandit at, nisi. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus",
-    "presentiel",
-    10,
-    "Jonas Bailey",
+    "ProDIVERSITÉ, le jeu", -- ETHIQUE
+    "ProDIVERSITÉ est un jeu pédagogique en ligne conçu par SNCF.
+
+Son objectif est de sensibiliser et de former aux enjeux de la diversité de manière ludique et concrète.
+
+Le jeu est constitué de sept séquences, reflétant sept critères de discrimination : religion, sexe, orientation sexuelle, origine, handicap, âge et appartenance syndicale .
+
+Chacune des séquences est clôturée par un quiz. 
+Deux parcours de jeux sont proposés : 
+- celui-ci destiné à tous les salariés, traitant quatre critères de discrimination 
+- un parcours spécifique aux managers accessible via ce lien.",
+    "Distanciel",
+    60,
+    "Pas d'instructeur",
     115,
-    "2023-06-13",
+    "2022-11-13",
     "2023-10-3"
   ),
   (
-    "Cras vulputate velit eu",
-    "Etiam ligula tortor, dictum eu, placerat eget, venenatis a, magna. Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Etiam laoreet, libero et tristique pellentesque, tellus sem mollis dui, in sodales elit erat vitae risus. Duis a mi fringilla mi lacinia mattis. Integer eu lacus. Quisque imperdiet, erat nonummy ultricies ornare, elit elit fermentum risus, at fringilla purus mauris a nunc. In at pede. Cras vulputate velit eu sem. Pellentesque ut ipsum ac mi eleifend egestas. Sed pharetra, felis eget varius ultrices, mauris ipsum porta elit, a feugiat tellus lorem eu metus. In lorem. Donec elementum, lorem ut aliquam iaculis, lacus pede sagittis augue, eu tempor erat neque non quam. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Aliquam fringilla cursus purus. Nullam scelerisque neque sed sem egestas blandit. Nam nulla magna, malesuada vel, convallis in, cursus et, eros. Proin ultrices. Duis volutpat nunc sit amet metus. Aliquam erat volutpat. Nulla facilisis. Suspendisse commodo tincidunt nibh. Phasellus",
-    "distanciel",
-    18,
-    "Rinah Stanton",
-    150,
+    "Mieux comprendre la rémunération chez SNCF", -- RH
+    "Approfondissez vos connaissances en rémunération !
+
+Ce module vous permettra de :
+
+- Connaître les enjeux et les composantes du package de rémunération
+- Savoir parler de rémunération
+- Valoriser le package de rémunération de SNCF",
+    "Distanciel",
+    30,
+    "Pas d'instructeur",
+    500,
     "2023-01-24",
     "2023-12-18"
   ),
   (
-    "non, dapibus rutrum, justo.",
-    "dapibus gravida. Aliquam tincidunt, nunc ac mattis ornare, lectus ante dictum mi, ac mattis velit justo nec ante. Maecenas mi felis, adipiscing fringilla, porttitor vulputate, posuere vulputate, lacus. Cras interdum. Nunc sollicitudin commodo ipsum. Suspendisse non leo. Vivamus nibh dolor, nonummy ac, feugiat non, lobortis quis, pede. Suspendisse dui. Fusce diam nunc, ullamcorper eu, euismod ac, fermentum vel, mauris. Integer sem elit, pharetra ut, pharetra sed, hendrerit a, arcu. Sed et",
-    "presentiel",
-    15,
-    "Davis Estrada",
-    89,
-    "2022-01-9",
-    "2023-12-26"
+    "Manager de secteur", -- MANAGEMENT
+    "Le manager de secteur (M2) a pour mission de diriger un secteur gares. Il met en œuvre les orientations stratégiques de l’Établissement, en lien avec le contrat Île-de-France Mobilités, pour satisfaire les clients et améliorer la qualité de service sur son secteur (accueil, ventes, gestion de site et lutte anti-fraude). Il assure l’engagement de ses équipes et la sécurité des clients, des agents et des prestataires.
+
+Il manage et anime une équipe composée de 1 ou 2 Adjoints (M2A), 1 ou 2 Référents Animation et Vie des Gares (RAVG) et de plusieurs chefs d’équipe (M1).",
+    "Présentiel",
+    4, -- 4 mois
+    "Pas d'instructeur",
+    5,
+    "2023-01-24",
+    "2023-06-18"
   ),
   (
-    "sagittis augue, eu",
-    "pede nec ante blandit viverra. Donec tempus, lorem fringilla ornare placerat, orci lacus vestibulum lorem, sit amet ultricies sem magna nec quam. Curabitur vel lectus. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec dignissim magna a tortor. Nunc commodo auctor velit. Aliquam nisl. Nulla eu neque pellentesque massa lobortis ultrices. Vivamus rhoncus. Donec est. Nunc ullamcorper, velit in aliquet lobortis, nisi nibh",
-    "presentiel",
-    14,
+    "Agent de Manœuvre Logistique", -- CIRCULATION
+    "La formation a pour but de former l'agent sur ces différentes activités : 
+- Se présente au GEOPS à chaque prise de service et prend connaissance des
+conditions de circulations (travaux,…) sur le site.
+- Annonce chaque manoeuvre au COM et respecte les règles de communication.
+- Réalise les déplacements des engins sur le site.
+- Remplit les réservoirs de combustibles, complète les sablières, huile et liquide de
+refroidissement.
+- Participe à la mise en place et à la sortie des engins pour la maintenance.
+- Réalise les mises en UM
+- Réalise les mises en véhicule
+- Réalise les essais de frein
+- Réalise le relevé des bandes graphiques et des enregistrements ATESS
+- Participe au nettoyage et graissage des aiguilles // Protection des graisseurs
+- Monte, démonte et range l'attelage de secours (si nécessaire).
+- Participe au déploiement de la démarche d'amélioration continue de l'établissement.
+- Prend connaissance des différentes notes de service, REX, AT et autres document
+mis à sa disposition dans le classeur présent à la feuille.
+- Participe aux points 5'
+- A connaissance des risques liés à son poste de travail, applique les règles de
+sécurité et porte les « E.P.I. »
+- Remonte les incidents, accidents, anomalies et toutes informations utiles à son DPX
+ou au GEOPS.",
+    "Présentiel",
+    2, -- 2 mois
     "Roary Leonard",
-    97,
-    "2023-06-10",
-    "2024-01-22"
+    50,
+    "2022-06-10",
+    "2023-01-22"
   ),
   (
-    "aliquet. Proin velit.",
-    "Morbi metus. Vivamus euismod urna. Nullam lobortis quam a felis ullamcorper viverra. Maecenas iaculis aliquet diam. Sed diam lorem, auctor quis, tristique ac, eleifend vitae, erat. Vivamus nisi. Mauris nulla. Integer urna. Vivamus molestie dapibus ligula. Aliquam erat volutpat. Nulla dignissim. Maecenas ornare egestas ligula. Nullam feugiat placerat velit. Quisque varius. Nam porttitor scelerisque neque. Nullam nisl. Maecenas malesuada fringilla est. Mauris eu turpis. Nulla aliquet. Proin velit. Sed malesuada",
-    "distanciel",
-    12,
+    "DPX traction", --  CIRCULATION ET MANAGEMENT
+    "- Management d'une équipe de conducteurs(trices)
+- Veille et controle
+- Audits internes/ externes
+- Analyse des évènements/ enquêtes
+- Management de la documentation sécurité
+- SST
+- Suivi ressources effectuant des tâches de sécurité
+- Management des situations perturbées et des urgences
+- Missions reprises dans l'annexe DC4 de l'EP TER OC 20001
+- Conducteur occasionnel",
+    "Présentiel",
+    6, -- 6 mois
     "Calista Hardy",
-    97,
+    10,
     "2022-10-4",
-    "2023-12-18"
+    "2023-04-18"
   ),
   (
-    "Nulla tincidunt, neque",
-    "vitae dolor. Donec fringilla. Donec feugiat metus sit amet ante. Vivamus non lorem vitae odio sagittis semper. Nam tempor diam dictum sapien. Aenean massa. Integer vitae nibh. Donec est mauris, rhoncus id, mollis nec, cursus a, enim. Suspendisse aliquet, sem ut cursus luctus, ipsum leo elementum sem, vitae aliquam eros turpis non enim. Mauris quis turpis vitae purus gravida sagittis. Duis gravida. Praesent eu nulla at sem molestie sodales. Mauris blandit enim consequat purus. Maecenas libero est, congue a, aliquet vel, vulputate eu, odio. Phasellus at augue id ante",
-    "distanciel",
-    18,
+    "Surveillant de travaux maintenance", -- MAINTENANCE
+    "Appuie le conducteur de travaux sur le terrain : prépare les chantiers, prend des mesures, fait les marquages terrain, fait des visites terrain entreprises…
+    La formation a pour but de former l'agent afin qu'il puisse exercer ces activités : 
+- Réaliser la préparation opérationnelle des chantiers : préparer les opérations de remplacement de ½ ferrures, cœurs, libérations, marquages divers
+- Faire les demandes de matières
+- Réceptionner les approvisionnements des chantiers concernés (matières, en-gins…)
+- Diffuser et commenter les informations d'organisation à l'agent en charge du chantier (ex : commentaire de CTX) en remplacement du conducteur de travaux
+- Assurer une présence sur les chantiers qui lui sont confiés si besoin
+- Assurer si nécessaire des missions opérationnelles ou sécurité sur les chantiers : RPTx, HMT, surveillant travaux, agent d'activité…",
+    "Présentiel",
+    1, -- 1 mois
     "Abdul Kirkland",
-    109,
+    25,
     "2022-05-19",
     "2023-12-14"
   ),
   (
-    "mus.",
-    "urna suscipit nonummy. Fusce fermentum fermentum arcu. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae Phasellus ornare. Fusce mollis. Duis sit amet diam eu dolor egestas rhoncus. Proin nisl sem, consequat nec, mollis vitae, posuere at, velit. Cras lorem lorem, luctus ut, pellentesque eget, dictum placerat, augue. Sed molestie. Sed id risus quis",
-    "distanciel",
-    11,
+    "Chef de projet digital et SI", -- MANAGEMENT ET INFORMATIQUE
+    "Les domaines d'activité des projets sont très variés :
+
+
+- Gestion Commerciale, portail client : dématérialisation des commandes, prévision de plan de transport, traçabilité des livraisons, outil de relation client et commerciaux
+- Production ferroviaire/Optimisation de plan de transport 
+
+- Applications de gestion pour les fonctions Finance, Ressources Humaines
+- Décisionnel, Outil de pilotage de l'entreprise
+- Innovation : digitalisation, mobilité, big data, dématérialisation, objets connectés,
+
+ 
+
+
+Les projets SI sont au coeur de la transformation de l'entreprise.
+
+Le chef de projet est au coeur des relations internes stratégiques et opérationnelles : directeurs, les métiers opérationnels FRET et fonctions support, les unités et plateformes ferroviaires et les partenaires technologiques.",
+    "Présentiel",
+    4, -- 4 mois
     "Solomon Neal",
-    63,
-    "2021-10-21",
-    "2023-12-17"
+    5,
+    "2022-10-21",
+    "2022-12-17"
   ),
   (
-    "eu tellus. Phasellus elit",
-    "tempor lorem, eget mollis lectus pede et risus. Quisque libero lacus, varius et, euismod et, commodo at, libero. Morbi accumsan laoreet ipsum. Curabitur consequat, lectus sit amet luctus vulputate, nisi sem semper erat, in consectetuer ipsum nunc id enim. Curabitur massa. Vestibulum accumsan neque et nunc. Quisque ornare tortor at risus. Nunc ac sem ut dolor dapibus gravida. Aliquam tincidunt, nunc ac",
-    "presentiel",
-    19,
-    "Galena Henry",
-    98,
+    "Les 10 CybeRéflexes", -- INFORMATIQUE 
+    "Bienvenue dans ce parcours de formation sur les bons réflexes en matière de Cybersécurité.
+
+Venez découvrir les aventures de la famille Cyberflexe et apprenez à déjouer les pièges tendus par les cyberattaquants.
+
+Saurez-vous répondre au challenge final et ainsi devenir les Cyber-héros de l’entreprise ?",
+    "Distanciel",
+    20,
+    "Pas d'instructeur",
+    500,
     "2021-12-1",
     "2024-01-7"
   ),
   (
-    "tortor. Nunc",
-    "tristique senectus et netus et malesuada fames ac turpis egestas. Aliquam fringilla cursus purus. Nullam scelerisque neque sed sem egestas blandit. Nam nulla magna, malesuada vel, convallis in, cursus et, eros. Proin ultrices. Duis volutpat nunc sit amet metus. Aliquam erat volutpat. Nulla facilisis. Suspendisse commodo tincidunt nibh. Phasellus nulla. Integer vulputate, risus a ultricies adipiscing, enim mi tempor lorem, eget mollis lectus pede et risus. Quisque libero lacus, varius et, euismod et, commodo at, libero. Morbi accumsan laoreet ipsum. Curabitur consequat, lectus sit amet luctus vulputate, nisi sem semper erat, in consectetuer ipsum nunc id enim. Curabitur massa. Vestibulum accumsan neque et nunc. Quisque ornare tortor at risus. Nunc ac sem ut dolor dapibus gravida. Aliquam tincidunt, nunc ac mattis ornare, lectus ante dictum mi, ac mattis velit justo nec ante. Maecenas mi felis, adipiscing fringilla, porttitor vulputate, posuere vulputate, lacus. Cras interdum. Nunc sollicitudin commodo ipsum. Suspendisse non leo. Vivamus nibh dolor, nonummy ac, feugiat non, lobortis quis, pede. Suspendisse dui. Fusce diam nunc, ullamcorper eu, euismod ac, fermentum vel, mauris. Integer sem elit, pharetra ut, pharetra sed,",
-    "distanciel",
-    6,
-    "Carol James",
-    173,
+    "Excellence SST Manager", -- MANAGEMENT
+    "Nous vous proposons cinq modules de 20 à 30 minutes  chacun  pour vous familiariser avec les notions de base et les procédures en matières de management de la Santé Sécurité au Travail (SST) :
+
+1. La culture sécurité  de l'entreprise, ses ambitions et ses méthodes 
+2. Les obligations légales
+3. La gestion d'un accident du travail pour réparer et prévenir
+4. Les actions à mettre en place pour évaluer et réduire les risques
+5. Le management de l'excellence pour la SST",
+    "Distanciel",
+    90,
+    "Pas d'instructeur",
+    500,
     "2023-05-20",
     "2023-11-22"
   ),
   (
-    "parturient montes,",
-    "consequat nec, mollis vitae, posuere at, velit. Cras lorem lorem, luctus ut, pellentesque eget, dictum placerat, augue. Sed molestie. Sed id risus quis diam luctus lobortis. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos hymenaeos. Mauris ut quam vel sapien imperdiet ornare. In faucibus. Morbi vehicula. Pellentesque tincidunt tempus risus. Donec egestas. Duis ac arcu. Nunc mauris. Morbi non sapien molestie orci tincidunt adipiscing. Mauris molestie pharetra nibh. Aliquam ornare, libero at auctor ullamcorper,",
-    "presentiel",
-    33,
-    "Xanthus Cooper",
-    60,
+    "4 conseils pour un télétravail efficace", -- INFORMATIQUE
+    "Cette vidéo vous présente 4 conseils pour un télétravail efficace avec un lien vers le site dédié aux services digitaux.",
+    "Distanciel",
+    10,
+    "Pas d'instructeur",
+    500,
     "2021-12-26",
     "2023-11-17"
   ),
   (
-    "vulputate, lacus.",
-    "a nunc. In at pede. Cras vulputate velit eu sem. Pellentesque ut ipsum ac mi eleifend egestas. Sed pharetra, felis eget varius ultrices, mauris ipsum porta elit, a feugiat tellus lorem eu metus. In lorem. Donec elementum, lorem ut aliquam iaculis, lacus pede sagittis augue, eu tempor erat neque non quam. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Aliquam fringilla cursus purus. Nullam scelerisque",
-    "distanciel",
-    27,
-    "Yen Nguyen",
-    186,
+    "Handicap et bonnes pratiques managériales", -- MANAGEMENT ET ETHIQUE
+    "Vous êtes manager, tuteur, acteur RH ?
+
+Vous avez des questions sur des situations concrètes concernant le handicap au travail de vos collaborateurs, comme par exemple :
+
+Ai-je  le droit de fixer des objectifs ambitieux à une personne en situation de handicap ?
+Comment mettre en place des aménagements de poste sans faire du favoritisme ?  
+Une personne en situation de handicap dans mon équipe arrive en retard depuis quelques temps. Est-ce que c’est vraiment à cause de son handicap ? Comment j’aborde le sujet avec elle ?
+Comment je peux trouver les coordonnées du Correspondant Handicap & Emploi de mon périmètre ?
+La formation vous permet de répondre à ces questions, en trois chapitres. C’est court, rythmé, ludique, avec un cas pratique et des quiz !
+
+Si vous êtes déjà à l'aise avec certaines notions, gagnez du temps et allez directement au chapitre qui vous intéresse :
+
+ 
+
+Chapitre 1 - Handicap et égalité des chances
+
+- Représentations et stéréotypes courants
+
+- Le handicap, de quoi parle-t-on ?
+
+- Egalité des chances et compensation du handicap  
+
+ 
+
+Chapitre 2 - Une personne en situation de handicap arrive dans mon équipe, comment l'accueillir ?
+
+- L’entretien d’intégration ou comment fixer les règles du jeu
+
+- La communication auprès du collectif de travail
+
+- Cas pratique : accueillir Stéphanie
+
+ 
+
+Chapitre 3 - Manager au quotidien
+
+- Le suivi managérial au quotidien
+
+- Le cas du salarié qui abuse de son handicap
+
+- L’ouverture au maintien dans l’emploi
+
+ 
+
+N'oubliez pas de valider votre formation avec le quiz final.
+
+Vous pourrez aussi télécharger l'annuaire des correspondants handicap et emploi.
+
+ 
+
+Bonne formation !",
+    "Distanciel",
+    60,
+    "Pas d'instructeur",
+    500,
     "2022-03-7",
     "2023-12-13"
   ),
   (
-    "nulla",
-    "vitae, erat. Vivamus nisi. Mauris nulla. Integer urna. Vivamus molestie dapibus ligula. Aliquam erat volutpat. Nulla dignissim. Maecenas ornare egestas ligula. Nullam feugiat placerat velit. Quisque varius. Nam porttitor scelerisque neque. Nullam nisl. Maecenas malesuada fringilla est. Mauris eu turpis. Nulla aliquet. Proin velit. Sed malesuada augue ut lacus. Nulla tincidunt, neque vitae semper egestas, urna justo faucibus lectus, a sollicitudin orci sem eget massa. Suspendisse eleifend. Cras sed leo. Cras vehicula aliquet libero. Integer in magna. Phasellus dolor elit, pellentesque a, facilisis non, bibendum sed, est. Nunc laoreet lectus quis massa. Mauris vestibulum, neque sed dictum eleifend, nunc risus varius orci, in consequat enim diam vel arcu. Curabitur ut odio vel est tempor bibendum. Donec felis orci, adipiscing non, luctus sit amet, faucibus ut, nulla. Cras eu tellus eu augue porttitor interdum. Sed auctor odio a purus. Duis elementum,",
-    "presentiel",
+    "Osez décider... même dans l'incertitude", -- MANAGEMENT
+    "Les objectifs de la formation :
+
+- Définir les composantes de la décision 
+
+- Agir même dans un monde incertain 
+
+- Accompagner sa décision ",
+    "Distanciel",
     45,
-    "Victor Scott",
-    64,
+    "Pas d'instructeur",
+    500,
     "2022-06-20",
     "2023-12-8"
   ),
   (
-    "malesuada fames",
-    "Duis ac arcu. Nunc mauris. Morbi non sapien molestie orci tincidunt adipiscing. Mauris molestie pharetra nibh. Aliquam ornare, libero at auctor ullamcorper, nisl arcu iaculis enim, sit amet ornare lectus justo eu arcu. Morbi sit amet massa. Quisque porttitor eros nec tellus. Nunc lectus pede, ultrices a, auctor non, feugiat nec, diam. Duis mi",
-    "distanciel",
-    15,
-    "Delilah Miles",
-    197,
+    "Travailler ensemble sans préjugés", -- ETHIQUE
+    "Les préjugés sont un obstacle puissant au vivre ensemble. Ils peuvent créer des situations de conflit, de mal-être et d’exclusion.
+
+ Ce module a pour objectif de permettre, grâce à des cas concrets illustrés ou filmés, de détecter l’expression d’un préjugé et de savoir y réagir efficacement.
+
+Il invite à la réflexion en faisant écho à des situations déjà vécues, anodines au premier abord. Il montre l'impact d’un préjugé en faisant connaitre les différents points de vue et notamment celui des personnes ciblées. Par l'expérience virtuelle de réactions plus ou moins efficaces face à un préjugé, il aide à réagir en situation réelle.
+
+Ce module s’adresse à tous les salariés SNCF, y compris les personnes qui ne sont pas ciblées par les préjugés et qui peuvent être des alliés essentiels pour favoriser l'inclusion.
+
+La durée du module est en moyenne de 25 minutes. Il est entièrement sous-titré et une version accessible aux personnes malvoyantes, basée sur une navigation au clavier, est proposée.",
+    "Distanciel",
+    25,
+    "Pas d'instructeur",
+    500,
     "2021-10-7",
     "2024-02-17"
   ),
   (
-    "orci lacus vestibulum",
-    "metus eu erat semper rutrum. Fusce dolor quam, elementum at, egestas a, scelerisque sed, sapien. Nunc pulvinar arcu et pede. Nunc sed orci lobortis augue scelerisque mollis. Phasellus libero mauris, aliquam eu, accumsan sed, facilisis vitae, orci. Phasellus dapibus quam quis diam. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Fusce aliquet magna a neque. Nullam ut nisi a odio semper cursus. Integer mollis. Integer tincidunt aliquam arcu. Aliquam ultrices iaculis odio. Nam interdum enim non nisi. Aenean eget metus. In nec orci. Donec nibh. Quisque nonummy ipsum non arcu. Vivamus sit amet risus. Donec egestas. Aliquam nec enim. Nunc ut erat. Sed nunc est, mollis non, cursus non, egestas a, dui. Cras pellentesque. Sed dictum. Proin",
-    "distanciel",
-    38,
-    "Carissa Garner",
-    57,
+    "Le fonctionnement du COEG : acteurs et missions", -- MANAGEMENT
+    "Dans ce parcours, vous allez découvrir ce qu'est un Centre Opérationnel Exploitation Gare.
+
+- Comment et pourquoi nous sommes passés d'un COE à un COEG.
+- Quels sont les acteurs et les missions d'un COEG.
+- Comment se coordonne l'ensemble des différents acteurs.
+- Les outils à disposition.
+
+Vous testerez ensuite vos connaissances puis vous nous donnerez votre avis sur le parcours.",
+    "Distanciel",
+    30,
+    "Pas d'instructeur",
+    500,
     "2022-11-11",
     "2024-03-29"
+  ),
+    (
+    "Digidoc Nomade", -- INFORMATIQUE
+    "Grâce à ce rapide module de formation, découvrez ce qu'est Digidoc Nomade et comment le mettre en place.",
+    "Distanciel",
+    10,
+    "Pas d'instructeur",
+    500,
+    "2021-11-11",
+    "2024-03-29"
+  ),
+    (
+    "SOLAR : Introduction à l’outil", -- INFORMATIQUE
+    "Bienvenue dans le module « SOLAR : Introduction à l’outil» !
+
+Ce module vous permettra de :
+
+- Découvrir le projet : enjeux, ambitions, planning
+- Prendre connaissance d’informations pratiques concernant l’outil",
+    "Distanciel",
+    15,
+    "Pas d'instructeur",
+    500,
+    "2022-09-11",
+    "2024-03-29"
+  ),
+    (
+    "Climat-Énergie", -- ETHIQUE
+    "Bienvenue dans le module Climat-Énergie.
+
+ Ce module va vous permettre de :
+
+- Prendre conscience des enjeux du dérèglement climatique
+- Découvrir les actions engagées par TGV-INTERCITES pour réduire ses consommations d’énergie et son bilan carbone
+- Identifier les bons réflexes à adopter à la maison et au travail pour réduire efficacement ses émissions de CO2",
+    "Distanciel",
+    60,
+    "Pas d'instructeur",
+    500,
+    "2021-12-04",
+    "2024-12-29"
+  ),
+    (
+    "Concevoir une stratégie", -- MANAGEMENT
+    "OBJECTIFS DE LA FORMATION :
+
+- concevoir les étapes d’une stratégie 
+
+- développer une posture d’ouverture 
+
+- appliquer une méthode de déploiement structurée  ",
+    "Distanciel",
+    20,
+    "Pas d'instructeur",
+    500,
+    "2020-02-11",
+    "2024-05-05"
+  ),
+    (
+    "Adjoint.e Responsable des Ressources Humaines", -- RH
+    "L'adjoint.e RH est en soutien à la Responsable des Ressources Humaines dans le déploiement et le pilotage local des politiques RH sur le périmètre de l’établissement NOUVELLE-AQUITAINE.
+
+Il participe activement à la GPEC de l’établissement en anticipant les besoins et en développant des parcours professionnels.
+Il renseigne les salariés sur les questions RH en étroite collaboration avec le Centre de Service Mutualisé RH (CSMRH).
+Il remplace la RRH pendant ses absences.",
+    "Présentiel",
+    3, -- 3 mois
+    "Carissa Garner",
+    5,
+    "2022-11-11",
+    "2024-03-29"
+  ),
+    (
+    "Opérateur / Opératrice Voie Géométrie", -- MAINTENANCE
+    "La formation a pour but de former l'agent afin qu'il puisse effectuer les tâches suivantes : 
+    - Réalise principalement des reprises de Nivellement manuel avec son équipe
+    - Est sous la responsabilité du CEV de l'équipe Géométrie et /ou ATEN de l'équipe.",
+    "Présentiel",
+    1, -- 1 mois
+    "Carissa Garner",
+    15,
+    "2021-11-11",
+    "2022-12-29"
   );
 
---  SELECT first_name, last_name, title
---  FROM user 
---  INNER JOIN user_learning ON user.id = user_learning.user_id
---  INNER JOIN learning ON user_learning.learning_id = learning.id
---  WHERE user_id = 4;
 INSERT INTO
   user_learning (user_id, learning_id, status, start_learning)
 VALUES
@@ -645,73 +869,215 @@ VALUES
 INSERT INTO
   learning_category (category_id, learning_id)
 VALUES
-  (1, 15),
-  (2, 14),
-  (3, 13),
-  (4, 12),
-  (4, 11),
-  (6, 10),
-  (7, 9),
-  (8, 8),
-  (9, 7),
-  (1, 6),
-  (9, 4),
-  (8, 3),
-  (7, 2),
-  (6, 1),
-  (5, 1);
+ (1, 1),
+ (3, 2),
+ (4, 3),
+ (6, 4),
+ (3, 5),
+ (3, 6),
+ (6, 6),
+ (5, 7),
+ (6, 8),
+ (1, 8),
+ (1, 9),
+ (6, 10),
+ (1, 11),
+ (6, 12),
+ (2, 12),
+ (6, 13),
+ (2, 14),
+ (6, 15),
+ (1, 16),
+ (1, 17),
+ (2, 18),
+ (6, 19),
+ (4, 20),
+ (5, 21);
 
 INSERT INTO
   job_type_category (job_type_id, category_id)
 VALUES
-  (1, 10),
-  (2, 9),
-  (3, 8),
-  (4, 7),
-  (5, 6),
-  (6, 5),
-  (7, 4),
-  (8, 3),
-  (9, 2),
-  (10, 1);
-
-INSERT INTO
-  job_type_learning (job_type_id, learning_id)
-VALUES
-  (1, 15),
-  (2, 14),
-  (3, 13),
-  (4, 12),
-  (5, 11),
-  (6, 10),
-  (7, 9),
-  (8, 8),
-  (9, 7),
-  (10, 6),
-  (1, 5),
-  (2, 4),
+  (1, 1),
+  (1, 2),
+  (1, 3),
+  (1, 6),
+  (2, 1),
+  (2, 2),
+  (2, 3),
+  (2, 6),
+  (3, 1),
+  (3, 2),
   (3, 3),
+  (3, 6),
+  (4, 1),
   (4, 2),
-  (5, 1);
+  (4, 5),
+  (4, 6),
+  (5, 1),
+  (5, 2),
+  (6, 1),
+  (6, 2),
+  (6, 4),
+  (6, 6),
+  (7, 1),
+  (7, 2),
+  (7, 6),
+  (8, 1),
+  (8, 2),
+  (8, 6),
+  (9, 1),
+  (9, 2),
+  (9, 3),
+  (9, 5),
+  (9, 6),
+  (10, 1),
+  (10, 2),
+  (10, 6);
+
+-- INSERT INTO
+--   job_type_learning (job_type_id, learning_id)
+-- VALUES
+--   (1, 15),
+--   (2, 14),
+--   (3, 13),
+--   (4, 12),
+--   (5, 11),
+--   (6, 10),
+--   (7, 9),
+--   (8, 8),
+--   (9, 7),
+--   (10, 6),
+--   (1, 5),
+--   (2, 4),
+--   (3, 3),
+--   (4, 2),
+--   (5, 1);
 
 INSERT INTO
   learning_grade (grade_id, learning_id)
 VALUES
-  (1, 15),
+  (1, 1),
+  (1, 2),
+  (1, 9),
+  (1, 11),
+  (1, 14),
+  (1, 16),
+  (1, 17),
+  (1, 18),
+  (2, 1),
+  (2, 2),
+  (2, 5),
+  (2, 9),
+  (2, 11),
   (2, 14),
-  (3, 13),
-  (4, 12),
-  (5, 11),
-  (6, 10),
-  (7, 9),
-  (8, 8),
-  (1, 7),
-  (2, 6),
+  (2, 16),
+  (2, 17),
+  (2, 18),
+  (2, 21),
+  (3, 1),
+  (3, 2),
   (3, 5),
-  (4, 4),
+  (3, 9),
+  (3, 11),
+  (3, 12),
+  (3, 14),
+  (3, 16),
+  (3, 17),
+  (3, 18),
+  (3, 21),
+  (4, 1),
+  (4, 2),
+  (4, 5),
+  (4, 7),
+  (4, 9),
+  (4, 11),
+  (4, 12),
+  (4, 13),
+  (4, 14),
+  (4, 15),
+  (4, 16),
+  (4, 17),
+  (4, 18),
+  (4, 21),
+  (5, 1),
+  (5, 2),
   (5, 3),
+  (5, 5),
+  (5, 7),
+  (5, 9),
+  (5, 11),
+  (5, 12),
+  (5, 13),
+  (5, 14),
+  (5, 15),
+  (5, 16),
+  (5, 17),
+  (5, 18),
+  (5, 19),
+  (5, 21),
+  (6, 1),
   (6, 2),
-  (7, 1);
+  (6, 3),
+  (6, 4),
+  (6, 5),
+  (6, 6),
+  (6, 7),
+  (6, 8),
+  (6, 9),
+  (6, 10),
+  (6, 11),
+  (6, 12),
+  (6, 13),
+  (6, 14),
+  (6, 15),
+  (6, 16),
+  (6, 17),
+  (6, 18),
+  (6, 19),
+  (6, 20),
+  (6, 21),
+  (7, 1),
+  (7, 2),
+  (7, 3),
+  (7, 4),
+  (7, 5),
+  (7, 6),
+  (7, 7),
+  (7, 8),
+  (7, 9),
+  (7, 10),
+  (7, 11),
+  (7, 12),
+  (7, 13),
+  (7, 14),
+  (7, 15),
+  (7, 16),
+  (7, 17),
+  (7, 18),
+  (7, 19),
+  (7, 20),
+  (7, 21),
+  (8, 1),
+  (8, 2),
+  (8, 3),
+  (8, 4),
+  (8, 5),
+  (8, 6),
+  (8, 7),
+  (8, 8),
+  (8, 9),
+  (8, 10),
+  (8, 11),
+  (8, 12),
+  (8, 13),
+  (8, 14),
+  (8, 15),
+  (8, 16),
+  (8, 17),
+  (8, 18),
+  (8, 19),
+  (8, 20),
+  (8, 21);
 
 INSERT INTO
   user_notification (status, user_id, notification_id)
