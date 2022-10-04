@@ -4,12 +4,19 @@ import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { tokenApp } from "@tools/utils";
 import "./LearningDetailPage.scss";
+import moment from "moment";
 import { Button } from "@components/index";
 
 export const LearningDetailPage: React.FC = () => {
   const [learning, setLearning] = useState<LearningType | null>(null);
   const { learningId } = useParams();
   const { id } = tokenApp();
+  const startDateFormatted = moment(learning?.start_registration).format(
+    "DD-MM-YYYY"
+  );
+  const endDateFormatted = moment(learning?.end_registration).format(
+    "DD-MM-YYYY"
+  );
 
   useEffect(() => {
     learningFetch.getLearningsById(learningId, setLearning);
@@ -23,7 +30,7 @@ export const LearningDetailPage: React.FC = () => {
       <div className="learning-detail-page__body">
         <div className="learning-detail-page__header">
           <h2>{learning.title}</h2>
-          <p>{`${learning.start_registration} au ${learning.end_registration}`}</p>
+          <p>{`${startDateFormatted} au ${endDateFormatted}`}</p>
         </div>
         <div className="learning-detail-page__description">
           <h4>Description de la formation</h4>
