@@ -13,7 +13,10 @@ export const HomePage: React.FC<HomePagProps> = ({ isAuth }) => {
     <div className="home-page">
       <div className="home-page__content">
         <div className="home-page__image">
-          <img src="src/assets/images/formation-home.jpg" alt="" />
+          <img
+            src="./assets/images/formation-home.jpg"
+            alt="Accueil formations"
+          />
         </div>
         {!isAuth && (
           <Link to="connexion">
