@@ -65,6 +65,7 @@
       flex-direction: row;
       flex-wrap: wrap;
       justify-content: space-between;
+      height: 100%;
     }
 
     &__radio {
@@ -76,10 +77,21 @@
       flex-direction: row;
       flex-wrap: wrap;
       justify-content: space-between;
+      height: 30%;
     }
   }
 }
-
+@media (min-width: 1200px) {
+  .signup {
+    height: 100%;
+    &__field {
+      height: 45%;
+    }
+    form {
+      height: 100%;
+    }
+  }
+}
 @media (min-width: 1440px) {
   .signup {
     form {

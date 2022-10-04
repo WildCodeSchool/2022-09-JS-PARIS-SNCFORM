@@ -1,7 +1,19 @@
 @import "../../theme-sncf.scss";
 
 .learning-detail-page {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding-top: 2rem;
+
+  .learning-detail-page__body {
     height: 100%;
+  }
+  .learning-detail-page__header {
+    height: 25%;
+    background-color: $cool-gray--09;
+    color: $cool-gray--01;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
