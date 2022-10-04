@@ -1,6 +1,7 @@
 import React, { useRef } from "react";
 import { SetUserSignUpType } from "@pages/index";
 import "./Select.scss";
+import { ErrorMessage } from "@components/index";
 
 type SelectType = {
   onChange: SetUserSignUpType;
@@ -47,11 +48,7 @@ export const Select: React.FC<SelectType> = ({
         ))}
       </select>
       <div className="select__errors-container">
-        {errors?.map((errorString) => (
-          <p className="select__errors" key={null}>
-            {errorString}
-          </p>
-        ))}
+        {!!errors?.length && <ErrorMessage errors={errors} />}
       </div>
     </div>
   );
