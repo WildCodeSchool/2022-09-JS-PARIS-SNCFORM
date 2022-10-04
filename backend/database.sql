@@ -409,36 +409,9 @@ VALUES
   (
     "Numérique et bien-être au travail", -- INFORMATIQUE
     "Avez-vous réfléchi aux impacts du numérique sur votre travail ? 
-
-Pour vous, c'est plutôt positif, négatif ou les deux ? 
-
- La digitalisation apporte de nombreux avantages : 
-
-- elle permet de fluidifier les process ; 
-- d'organiser plus efficacement ses projets et ses journées ;
-- de mieux communiquer avec son équipe malgré la distance
-Mais aussi d’accroître largement les possibilités offertes aux collaborateurs de communiquer, de développer leurs compétences et d’évoluer! Bien accompagné, le numérique peut donc être un vrai vecteur de bien être au travail
-
+ La digitalisation apporte de nombreux avantages : elle permet de fluidifier les process, d'organiser plus efficacement ses projets et ses journées, de mieux communiquer avec son équipe malgré la distance, mais aussi d’accroître largement les possibilités offertes aux collaborateurs de communiquer, de développer leurs compétences et d’évoluer!
 Mais attention à ne pas se laisser dépasser par la multiplicité de ces usages ! 
-
-Comment la transformation digitale impacte-t-elle le bien-être au travail ? 
-De mon côté, quelles bonnes pratiques puis-je mettre en place pour préserver ma charge mentale digitale ?
-
-Nous avons conçu ce parcours de formation pour répondre à la prise de conscience collective de ces problématiques. L'objectif est de vous aider à vous adapter à des modes de travail qui intègrent de plus en plus le numérique tout en préservant votre charge mentale digitale. C'est parti !
-
-Ce parcours de formation contient :
-
- - Une introduction interactive
- - 4 vidéos courtes avec des quiz, des jeux, des bonnes pratiques téléchargeables
- A la fin de ce parcours, vous serez en mesure de :  
-
-- Définir le concept de charge mentale digitale ;
-- Réaliser un auto positionnement par rapport à son usage du numérique ;
-- Evaluer son bien être numérique au travail ;
-- Comprendre le rôle des outils numériques et leurs impacts sur la charge mentale digitale ;
-- Mettre en place des bonnes pratiques numériques pour préserver sa charge mentale digitale ;
-- Comprendre l'importance du droit à la déconnexion.",
- 
+Nous avons conçu ce parcours de formation pour répondre à la prise de conscience collective de ces problématiques. L'objectif est de vous aider à vous adapter à des modes de travail qui intègrent de plus en plus le numérique tout en préservant votre charge mentale digitale. C'est parti !",
     "Distanciel",
     20,
     "Pas d'instructeur",
@@ -452,28 +425,26 @@ Ce parcours de formation contient :
 
 Son objectif est de sensibiliser et de former aux enjeux de la diversité de manière ludique et concrète.
 
-Le jeu est constitué de sept séquences, reflétant sept critères de discrimination : religion, sexe, orientation sexuelle, origine, handicap, âge et appartenance syndicale .
+Le jeu est constitué de sept séquences, reflétant sept critères de discrimination : religion, sexe, orientation sexuelle, origine, handicap, âge et appartenance syndicale.
 
 Chacune des séquences est clôturée par un quiz. 
 Deux parcours de jeux sont proposés : 
-- celui-ci destiné à tous les salariés, traitant quatre critères de discrimination 
-- un parcours spécifique aux managers accessible via ce lien.",
+celui-ci destiné à tous les salariés, traitant quatre critères de discrimination et un parcours spécifique aux managers accessible via ce lien.",
     "Distanciel",
     60,
     "Pas d'instructeur",
     115,
     "2022-11-13",
-    "2023-10-3"
+    "2023-10-03"
   ),
   (
     "Mieux comprendre la rémunération chez SNCF", -- RH
     "Approfondissez vos connaissances en rémunération !
 
 Ce module vous permettra de :
-
-- Connaître les enjeux et les composantes du package de rémunération
-- Savoir parler de rémunération
-- Valoriser le package de rémunération de SNCF",
+Connaître les enjeux et les composantes du package de rémunération,
+Savoir parler de rémunération,
+Valoriser le package de rémunération de SNCF",
     "Distanciel",
     30,
     "Pas d'instructeur",
@@ -483,7 +454,7 @@ Ce module vous permettra de :
   ),
   (
     "Manager de secteur", -- MANAGEMENT
-    "Le manager de secteur (M2) a pour mission de diriger un secteur gares. Il met en œuvre les orientations stratégiques de l’Établissement, en lien avec le contrat Île-de-France Mobilités, pour satisfaire les clients et améliorer la qualité de service sur son secteur (accueil, ventes, gestion de site et lutte anti-fraude). Il assure l’engagement de ses équipes et la sécurité des clients, des agents et des prestataires.
+    "Le manager de secteur (M2) a pour mission de diriger un secteur gares. Il met en œuvre les orientations stratégiques de l’Établissement pour satisfaire les clients et améliorer la qualité de service sur son secteur (accueil, ventes, gestion de site et lutte anti-fraude). Il assure l’engagement de ses équipes et la sécurité des clients, des agents et des prestataires.
 
 Il manage et anime une équipe composée de 1 ou 2 Adjoints (M2A), 1 ou 2 Référents Animation et Vie des Gares (RAVG) et de plusieurs chefs d’équipe (M1).",
     "Présentiel",
@@ -495,28 +466,14 @@ Il manage et anime une équipe composée de 1 ou 2 Adjoints (M2A), 1 ou 2 Réfé
   ),
   (
     "Agent de Manœuvre Logistique", -- CIRCULATION
-    "La formation a pour but de former l'agent sur ces différentes activités : 
-- Se présente au GEOPS à chaque prise de service et prend connaissance des
-conditions de circulations (travaux,…) sur le site.
-- Annonce chaque manoeuvre au COM et respecte les règles de communication.
-- Réalise les déplacements des engins sur le site.
-- Remplit les réservoirs de combustibles, complète les sablières, huile et liquide de
-refroidissement.
-- Participe à la mise en place et à la sortie des engins pour la maintenance.
-- Réalise les mises en UM
-- Réalise les mises en véhicule
-- Réalise les essais de frein
-- Réalise le relevé des bandes graphiques et des enregistrements ATESS
-- Participe au nettoyage et graissage des aiguilles // Protection des graisseurs
-- Monte, démonte et range l'attelage de secours (si nécessaire).
-- Participe au déploiement de la démarche d'amélioration continue de l'établissement.
-- Prend connaissance des différentes notes de service, REX, AT et autres document
-mis à sa disposition dans le classeur présent à la feuille.
-- Participe aux points 5'
-- A connaissance des risques liés à son poste de travail, applique les règles de
-sécurité et porte les « E.P.I. »
-- Remonte les incidents, accidents, anomalies et toutes informations utiles à son DPX
-ou au GEOPS.",
+    "La formation a pour but de former l'agent sur différentes activités comme : 
+se présenter au GEOPS à chaque prise de service et prendre connaissance des
+conditions de circulations (travaux,…) sur le site,
+annoncer chaque manoeuvre au COM et respecter les règles de communication,
+réaliser les déplacements des engins sur le site,
+remplir les réservoirs de combustibles, complèter les sablières, huile et liquide de
+refroidissement,
+participer à la mise en place et à la sortie des engins pour la maintenance,...",
     "Présentiel",
     2, -- 2 mois
     "Roary Leonard",
@@ -526,34 +483,27 @@ ou au GEOPS.",
   ),
   (
     "DPX traction", --  CIRCULATION ET MANAGEMENT
-    "- Management d'une équipe de conducteurs(trices)
-- Veille et controle
-- Audits internes/ externes
-- Analyse des évènements/ enquêtes
-- Management de la documentation sécurité
-- SST
-- Suivi ressources effectuant des tâches de sécurité
-- Management des situations perturbées et des urgences
-- Missions reprises dans l'annexe DC4 de l'EP TER OC 20001
-- Conducteur occasionnel",
+    "La formation a pour but de : 
+   manager une équipe de conducteurs(trices),
+   veille et contrôle,
+   audits internes/ externes,
+   analyser des évènements/ enquêtes,
+   suivi des ressources effectuant des tâches de sécurité",
     "Présentiel",
     6, -- 6 mois
     "Calista Hardy",
     10,
-    "2022-10-4",
+    "2022-10-04",
     "2023-04-18"
   ),
   (
     "Surveillant de travaux maintenance", -- MAINTENANCE
     "Appuie le conducteur de travaux sur le terrain : prépare les chantiers, prend des mesures, fait les marquages terrain, fait des visites terrain entreprises…
     La formation a pour but de former l'agent afin qu'il puisse exercer ces activités : 
-- Réaliser la préparation opérationnelle des chantiers : préparer les opérations de remplacement de ½ ferrures, cœurs, libérations, marquages divers
-- Faire les demandes de matières
-- Réceptionner les approvisionnements des chantiers concernés (matières, en-gins…)
-- Diffuser et commenter les informations d'organisation à l'agent en charge du chantier (ex : commentaire de CTX) en remplacement du conducteur de travaux
-- Assurer une présence sur les chantiers qui lui sont confiés si besoin
-- Assurer si nécessaire des missions opérationnelles ou sécurité sur les chantiers : RPTx, HMT, surveillant travaux, agent d'activité…",
-    "Présentiel",
+réaliser la préparation opérationnelle des chantiers : préparer les opérations de remplacement de ½ ferrures, cœurs, libérations, marquages divers,
+faire les demandes de matières,
+réceptionner les approvisionnements des chantiers concernés (matières, en-gins…), ...",
+    "Présentiel",-
     1, -- 1 mois
     "Abdul Kirkland",
     25,
@@ -563,21 +513,13 @@ ou au GEOPS.",
   (
     "Chef de projet digital et SI", -- MANAGEMENT ET INFORMATIQUE
     "Les domaines d'activité des projets sont très variés :
-
-
-- Gestion Commerciale, portail client : dématérialisation des commandes, prévision de plan de transport, traçabilité des livraisons, outil de relation client et commerciaux
-- Production ferroviaire/Optimisation de plan de transport 
-
-- Applications de gestion pour les fonctions Finance, Ressources Humaines
-- Décisionnel, Outil de pilotage de l'entreprise
-- Innovation : digitalisation, mobilité, big data, dématérialisation, objets connectés,
-
- 
-
-
+gestion commerciale,
+production ferroviaire/optimisation de plan de transport, 
+applications de gestion pour les fonctions Finance, Ressources Humaines,
+décisionnel, Outil de pilotage de l'entreprise,
+innovation.
 Les projets SI sont au coeur de la transformation de l'entreprise.
-
-Le chef de projet est au coeur des relations internes stratégiques et opérationnelles : directeurs, les métiers opérationnels FRET et fonctions support, les unités et plateformes ferroviaires et les partenaires technologiques.",
+Le chef de projet est au coeur des relations internes stratégiques et opérationnelles : directeurs, les métiers opérationnels, unités et plateformes ferroviaires et les partenaires technologiques.",
     "Présentiel",
     4, -- 4 mois
     "Solomon Neal",
@@ -596,18 +538,18 @@ Saurez-vous répondre au challenge final et ainsi devenir les Cyber-héros de l�
     20,
     "Pas d'instructeur",
     500,
-    "2021-12-1",
-    "2024-01-7"
+    "2021-12-01",
+    "2024-01-07"
   ),
   (
     "Excellence SST Manager", -- MANAGEMENT
     "Nous vous proposons cinq modules de 20 à 30 minutes  chacun  pour vous familiariser avec les notions de base et les procédures en matières de management de la Santé Sécurité au Travail (SST) :
 
-1. La culture sécurité  de l'entreprise, ses ambitions et ses méthodes 
-2. Les obligations légales
-3. La gestion d'un accident du travail pour réparer et prévenir
-4. Les actions à mettre en place pour évaluer et réduire les risques
-5. Le management de l'excellence pour la SST",
+La culture sécurité  de l'entreprise, ses ambitions et ses méthodes,
+Les obligations légales,
+La gestion d'un accident du travail pour réparer et prévenir,
+Les actions à mettre en place pour évaluer et réduire les risques,
+Le management de l'excellence pour la SST",
     "Distanciel",
     90,
     "Pas d'instructeur",
@@ -635,71 +577,29 @@ Ai-je  le droit de fixer des objectifs ambitieux à une personne en situation de
 Comment mettre en place des aménagements de poste sans faire du favoritisme ?  
 Une personne en situation de handicap dans mon équipe arrive en retard depuis quelques temps. Est-ce que c’est vraiment à cause de son handicap ? Comment j’aborde le sujet avec elle ?
 Comment je peux trouver les coordonnées du Correspondant Handicap & Emploi de mon périmètre ?
-La formation vous permet de répondre à ces questions, en trois chapitres. C’est court, rythmé, ludique, avec un cas pratique et des quiz !
-
-Si vous êtes déjà à l'aise avec certaines notions, gagnez du temps et allez directement au chapitre qui vous intéresse :
-
- 
-
-Chapitre 1 - Handicap et égalité des chances
-
-- Représentations et stéréotypes courants
-
-- Le handicap, de quoi parle-t-on ?
-
-- Egalité des chances et compensation du handicap  
-
- 
-
-Chapitre 2 - Une personne en situation de handicap arrive dans mon équipe, comment l'accueillir ?
-
-- L’entretien d’intégration ou comment fixer les règles du jeu
-
-- La communication auprès du collectif de travail
-
-- Cas pratique : accueillir Stéphanie
-
- 
-
-Chapitre 3 - Manager au quotidien
-
-- Le suivi managérial au quotidien
-
-- Le cas du salarié qui abuse de son handicap
-
-- L’ouverture au maintien dans l’emploi
-
- 
-
-N'oubliez pas de valider votre formation avec le quiz final.
-
-Vous pourrez aussi télécharger l'annuaire des correspondants handicap et emploi.
-
- 
-
-Bonne formation !",
+La formation vous permet de répondre à ces questions, en trois chapitres.
+",
     "Distanciel",
     60,
     "Pas d'instructeur",
     500,
-    "2022-03-7",
+    "2022-03-07",
     "2023-12-13"
   ),
   (
     "Osez décider... même dans l'incertitude", -- MANAGEMENT
     "Les objectifs de la formation :
+définir les composantes de la décision,
 
-- Définir les composantes de la décision 
+agir même dans un monde incertain,
 
-- Agir même dans un monde incertain 
-
-- Accompagner sa décision ",
+accompagner sa décision ",
     "Distanciel",
     45,
     "Pas d'instructeur",
     500,
     "2022-06-20",
-    "2023-12-8"
+    "2023-12-08"
   ),
   (
     "Travailler ensemble sans préjugés", -- ETHIQUE
@@ -707,28 +607,22 @@ Bonne formation !",
 
  Ce module a pour objectif de permettre, grâce à des cas concrets illustrés ou filmés, de détecter l’expression d’un préjugé et de savoir y réagir efficacement.
 
-Il invite à la réflexion en faisant écho à des situations déjà vécues, anodines au premier abord. Il montre l'impact d’un préjugé en faisant connaitre les différents points de vue et notamment celui des personnes ciblées. Par l'expérience virtuelle de réactions plus ou moins efficaces face à un préjugé, il aide à réagir en situation réelle.
-
-Ce module s’adresse à tous les salariés SNCF, y compris les personnes qui ne sont pas ciblées par les préjugés et qui peuvent être des alliés essentiels pour favoriser l'inclusion.
-
-La durée du module est en moyenne de 25 minutes. Il est entièrement sous-titré et une version accessible aux personnes malvoyantes, basée sur une navigation au clavier, est proposée.",
+Il invite à la réflexion en faisant écho à des situations déjà vécues, anodines au premier abord. Il montre l'impact d’un préjugé en faisant connaitre les différents points de vue et notamment celui des personnes ciblées.",
     "Distanciel",
     25,
     "Pas d'instructeur",
     500,
-    "2021-10-7",
+    "2021-10-07",
     "2024-02-17"
   ),
   (
     "Le fonctionnement du COEG : acteurs et missions", -- MANAGEMENT
     "Dans ce parcours, vous allez découvrir ce qu'est un Centre Opérationnel Exploitation Gare.
 
-- Comment et pourquoi nous sommes passés d'un COE à un COEG.
-- Quels sont les acteurs et les missions d'un COEG.
-- Comment se coordonne l'ensemble des différents acteurs.
-- Les outils à disposition.
-
-Vous testerez ensuite vos connaissances puis vous nous donnerez votre avis sur le parcours.",
+Comment et pourquoi nous sommes passés d'un COE à un COEG ?
+Quels sont les acteurs et les missions d'un COEG ?
+Comment se coordonne l'ensemble des différents acteurs  ?
+Les outils à disposition ?",
     "Distanciel",
     30,
     "Pas d'instructeur",
@@ -752,8 +646,7 @@ Vous testerez ensuite vos connaissances puis vous nous donnerez votre avis sur l
 
 Ce module vous permettra de :
 
-- Découvrir le projet : enjeux, ambitions, planning
-- Prendre connaissance d’informations pratiques concernant l’outil",
+Découvrir le projet (enjeux, ambitions, planning, ...) et de prendre connaissance d’informations pratiques concernant l’outil",
     "Distanciel",
     15,
     "Pas d'instructeur",
@@ -767,9 +660,9 @@ Ce module vous permettra de :
 
  Ce module va vous permettre de :
 
-- Prendre conscience des enjeux du dérèglement climatique
-- Découvrir les actions engagées par TGV-INTERCITES pour réduire ses consommations d’énergie et son bilan carbone
-- Identifier les bons réflexes à adopter à la maison et au travail pour réduire efficacement ses émissions de CO2",
+prendre conscience des enjeux du dérèglement climatique,
+découvrir les actions engagées par TGV-INTERCITES pour réduire ses consommations d’énergie et son bilan carbone,
+identifier les bons réflexes à adopter à la maison et au travail pour réduire efficacement ses émissions de CO2",
     "Distanciel",
     60,
     "Pas d'instructeur",
@@ -781,11 +674,7 @@ Ce module vous permettra de :
     "Concevoir une stratégie", -- MANAGEMENT
     "OBJECTIFS DE LA FORMATION :
 
-- concevoir les étapes d’une stratégie 
-
-- développer une posture d’ouverture 
-
-- appliquer une méthode de déploiement structurée  ",
+concevoir les étapes d’une stratégie, développer une posture d’ouverture, appliquer une méthode de déploiement structurée  ",
     "Distanciel",
     20,
     "Pas d'instructeur",
@@ -795,7 +684,7 @@ Ce module vous permettra de :
   ),
     (
     "Adjoint.e Responsable des Ressources Humaines", -- RH
-    "L'adjoint.e RH est en soutien à la Responsable des Ressources Humaines dans le déploiement et le pilotage local des politiques RH sur le périmètre de l’établissement NOUVELLE-AQUITAINE.
+    "L'adjoint.e RH est en soutien à la Responsable des Ressources Humaines dans le déploiement et le pilotage local des politiques RH.
 
 Il participe activement à la GPEC de l’établissement en anticipant les besoins et en développant des parcours professionnels.
 Il renseigne les salariés sur les questions RH en étroite collaboration avec le Centre de Service Mutualisé RH (CSMRH).
@@ -810,8 +699,8 @@ Il remplace la RRH pendant ses absences.",
     (
     "Opérateur / Opératrice Voie Géométrie", -- MAINTENANCE
     "La formation a pour but de former l'agent afin qu'il puisse effectuer les tâches suivantes : 
-    - Réalise principalement des reprises de Nivellement manuel avec son équipe
-    - Est sous la responsabilité du CEV de l'équipe Géométrie et /ou ATEN de l'équipe.",
+    réaliser principalement des reprises de Nivellement manuel avec son équipe, 
+    agir sous la responsabilité du CEV de l'équipe Géométrie et /ou ATEN de l'équipe.",
     "Présentiel",
     1, -- 1 mois
     "Carissa Garner",
@@ -870,7 +759,7 @@ INSERT INTO
   learning_category (category_id, learning_id)
 VALUES
  (1, 1),
- (3, 2),
+ (2, 2),
  (4, 3),
  (6, 4),
  (3, 5),
@@ -937,21 +826,170 @@ VALUES
 -- INSERT INTO
 --   job_type_learning (job_type_id, learning_id)
 -- VALUES
---   (1, 15),
---   (2, 14),
---   (3, 13),
---   (4, 12),
---   (5, 11),
---   (6, 10),
---   (7, 9),
---   (8, 8),
---   (9, 7),
---   (10, 6),
---   (1, 5),
---   (2, 4),
---   (3, 3),
---   (4, 2),
---   (5, 1);
+--  (1, 1),
+--  (1, 2),
+--  (1, 4),
+--  (1, 5),
+--  (1, 6),
+--  (1, 8),
+--  (1, 9),
+--  (1, 10),
+--  (1, 11),
+--  (1, 12),
+--  (1, 13),
+--  (1, 14),
+--  (1, 15),
+--  (1, 16),
+--  (1, 17),
+--  (1, 18),
+--  (1, 19),
+--  (2, 1),
+--  (2, 2),
+--  (2, 4),
+--  (2, 5),
+--  (2, 6),
+--  (2, 8),
+--  (2, 9),
+--  (2, 10),
+--  (2, 11),
+--  (2, 12),
+--  (2, 13),
+--  (2, 14),
+--  (2, 15),
+--  (2, 16),
+--  (2, 17),
+--  (2, 18),
+--  (2, 19),
+--  (3, 1),
+--  (3, 2),
+--  (3, 4),
+--  (3, 5),
+--  (3, 6),
+--  (3, 8),
+--  (3, 9),
+--  (3, 10),
+--  (3, 11),
+--  (3, 12),
+--  (3, 13),
+--  (3, 14),
+--  (3, 15),
+--  (3, 16),
+--  (3, 17),
+--  (3, 18),
+--  (3, 19),
+--  (4, 1),
+--  (4, 2),
+--  (4, 4),
+--  (4, 6),
+--  (4, 7),
+--  (4, 8),
+--  (4, 9),
+--  (4, 10),
+--  (4, 11),
+--  (4, 12),
+--  (4, 13),
+--  (4, 14),
+--  (4, 15),
+--  (4, 16),
+--  (4, 17),
+--  (4, 18),
+--  (4, 19),
+--  (4, 21),
+--  (5, 1),
+--  (5, 2),
+--  (5, 8),
+--  (5, 9),
+--  (5, 11),
+--  (5, 12),
+--  (5, 14),
+--  (5, 16),
+--  (5, 17),
+--  (5, 18),
+--  (6, 1),
+--  (6, 2),
+--  (6, 3),
+--  (6, 4),
+--  (6, 6),
+--  (6, 8),
+--  (6, 9),
+--  (6, 10),
+--  (6, 11),
+--  (6, 12),
+--  (6, 13),
+--  (6, 14),
+--  (6, 15),
+--  (6, 16),
+--  (6, 17),
+--  (6, 18),
+--  (6, 19),
+--  (6, 20),
+--  (7, 1),
+--  (7, 2),
+--  (7, 4),
+--  (7, 6),
+--  (7, 8),
+--  (7, 9),
+--  (7, 10),
+--  (7, 11),
+--  (7, 12),
+--  (7, 13),
+--  (7, 14),
+--  (7, 15),
+--  (7, 16),
+--  (7, 17),
+--  (7, 18),
+--  (7, 19),
+--  (8, 1),
+--  (8, 2),
+--  (8, 4),
+--  (8, 6),
+--  (8, 8),
+--  (8, 9),
+--  (8, 10),
+--  (8, 11),
+--  (8, 12),
+--  (8, 13),
+--  (8, 14),
+--  (8, 15),
+--  (8, 16),
+--  (8, 17),
+--  (8, 18),
+--  (8, 19),
+--  (9, 1),
+--  (9, 2),
+--  (9, 4),
+--  (9, 5),
+--  (9, 6),
+--  (9, 7),
+--  (9, 8),
+--  (9, 9),
+--  (9, 10),
+--  (9, 11),
+--  (9, 12),
+--  (9, 13),
+--  (9, 14),
+--  (9, 15),
+--  (9, 16),
+--  (9, 17),
+--  (9, 18),
+--  (9, 19), 
+--  (9, 21),
+--  (10, 1),
+--  (10, 2),
+--  (10, 4),
+--  (10, 6),
+--  (10, 8),
+--  (10, 9),
+--  (10, 10),
+--  (10, 11),
+--  (10, 12),
+--  (10, 13),
+--  (10, 14),
+--  (10, 15),
+--  (10, 16),
+--  (10, 17),
+--  (10, 18),
+--  (10, 19);
 
 INSERT INTO
   learning_grade (grade_id, learning_id)
