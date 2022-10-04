@@ -4,18 +4,18 @@ const fs = require("fs");
 const mysql = require("mysql2/promise");
 
 const migrate = async () => {
-  // const { DB_HOST, DB_USER, DB_PASSWORD, DB_NAME } = process.env;
+  const { DB_HOST, DB_USER, DB_PASSWORD, DB_NAME } = process.env;
 
   const connection = await mysql.createConnection({
-    host: "eu-cdbr-west-03.cleardb.net",
-    user: "b95a798acd9301",
-    password: "25bc2018",
+    host: DB_HOST,
+    user: DB_USER,
+    password: DB_PASSWORD,
     multipleStatements: true,
   });
 
-  await connection.query(`drop database if exists $heroku_f8354945b5d2202`);
-  await connection.query(`create database $heroku_f8354945b5d2202`);
-  await connection.query(`use $heroku_f8354945b5d2202`);
+  await connection.query(`drop database if exists ${DB_NAME}`);
+  await connection.query(`create database ${DB_NAME}`);
+  await connection.query(`use ${DB_NAME}`);
 
   const sql = fs.readFileSync("./database.sql", "utf8");
 
