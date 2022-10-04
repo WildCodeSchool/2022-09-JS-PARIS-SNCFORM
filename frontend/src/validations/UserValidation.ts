@@ -4,7 +4,10 @@ const mailFormat = /^[\w-.]+@([\w-]+\.)+[\w-]{2,4}$/g;
 // valid email example : a-z.A-Z_123@aZ123.1234
 
 export const userSchema = yup.object().shape({
-  firstName: yup.string().min(3, "Prénom doit contenir 3 charactères minimum"), // mettre les maximum sur tout les champs
+  firstName: yup
+    .string()
+    .min(3, "Prénom doit contenir 3 charactères minimum") // mettre les maximum sur tout les champs
+    .required("Prénom est un champ obligatoire"),
   lastName: yup.string().required("Nom est obligatoire"),
   genre: yup.string().required("Civilité est un champ obligatoire"),
   cpNumber: yup.string().required("CP est un champ obligatoire"),
