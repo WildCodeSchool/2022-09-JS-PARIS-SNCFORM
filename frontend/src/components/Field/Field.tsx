@@ -1,4 +1,3 @@
-/* eslint-disable react/no-array-index-key */
 import { EyeSlashIcon } from "@assets/images";
 import React, {
   Dispatch,
@@ -64,9 +63,9 @@ export const Field: React.FC<FieldType> = ({
           autoComplete={autoComplete}
           placeholder={value}
         />
-        <div className="field__errors">
+        <div className="field__errors-container">
           {errors?.map((errorString) => (
-            <p className="" key={null}>
+            <p className="field__errors" key={null}>
               {errorString}
             </p>
           ))}

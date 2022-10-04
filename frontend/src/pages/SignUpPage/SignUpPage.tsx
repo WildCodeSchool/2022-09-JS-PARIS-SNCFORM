@@ -161,6 +161,7 @@ export const SignUpPage: React.FC = () => {
               id="female"
               name="gender"
               onChange={onChangeRadio}
+              required
             />
             Mme
           </label>

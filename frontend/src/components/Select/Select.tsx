@@ -46,9 +46,9 @@ export const Select: React.FC<SelectType> = ({
           </option>
         ))}
       </select>
-      <div className="select__errors">
+      <div className="select__errors-container">
         {errors?.map((errorString) => (
-          <p className="" key={null}>
+          <p className="select__errors" key={null}>
             {errorString}
           </p>
         ))}
