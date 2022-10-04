@@ -12,8 +12,8 @@ export interface UserType {
   bio: string;
   manager_last_name: string;
   job_type_name: string;
-  avatar: string;
-  background_profil: string;
+  avatar: File;
+  background_profil: File;
 }
 
 export interface UserSignUpType {
@@ -41,6 +41,4 @@ export interface UserEditType {
   hashedPassword: string;
   newPassword: string;
   oldPassword: string;
-  avatar: string;
-  background_profil: string;
 }

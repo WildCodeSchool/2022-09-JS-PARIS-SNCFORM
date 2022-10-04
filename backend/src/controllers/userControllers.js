@@ -94,11 +94,11 @@ const login = (req, res, next) => {
 };
 
 const editUser = (req, res) => {
-  // console.log("&&&&&&file", req.file);
-  // console.log("######body", req.body);
   const user = req.body;
   user.id = req.params.id;
-  user.avatar = req.file.path;
+  const { avatar, background_profil } = req.files;
+  if (avatar) user.avatar = avatar[0].path;
+  if (background_profil) user.background_profil = background_profil[0].path;
 
   user.hashedPassword = req.body.hashedPassword;
 

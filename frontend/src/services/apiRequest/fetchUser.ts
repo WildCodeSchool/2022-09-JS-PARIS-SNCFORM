@@ -31,8 +31,12 @@ const getUserProfilById = (
 const editUser = (user: Partial<UserType> | null) => {
   const { headers } = useHeaders();
   const formData = new FormData();
-  // formData.append("user", user);
-  formData.append("avatar", user?.avatar);
+  for (const key in user) {
+    if ({}.hasOwnProperty.call(user, key)) {
+      formData.append(key, user[key]);
+    }
+  }
+  // formData.append("avatar", user?.avatar);
   return axios
     .put(`${BASE_URL}/users/${user?.id}`, formData, { headers })
     .then(({ data }) => {

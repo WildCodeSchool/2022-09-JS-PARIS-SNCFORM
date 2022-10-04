@@ -30,16 +30,6 @@ router.get("/api/users/role/:role", userControllers.getUserByRole);
 router.get("/api/jobs", jobTypeControllers.getAllJobType);
 router.get("/api/grades", gradeControllers.getAllGrade);
 
-router.put(
-  "/api/users/:id",
-  // authMiddlewares.verifyNewPassword,
-  // authMiddlewares.hashPassword,
-  upload.single("avatar")
-  // userControllers.editUser
-  // (req, res) => {
-  // console.log("&&&&&&&&", req);
-  // }
-);
 // Authentification wall
 router.use(
   authMiddlewares.verifyToken,
@@ -52,6 +42,16 @@ router.post("/api/logout", blackListTokenControllers.blackListToken);
 router.get("/api/users", userControllers.getAllUser);
 router.get("/api/users/:id/profil", userControllers.getUserWhithHashedPassword);
 router.get("/api/users/role/:role", userControllers.getUserByRole);
+router.put(
+  "/api/users/:id",
+  authMiddlewares.verifyNewPassword,
+  authMiddlewares.hashPassword,
+  upload.fields([
+    { name: "avatar", maxCount: 1 },
+    { name: "background_profil", maxCount: 1 },
+  ]),
+  userControllers.editUser
+);
 
 router.delete("/api/users/:id", userControllers.destroyUser);
 

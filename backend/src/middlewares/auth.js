@@ -94,5 +94,4 @@ module.exports = {
   verifyToken,
   verifyPassword,
   verifyNewPassword,
-  // uploadImage,
 };
