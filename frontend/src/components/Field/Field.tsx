@@ -1,4 +1,5 @@
 import { EyeSlashIcon } from "@assets/images";
+import { ErrorMessage } from "@components/index";
 import React, {
   Dispatch,
   SetStateAction,
@@ -63,13 +64,7 @@ export const Field: React.FC<FieldType> = ({
           autoComplete={autoComplete}
           placeholder={value}
         />
-        <div className="field__errors-container">
-          {errors?.map((errorString) => (
-            <p className="field__errors" key={null}>
-              {errorString}
-            </p>
-          ))}
-        </div>
+        {!!errors?.length && <ErrorMessage errors={errors} />}
 
         {isPassword ? <EyeSlashIcon onClick={toogleInputShow} /> : null}
       </div>
