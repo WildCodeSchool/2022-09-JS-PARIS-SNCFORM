@@ -28,7 +28,7 @@ export interface UserSignUpType {
   password: string;
 }
 
-export interface UserSignInType {
+export interface UserLoginType {
   cpNumber: string;
   password: string;
 }
