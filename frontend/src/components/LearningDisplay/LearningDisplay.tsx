@@ -10,7 +10,13 @@ type LearningDisplayProps = {
 export const LearningDisplay: React.FC<LearningDisplayProps> = ({
   learning,
 }) => {
-  const { title, type, capacityLearner, duration, id } = learning;
+  const {
+    title,
+    type,
+    capacity_learner: capacityLearner,
+    duration,
+    id,
+  } = learning;
   return (
     <div className="learning-display">
       <Link to={`/detail-formations/${id}`}>
@@ -18,8 +24,8 @@ export const LearningDisplay: React.FC<LearningDisplayProps> = ({
       </Link>
       <div className="learning-display__bottom">
         <span>{type}</span>
-        <span>{duration} Jours</span>
-        <span>{capacityLearner} Personnes</span>
+        <span>{duration} Jour(s)</span>
+        <span>{capacityLearner} Places</span>
       </div>
     </div>
   );
