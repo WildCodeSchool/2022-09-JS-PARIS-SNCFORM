@@ -3,7 +3,7 @@ import { Layout, PrivateRoute, ProfileBar } from "@components/index";
 import "./App.scss";
 import {
   SignUpPage,
-  SignInPage,
+  LoginPage,
   HomePage,
   EditProfilePage,
   MenuPage,
@@ -27,7 +27,7 @@ function App() {
             {/* PrivateRoute prevents connected users from accessing it */}
             <Route element={<PrivateRoute isAuth={!isLogin} />}>
               <Route path="inscription" element={<SignUpPage />} />
-              <Route path="connexion" element={<SignInPage />} />
+              <Route path="connexion" element={<LoginPage />} />
             </Route>
 
             <Route
