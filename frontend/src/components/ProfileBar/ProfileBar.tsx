@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from "react";
 import "./ProfileBar.scss";
 import { Outlet, Link, useOutletContext } from "react-router-dom";
-import { LearningType, UserType } from "@type/index";
-import { learningFetch, userFetch } from "@services/index";
+import { LearningType } from "@type/index";
+import { learningFetch } from "@services/index";
 import { tokenApp } from "@tools/utils";
 
 export type OutletProfilContextType = {
