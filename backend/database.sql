@@ -1,3 +1,5 @@
+SET NAMES 'utf8';
+
 DROP TABLE IF EXISTS user_notification;
 
 DROP TABLE IF EXISTS notification;
@@ -23,6 +25,8 @@ DROP TABLE IF EXISTS grade;
 DROP TABLE IF EXISTS learning;
 
 DROP TABLE IF EXISTS token_blacklist;
+
+SET @@auto_increment_increment=1;
 
 CREATE TABLE grade (
   id INT NOT NULL AUTO_INCREMENT,
@@ -143,8 +147,9 @@ CREATE TABLE learning_grade (
 );
 
 CREATE TABLE token_blacklist (
+  id INT NOT NULL AUTO_INCREMENT,
   token VARCHAR(755) NOT NULL,
-  PRIMARY KEY (token)
+  PRIMARY KEY (id)
 );
 
 INSERT INTO

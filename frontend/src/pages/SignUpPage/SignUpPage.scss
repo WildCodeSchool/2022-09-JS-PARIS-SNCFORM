@@ -5,25 +5,25 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
-  padding-bottom: 1em;
+  padding-bottom: 1rem;
 
   h2 {
     text-transform: uppercase;
     font-weight: bold;
-    font-size: 1.5em;
-    margin-bottom: 1em;
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
   }
 
   form {
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 1em;
+    gap: 1rem;
   }
 
   &__radio {
     display: flex;
-    gap: 1em;
+    gap: 1rem;
   }
 
   &__select-group {
@@ -34,8 +34,8 @@
   }
 
   select {
-    margin-top: 0.5em;
-    height: 2.25em;
+    margin-top: 0.5rem;
+    height: 2.25rem;
     border-radius: 5px;
     border: none;
     border: 1px solid $cool-gray--07;
@@ -46,7 +46,7 @@
     display: flex;
     flex-direction: column;
     width: 100%;
-    gap: 1em;
+    gap: 1rem;
   }
 
   .button {
@@ -54,13 +54,12 @@
   }
 
   .redirect-link {
-    margin-top: 0.5em;
+    margin-top: 0.5rem;
   }
 }
 
 @media (min-width: 768px) {
   .signup {
-    height: 100%;
     form {
       flex-direction: row;
       flex-wrap: wrap;
@@ -83,7 +82,6 @@
 }
 @media (min-width: 1200px) {
   .signup {
-    height: 100%;
     &__field {
       height: 45%;
     }

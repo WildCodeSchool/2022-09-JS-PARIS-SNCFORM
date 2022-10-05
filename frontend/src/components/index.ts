@@ -14,3 +14,4 @@ export { SearchBar } from "./SearchBar/SearchBar";
 export { LearningDisplay } from "./LearningDisplay/LearningDisplay";
 export { LearningDisplayList } from "./LearningDisplayList/LearningDisplayList";
 export { PrivateRoute } from "./PrivateRoute/PrivateRoute";
+export { ErrorMessage } from "./ErrorMessage/ErrorMessage";
