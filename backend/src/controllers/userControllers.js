@@ -94,13 +94,14 @@ const login = (req, res, next) => {
 };
 
 const editUser = (req, res) => {
-  console.warn("#####", req.files);
   const user = req.body;
   user.id = req.params.id;
   const { avatar, background_profil } = req.files;
-  // console.log("######", avatar[0].path);
-  if (avatar) user.avatar = avatar[0].path;
-  if (background_profil) user.background_profil = background_profil[0].path;
+
+  if (avatar) user.avatar = avatar[0].path.replace("public", "");
+
+  if (background_profil)
+    user.background_profil = background_profil[0].path.replace("public", "");
 
   user.hashedPassword = req.body.hashedPassword;
 
