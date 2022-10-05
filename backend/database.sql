@@ -1,3 +1,5 @@
+SET NAMES 'utf8';
+
 DROP TABLE IF EXISTS user_notification;
 
 DROP TABLE IF EXISTS notification;
