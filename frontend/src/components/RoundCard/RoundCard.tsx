@@ -10,7 +10,8 @@ type RoundCardProps = {
 
 export const RoundCard: React.FC<RoundCardProps> = ({
   label,
-  imgUrl = "https://picsum.photos/800/600?random=2",
+  // imgUrl = "https://picsum.photos/800/600?random=2",
+  imgUrl,
   path,
 }) => {
   return path ? (

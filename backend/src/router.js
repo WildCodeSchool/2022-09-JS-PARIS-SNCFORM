@@ -2,7 +2,27 @@ const express = require("express");
 const multer = require("multer");
 const authMiddlewares = require("./middlewares/auth");
 
-const upload = multer({ dest: "public/assets/images/" });
+const MIME_TYPES = {
+  "image/jpg": "jpg",
+  "image/jpeg": "jpg",
+  "image/png": "png",
+};
+
+const storage = multer.diskStorage({
+  destination: (req, file, callback) => {
+    callback(null, "public/assets/images/");
+  },
+  filename: (req, file, callback) => {
+    const name = file.originalname.split(" ").join("_");
+    const extension = MIME_TYPES[file.mimetype];
+    callback(null, `${name + Date.now()}.${extension}`);
+  },
+});
+
+const upload = multer({ storage }).fields([
+  { name: "avatar", maxCount: 1 },
+  { name: "background_profil", maxCount: 1 },
+]);
 
 const router = express.Router();
 
@@ -46,10 +66,7 @@ router.put(
   "/api/users/:id",
   authMiddlewares.verifyNewPassword,
   authMiddlewares.hashPassword,
-  upload.fields([
-    { name: "avatar", maxCount: 1 },
-    { name: "background_profil", maxCount: 1 },
-  ]),
+  upload,
   userControllers.editUser
 );
 
