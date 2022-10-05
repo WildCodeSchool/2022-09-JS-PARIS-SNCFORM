@@ -30,7 +30,7 @@ const getUserById = (
 
 const editUser = (
   user: Partial<UserType> | null,
-  setMessage: SetStateType<string | null>
+  setMessage: SetStateType<{ status: string; message: string } | null>
 ) => {
   const { headers } = useHeaders();
   return axios

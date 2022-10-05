@@ -40,11 +40,11 @@ const verifyPassword = (req, res) => {
   const { hashedPassword, id: userId } = req.user;
   argon2.verify(hashedPassword, password).then((isVerified) => {
     if (!isVerified) {
-      res.sendStatus(401);
+      return res.sendStatus(401);
     }
     delete req.user.hashedPassword;
     const token = createToken(userId);
-    res.send({ token, user: req.user });
+    return res.send({ token, user: req.user });
   });
 };
 

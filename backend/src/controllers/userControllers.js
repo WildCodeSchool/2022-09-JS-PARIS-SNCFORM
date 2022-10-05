@@ -131,7 +131,7 @@ const editUser = (req, res) => {
         const token = createToken(user.id);
         res.status(200).json({
           message: "User updated",
-          messageSuccess: "Profil mis à jour",
+          messageSuccess: { status: "success", message: "Profil mis à jour" },
           token,
         });
       }

@@ -9,7 +9,10 @@ import { useUserContext } from "@context/index";
 export const EditProfilePage: React.FC = () => {
   const { user } = useUserContext();
   const [editUser, setEditUser] = useState<Partial<UserType> | null>(null);
-  const [messageInfo, setMessageInfo] = useState<string | null>(null);
+  const [messageInfo, setMessageInfo] = useState<{
+    status: string;
+    message: string;
+  } | null>(null);
 
   useEffect(() => {
     setEditUser(user);
@@ -70,7 +73,7 @@ export const EditProfilePage: React.FC = () => {
         path="/menu"
         className="icon-top-right"
       />
-      {messageInfo && <InfoMessage message={messageInfo} />}
+      {messageInfo && <InfoMessage messageInfo={messageInfo} />}
       <form className="edit-profile__form" onSubmit={handleSubmit}>
         <div className="edit-profile__fields">
           {inputData.map((data) => (

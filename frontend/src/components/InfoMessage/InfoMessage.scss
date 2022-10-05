@@ -1,10 +1,17 @@
 @import "../../theme-sncf.scss";
 
 .info-message {
-  background-color: $bleu-canard;
   padding: 0.5rem;
   border-radius: 5px;
   margin-bottom: 1rem;
+
+  &--success {
+    background-color: $bleu-canard;
+  }
+
+  &--error {
+    background-color: $rouge-assistance;
+  }
 
   p {
     color: white;
