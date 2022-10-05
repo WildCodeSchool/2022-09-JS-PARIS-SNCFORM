@@ -31,13 +31,15 @@ export const ProfileBar: React.FC = () => {
   return (
     <div className="profile-bar">
       <ul className="profile-bar__items-list">
-        <Link to="/profile">
-          <li className="items-list__profile">Mon Profil</li>
-        </Link>
-        <Link to="/editprofile">
-          <li className="items-list__edit-profile">Editer Profil</li>
-        </Link>
-        <li className="items-list__learning">Mes formations</li>
+        <li className="items-list items-list--profile">
+          <Link to="/profile">Mon Profil</Link>
+        </li>
+        <li className="items-list items-list--edit-profile">
+          <Link to="/editprofile">Editer Profil</Link>
+        </li>
+        <li className="items-list items-list--learning">
+          <Link to="/learning-profile">Mes formations</Link>
+        </li>
       </ul>
       <Outlet context={{ user, userLearnings }} />
     </div>

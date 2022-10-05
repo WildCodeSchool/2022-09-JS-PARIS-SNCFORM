@@ -111,13 +111,8 @@ const editUser = (req, res) => {
       if (result.affectedRows === 0) {
         res.sendStatus(404);
       } else {
-        const { id, first_name, last_name, email } = user;
-        const userToken = {
-          id,
-          first_name,
-          last_name,
-          email,
-        };
+        const { id, first_name, last_name, email, bio } = user;
+        const userToken = { id, first_name, last_name, email, bio };
         const token = createToken(user.id, userToken);
         res.status(200).json({ message: "User updated", token });
       }

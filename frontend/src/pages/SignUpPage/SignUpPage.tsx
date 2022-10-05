@@ -4,10 +4,16 @@ import { Field, Select, Button, RedirectLink } from "@components/index";
 import { userFetch, jobFetch, gradeFetch, authFetch } from "@services/index";
 import { UserSignUpType, UserType } from "@type/index";
 import { useNavigate } from "react-router-dom";
+import { ValidationError } from "yup";
+import { userSchema } from "../../validations/UserValidation";
 
 type JobGradeType = {
   id: number;
   name: string;
+};
+
+type ErrorsType = {
+  [key: string]: string[]; // [firstname or lastname etcc : string] : string[]
 };
 
 export type SetUserSignUpType = Dispatch<SetStateAction<UserSignUpType>>;
@@ -18,22 +24,23 @@ export type SetUsersType = React.Dispatch<
 >;
 
 export const SignUpPage: React.FC = () => {
-  const intialSignUp: UserSignUpType = {
+  const initialSignUp: UserSignUpType = {
     firstName: "",
     lastName: "",
     genre: "",
     cpNumber: "",
     email: "",
-    jobType: 0,
+    jobType: "",
     password: "",
-    grade: 0,
-    manager: 0,
+    grade: "",
+    manager: "",
   };
 
-  const [userSignUp, setUserSignUp] = useState<UserSignUpType>(intialSignUp);
+  const [userSignUp, setUserSignUp] = useState<UserSignUpType>(initialSignUp);
   const [jobs, setJobs] = useState<JobGradeType[]>([]);
   const [grades, setGrades] = useState<JobGradeType[]>([]);
   const [managers, setManagers] = useState<UserType[] | null>(null);
+  const [errors, setErrors] = useState<ErrorsType>();
 
   const onChangeRadio = (e: React.ChangeEvent<HTMLInputElement>) => {
     setUserSignUp((prev) => {
@@ -66,46 +73,71 @@ export const SignUpPage: React.FC = () => {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    authFetch.signup(userSignUp, navigate);
+
+    // check field validity
+    userSchema
+      .validate(userSignUp, { abortEarly: false })
+      .then(() => {
+        authFetch.signup(userSignUp, navigate);
+      })
+      .catch((err: ValidationError) => {
+        const yupErrors: ErrorsType = {};
+        err.inner.forEach((element) => {
+          if (element.path !== undefined) {
+            yupErrors[element.path] = element.errors;
+          }
+        });
+        setErrors(yupErrors);
+      });
   };
 
   const inputData = [
     {
       label: "Nom",
       inputId: "lastName",
-      isRequire: true,
     },
     {
       label: "Prénom",
       inputId: "firstName",
-      isRequire: true,
     },
     {
       label: "CP",
       inputId: "cpNumber",
-      isRequire: true,
     },
     {
       label: "Email",
       inputId: "email",
-      isRequire: true,
     },
     {
       label: "Mot de passe",
       inputId: "password",
-      isRequire: true,
       inputType: "password",
       autoComplete: "on",
     },
     {
       label: "Confirmation",
-      inputId: "confirm-password",
-      isRequire: true,
+      inputId: "confirmPassword",
       inputType: "password",
       autoComplete: "on",
     },
   ];
-
+  const selectOptionData = [
+    {
+      label: "Métier",
+      selectId: "jobType",
+      options: selectOptions,
+    },
+    {
+      label: "Grade",
+      selectId: "grade",
+      options: gradeOptions,
+    },
+    {
+      label: "Manager",
+      selectId: "manager",
+      options: managerOptions,
+    },
+  ];
   return (
     <div className="signup">
       <h2>Inscription</h2>
@@ -129,34 +161,42 @@ export const SignUpPage: React.FC = () => {
               id="female"
               name="gender"
               onChange={onChangeRadio}
+              required
             />
             Mme
           </label>
         </div>
-        <Select
-          onChange={setUserSignUp}
-          label="Métier"
-          selectId="jobType"
-          options={selectOptions}
-          isRequire
-        />
-        <Select
-          onChange={setUserSignUp}
-          label="Grade"
-          selectId="grade"
-          options={gradeOptions}
-          isRequire
-        />
-        <Select
-          onChange={setUserSignUp}
-          label="Manager"
-          selectId="manager"
-          options={managerOptions}
-          isRequire
-        />
+
+        {selectOptionData.map((optionData) => {
+          const { label, selectId, options } = optionData;
+          return (
+            <Select
+              onChange={setUserSignUp}
+              label={label}
+              selectId={selectId}
+              options={options}
+              isRequire
+              errors={
+                errors && errors[selectId] // [data.inputId] is the field's value (firstname,lastname...)
+                  ? errors[selectId]
+                  : undefined
+              }
+            />
+          );
+        })}
+
         <div className="signup__field">
-          {inputData.map((data) => (
-            <Field key={data.inputId} {...data} onChange={setUserSignUp} />
+          {inputData.map((fieldData) => (
+            <Field
+              key={fieldData.inputId}
+              errors={
+                errors && errors[fieldData.inputId] // or errors.firstname [data.inputId] is the field's value
+                  ? errors[fieldData.inputId]
+                  : undefined
+              }
+              {...fieldData}
+              onChange={setUserSignUp}
+            />
           ))}
         </div>
         <Button textButton="Envoie" isSubmit />

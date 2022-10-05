@@ -5,30 +5,34 @@
   display: flex;
   flex-direction: column;
 
-  .iconlink {
-    position: absolute;
-    height: 3em;
-    width: 3em;
-    top: 1em;
-    right: 1em;
-
-    img {
-      height: 100%;
-      width: 100%;
-    }
-  }
-
-  .edit-profile__form {
+  &__form {
     display: flex;
     flex-direction: column;
-    height: 100%;
     justify-content: space-between;
+    gap: 1rem;
   }
 
-  .edit-profile__fields {
+  &__fields {
     display: flex;
     flex-direction: column;
-    gap: 1em;
+    gap: 1rem;
+  }
+
+  &__bio {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+    label {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+    }
+    textarea {
+      border-radius: 5px;
+      border: 1px solid #a0a0a0;
+      resize: none;
+      height: 5rem;
+    }
   }
 
   .button {
@@ -39,16 +43,15 @@
 
 @media (min-width: 768px) {
   .edit-profile {
-    .edit-profile__form {
-      height: 100%;
-    }
-
-    .edit-profile__fields {
+    &__fields {
       flex-direction: row;
       flex-wrap: wrap;
       justify-content: space-between;
       align-items: end;
-      margin: auto;
+    }
+
+    .field {
+      width: 45%;
     }
   }
 }
@@ -58,8 +61,15 @@
     &__form {
       align-items: center;
     }
+    &__bio {
+      width: 100%;
+      height: 10rem;
+      textarea {
+        height: 100%;
+      }
+    }
     .button {
-      width: 40%;
+      width: 30%;
     }
   }
 }

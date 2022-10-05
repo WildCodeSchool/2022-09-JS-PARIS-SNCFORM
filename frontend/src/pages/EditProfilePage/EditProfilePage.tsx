@@ -8,7 +8,6 @@ import { userFetch } from "@services/index";
 export const EditProfilePage: React.FC = () => {
   const { user } = useProfilContext();
   const [editUser, setEditUser] = useState<Partial<UserType> | null>(null);
-
   useEffect(() => {
     setEditUser(user);
   }, [user]);
@@ -16,6 +15,12 @@ export const EditProfilePage: React.FC = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     userFetch.editUser(editUser);
+  };
+
+  const handleChangeBio = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
+    setEditUser((prev) => {
+      return { ...prev, bio: e.target.value };
+    });
   };
 
   const inputData = [
@@ -79,6 +84,10 @@ export const EditProfilePage: React.FC = () => {
           {inputData.map((data) => (
             <Field key={data.inputId} {...data} onChange={setEditUser} />
           ))}
+        </div>
+        <div className="edit-profile__bio">
+          <label htmlFor="bio">Biographie</label>
+          <textarea name="bio" onChange={handleChangeBio} />
         </div>
         <Button textButton="Modifier" isSubmit />
       </form>

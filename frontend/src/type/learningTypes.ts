@@ -5,8 +5,8 @@ export type LearningType = {
   description: string;
   instructor: string;
   duration: number;
-  capacityLearner: number;
-  startRegistration: Date;
-  endRegistration: Date;
+  capacity_learner: number;
+  start_registration: Date;
+  end_registration: Date;
   status?: string;
 };

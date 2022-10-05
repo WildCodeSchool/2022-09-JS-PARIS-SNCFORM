@@ -21,13 +21,15 @@
     "@types/react-router-dom": "^5.3.3",
     "axios": "^0.27.2",
     "jwt-decode": "^3.1.2",
+    "moment": "^2.29.4",
     "prop-types": "^15.8.1",
     "react": "^18.0.0",
     "react-dom": "^18.0.0",
     "react-grid-carousel": "^1.0.1",
     "react-router-dom": "^6.3.0",
     "sass": "^1.54.9",
-    "template-fullstack": "file:.."
+    "template-fullstack": "file:..",
+    "yup": "^0.32.11"
   },
   "devDependencies": {
     "@types/react": "^18.0.20",

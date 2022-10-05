@@ -58,9 +58,10 @@ class UserManager extends AbstractManager {
       last_name,
       email,
       hashedPassword,
-      id,
+      bio,
       avatar,
       background_profil,
+      id,
     } = user;
     return this.connection.query(
       `update ${this.table} set first_name = ?, last_name = ?, email = ?, hashedPassword = ?, avatar = ?, background_profil = ? where id = ?`,
@@ -69,6 +70,7 @@ class UserManager extends AbstractManager {
         last_name,
         email,
         hashedPassword,
+        bio,
         avatar,
         background_profil,
         id,

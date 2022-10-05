@@ -162,10 +162,10 @@ code {
 
 .icon-top-right {
   position: absolute;
-  height: 3em;
-  width: 3em;
-  top: 1em;
-  right: 1em;
+  height: 3rem;
+  width: 3rem;
+  top: 1rem;
+  right: 1rem;
 
   img {
     height: 100%;
@@ -175,6 +175,6 @@ code {
 
 @media (min-width: 1440px) {
   .icon-top-right {
-    right: 5em;
+    right: 5rem;
   }
 }

@@ -17,10 +17,10 @@
     background-size: cover;
   }
   .round-card {
-    width: 5em;
-    height: 5em;
+    width: 5rem;
+    height: 5rem;
     position: relative;
-    top: -1em;
+    top: -1rem;
     z-index: 1;
   }
 
@@ -33,12 +33,13 @@
     justify-content: space-evenly;
     flex-direction: column;
     position: relative;
-    bottom: 2.5em;
+    bottom: 2.5rem;
   }
   &__bio {
-    margin: 1em 0;
+    margin: 1rem 0;
   }
 }
+
 @media screen and (min-width: 768px) {
   .profile-card {
     &__background-img {
@@ -46,15 +47,12 @@
       background-size: cover;
       padding-bottom: 34%;
     }
-  }
-}
-@media screen and (min-width: 768px) {
-  .profile-card {
+
     .round-card {
-      width: 6em;
-      height: 6em;
-      top: -2em;
-      left: -1em;
+      width: 6rem;
+      height: 6rem;
+      top: -2rem;
+      left: -1rem;
     }
 
     .round-card img {
@@ -68,71 +66,54 @@
     width: 50%;
   }
 }
-@media screen and (orientation: landscape) and (min-width: 768px) {
+
+@media screen and (orientation: landscape) and (min-width: 1200px) {
   .profile-card {
+    .round-card {
+      width: 6rem;
+      height: 6rem;
+      top: -1.5rem;
+      left: -2rem;
+    }
+
     &__background-img {
       background-repeat: no-repeat;
       background-size: cover;
       width: 100%;
       padding-bottom: 34%;
     }
-  }
-}
-@media screen and (orientation: landscape) and (min-width: 1200px) {
-  .profile-card {
-    .round-card {
-      width: 6em;
-      height: 6em;
-      top: -1.5em;
-      left: -2em;
-    }
-  }
-}
-@media screen and (orientation: landscape) and (min-width: 1200px) {
-  .profile-card {
+
     &__name-job {
       height: 100%;
       width: 33%;
     }
-  }
-}
-@media screen and (orientation: landscape) and (min-width: 1200px) {
-  .profile-card {
+
     &__bio-container {
       width: 100%;
-      bottom: 2em;
+      bottom: 2rem;
     }
   }
 }
-@media screen and (min-width: 1440px) {
+
+@media (min-width: 1440px) {
   .profile-card {
+    width: 70%;
+
     &__background-img {
       background-repeat: no-repeat;
       background-size: cover;
       width: 100%;
     }
-  }
-}
-@media screen and (min-width: 1440px) {
-  .profile-card {
-    width: 70%;
-  }
-}
 
-@media screen and (min-width: 1440px) {
-  .profile-card {
     .round-card {
-      width: 5em;
-      height: 5em;
-      top: -1.5em;
+      width: 5rem;
+      height: 5rem;
+      top: -1.5rem;
     }
-  }
-}
-@media screen and (min-width: 1440px) {
-  .profile-card {
+
     &__name-job {
       height: 100%;
-      width: 33%;
+      width: auto;
     }
   }
 }
