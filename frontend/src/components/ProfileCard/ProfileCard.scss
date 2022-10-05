@@ -13,7 +13,7 @@
     width: 100%;
     margin-bottom: 2%;
     padding-bottom: 48%;
-    background: url(./src/assets/images/backgroundProfileMobile.jpg);
+    background: url(./assets/images/backgroundProfileMobile.jpg);
     background-repeat: no-repeat;
     background-size: cover;
   }
@@ -44,7 +44,7 @@
 @media screen and (min-width: 768px) {
   .profile-card {
     &__background-img {
-      background: url(./src/assets/images/backgroundProfileTabletPortrait.jpg);
+      background: url(./assets/images/backgroundProfileTabletPortrait.jpg);
       background-repeat: no-repeat;
       background-size: cover;
       padding-bottom: 34%;
@@ -79,7 +79,7 @@
     }
 
     &__background-img {
-      background: url(./src/assets/images/backgroundProfileTabletLandscape.jpg);
+      background: url(./assets/images/backgroundProfileTabletLandscape.jpg);
       background-repeat: no-repeat;
       background-size: cover;
       width: 100%;
@@ -103,7 +103,7 @@
     width: 70%;
 
     &__background-img {
-      background: url(./src/assets/images/backgroundProfileDesktop.jpg);
+      background: url(./assets/images/backgroundProfileDesktop.jpg);
       background-repeat: no-repeat;
       background-size: cover;
       width: 100%;
