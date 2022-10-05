@@ -28,12 +28,16 @@ const getUserById = (
     .catch((err) => console.error(err));
 };
 
-const editUser = (user: Partial<UserType> | null) => {
+const editUser = (
+  user: Partial<UserType> | null,
+  setMessage: SetStateType<string | null>
+) => {
   const { headers } = useHeaders();
   return axios
     .put(`${BASE_URL}/users/${user?.id}`, { ...user }, { headers })
     .then(({ data }) => {
-      const { token } = data;
+      const { token, messageSuccess } = data;
+      setMessage(messageSuccess);
       sessionStorage.setItem("token", token);
     })
     .catch((err) => console.error(err));

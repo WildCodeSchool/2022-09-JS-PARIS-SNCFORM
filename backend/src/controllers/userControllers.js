@@ -129,7 +129,11 @@ const editUser = (req, res) => {
         res.sendStatus(404);
       } else {
         const token = createToken(user.id);
-        res.status(200).json({ message: "User updated", token });
+        res.status(200).json({
+          message: "User updated",
+          messageSuccess: "Profil mis à jour",
+          token,
+        });
       }
     })
     .catch((err) => {
