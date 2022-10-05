@@ -14,6 +14,7 @@ export const ProfileCard: React.FC<ProfileCardProps> = ({ user }) => {
     bio,
     job_type_name: jobName,
   } = user;
+
   return (
     <div className="profile-card">
       <div className="profile-card__background-img" />
