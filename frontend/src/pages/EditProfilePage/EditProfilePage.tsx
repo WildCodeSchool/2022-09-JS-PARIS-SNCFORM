@@ -1,12 +1,13 @@
 import React, { useEffect, useState } from "react";
 import "./EditProfilePage.scss";
-import { Button, Field, IconLink, useProfilContext } from "@components/index";
+import { Button, Field, IconLink } from "@components/index";
 import { UserType } from "@type/userTypes";
 import { HomeIcon } from "@assets/images/SvgComponent/HomeIcon";
 import { userFetch } from "@services/index";
+import { useUserContext } from "@context/index";
 
 export const EditProfilePage: React.FC = () => {
-  const { user } = useProfilContext();
+  const { user } = useUserContext();
   const [editUser, setEditUser] = useState<Partial<UserType> | null>(null);
 
   useEffect(() => {

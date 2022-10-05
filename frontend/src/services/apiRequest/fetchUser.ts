@@ -14,7 +14,7 @@ const getUserByRole = (
     .catch((err) => console.error(err));
 };
 
-const getUserProfilById = (
+const getUserById = (
   userId: number,
   setState: SetStateType<UserType | null>
 ) => {
@@ -41,6 +41,6 @@ const editUser = (user: Partial<UserType> | null) => {
 
 export const userFetch = {
   getUserByRole,
-  getUserProfilById,
+  getUserById,
   editUser,
 };

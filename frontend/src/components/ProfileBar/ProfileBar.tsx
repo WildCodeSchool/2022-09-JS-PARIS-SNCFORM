@@ -6,7 +6,6 @@ import { learningFetch, userFetch } from "@services/index";
 import { tokenApp } from "@tools/utils";
 
 export type OutletProfilContextType = {
-  user: UserType;
   userLearnings: LearningType[];
 };
 
@@ -15,7 +14,6 @@ export const useProfilContext = () => {
 };
 
 export const ProfileBar: React.FC = () => {
-  const [user, setUser] = useState<UserType | null>(null);
   const [userLearnings, setUserLearnings] = useState<
     Partial<LearningType>[] | null
   >(null);
@@ -23,7 +21,6 @@ export const ProfileBar: React.FC = () => {
   useEffect(() => {
     const { id } = tokenApp();
     if (id) {
-      userFetch.getUserProfilById(id, setUser);
       learningFetch.fetchUserLearnings(id, setUserLearnings);
     }
   }, []);
@@ -41,7 +38,7 @@ export const ProfileBar: React.FC = () => {
           <Link to="/learning-profile">Mes formations</Link>
         </li>
       </ul>
-      <Outlet context={{ user, userLearnings }} />
+      <Outlet context={{ userLearnings }} />
     </div>
   );
 };
