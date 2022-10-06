@@ -13,13 +13,12 @@ class UserManager extends AbstractManager {
       cpNumber,
       hashedPassword,
       genre,
-      avatar,
       grade,
       jobType,
       manager,
     } = user;
     return this.connection.query(
-      `insert into ${this.table} (first_name,last_name,email,cp_number,hashedPassword,role,genre,avatar,grade_id,job_type_id,manager_id) values (?,?,?,?,?,?,?,?,?,?,?)`,
+      `insert into ${this.table} (first_name,last_name,email,cp_number,hashedPassword,role,genre, grade_id,job_type_id,manager_id) values (?,?,?,?,?,?,?,?,?,?)`,
       [
         firstName,
         lastName,
@@ -28,7 +27,6 @@ class UserManager extends AbstractManager {
         hashedPassword,
         "agent",
         genre,
-        avatar || null,
         grade,
         jobType,
         manager,
@@ -55,10 +53,28 @@ class UserManager extends AbstractManager {
   }
 
   update(user) {
-    const { first_name, last_name, email, hashedPassword, bio, id } = user;
+    const {
+      first_name,
+      last_name,
+      email,
+      hashedPassword,
+      bio,
+      avatar,
+      background_profil,
+      id,
+    } = user;
     return this.connection.query(
-      `update ${this.table} set first_name = ?, last_name = ?, email = ?, hashedPassword = ?, bio = ?  where id = ?`,
-      [first_name, last_name, email, hashedPassword, bio, id]
+      `update ${this.table} set first_name = ?, last_name = ?, email = ?, hashedPassword = ?, bio = ?, avatar = ?, background_profil = ? where id = ?`,
+      [
+        first_name,
+        last_name,
+        email,
+        hashedPassword,
+        bio,
+        avatar,
+        background_profil,
+        id,
+      ]
     );
   }
 

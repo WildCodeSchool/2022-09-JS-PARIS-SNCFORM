@@ -1,6 +1,6 @@
 import axios from "axios";
 import { SetStateType, UserType } from "@type/index";
-import { useHeaders } from "@tools/utils";
+import { tokenApp, useHeaders } from "@tools/utils";
 
 const BASE_URL = import.meta.env.VITE_BACKEND_URL;
 
@@ -32,13 +32,26 @@ const editUser = (
   user: Partial<UserType> | null,
   setMessage: SetStateType<{ status: string; message: string } | null>
 ) => {
-  const { headers } = useHeaders();
+  const { token } = tokenApp();
+
+  const headers = {
+    "Content-Type": "multipart/form-data",
+    Authorization: `Bearer ${token}`,
+  };
+
+  const formData = new FormData();
+  for (const key in user) {
+    if ({}.hasOwnProperty.call(user, key)) {
+      formData.append(key, user[key]);
+    }
+  }
+  // formData.append("avatar", user?.avatar);
   return axios
-    .put(`${BASE_URL}/users/${user?.id}`, { ...user }, { headers })
+    .put(`${BASE_URL}/users/${user?.id}`, formData, { headers })
     .then(({ data }) => {
-      const { token, messageSuccess } = data;
+      const { token: newToken, messageSuccess } = data;
       setMessage(messageSuccess);
-      sessionStorage.setItem("token", token);
+      sessionStorage.setItem("token", newToken);
     })
     .catch((err) => console.error(err));
 };

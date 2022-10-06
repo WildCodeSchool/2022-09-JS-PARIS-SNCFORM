@@ -47,6 +47,18 @@ export const EditProfilePage: React.FC = () => {
       value: editUser?.email,
     },
     {
+      label: "Photo Profil",
+      inputId: "avatar",
+      inputType: "file",
+      value: editUser?.avatar,
+    },
+    {
+      label: "Photo de couverture",
+      inputId: "background_profil",
+      inputType: "file",
+      value: editUser?.background_profil,
+    },
+    {
       label: "Nouveau mot de passe",
       inputId: "newPassword",
       inputType: "password",
