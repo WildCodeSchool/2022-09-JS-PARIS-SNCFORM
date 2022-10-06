@@ -3,10 +3,10 @@ import axios from "axios";
 import { tokenApp, useHeaders } from "@tools/utils";
 
 const BASE_URL = import.meta.env.VITE_BACKEND_URL;
-
-const getLearningsById = (
+const getLearningsByIdAndUserId = (
   learningId: string | undefined,
-  setState: SetStateType<LearningType | null>
+  setState: SetStateType<LearningType | null>,
+  userId: number | undefined
 ) => {
   const { token } = tokenApp();
 
@@ -15,7 +15,27 @@ const getLearningsById = (
     Authorization: `Bearer ${token}`,
   };
   axios
-    .get(`${BASE_URL}/learnings/${learningId}`, { headers })
+    .get(`${BASE_URL}/learnings/${learningId}/user/${userId}`, { headers })
+    .then(({ data }) => setState(data))
+    .catch((err) => console.error(err));
+};
+
+const getLearningsById = (
+  learningId: string | undefined,
+  setState: SetStateType<LearningType | null>,
+  userId?: number
+) => {
+  const { token } = tokenApp();
+
+  const headers = {
+    "Content-Type": "application/json",
+    Authorization: `Bearer ${token}`,
+  };
+
+  let url = `${BASE_URL}/learnings/${learningId}`;
+  if (userId) url += `/user/${userId}`;
+  axios
+    .get(url, { headers })
     .then(({ data }) => setState(data))
     .catch((err) => console.error(err));
 };
@@ -66,4 +86,5 @@ export const learningFetch = {
   fetchByCatAndUserGrade,
   fetchUserLearnings,
   fetchByJobAndGrade,
+  getLearningsByIdAndUserId,
 };

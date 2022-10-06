@@ -11,6 +11,19 @@ const getLearningsById = (req, res) => {
     });
 };
 
+const getLearningsByIdAndUserId = (req, res) => {
+  const { id, userId } = req.params;
+  models.learning
+    .findByIdAndUserId(id, userId)
+    .then(([result]) => res.status(200).json(result[0]))
+    .catch((err) => {
+      console.error(err);
+      res
+        .status(500)
+        .send("Error in learnings getLearningsByIdAndUserId request");
+    });
+};
+
 const getByCatAndUserGrade = (req, res) => {
   const { categoryId, gradeId, userId } = req.params;
 
@@ -49,6 +62,7 @@ const getByJobAndGrade = (req, res) => {
 
 module.exports = {
   getLearningsById,
+  getLearningsByIdAndUserId,
   getByCatAndUserGrade,
   getUserLearnings,
   getByJobAndGrade,
