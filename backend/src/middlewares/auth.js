@@ -5,6 +5,7 @@ const hashPassword = (req, res, next) => {
   const { password } = req.body;
 
   if (!password) {
+    req.hashedPassword = req.body.hashedPassword;
     next();
   } else {
     const hashingOptions = {
@@ -18,8 +19,8 @@ const hashPassword = (req, res, next) => {
 
       .then((hashedPassword) => {
         req.body.hashedPassword = hashedPassword;
+        req.hashedPassword = hashedPassword;
         delete req.body.password;
-
         next();
       })
       .catch((err) => {
@@ -29,8 +30,8 @@ const hashPassword = (req, res, next) => {
   }
 };
 
-const createToken = (id, user) => {
-  const token = jwt.sign({ sub: id, user }, process.env.JWT_SECRET, {
+const createToken = (id) => {
+  const token = jwt.sign({ sub: id }, process.env.JWT_SECRET, {
     expiresIn: "1h",
   });
   return token;
@@ -41,11 +42,11 @@ const verifyPassword = (req, res) => {
   const { hashedPassword, id: userId } = req.user;
   argon2.verify(hashedPassword, password).then((isVerified) => {
     if (!isVerified) {
-      res.sendStatus(401);
+      return res.sendStatus(401);
     }
     delete req.user.hashedPassword;
-    const token = createToken(userId, req.user);
-    res.send({ token, user: req.user });
+    const token = createToken(userId);
+    return res.send({ token, user: req.user });
   });
 };
 

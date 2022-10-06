@@ -38,7 +38,14 @@ export const Field: React.FC<FieldType> = ({
   const isPassword = inputType === "password";
   const handleChange = () => {
     onChange((prev) => {
-      return { ...prev, [inputId]: inputRef.current?.value };
+      let inputValue: File | string | undefined;
+      inputValue = inputRef.current?.value;
+      if (inputRef.current?.type === "file") {
+        // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
+        inputValue = inputRef.current?.files![0];
+        // console.log('inputRef.current?:', inputRef.current?.files![0])
+      }
+      return { ...prev, [inputId]: inputValue };
     });
   };
 

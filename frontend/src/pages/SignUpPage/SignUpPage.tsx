@@ -24,19 +24,7 @@ export type SetUsersType = React.Dispatch<
 >;
 
 export const SignUpPage: React.FC = () => {
-  const initialSignUp: UserSignUpType = {
-    firstName: "",
-    lastName: "",
-    genre: "",
-    cpNumber: "",
-    email: "",
-    jobType: "",
-    password: "",
-    grade: "",
-    manager: "",
-  };
-
-  const [userSignUp, setUserSignUp] = useState<UserSignUpType>(initialSignUp);
+  const [userSignUp, setUserSignUp] = useState<Partial<UserType> | null>(null);
   const [jobs, setJobs] = useState<JobGradeType[]>([]);
   const [grades, setGrades] = useState<JobGradeType[]>([]);
   const [managers, setManagers] = useState<UserType[] | null>(null);
@@ -171,6 +159,7 @@ export const SignUpPage: React.FC = () => {
           const { label, selectId, options } = optionData;
           return (
             <Select
+              key={label}
               onChange={setUserSignUp}
               label={label}
               selectId={selectId}

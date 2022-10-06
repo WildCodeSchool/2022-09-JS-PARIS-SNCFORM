@@ -22,6 +22,7 @@ const blackListToken = (req, res) => {
 
 const isTokenBlackListed = (req, res, next) => {
   const authorizationHeader = req.get("Authorization");
+
   if (authorizationHeader == null) {
     throw new Error("Authorization header is missing");
   }

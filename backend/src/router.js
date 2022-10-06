@@ -1,6 +1,29 @@
 const express = require("express");
+const multer = require("multer");
 const authMiddlewares = require("./middlewares/auth");
 const { validateUser } = require("./middlewares/validator");
+
+const MIME_TYPES = {
+  "image/jpg": "jpg",
+  "image/jpeg": "jpg",
+  "image/png": "png",
+};
+
+const storage = multer.diskStorage({
+  destination: (req, file, callback) => {
+    callback(null, "public/assets/images/");
+  },
+  filename: (req, file, callback) => {
+    const name = file.fieldname;
+    const extension = MIME_TYPES[file.mimetype];
+    callback(null, `${name + Date.now()}.${extension}`);
+  },
+});
+
+const upload = multer({ storage }).fields([
+  { name: "avatar", maxCount: 1 },
+  { name: "background_profil", maxCount: 1 },
+]);
 
 const router = express.Router();
 
@@ -41,9 +64,11 @@ router.get("/api/users", userControllers.getAllUser);
 router.get("/api/users/:id/profil", userControllers.getUserWhithHashedPassword);
 router.get("/api/users/role/:role", userControllers.getUserByRole);
 router.put(
-  "/api/users/:id",
+  "/api/users/:userId",
+  userControllers.getUserHashedPassword,
   authMiddlewares.verifyNewPassword,
   authMiddlewares.hashPassword,
+  upload,
   userControllers.editUser
 );
 
@@ -59,6 +84,10 @@ router.get("/api/categories/job/:jobId", categoryControllers.getByJob);
 
 // *Routes Learning
 router.get("/api/learnings/:id", learningControllers.getLearningsById);
+router.get(
+  "/api/learnings/:id/user/:userId",
+  learningControllers.getLearningsByIdAndUserId
+);
 router.get(
   "/api/learnings/:categoryId/:gradeId/user/:userId",
   learningControllers.getByCatAndUserGrade
