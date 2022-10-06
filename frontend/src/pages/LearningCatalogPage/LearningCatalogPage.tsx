@@ -5,15 +5,22 @@ import { useNavigate, useParams } from "react-router-dom";
 import { learningFetch } from "@services/index";
 import { LearningType } from "@type/learningTypes";
 import { ArrowBackIcon } from "@assets/index";
+import { useUserContext } from "@context/index";
 
 export const LearningCatalogPage = () => {
   const [searchValue, setSearchValue] = useState<string | null>(null);
   const [learningList, setLearningList] = useState<LearningType[] | null>(null);
   const { catId } = useParams();
+  const { user } = useUserContext();
   const navigate = useNavigate();
   useEffect(() => {
-    if (catId) {
-      learningFetch.fetchByCatAndUserGrade(catId, setLearningList);
+    if (catId && user) {
+      learningFetch.fetchByCatAndUserGrade(
+        catId,
+        user.grade_id,
+        user.id,
+        setLearningList
+      );
     }
   }, []);
 

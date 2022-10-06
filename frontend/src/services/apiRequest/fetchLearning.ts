@@ -42,16 +42,16 @@ const getLearningsById = (
 
 const fetchByCatAndUserGrade = (
   categoryId: string,
+  gradeId: number,
+  userId: number,
   setState: SetStateType<LearningType[] | null>
 ) => {
-  const { user } = tokenApp();
   const { headers } = useHeaders();
 
   axios
-    .get(
-      `${BASE_URL}/learnings/${categoryId}/${user?.grade_id}/user/${user?.id}`,
-      { headers }
-    )
+    .get(`${BASE_URL}/learnings/${categoryId}/${gradeId}/user/${userId}`, {
+      headers,
+    })
     .then(({ data }) => setState(data))
     .catch((err) => console.error(err));
 };

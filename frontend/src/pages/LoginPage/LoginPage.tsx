@@ -1,12 +1,16 @@
 import React, { useState } from "react";
-import "./SignInPage.scss";
-import { Field, Button, RedirectLink } from "@components/index";
+import "./LoginPage.scss";
+import { Field, Button, RedirectLink, InfoMessage } from "@components/index";
 import { UserType } from "@type/userTypes";
 import { authFetch } from "@services/index";
 import { useNavigate } from "react-router-dom";
 
-export const SignInPage: React.FC = () => {
-  const [userSignIn, setUserSignIn] = useState<Partial<UserType> | null>(null);
+export const LoginPage: React.FC = () => {
+  const [userLogin, setUserLogin] = useState<Partial<UserType> | null>(null);
+  const [message, setMesage] = useState<{
+    status: string;
+    message: string;
+  } | null>(null);
 
   const inputData = [
     {
@@ -27,15 +31,16 @@ export const SignInPage: React.FC = () => {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    authFetch.login(userSignIn, navigate);
+    authFetch.login(userLogin, navigate, setMesage);
   };
 
   return (
-    <div className="signin">
+    <div className="login">
+      {message && <InfoMessage messageInfo={message} />}
       <h2>Connexion</h2>
       <form onSubmit={handleSubmit}>
         {inputData.map((data) => (
-          <Field key={data.inputId} {...data} onChange={setUserSignIn} />
+          <Field key={data.inputId} {...data} onChange={setUserLogin} />
         ))}
         <Button textButton="Connexion" isSubmit />
       </form>

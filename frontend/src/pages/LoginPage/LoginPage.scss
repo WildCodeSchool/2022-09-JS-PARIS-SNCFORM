@@ -1,11 +1,18 @@
 @import "../../theme-sncf.scss";
 
-.signin {
+.login {
   height: 100%;
   width: 100%;
   display: flex;
   flex-direction: column;
   justify-content: center;
+  position: relative;
+
+  .info-message {
+    position: absolute;
+    top: 2rem;
+    width: 100%;
+  }
 
   h2 {
     text-transform: uppercase;

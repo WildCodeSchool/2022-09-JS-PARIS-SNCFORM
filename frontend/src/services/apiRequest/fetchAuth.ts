@@ -1,10 +1,13 @@
 import axios from "axios";
 import { NavigateFunction } from "react-router-dom";
-import { UserType } from "../../type";
+import { SetStateType, UserType } from "@type/index";
 
 const BASE_URL = import.meta.env.VITE_BACKEND_URL;
 
-const signup = (userData: UserType, navigate: NavigateFunction) => {
+const signup = (
+  userData: Partial<UserType> | null,
+  navigate: NavigateFunction
+) => {
   axios
     .post(`${BASE_URL}/signup`, { ...userData })
     .then((response) => {
@@ -20,7 +23,8 @@ const signup = (userData: UserType, navigate: NavigateFunction) => {
 
 const login = (
   userLogin: Partial<UserType> | null,
-  navigate: NavigateFunction
+  navigate: NavigateFunction,
+  setMessage: SetStateType<{ status: string; message: string } | null>
 ) => {
   axios
     .post(`${BASE_URL}/login`, { ...userLogin })
@@ -30,7 +34,10 @@ const login = (
       navigate("/menu");
     })
 
-    .catch((err) => console.error(err));
+    .catch((err) => {
+      setMessage({ status: "error", message: "CP ou mot de passe incorrect" });
+      console.error(err);
+    });
 };
 
 const logout = (navigate: NavigateFunction) => {

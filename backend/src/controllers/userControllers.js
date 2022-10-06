@@ -17,11 +17,15 @@ const getUserWhithHashedPassword = (req, res) => {
   models.user
     .find(id)
     .then(([result]) => {
-      res.status(200).json(result[0]);
+      const user = result[0];
+      delete user.hashedPassword;
+      res.status(200).json(user);
     })
     .catch((err) => {
       console.error(err);
-      res.status(500).send("Error in user getUser request");
+      res
+        .status(500)
+        .send("Error in user getUserWhithHashedPasswordUser request");
     });
 };
 
@@ -76,6 +80,26 @@ const signup = (req, res) => {
     });
 };
 
+const getUserHashedPassword = (req, res, next) => {
+  const { userId } = req.params;
+
+  models.user
+    .findHashedPasswordById(userId)
+    .then(([data]) => {
+      if (!data) {
+        if (!data) {
+          res.sendStatus(401);
+        }
+      }
+      req.body.hashedPassword = data[0].hashedPassword;
+      next();
+    })
+    .catch((err) => {
+      console.error(err);
+      res.status(500).send("Error in user getUserHashedPassword request");
+    });
+};
+
 const login = (req, res, next) => {
   const { cpNumber } = req.body;
   models.user
@@ -88,14 +112,14 @@ const login = (req, res, next) => {
       next();
     })
     .catch((err) => {
-      console.error("ERROR IN LOGIN", err);
-      res.sendStatus(400);
+      console.error(err);
+      res.status(500).send("Error in user login request");
     });
 };
 
 const editUser = (req, res) => {
   const user = req.body;
-  user.id = req.params.id;
+  user.id = req.params.userId;
   user.hashedPassword = req.body.hashedPassword;
 
   models.user
@@ -104,10 +128,12 @@ const editUser = (req, res) => {
       if (result.affectedRows === 0) {
         res.sendStatus(404);
       } else {
-        const { id, first_name, last_name, email, bio } = user;
-        const userToken = { id, first_name, last_name, email, bio };
-        const token = createToken(user.id, userToken);
-        res.status(200).json({ message: "User updated", token });
+        const token = createToken(user.id);
+        res.status(200).json({
+          message: "User updated",
+          messageSuccess: { status: "success", message: "Profil mis à jour" },
+          token,
+        });
       }
     })
     .catch((err) => {
@@ -143,4 +169,5 @@ module.exports = {
   getUserByRole,
   getUserByCp,
   login,
+  getUserHashedPassword,
 };

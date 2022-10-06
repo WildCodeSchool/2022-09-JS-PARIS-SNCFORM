@@ -1,19 +1,26 @@
 import React, { useEffect, useState } from "react";
 import "./EditProfilePage.scss";
-import { Button, Field, IconLink, useProfilContext } from "@components/index";
+import { Button, Field, IconLink, InfoMessage } from "@components/index";
 import { UserType } from "@type/userTypes";
 import { HomeIcon } from "@assets/images/SvgComponent/HomeIcon";
 import { userFetch } from "@services/index";
+import { useUserContext } from "@context/index";
 
 export const EditProfilePage: React.FC = () => {
-  const { user } = useProfilContext();
+  const { user } = useUserContext();
   const [editUser, setEditUser] = useState<Partial<UserType> | null>(null);
+  const [messageInfo, setMessageInfo] = useState<{
+    status: string;
+    message: string;
+  } | null>(null);
+
   useEffect(() => {
     setEditUser(user);
   }, [user]);
 
-  const handleSubmit = () => {
-    userFetch.editUser(editUser);
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    userFetch.editUser(editUser, setMessageInfo);
   };
 
   const handleChangeBio = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
@@ -66,6 +73,7 @@ export const EditProfilePage: React.FC = () => {
         path="/menu"
         className="icon-top-right"
       />
+      {messageInfo && <InfoMessage messageInfo={messageInfo} />}
       <form className="edit-profile__form" onSubmit={handleSubmit}>
         <div className="edit-profile__fields">
           {inputData.map((data) => (

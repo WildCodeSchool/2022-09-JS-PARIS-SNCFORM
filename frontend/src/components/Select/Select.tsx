@@ -1,10 +1,10 @@
 import React, { useRef } from "react";
-import { SetUserSignUpType } from "@pages/index";
 import "./Select.scss";
 import { ErrorMessage } from "@components/index";
+import { SetStateType, UserType } from "@type/index";
 
 type SelectType = {
-  onChange: SetUserSignUpType;
+  onChange: SetStateType<Partial<UserType> | null>;
   label: string;
   selectId: string;
   options: { id: number; name: string }[];
