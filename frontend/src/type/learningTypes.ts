@@ -9,4 +9,6 @@ export type LearningType = {
   start_registration: Date;
   end_registration: Date;
   status?: string;
+  user_learning_id?: number | null;
+  start_learning?: Date | null;
 };

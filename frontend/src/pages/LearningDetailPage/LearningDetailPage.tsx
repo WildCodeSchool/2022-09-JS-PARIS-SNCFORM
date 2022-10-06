@@ -1,14 +1,19 @@
 import { learningFetch, userLearningFetch } from "@services/index";
 import { LearningType } from "@type/learningTypes";
 import React, { useEffect, useState } from "react";
-import { useLocation, useParams } from "react-router-dom";
+import { useLocation, useNavigate, useParams } from "react-router-dom";
 import { tokenApp } from "@tools/utils";
 import "./LearningDetailPage.scss";
 import moment from "moment";
-import { Button } from "@components/index";
+import { Button, InfoMessage } from "@components/index";
 
 export const LearningDetailPage: React.FC = () => {
   const [learning, setLearning] = useState<LearningType | null>(null);
+  const [messageInfo, setMessageInfo] = useState<{
+    status: string;
+    message: string;
+  } | null>(null);
+
   const { learningId } = useParams();
   const { id } = tokenApp();
   const startDateFormatted = moment(learning?.start_registration).format(
@@ -17,6 +22,7 @@ export const LearningDetailPage: React.FC = () => {
   const endDateFormatted = moment(learning?.end_registration).format(
     "DD-MM-YYYY"
   );
+
   const location = useLocation();
 
   useEffect(() => {
@@ -27,11 +33,38 @@ export const LearningDetailPage: React.FC = () => {
     }
   }, []);
 
-  const handleClick = () => {
+  const navigate = useNavigate();
+
+  const backNavigate = () => navigate(-1);
+
+  const handleClickRegistered = () => {
     userLearningFetch.addUserLearning(id, learningId);
   };
+
+  const userLearningId = learning?.user_learning_id;
+  const startLearning = learning?.start_learning;
+  const handleClickStart = () => {
+    userLearningFetch.editStatusUserLearning({
+      userLearningId,
+      statusLearning: "inProgress",
+      setMessageInfo,
+    });
+  };
+  const handleClickRemove = () => {
+    userLearningFetch.deleteUserLearnings(userLearningId, backNavigate);
+  };
+  const handleClickEnd = () => {
+    userLearningFetch.editStatusUserLearning({
+      userLearningId,
+      statusLearning: "completed",
+      backNavigate,
+      startLearning,
+    });
+  };
+
   return learning ? (
     <div className="learning-detail-page">
+      {messageInfo && <InfoMessage messageInfo={messageInfo} />}
       <div className="learning-detail-page__body">
         <div className="learning-detail-page__header">
           <h2>{learning.title}</h2>
@@ -46,9 +79,12 @@ export const LearningDetailPage: React.FC = () => {
         </div>
       </div>
       {learning.status === "registered" ? (
-        <Button textButton="Commencer" onClick={handleClick} />
+        <>
+          <Button textButton="Commencer" onClick={handleClickStart} />
+          <Button textButton="Retirer" onClick={handleClickRemove} />
+        </>
       ) : (
-        <Button textButton="S'inscrire" onClick={handleClick} />
+        <Button textButton="S'inscrire" onClick={handleClickRegistered} />
       )}
     </div>
   ) : (

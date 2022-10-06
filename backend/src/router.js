@@ -71,7 +71,6 @@ router.put(
   upload,
   userControllers.editUser
 );
-
 router.delete("/api/users/:id", userControllers.destroyUser);
 
 // *Routes Job Type
@@ -104,6 +103,14 @@ router.get("/api/user-learnings/:userId", learningControllers.getUserLearnings);
 router.get(
   "/api/user-learnings/:userId/:learningId",
   userLearningControllers.addUserLearning
+);
+router.delete(
+  "/api/user-learnings/:userLearningId",
+  userLearningControllers.destroyUserLearning
+);
+router.put(
+  "/api/user-learnings/:userLearningId",
+  userLearningControllers.updateUserLearning
 );
 
 module.exports = router;

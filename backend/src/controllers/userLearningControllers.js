@@ -23,6 +23,46 @@ const addUserLearning = (req, res) => {
     });
 };
 
+const destroyUserLearning = (req, res) => {
+  const { userLearningId } = req.params;
+
+  models.user_learning
+    .delete(userLearningId)
+    .then(([result]) => {
+      if (result.affectedRows === 0) {
+        res.sendStatus(404);
+      } else {
+        res.sendStatus(204);
+      }
+    })
+    .catch((err) => {
+      console.error(err);
+      res.status(500).send("Error in user_learning dstroyUserLearning request");
+    });
+};
+
+const updateUserLearning = (req, res) => {
+  const { userLearningId } = req.params;
+  const { statusLearning, startLearning } = req.body;
+
+  models.user_learning
+    .update(statusLearning, startLearning, userLearningId)
+    .then(([result]) => {
+      if (result.affectedRows === 0) {
+        res.sendStatus(404);
+      } else {
+        res.status(200).json({
+          message: "User_Learning updated",
+          messageSuccess: {
+            status: "success",
+            message: "Tu commence ta formation",
+          },
+        });
+      }
+    });
+};
 module.exports = {
   addUserLearning,
+  destroyUserLearning,
+  updateUserLearning,
 };

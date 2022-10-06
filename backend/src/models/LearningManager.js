@@ -13,7 +13,7 @@ class LearningManager extends AbstractManager {
 
   findByIdAndUserId(id, userId) {
     return this.connection.query(
-      `select ${this.table}.*, status, start_learning from  ${this.table} 
+      `select ${this.table}.*, status, start_learning, user_learning.id as user_learning_id from ${this.table} 
       left join user_learning on ${this.table}.id = user_learning.learning_id  
       where ${this.table}.id = ? and user_learning.user_id = ?`,
       [id, userId]

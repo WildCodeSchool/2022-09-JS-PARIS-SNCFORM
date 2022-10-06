@@ -25,7 +25,10 @@ const getUserById = (
     .then(({ data }) => {
       setState(data);
     })
-    .catch((err) => console.error(err));
+    .catch((err) => {
+      setState(null);
+      console.error(err);
+    });
 };
 
 const editUser = (

@@ -19,7 +19,7 @@ export const LearningDisplay: React.FC<LearningDisplayProps> = ({
   } = learning;
   return (
     <div className="learning-display">
-      <Link to={`/detail-formations/${id}`}>
+      <Link to={`/formations/detail-formations/${id}`}>
         <h3>{title}</h3>
       </Link>
       <div className="learning-display__bottom">
