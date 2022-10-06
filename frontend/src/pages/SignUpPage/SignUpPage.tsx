@@ -12,7 +12,7 @@ type JobGradeType = {
   name: string;
 };
 
-type ErrorsType = {
+export type ErrorsType = {
   [key: string]: string[]; // [firstname or lastname etcc : string] : string[]
 };
 

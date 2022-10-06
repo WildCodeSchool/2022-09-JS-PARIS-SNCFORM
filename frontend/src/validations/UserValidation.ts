@@ -34,4 +34,29 @@ export const userSchema = yup.object().shape({
     .string()
     .oneOf([yup.ref("password"), null])
     .required("Les mots de passe doivent être similaires"),
+  // EditProfilePage
+  first_name: yup
+    .string()
+    .min(3, "Prénom doit contenir 3 charactères minimum") // mettre les maximum sur tout les champs
+    .required("Prénom est un champ obligatoire"),
+  last_name: yup
+    .string()
+    .min(2, "Nom doit contenir 2 charactères minimum")
+    .max(255, "Nom doit contenir 255 charactères max")
+    .required("Nom est un champ obligatoire"),
+  newPassword: yup
+    .string()
+    .min(6, "6 charactères minimum")
+    .required("Nouveau mot de passe est un champ obligatoire"),
+  confirm_password: yup
+    .string()
+    .min(6, "6 charactères minimum")
+    .oneOf([yup.ref("newPassword"), null])
+    .required("Les mots de passe doivent être similaires"),
+  oldPassword: yup
+    .string()
+    .min(6, "6 charactères minimum")
+    .required(
+      "Mot de passe actuel doit être saisi pour valider les modifications"
+    ),
 });
