@@ -14,7 +14,7 @@ const getUserByRole = (
     .catch((err) => console.error(err));
 };
 
-const getUserProfilById = (
+const getUserById = (
   userId: number,
   setState: SetStateType<UserType | null>
 ) => {
@@ -28,7 +28,10 @@ const getUserProfilById = (
     .catch((err) => console.error(err));
 };
 
-const editUser = (user: Partial<UserType> | null) => {
+const editUser = (
+  user: Partial<UserType> | null,
+  setMessage: SetStateType<{ status: string; message: string } | null>
+) => {
   const { headers } = useHeaders();
   const formData = new FormData();
   for (const key in user) {
@@ -40,7 +43,8 @@ const editUser = (user: Partial<UserType> | null) => {
   return axios
     .put(`${BASE_URL}/users/${user?.id}`, formData, { headers })
     .then(({ data }) => {
-      const { token } = data;
+      const { token, messageSuccess } = data;
+      setMessage(messageSuccess);
       sessionStorage.setItem("token", token);
     })
     .catch((err) => console.error(err));
@@ -48,6 +52,6 @@ const editUser = (user: Partial<UserType> | null) => {
 
 export const userFetch = {
   getUserByRole,
-  getUserProfilById,
+  getUserById,
   editUser,
 };

@@ -64,7 +64,8 @@ router.get("/api/users", userControllers.getAllUser);
 router.get("/api/users/:id/profil", userControllers.getUserWhithHashedPassword);
 router.get("/api/users/role/:role", userControllers.getUserByRole);
 router.put(
-  "/api/users/:id",
+  "/api/users/:userId",
+  userControllers.getUserHashedPassword,
   authMiddlewares.verifyNewPassword,
   authMiddlewares.hashPassword,
   upload,

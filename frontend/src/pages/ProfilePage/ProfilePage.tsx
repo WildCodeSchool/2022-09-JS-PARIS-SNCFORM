@@ -8,9 +8,11 @@ import {
 import { HomeIcon } from "@assets/images/SvgComponent/HomeIcon";
 import "./ProfilePage.scss";
 import { learningsByStatus } from "@tools/index";
+import { useUserContext } from "@context/index";
 
 export const ProfilePage: React.FC = () => {
-  const { user, userLearnings } = useProfilContext();
+  const { userLearnings } = useProfilContext();
+  const { user } = useUserContext();
 
   const userLearningsCompleted = learningsByStatus(userLearnings, "completed");
 

@@ -91,6 +91,13 @@ class UserManager extends AbstractManager {
       [cpNumber]
     );
   }
+
+  findHashedPasswordById(userId) {
+    return this.connection.query(
+      `select hashedPassword from  ${this.table} where id = ?`,
+      [userId]
+    );
+  }
 }
 
 module.exports = UserManager;
