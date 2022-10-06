@@ -7,7 +7,7 @@ import { userFetch } from "@services/index";
 import { useUserContext } from "@context/index";
 import { ErrorsType } from "@pages/index";
 import { ValidationError } from "yup";
-import { userSchema } from "../../validations/UserValidation";
+import { editSchema } from "../../validations/index";
 
 export const EditProfilePage: React.FC = () => {
   const { user } = useUserContext();
@@ -24,12 +24,11 @@ export const EditProfilePage: React.FC = () => {
   const [profileErrors, setProfileErrors] = useState<ErrorsType>();
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
-    // e.preventDefault();
+    e.preventDefault();
     // check field validity
-    userSchema
+    editSchema
       .validate(editUser, { abortEarly: false })
       .then(() => {
-        e.preventDefault();
         userFetch.editUser(editUser, setMessageInfo);
       })
       .catch((err: ValidationError) => {
