@@ -5,6 +5,7 @@ const hashPassword = (req, res, next) => {
   const { password } = req.body;
 
   if (!password) {
+    req.hashedPassword = req.body.hashedPassword;
     next();
   } else {
     const hashingOptions = {
@@ -18,6 +19,7 @@ const hashPassword = (req, res, next) => {
 
       .then((hashedPassword) => {
         req.body.hashedPassword = hashedPassword;
+        req.hashedPassword = hashedPassword;
         delete req.body.password;
         next();
       })
@@ -71,7 +73,6 @@ const verifyToken = (req, res, next) => {
 };
 
 const verifyNewPassword = (req, res, next) => {
-  // console.log(req);
   const { newPassword, oldPassword, hashedPassword } = req.body;
   if (!newPassword) {
     return next();

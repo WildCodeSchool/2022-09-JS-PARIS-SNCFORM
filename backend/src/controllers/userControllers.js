@@ -119,15 +119,14 @@ const login = (req, res, next) => {
 
 const editUser = (req, res) => {
   const user = req.body;
-  user.id = req.params.id;
+  user.id = req.params.userId;
+  user.hashedPassword = req.hashedPassword;
   const { avatar, background_profil } = req.files;
 
   if (avatar) user.avatar = avatar[0].path.replace("public", "");
 
   if (background_profil)
     user.background_profil = background_profil[0].path.replace("public", "");
-
-  user.hashedPassword = req.body.hashedPassword;
 
   models.user
     .update(user)

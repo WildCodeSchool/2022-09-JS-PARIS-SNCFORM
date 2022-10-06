@@ -21,13 +21,13 @@ export const ProfileCard: React.FC<ProfileCardProps> = ({ user }) => {
     <div className="profile-card">
       <div className="profile-card__background-img">
         <img
-          src={`http://localhost:5000/${backgroundProfil as string}`}
+          src={`http://localhost:5000${backgroundProfil as string}`}
           alt="backgroundProfilImage"
         />
       </div>
       <div className="profile-card__avatar-id-container">
         <RoundCard
-          imgUrl={`http://localhost:5000/${avatar as string}`}
+          imgUrl={`http://localhost:5000${avatar as string}`}
           label=""
         />
         <div className="profile-card__name-job">

@@ -21,7 +21,7 @@ export const useHeaders = () => {
   const { token, id } = tokenApp();
 
   const headers = {
-    "Content-Type": "multipart/form-data",
+    "Content-Type": "application/json",
     Authorization: `Bearer ${token}`,
   };
 
