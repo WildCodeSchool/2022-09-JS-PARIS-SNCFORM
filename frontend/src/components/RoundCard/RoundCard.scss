@@ -1,8 +1,8 @@
 @import "../../theme-sncf.scss";
 
 .round-card {
-  width: 8rem;
-  height: 8rem;
+  width: 7rem;
+  height: 7rem;
 
   img {
     height: 80%;
@@ -17,24 +17,8 @@
 
 @media (min-width: 768px) {
   .round-card {
-    width: 10rem;
-    height: 10rem;
-
-    img {
-      height: 70%;
-      width: 70%;
-    }
+    width: 11rem;
+    height: 11rem;
   }
 }
 
-@media (min-width: 1440px) {
-  .round-card {
-    width: 15rem;
-    height: 15rem;
-
-    img {
-      height: 60%;
-      width: 60%;
-    }
-  }
-}
