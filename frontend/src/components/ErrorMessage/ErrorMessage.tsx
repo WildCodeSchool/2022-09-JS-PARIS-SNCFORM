@@ -8,7 +8,7 @@ export const ErrorMessage: React.FC<ErrorMessageProps> = ({ errors }) => {
   return (
     <div className="error-container">
       {errors?.map((errorString) => (
-        <p className="error-container__message" key={errorString}>
+        <p key={errorString} className="error-container__message">
           {errorString}
         </p>
       ))}
