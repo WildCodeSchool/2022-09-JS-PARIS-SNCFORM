@@ -57,7 +57,11 @@ function App() {
                 <Route path="editprofile" element={<EditProfilePage />} />
               </Route>
               <Route
-                path="detail-formations/:learningId"
+                path="learning-profile/detail-formations/:learningId"
+                element={<LearningDetailPage />}
+              />
+              <Route
+                path="formations/detail-formations/:learningId"
                 element={<LearningDetailPage />}
               />
             </Route>

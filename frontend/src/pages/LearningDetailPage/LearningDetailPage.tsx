@@ -1,7 +1,7 @@
 import { learningFetch, userLearningFetch } from "@services/index";
 import { LearningType } from "@type/learningTypes";
 import React, { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { useLocation, useParams } from "react-router-dom";
 import { tokenApp } from "@tools/utils";
 import "./LearningDetailPage.scss";
 import moment from "moment";
@@ -17,9 +17,14 @@ export const LearningDetailPage: React.FC = () => {
   const endDateFormatted = moment(learning?.end_registration).format(
     "DD-MM-YYYY"
   );
+  const location = useLocation();
 
   useEffect(() => {
-    learningFetch.getLearningsById(learningId, setLearning);
+    if (location.pathname.startsWith("/formations")) {
+      learningFetch.getLearningsById(learningId, setLearning);
+    } else {
+      learningFetch.getLearningsByIdAndUserId(learningId, setLearning, id);
+    }
   }, []);
 
   const handleClick = () => {
@@ -40,7 +45,11 @@ export const LearningDetailPage: React.FC = () => {
           <h4>Instructeur : {learning.instructor}</h4>
         </div>
       </div>
-      <Button textButton="S'inscrire" onClick={handleClick} />
+      {learning.status === "registered" ? (
+        <Button textButton="Commencer" onClick={handleClick} />
+      ) : (
+        <Button textButton="S'inscrire" onClick={handleClick} />
+      )}
     </div>
   ) : (
     <h2>Formation non trouvée</h2>
