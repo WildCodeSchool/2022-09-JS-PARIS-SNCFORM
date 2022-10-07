@@ -6,3 +6,15 @@
   padding-top: 2rem;
   height: 100%;
 }
+
+@media (min-width: 768px) {
+  .learning-page {
+    padding-top: 4rem;
+  }
+}
+
+@media (min-width: 1440px) {
+  .learning-page {
+    padding-top: 6rem;
+  }
+}

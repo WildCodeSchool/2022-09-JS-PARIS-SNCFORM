@@ -48,9 +48,10 @@ class LearningManager extends AbstractManager {
   findByJobAndGrade(jobId, gradeId) {
     return this.connection.query(
       `
-      select ${this.table}.* from ${this.table}
+      select ${this.table}.*, learning_category.category_id as category_id from ${this.table}
       inner join job_type_learning on job_type_learning.learning_id = ${this.table}.id
       inner join learning_grade on learning_grade.learning_id = ${this.table}.id
+      inner join learning_category on learning_category.learning_id = ${this.table}.id
       where job_type_learning.job_type_id = ? and learning_grade.grade_id = ?
       `,
       [jobId, gradeId]

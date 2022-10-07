@@ -1,4 +1,5 @@
 export type LearningType = {
+  category_id: number;
   id: number;
   title: string;
   type: string;
