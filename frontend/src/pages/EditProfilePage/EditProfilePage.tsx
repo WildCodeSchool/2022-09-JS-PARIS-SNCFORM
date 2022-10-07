@@ -5,6 +5,9 @@ import { UserType } from "@type/userTypes";
 import { HomeIcon } from "@assets/images/SvgComponent/HomeIcon";
 import { userFetch } from "@services/index";
 import { useUserContext } from "@context/index";
+import { ErrorsType } from "@pages/index";
+import { ValidationError } from "yup";
+import { editSchema } from "@validations/index";
 
 export const EditProfilePage: React.FC = () => {
   const { user } = useUserContext();
@@ -18,9 +21,25 @@ export const EditProfilePage: React.FC = () => {
     setEditUser(user);
   }, [user]);
 
+  const [profileErrors, setProfileErrors] = useState<ErrorsType>();
+
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    userFetch.editUser(editUser, setMessageInfo);
+    // check field validity
+    editSchema
+      .validate(editUser, { abortEarly: false })
+      .then(() => {
+        userFetch.editUser(editUser, setMessageInfo);
+      })
+      .catch((err: ValidationError) => {
+        const yupErrors: ErrorsType = {};
+        err.inner.forEach((element) => {
+          if (element.path !== undefined) {
+            yupErrors[element.path] = element.errors;
+          }
+        });
+        setProfileErrors(yupErrors);
+      });
   };
 
   const handleChangeBio = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
@@ -29,7 +48,7 @@ export const EditProfilePage: React.FC = () => {
     });
   };
 
-  const inputData = [
+  const inputEditData = [
     {
       label: "Nom",
       inputId: "last_name",
@@ -88,8 +107,17 @@ export const EditProfilePage: React.FC = () => {
       {messageInfo && <InfoMessage messageInfo={messageInfo} />}
       <form className="edit-profile__form" onSubmit={handleSubmit}>
         <div className="edit-profile__fields">
-          {inputData.map((data) => (
-            <Field key={data.inputId} {...data} onChange={setEditUser} />
+          {inputEditData.map((fieldData) => (
+            <Field
+              key={fieldData.inputId}
+              errors={
+                profileErrors && profileErrors[fieldData.inputId] // or profileErrors.firstname [data.inputId] is the field's value
+                  ? profileErrors[fieldData.inputId]
+                  : undefined
+              }
+              {...fieldData}
+              onChange={setEditUser}
+            />
           ))}
         </div>
         <div className="edit-profile__bio">
