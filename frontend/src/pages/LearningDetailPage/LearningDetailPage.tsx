@@ -5,7 +5,7 @@ import { useLocation, useNavigate, useParams } from "react-router-dom";
 import { tokenApp } from "@tools/utils";
 import "./LearningDetailPage.scss";
 import moment from "moment";
-import { Button, InfoMessage } from "@components/index";
+import { InfoMessage, LearningDetailButton } from "@components/index";
 
 export const LearningDetailPage: React.FC = () => {
   const [learning, setLearning] = useState<LearningType | null>(null);
@@ -33,35 +33,6 @@ export const LearningDetailPage: React.FC = () => {
     }
   }, []);
 
-  const navigate = useNavigate();
-
-  const backNavigate = () => navigate(-1);
-
-  const handleClickRegistered = () => {
-    userLearningFetch.addUserLearning(id, learningId);
-  };
-
-  const userLearningId = learning?.user_learning_id;
-  const startLearning = learning?.start_learning;
-  const handleClickStart = () => {
-    userLearningFetch.editStatusUserLearning({
-      userLearningId,
-      statusLearning: "inProgress",
-      setMessageInfo,
-    });
-  };
-  const handleClickRemove = () => {
-    userLearningFetch.deleteUserLearnings(userLearningId, backNavigate);
-  };
-  const handleClickEnd = () => {
-    userLearningFetch.editStatusUserLearning({
-      userLearningId,
-      statusLearning: "completed",
-      backNavigate,
-      startLearning,
-    });
-  };
-
   return learning ? (
     <div className="learning-detail-page">
       {messageInfo && <InfoMessage messageInfo={messageInfo} />}
@@ -78,14 +49,10 @@ export const LearningDetailPage: React.FC = () => {
           <h4>Instructeur : {learning.instructor}</h4>
         </div>
       </div>
-      {learning.status === "registered" ? (
-        <>
-          <Button textButton="Commencer" onClick={handleClickStart} />
-          <Button textButton="Retirer" onClick={handleClickRemove} />
-        </>
-      ) : (
-        <Button textButton="S'inscrire" onClick={handleClickRegistered} />
-      )}
+      <LearningDetailButton
+        learning={learning}
+        setMessageInfo={setMessageInfo}
+      />
     </div>
   ) : (
     <h2>Formation non trouvée</h2>

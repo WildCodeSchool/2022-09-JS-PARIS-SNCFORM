@@ -7,12 +7,16 @@ const BASE_URL = import.meta.env.VITE_BACKEND_URL;
 
 const addUserLearning = (
   userId: number | undefined,
-  learningId: string | undefined
+  learningId: number | undefined,
+  navigateTo: (url: string) => void
 ) => {
   const { headers } = useHeaders();
   axios
     .get(`${BASE_URL}/user-learnings/${userId}/${learningId}`, { headers })
-    .then(({ data }) => data)
+    .then(({ data }) => {
+      console.warn(data);
+      navigateTo("/learning-profile");
+    })
     .catch((err) => console.error(err));
 };
 
@@ -53,7 +57,9 @@ const editStatusUserLearning = ({
 
   const userLearningData = {
     statusLearning,
-    startLearning: startLearning || moment(Date.now()).format("YYYY-MM-DD"),
+    startLearning:
+      moment(startLearning).format("YYYY-MM-DD") ||
+      moment(Date.now()).format("YYYY-MM-DD"),
   };
   axios
     .put(`${BASE_URL}/user-learnings/${userLearningId}`, userLearningData, {
