@@ -16,3 +16,4 @@ export { LearningDisplayList } from "./LearningDisplayList/LearningDisplayList";
 export { PrivateRoute } from "./PrivateRoute/PrivateRoute";
 export { ErrorMessage } from "./ErrorMessage/ErrorMessage";
 export { InfoMessage } from "./InfoMessage/InfoMessage";
+export { LearningDetailButton } from "./LearningDetailButton/LearningDetailButton";

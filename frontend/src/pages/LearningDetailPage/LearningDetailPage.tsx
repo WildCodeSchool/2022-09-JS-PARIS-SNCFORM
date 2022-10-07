@@ -1,15 +1,20 @@
-import { learningFetch, userLearningFetch } from "@services/index";
-import { LearningType } from "@type/learningTypes";
 import React, { useEffect, useState } from "react";
+import { learningFetch } from "@services/index";
+import { LearningType } from "@type/learningTypes";
 import { useLocation, useParams, useNavigate } from "react-router-dom";
 import { tokenApp } from "@tools/utils";
 import "./LearningDetailPage.scss";
 import moment from "moment";
+import { IconLink, InfoMessage, LearningDetailButton } from "@components/index";
 import { ArrowBackIcon } from "@assets/index";
-import { Button, IconLink } from "@components/index";
 
 export const LearningDetailPage: React.FC = () => {
   const [learning, setLearning] = useState<LearningType | null>(null);
+  const [messageInfo, setMessageInfo] = useState<{
+    status: string;
+    message: string;
+  } | null>(null);
+
   const { learningId } = useParams();
   const { id } = tokenApp();
   const startDateFormatted = moment(learning?.start_registration).format(
@@ -18,6 +23,7 @@ export const LearningDetailPage: React.FC = () => {
   const endDateFormatted = moment(learning?.end_registration).format(
     "DD-MM-YYYY"
   );
+
   const location = useLocation();
 
   useEffect(() => {
@@ -27,10 +33,6 @@ export const LearningDetailPage: React.FC = () => {
       learningFetch.getLearningsByIdAndUserId(learningId, setLearning, id);
     }
   }, []);
-
-  const handleClick = () => {
-    userLearningFetch.addUserLearning(id, learningId);
-  };
 
   const navigate = useNavigate();
 
@@ -44,6 +46,7 @@ export const LearningDetailPage: React.FC = () => {
         iconComponent={<ArrowBackIcon onClick={handleClickIcon} />}
         path="#"
       />
+      {messageInfo && <InfoMessage messageInfo={messageInfo} />}
       <div className="learning-detail-page__body">
         <div className="learning-detail-page__header">
           <h2>{learning.title}</h2>
@@ -57,11 +60,10 @@ export const LearningDetailPage: React.FC = () => {
           <h4>Instructeur : {learning.instructor}</h4>
         </div>
       </div>
-      {learning.status === "registered" ? (
-        <Button textButton="Commencer" onClick={handleClick} />
-      ) : (
-        <Button textButton="S'inscrire" onClick={handleClick} />
-      )}
+      <LearningDetailButton
+        learning={learning}
+        setMessageInfo={setMessageInfo}
+      />
     </div>
   ) : (
     <h2>Formation non trouvée</h2>

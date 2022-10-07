@@ -40,6 +40,7 @@ const createToken = (id) => {
 const verifyPassword = (req, res) => {
   const { password } = req.body;
   const { hashedPassword, id: userId } = req.user;
+
   argon2.verify(hashedPassword, password).then((isVerified) => {
     if (!isVerified) {
       return res.sendStatus(401);
@@ -68,21 +69,18 @@ const verifyToken = (req, res, next) => {
     next();
   } catch (err) {
     console.error(err);
-    res.status(401);
+    res.status(401).json({ message: err.message });
   }
 };
 
 const verifyNewPassword = (req, res, next) => {
   const { newPassword, oldPassword, hashedPassword } = req.body;
-  if (!newPassword) {
-    return next();
-  }
 
   return argon2.verify(hashedPassword, oldPassword).then((isVerified) => {
     if (!isVerified) {
       res.sendStatus(401);
     } else {
-      req.body.password = newPassword;
+      if (newPassword) req.body.password = newPassword;
       next();
     }
   });
