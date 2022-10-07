@@ -13,8 +13,10 @@ export const editSchema = yup.object().shape({
   newPassword: yup.string().min(6, "6 charactères minimum"),
   confirm_password: yup
     .string()
-    .min(6, "6 charactères minimum")
-    .oneOf([yup.ref("newPassword"), null]),
+    .oneOf(
+      [yup.ref("newPassword")],
+      "Confirmation et Nouveau mot de passe doivent être similaires"
+    ),
   oldPassword: yup
     .string()
     .min(6, "6 charactères minimum")

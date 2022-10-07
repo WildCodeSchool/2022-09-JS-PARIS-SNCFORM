@@ -7,7 +7,7 @@ import { userFetch } from "@services/index";
 import { useUserContext } from "@context/index";
 import { ErrorsType } from "@pages/index";
 import { ValidationError } from "yup";
-import { editSchema } from "../../validations/index";
+import { editSchema } from "@validations/index";
 
 export const EditProfilePage: React.FC = () => {
   const { user } = useUserContext();
