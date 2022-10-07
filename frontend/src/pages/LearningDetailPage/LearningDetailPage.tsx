@@ -1,7 +1,7 @@
-import { learningFetch, userLearningFetch } from "@services/index";
+import { learningFetch } from "@services/index";
 import { LearningType } from "@type/learningTypes";
 import React, { useEffect, useState } from "react";
-import { useLocation, useNavigate, useParams } from "react-router-dom";
+import { useLocation, useParams } from "react-router-dom";
 import { tokenApp } from "@tools/utils";
 import "./LearningDetailPage.scss";
 import moment from "moment";
