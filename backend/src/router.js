@@ -14,9 +14,11 @@ const storage = multer.diskStorage({
     callback(null, "public/assets/images/");
   },
   filename: (req, file, callback) => {
+    const { id: userId } = req.body;
+
     const name = file.fieldname;
     const extension = MIME_TYPES[file.mimetype];
-    callback(null, `${name + Date.now()}.${extension}`);
+    callback(null, `${name + userId}.${extension}`);
   },
 });
 
@@ -41,6 +43,7 @@ router.post(
   authMiddlewares.hashPassword,
   userControllers.signup
 );
+
 router.post(
   "/api/login",
   userControllers.login,
@@ -50,6 +53,8 @@ router.post(
 router.get("/api/users/role/:role", userControllers.getUserByRole);
 router.get("/api/jobs", jobTypeControllers.getAllJobType);
 router.get("/api/grades", gradeControllers.getAllGrade);
+
+router.get("/assets/images/:image", () => {});
 
 // *Authentification wall
 router.use(
@@ -65,13 +70,12 @@ router.get("/api/users/:id/profil", userControllers.getUserWhithHashedPassword);
 router.get("/api/users/role/:role", userControllers.getUserByRole);
 router.put(
   "/api/users/:userId",
+  upload,
   userControllers.getUserHashedPassword,
   authMiddlewares.verifyNewPassword,
   authMiddlewares.hashPassword,
-  upload,
   userControllers.editUser
 );
-
 router.delete("/api/users/:id", userControllers.destroyUser);
 
 // *Routes Job Type
@@ -98,12 +102,19 @@ router.get(
   learningControllers.getByJobAndGrade
 );
 
-router.get("/api/user-learnings/:userId", learningControllers.getUserLearnings);
-
 // *Routes UserLearning
+router.get("/api/user-learnings/:userId", learningControllers.getUserLearnings);
 router.get(
   "/api/user-learnings/:userId/:learningId",
   userLearningControllers.addUserLearning
+);
+router.delete(
+  "/api/user-learnings/:userLearningId",
+  userLearningControllers.destroyUserLearning
+);
+router.put(
+  "/api/user-learnings/:userLearningId",
+  userLearningControllers.updateUserLearning
 );
 
 module.exports = router;

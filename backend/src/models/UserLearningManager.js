@@ -11,6 +11,15 @@ class UserLearningManager extends AbstractManager {
       [userId, learningId, "registered"]
     );
   }
+
+  update(status, startLearning, userLearningId) {
+    return this.connection.query(
+      `
+      update ${this.table} set status = ?, start_learning = ? where id = ?
+    `,
+      [status, startLearning, userLearningId]
+    );
+  }
 }
 
 module.exports = UserLearningManager;
