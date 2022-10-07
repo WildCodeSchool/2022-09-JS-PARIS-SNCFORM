@@ -33,13 +33,12 @@
   &__bio-container {
     display: flex;
     border: 1px solid $carbone;
-    justify-content: space-evenly;
     flex-direction: column;
     position: relative;
     bottom: 2.5rem;
   }
   &__bio {
-    margin: 1rem 0;
+    padding: 2rem;
   }
 }
 
@@ -90,11 +89,6 @@
       height: 100%;
       width: 33%;
     }
-
-    &__bio-container {
-      width: 100%;
-      bottom: 2rem;
-    }
   }
 }
 
@@ -109,14 +103,8 @@
     }
 
     .round-card {
-      width: 5rem;
-      height: 5rem;
-      top: -1.5rem;
-    }
-
-    &__name-job {
-      height: 100%;
-      width: auto;
+      width: 7rem;
+      height: 7rem;
     }
   }
 }

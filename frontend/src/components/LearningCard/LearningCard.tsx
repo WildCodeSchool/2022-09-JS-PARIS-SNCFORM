@@ -1,4 +1,3 @@
-import { tokenApp } from "@tools/utils";
 import { LearningType } from "@type/index";
 import React from "react";
 import Carousel from "react-grid-carousel";
@@ -29,7 +28,7 @@ export const LearningCard: React.FC<LearningCardType> = ({
                 <Carousel.Item key={id}>
                   <Link to={`detail-formations/${id}`}>
                     <img
-                      src="src/assets/images/learning-card__img-cybersecurity.jpg"
+                      src={`./assets/images/categories/category-${item.category_id}.png`}
                       alt="Carte couverture"
                     />
                     <h3>{title}</h3>
