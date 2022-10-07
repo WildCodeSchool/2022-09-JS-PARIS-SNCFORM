@@ -1,12 +1,7 @@
 import React from "react";
 import { IconLink } from "@components/IconLink/IconLink";
 import "./MenuPage.scss";
-import {
-  DeconnexionIcon,
-  NotificationIcon,
-  ProfilIcon,
-  HatIcon,
-} from "@assets/index";
+import { DeconnexionIcon, ProfilIcon, HatIcon } from "@assets/index";
 import { authFetch } from "@services/index";
 import { useNavigate } from "react-router-dom";
 

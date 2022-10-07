@@ -102,9 +102,8 @@ router.get(
   learningControllers.getByJobAndGrade
 );
 
-router.get("/api/user-learnings/:userId", learningControllers.getUserLearnings);
-
 // *Routes UserLearning
+router.get("/api/user-learnings/:userId", learningControllers.getUserLearnings);
 router.get(
   "/api/user-learnings/:userId/:learningId",
   userLearningControllers.addUserLearning
