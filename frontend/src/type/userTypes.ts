@@ -12,6 +12,8 @@ export interface UserType {
   bio: string;
   manager_last_name: string;
   job_type_name: string;
+  avatar: File | string;
+  background_profil: File | string;
 }
 
 export interface UserSignUpType {

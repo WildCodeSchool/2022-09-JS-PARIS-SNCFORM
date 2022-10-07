@@ -1,6 +1,29 @@
 const express = require("express");
+const multer = require("multer");
 const authMiddlewares = require("./middlewares/auth");
 const { validateUser } = require("./middlewares/validator");
+
+const MIME_TYPES = {
+  "image/jpg": "jpg",
+  "image/jpeg": "jpg",
+  "image/png": "png",
+};
+
+const storage = multer.diskStorage({
+  destination: (req, file, callback) => {
+    callback(null, "public/assets/images/");
+  },
+  filename: (req, file, callback) => {
+    const name = file.fieldname;
+    const extension = MIME_TYPES[file.mimetype];
+    callback(null, `${name + Date.now()}.${extension}`);
+  },
+});
+
+const upload = multer({ storage }).fields([
+  { name: "avatar", maxCount: 1 },
+  { name: "background_profil", maxCount: 1 },
+]);
 
 const router = express.Router();
 
@@ -45,6 +68,7 @@ router.put(
   userControllers.getUserHashedPassword,
   authMiddlewares.verifyNewPassword,
   authMiddlewares.hashPassword,
+  upload,
   userControllers.editUser
 );
 

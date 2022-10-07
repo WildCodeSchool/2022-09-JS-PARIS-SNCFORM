@@ -13,13 +13,23 @@ export const ProfileCard: React.FC<ProfileCardProps> = ({ user }) => {
     last_name: lastName,
     bio,
     job_type_name: jobName,
+    avatar,
+    background_profil: backgroundProfil,
   } = user;
 
   return (
     <div className="profile-card">
-      <div className="profile-card__background-img" />
+      <div className="profile-card__background-img">
+        <img
+          src={`http://localhost:5000${backgroundProfil as string}`}
+          alt="backgroundProfilImage"
+        />
+      </div>
       <div className="profile-card__avatar-id-container">
-        <RoundCard imgUrl="./assets/images/avatar-img.jpg" label="" />
+        <RoundCard
+          imgUrl={`http://localhost:5000${avatar as string}`}
+          label=""
+        />
         <div className="profile-card__name-job">
           <p className="profile-card__name">{`${firstName} - ${lastName}`}</p>
           <p>{jobName}</p>
