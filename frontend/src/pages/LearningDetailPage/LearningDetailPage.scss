@@ -4,11 +4,14 @@
   height: 100%;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  justify-content: center;
   padding-top: 2rem;
 
   .learning-detail-page__body {
     height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
   }
     .learning-detail-page__header {
       padding: 2rem;
@@ -33,6 +36,7 @@
       flex-direction: column;
       justify-content: center;
       border: 1px solid $carbone;
+      overflow: auto;
       h4 {
         font-weight: bold;
         margin-bottom: 3rem;
