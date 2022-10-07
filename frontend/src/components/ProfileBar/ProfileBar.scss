@@ -22,10 +22,6 @@
     display: flex;
     align-items: center;
     padding: 0.5rem 0;
-    &--profile,
-    &--edit-profile {
-      border-right: 1px solid $carbone;
-    }
     a {
       color: $carbone;
       color: white;

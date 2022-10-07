@@ -40,14 +40,6 @@ export const MenuPage: React.FC = () => {
           className="menu-page__iconlink"
         />
       </div>
-      <div className="menu-page__notification">
-        <IconLink
-          title="Notifications"
-          iconComponent={<NotificationIcon />}
-          path="########"
-          className="menu-page__iconlink"
-        />
-      </div>
     </div>
   );
 };
