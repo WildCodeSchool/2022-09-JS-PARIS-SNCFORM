@@ -15,21 +15,26 @@ export const ProfileCard: React.FC<ProfileCardProps> = ({ user }) => {
     job_type_name: jobName,
     avatar,
     background_profil: backgroundProfil,
+    genre,
+    job_type_id: jobTypeId,
   } = user;
+
+  const userGenre = genre === "Homme" ? 1 : 2;
+  let avatarDefault = `./assets/images/avatar-${userGenre}-${jobTypeId}.png`;
+  if (avatar) avatarDefault = `http://localhost:5000${avatar as string}`;
+  let backgroundProfilDefault = `./assets/images/backP-${jobTypeId}.png`;
+  if (backgroundProfil)
+    backgroundProfilDefault = `http://localhost:5000${
+      backgroundProfil as string
+    }`;
 
   return (
     <div className="profile-card">
       <div className="profile-card__background-img">
-        <img
-          src={`http://localhost:5000${backgroundProfil as string}`}
-          alt="backgroundProfilImage"
-        />
+        <img src={backgroundProfilDefault} alt="backgroundProfilImage" />
       </div>
       <div className="profile-card__avatar-id-container">
-        <RoundCard
-          imgUrl={`http://localhost:5000${avatar as string}`}
-          label=""
-        />
+        <RoundCard imgUrl={avatarDefault} label="" />
         <div className="profile-card__name-job">
           <p className="profile-card__name">{`${firstName} - ${lastName}`}</p>
           <p>{jobName}</p>
