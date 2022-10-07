@@ -70,10 +70,10 @@ router.get("/api/users/:id/profil", userControllers.getUserWhithHashedPassword);
 router.get("/api/users/role/:role", userControllers.getUserByRole);
 router.put(
   "/api/users/:userId",
+  upload,
   userControllers.getUserHashedPassword,
   authMiddlewares.verifyNewPassword,
   authMiddlewares.hashPassword,
-  upload,
   userControllers.editUser
 );
 router.delete("/api/users/:id", userControllers.destroyUser);
