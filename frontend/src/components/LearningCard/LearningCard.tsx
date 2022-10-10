@@ -38,7 +38,7 @@ export const LearningCard: React.FC<LearningCardType> = ({
             })}
           </Carousel>
         ) : (
-          <h2>Pas de formations</h2>
+          <h3>Pas de formations</h3>
         )}
       </div>
     </div>
