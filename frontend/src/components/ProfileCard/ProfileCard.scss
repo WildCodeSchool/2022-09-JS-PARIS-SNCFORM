@@ -12,9 +12,9 @@
   &__background-img {
     width: 100%;
     margin-bottom: 2%;
-    padding-bottom: 48%;
     background-repeat: no-repeat;
     background-size: cover;
+    height: 45%;
     & img {
       width: 100%;
     }
@@ -39,6 +39,7 @@
   }
   &__bio {
     padding: 2rem;
+    line-height: 2rem;
   }
 }
 
@@ -47,7 +48,7 @@
     &__background-img {
       background-repeat: no-repeat;
       background-size: cover;
-      padding-bottom: 34%;
+      height: 70%;
     }
 
     .round-card {
@@ -60,6 +61,9 @@
     .round-card img {
       height: 100%;
       width: 100%;
+    }
+    &__bio {
+      line-height: 2.5rem;
     }
   }
 }
@@ -74,7 +78,7 @@
     .round-card {
       width: 6rem;
       height: 6rem;
-      top: -1.5rem;
+      top: 1.5rem;
       left: -2rem;
     }
 
@@ -82,7 +86,6 @@
       background-repeat: no-repeat;
       background-size: cover;
       width: 100%;
-      padding-bottom: 34%;
     }
 
     &__name-job {
@@ -105,6 +108,12 @@
     .round-card {
       width: 7rem;
       height: 7rem;
+    }
+    &__bio {
+      line-height: 3rem;
+    }
+    &__name-job {
+      margin-bottom: 3rem;
     }
   }
 }
