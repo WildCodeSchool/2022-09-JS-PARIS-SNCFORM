@@ -8,30 +8,33 @@ export const userSchema = yup.object().shape({
   firstName: yup
     .string()
     .min(3, "Prénom doit contenir 3 charactères minimum")
-    .required("Prénom est un champ obligatoire"),
+    .required("Prénom est obligatoire"),
   lastName: yup
     .string()
     .min(2, "Nom doit contenir 2 charactères minimum")
     .max(255, "Nom doit contenir 255 charactères max")
-    .required("Nom est un champ obligatoire"),
-  genre: yup.string().required("Civilité est un champ obligatoire"),
+    .required("Nom est obligatoire"),
+  genre: yup.string().required("Civilité est obligatoire"),
   cpNumber: yup
     .string()
     .matches(cpNumberFormat, "Cp ne correspond pas à l'identifiant Groupe SNCF")
-    .required("CP est un champ obligatoire"),
+    .required("CP est obligatoire"),
   email: yup
     .string()
-    .matches(mailFormat)
-    .required("Email est un champ obligatoire"),
+    .matches(mailFormat, "Format Email non valide")
+    .required("Email est obligatoire"),
   manager: yup.string().required("Selectionner votre manager"),
   grade: yup.string().required("Selectionner votre grade"),
   jobType: yup.string().required("Selectionner votre métier"),
   password: yup
     .string()
     .min(6, "6 charactères minimum")
-    .required("Mot de passe est un champ obligatoire"),
+    .required("Mot de passe est obligatoire"),
   confirmPassword: yup
     .string()
-    .oneOf([yup.ref("password"), null])
-    .required("Les mots de passe doivent être similaires"),
+    .oneOf(
+      [yup.ref("password")],
+      "Confirmation et Mot de passe doivent être similaires"
+    )
+    .required("Confirmation est obligatoire"),
 });

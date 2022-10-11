@@ -1,14 +1,13 @@
 @import "../../theme-sncf.scss";
 
 .learning-detail-page {
-  height: 100%;
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: space-between;
   padding-top: 2rem;
+  height: 100%;
 
   .learning-detail-page__body {
-    height: 100%;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -37,6 +36,7 @@
     justify-content: center;
     border: 1px solid $carbone;
     overflow: auto;
+    line-height: 1.5rem;
     h4 {
       font-weight: bold;
       margin-bottom: 3rem;

@@ -5,7 +5,7 @@ import { userFetch, jobFetch, gradeFetch, authFetch } from "@services/index";
 import { UserSignUpType, UserType } from "@type/index";
 import { useNavigate } from "react-router-dom";
 import { ValidationError } from "yup";
-import { userSchema } from "../../validations/UserValidation";
+import { userSchema } from "@validations/index";
 
 type JobGradeType = {
   id: number;

@@ -44,15 +44,26 @@
   }
 }
 
-@media (min-width: 1440px) {
+@media (min-width: 1024px) {
   .home-page {
-    width: 80%;
-    margin: auto;
     &__image {
+      width: 50%;
+      margin: 0 auto;
       img {
         height: 85%;
       }
     }
+    button {
+      width: 50%;
+      margin: 0 auto;
+    }
+  }
+}
+
+@media (min-width: 1440px) {
+  .home-page {
+    margin: auto;
+
     a {
       right: 5rem;
       transform: translate(-50%);

@@ -42,15 +42,8 @@ const editUser = (
     Authorization: `Bearer ${token}`,
   };
 
-  const formData = new FormData();
-  for (const key in user) {
-    if ({}.hasOwnProperty.call(user, key)) {
-      formData.append(key, user[key]);
-    }
-  }
-  // formData.append("avatar", user?.avatar);
   return axios
-    .put(`${BASE_URL}/users/${user?.id}`, formData, { headers })
+    .put(`${BASE_URL}/users/${user?.id}`, { ...user }, { headers })
     .then(({ data }) => {
       const { token: newToken, messageSuccess } = data;
       setMessage(messageSuccess);
