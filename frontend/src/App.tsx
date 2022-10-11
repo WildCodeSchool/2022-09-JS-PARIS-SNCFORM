@@ -55,6 +55,10 @@ function App() {
               <Route element={<ProfileBar />}>
                 <Route path="profile" element={<ProfilePage />} />
                 <Route path="editprofile" element={<EditProfilePage />} />
+                <Route
+                  path="learning-profile"
+                  element={<ProfilLearningPage />}
+                />
               </Route>
               <Route
                 path="learning-profile/detail-formations/:learningId"
@@ -64,12 +68,6 @@ function App() {
                 path="formations/detail-formations/:learningId"
                 element={<LearningDetailPage />}
               />
-            </Route>
-            {/* Routes accessible to all users */}
-            <Route element={<ProfileBar />}>
-              <Route path="profile" element={<ProfilePage />} />
-              <Route path="editprofile" element={<EditProfilePage />} />
-              <Route path="learning-profile" element={<ProfilLearningPage />} />
             </Route>
           </Route>
         </Routes>
