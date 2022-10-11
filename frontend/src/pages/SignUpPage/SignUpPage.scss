@@ -50,7 +50,7 @@
   }
 
   .button {
-    width: 40%;
+    width: 100%;
     margin: auto 44%;
   }
 
@@ -81,6 +81,7 @@
     }
   }
 }
+
 @media (min-width: 1200px) {
   .signup {
     &__field {
