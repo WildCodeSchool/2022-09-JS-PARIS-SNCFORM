@@ -1,9 +1,5 @@
 SET NAMES 'utf8';
 
-DROP TABLE IF EXISTS user_notification;
-
-DROP TABLE IF EXISTS notification;
-
 DROP TABLE IF EXISTS user_learning;
 
 DROP TABLE IF EXISTS user;
@@ -45,7 +41,7 @@ CREATE TABLE user (
   first_name VARCHAR(255) NOT NULL,
   last_name VARCHAR(255) NOT NULL,
   cp_number VARCHAR(8) NOT NULL UNIQUE,
-  email VARCHAR(255) NOT NULL,
+  email VARCHAR(255) NOT NULL UNIQUE,
   hashedPassword VARCHAR(255) NOT NULL,
   role VARCHAR(20) NOT NULL,
   genre VARCHAR(20) NOT NULL,
@@ -84,23 +80,6 @@ CREATE TABLE category (
   PRIMARY KEY (id)
 );
 
-CREATE TABLE notification (
-  id INT NOT NULL AUTO_INCREMENT,
-  title VARCHAR(255) NOT NULL,
-  description TEXT NOT NULL,
-  date DATE,
-  PRIMARY KEY (id)
-);
-
-CREATE TABLE user_notification (
-  id INT NOT NULL AUTO_INCREMENT,
-  user_id INT NOT NULL,
-  notification_id INT NOT NULL,
-  status VARCHAR(50) NOT NULL,
-  PRIMARY KEY (id),
-  FOREIGN KEY (user_id) REFERENCES user(id),
-  FOREIGN KEY (notification_id) REFERENCES notification(id)
-);
 
 CREATE TABLE user_learning (
   id INT NOT NULL AUTO_INCREMENT,
@@ -744,40 +723,6 @@ VALUES
   (7, 6, "pending", "2022-11-25");
 
 INSERT INTO
-  notification (title, description, date)
-VALUES
-  (
-    'Inscription confirmée',
-    'Votre manager a confirmé votre inscription',
-    '2022-02-13'
-  ),
-  (
-    'Inscription non confirmée',
-    'Votre manager a refusé votre inscription',
-    '2022-12-13'
-  ),
-  (
-    'Nouvelle formation disponible',
-    'Une nouvelle formation pour votre métier vous est proposé',
-    '2023-07-19'
-  ),
-  (
-    'Avertissement',
-    'Votre formation arrive à échéance',
-    '2023-05-03'
-  ),
-  (
-    'Avertissement',
-    'Votre formation débute',
-    '2021-12-29'
-  ),
-  (
-    'Avertissement',
-    'Votre formation en cours arrive à échéance',
-    '2023-07-17'
-  );
-
-INSERT INTO
   learning_category (category_id, learning_id)
 VALUES
  (1, 1),
@@ -1139,16 +1084,3 @@ VALUES
   (8, 20),
   (8, 21);
 
-INSERT INTO
-  user_notification (status, user_id, notification_id)
-VALUES
-  ("Non lu", 1, 1),
-  ("Lu", 2, 2),
-  ("Non lu", 3, 3),
-  ("Lu", 4, 4),
-  ("Non lu", 5, 5),
-  ("Lu", 6, 6),
-  ("Non lu", 7, 1),
-  ("Lu", 8, 2),
-  ("Non lu", 9, 3),
-  ("Lu", 10, 4);
