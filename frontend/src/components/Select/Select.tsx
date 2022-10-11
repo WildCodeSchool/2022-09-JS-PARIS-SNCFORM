@@ -1,13 +1,15 @@
 import React, { useRef } from "react";
-import { SetUserSignUpType } from "@pages/index";
 import "./Select.scss";
+import { ErrorMessage } from "@components/index";
+import { SetStateType, UserType } from "@type/index";
 
 type SelectType = {
-  onChange: SetUserSignUpType;
+  onChange: SetStateType<Partial<UserType> | null>;
   label: string;
   selectId: string;
   options: { id: number; name: string }[];
   isRequire?: boolean;
+  errors?: string[] | null;
 };
 
 export const Select: React.FC<SelectType> = ({
@@ -16,6 +18,7 @@ export const Select: React.FC<SelectType> = ({
   selectId,
   options,
   isRequire,
+  errors,
 }) => {
   const selectRef = useRef<HTMLSelectElement>(null);
 
@@ -44,6 +47,9 @@ export const Select: React.FC<SelectType> = ({
           </option>
         ))}
       </select>
+      <div className="select__errors-container">
+        {!!errors?.length && <ErrorMessage errors={errors} />}
+      </div>
     </div>
   );
 };

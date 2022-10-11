@@ -10,8 +10,20 @@
     width: 100%;
     display: flex;
     flex-direction: column;
-    justify-content: space-around;
-    background-color: $cool-gray--01;
+    justify-content: space-between;
+    padding: 1rem;
+  }
+
+  &__image {
+    height: 80%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    border-top: 1px solid $carbone;
+    border-bottom: 1px solid $carbone;
+    img {
+      height: 50%;
+    }
   }
 
   a {
@@ -24,10 +36,34 @@
   }
 }
 
+@media (min-width: 768px) {
+  .home-page__image {
+    img {
+      height: 65%;
+    }
+  }
+}
+
+@media (min-width: 1024px) {
+  .home-page {
+    &__image {
+      width: 50%;
+      margin: 0 auto;
+      img {
+        height: 85%;
+      }
+    }
+    button {
+      width: 50%;
+      margin: 0 auto;
+    }
+  }
+}
+
 @media (min-width: 1440px) {
   .home-page {
-    width: 80%;
     margin: auto;
+
     a {
       right: 5rem;
       transform: translate(-50%);

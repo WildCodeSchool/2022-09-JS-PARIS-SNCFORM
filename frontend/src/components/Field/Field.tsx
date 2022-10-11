@@ -1,4 +1,5 @@
 import { EyeSlashIcon } from "@assets/images";
+import { ErrorMessage } from "@components/index";
 import React, {
   Dispatch,
   SetStateAction,
@@ -17,6 +18,7 @@ type FieldType = {
   onChange: Dispatch<SetStateAction<Partial<UserType> | null>>;
   autoComplete?: string;
   value?: string;
+  errors?: string[] | null;
 };
 
 export const Field: React.FC<FieldType> = ({
@@ -27,6 +29,7 @@ export const Field: React.FC<FieldType> = ({
   onChange,
   autoComplete,
   value,
+  errors,
 }) => {
   const inputRef = useRef<HTMLInputElement>(null);
   const [isHiden, setIsHiden] = useState<boolean>(true);
@@ -35,7 +38,14 @@ export const Field: React.FC<FieldType> = ({
   const isPassword = inputType === "password";
   const handleChange = () => {
     onChange((prev) => {
-      return { ...prev, [inputId]: inputRef.current?.value };
+      let inputValue: File | string | undefined;
+      inputValue = inputRef.current?.value;
+      if (inputRef.current?.type === "file") {
+        // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
+        inputValue = inputRef.current?.files![0];
+        // console.log('inputRef.current?:', inputRef.current?.files![0])
+      }
+      return { ...prev, [inputId]: inputValue };
     });
   };
 
@@ -61,6 +71,8 @@ export const Field: React.FC<FieldType> = ({
           autoComplete={autoComplete}
           placeholder={value}
         />
+        {!!errors?.length && <ErrorMessage errors={errors} />}
+
         {isPassword ? <EyeSlashIcon onClick={toogleInputShow} /> : null}
       </div>
     </div>

@@ -1,12 +1,7 @@
 import React from "react";
 import { IconLink } from "@components/IconLink/IconLink";
 import "./MenuPage.scss";
-import {
-  DeconnexionIcon,
-  NotificationIcon,
-  ProfilIcon,
-  HatIcon,
-} from "@assets/index";
+import { DeconnexionIcon, ProfilIcon, HatIcon } from "@assets/index";
 import { authFetch } from "@services/index";
 import { useNavigate } from "react-router-dom";
 
@@ -24,7 +19,7 @@ export const MenuPage: React.FC = () => {
         iconComponent={<DeconnexionIcon onClick={handleSubmit} />}
         path="#"
       />
-      <div className="menu-page__formation">
+      <div className="menu-page__icon menu-page__icon--formation">
         <IconLink
           title="Formations"
           iconComponent={<HatIcon />}
@@ -32,19 +27,11 @@ export const MenuPage: React.FC = () => {
           className="menu-page__iconlink"
         />
       </div>
-      <div className="menu-page__profil">
+      <div className="menu-page__icon menu-page__icon--profil">
         <IconLink
           title="Profil"
           iconComponent={<ProfilIcon />}
           path="/profile"
-          className="menu-page__iconlink"
-        />
-      </div>
-      <div className="menu-page__notification">
-        <IconLink
-          title="Notifications"
-          iconComponent={<NotificationIcon />}
-          path="########"
           className="menu-page__iconlink"
         />
       </div>

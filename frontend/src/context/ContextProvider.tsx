@@ -11,5 +11,7 @@ export const ContextProvider: React.FC<ContextProviderProps> = ({
   user,
   children,
 }) => {
-  return <UserContext.Provider value={user}>{children}</UserContext.Provider>;
+  return (
+    <UserContext.Provider value={{ user }}>{children}</UserContext.Provider>
+  );
 };

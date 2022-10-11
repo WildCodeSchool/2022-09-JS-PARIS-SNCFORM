@@ -1,12 +1,15 @@
 export type LearningType = {
+  category_id: number;
   id: number;
   title: string;
   type: string;
   description: string;
   instructor: string;
   duration: number;
-  capacityLearner: number;
-  startRegistration: Date;
-  endRegistration: Date;
+  capacity_learner: number;
+  start_registration: Date;
+  end_registration: Date;
   status?: string;
+  user_learning_id?: number | null;
+  start_learning?: Date | null;
 };

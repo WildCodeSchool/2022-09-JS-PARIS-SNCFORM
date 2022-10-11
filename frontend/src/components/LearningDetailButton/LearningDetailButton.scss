@@ -1,0 +1,13 @@
+@import "../../theme-sncf.scss";
+
+.btn-group {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+
+  button:first-child {
+    background: transparent;
+    color: $rouge-assistance;
+    border: 1px solid $rouge-assistance;
+  }
+}

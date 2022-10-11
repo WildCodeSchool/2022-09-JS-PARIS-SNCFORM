@@ -1,3 +1,4 @@
+@import "../../theme-sncf.scss";
 .menu-page {
   height: 100%;
   width: 100%;
@@ -7,8 +8,8 @@
   align-items: center;
 
   &__iconlink {
-    width: 5em;
-    height: 5em;
+    width: 5rem;
+    height: 5rem;
   }
 }
 
@@ -27,6 +28,9 @@
 
       h3 {
         width: auto;
+        font-weight: bold;
+        font-size: 3rem;
+        color: white;
       }
     }
 
@@ -36,23 +40,30 @@
       display: flex;
       justify-content: space-between;
       align-items: center;
+      color: white;
     }
 
-    &__formation,
-    &__profil,
-    &__notification {
+    &__icon {
       height: 20%;
       width: 80%;
       padding: 0 1.5rem;
-    }
+      box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
 
-    &__formation,
-    &__notification {
-      background-color: #cd0037;
-    }
+      &--formation {
+        background: $prune;
+      }
 
-    &__profil {
-      background-color: #b9b9b9;
+      &--profil {
+        background: $framboise;
+      }
+    }
+  }
+}
+
+@media (min-width: 1440px) {
+  .menu-page {
+    &__icon {
+      width: 65%;
     }
   }
 }

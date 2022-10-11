@@ -1,6 +1,7 @@
 import { LearningType } from "@type/index";
 import React from "react";
 import Carousel from "react-grid-carousel";
+import { Link } from "react-router-dom";
 import "./LearningCard.scss";
 
 type LearningCardType = {
@@ -25,17 +26,19 @@ export const LearningCard: React.FC<LearningCardType> = ({
               const { id, title } = item;
               return (
                 <Carousel.Item key={id}>
-                  <img
-                    src="src/assets/images/learning-card__img-cybersecurity.jpg"
-                    alt="Carte couverture"
-                  />
-                  <h2>{title}</h2>
+                  <Link to={`detail-formations/${id}`}>
+                    <img
+                      src={`./assets/images/categories/category-${item.category_id}.png`}
+                      alt="Carte couverture"
+                    />
+                    <h3>{title}</h3>
+                  </Link>
                 </Carousel.Item>
               );
             })}
           </Carousel>
         ) : (
-          <h2>Pas de formations</h2>
+          <h3>Pas de formations</h3>
         )}
       </div>
     </div>

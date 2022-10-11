@@ -10,7 +10,8 @@
       "@type/*": ["src/type/*"],
       "@context/*": ["src/context/*"],
       "@hooks/*": ["src/hooks/*"],
-      "@tools/*": ["src/tools/*"]
+      "@tools/*": ["src/tools/*"],
+      "@validations/*": ["src/validations/*"]
     }
   }
 }

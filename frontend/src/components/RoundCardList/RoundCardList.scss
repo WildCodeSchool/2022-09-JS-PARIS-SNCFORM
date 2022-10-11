@@ -3,18 +3,20 @@
 .round-card-list {
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
-  gap: 0.5em 0;
+  gap: 1rem;
+
+  h2 {
+    text-transform: uppercase;
+    font-size: 20px;
+    width: 100%;
+  }
 
   &__items {
     background-color: $cool-gray--01;
     display: flex;
     justify-content: space-around;
     flex-wrap: wrap;
-    gap: 2em 1.5em;
-    padding: 1em 0;
+    gap: 2rem 1.5rem;
+    padding: 1rem 0;
   }
-}
-
-@media (min-width: 768px) {
 }

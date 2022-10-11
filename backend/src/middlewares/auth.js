@@ -5,6 +5,7 @@ const hashPassword = (req, res, next) => {
   const { password } = req.body;
 
   if (!password) {
+    req.hashedPassword = req.body.hashedPassword;
     next();
   } else {
     const hashingOptions = {
@@ -18,8 +19,8 @@ const hashPassword = (req, res, next) => {
 
       .then((hashedPassword) => {
         req.body.hashedPassword = hashedPassword;
+        req.hashedPassword = hashedPassword;
         delete req.body.password;
-
         next();
       })
       .catch((err) => {
@@ -29,8 +30,8 @@ const hashPassword = (req, res, next) => {
   }
 };
 
-const createToken = (id, user) => {
-  const token = jwt.sign({ sub: id, user }, process.env.JWT_SECRET, {
+const createToken = (id) => {
+  const token = jwt.sign({ sub: id }, process.env.JWT_SECRET, {
     expiresIn: "1h",
   });
   return token;
@@ -39,13 +40,14 @@ const createToken = (id, user) => {
 const verifyPassword = (req, res) => {
   const { password } = req.body;
   const { hashedPassword, id: userId } = req.user;
+
   argon2.verify(hashedPassword, password).then((isVerified) => {
     if (!isVerified) {
-      res.sendStatus(401);
+      return res.sendStatus(401);
     }
     delete req.user.hashedPassword;
-    const token = createToken(userId, req.user);
-    res.send({ token, user: req.user });
+    const token = createToken(userId);
+    return res.send({ token, user: req.user });
   });
 };
 
@@ -67,21 +69,18 @@ const verifyToken = (req, res, next) => {
     next();
   } catch (err) {
     console.error(err);
-    res.status(401);
+    res.status(401).json({ message: err.message });
   }
 };
 
 const verifyNewPassword = (req, res, next) => {
   const { newPassword, oldPassword, hashedPassword } = req.body;
-  if (!newPassword) {
-    return next();
-  }
 
   return argon2.verify(hashedPassword, oldPassword).then((isVerified) => {
     if (!isVerified) {
       res.sendStatus(401);
     } else {
-      req.body.password = newPassword;
+      if (newPassword) req.body.password = newPassword;
       next();
     }
   });

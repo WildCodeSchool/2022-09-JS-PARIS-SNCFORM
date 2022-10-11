@@ -1,0 +1,51 @@
+@import "../../theme-sncf.scss";
+
+.learning-detail-page {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding-top: 2rem;
+  height: 100%;
+
+  .learning-detail-page__body {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+  .learning-detail-page__header {
+    padding: 2rem;
+    background-color: $cool-gray--09;
+    color: $cool-gray--01;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    h2 {
+      text-transform: uppercase;
+      margin-bottom: 2rem;
+      font-size: 20px;
+    }
+    p {
+      font-size: 12px;
+    }
+  }
+  .learning-detail-page__description {
+    padding: 2rem;
+    background-color: $cool-gray--05;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    border: 1px solid $carbone;
+    overflow: auto;
+    line-height: 1.5rem;
+    h4 {
+      font-weight: bold;
+      margin-bottom: 3rem;
+    }
+  }
+  .learning-detail-page__instructor {
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+}

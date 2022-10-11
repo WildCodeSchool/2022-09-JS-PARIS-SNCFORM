@@ -21,7 +21,8 @@ export const RoundCardList: React.FC<RoundCardListProps> = ({
             <RoundCard
               key={listItem.id}
               label={listItem.title}
-              path={`/catalogue-formations/${listItem.id}`}
+              path={`/catalogue-formations/${listItem.category_id}`}
+              imgUrl={`./assets/images/categories/category-${listItem.category_id}.png`}
             />
           ))}
       </div>

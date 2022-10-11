@@ -6,7 +6,7 @@ export const Layout: React.FC = () => {
   return (
     <div className="layout">
       <img
-        src="./src/assets/images/logo-sncf.png"
+        src="/assets/images/logo-sncf.png"
         alt="Logo d'entreprise"
         className="layout__logo"
       />

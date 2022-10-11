@@ -1,6 +1,6 @@
 import axios from "axios";
-import { SetStateType, UserType, UserEditType } from "@type/index";
-import { useHeaders } from "@tools/utils";
+import { SetStateType, UserType } from "@type/index";
+import { tokenApp, useHeaders } from "@tools/utils";
 
 const BASE_URL = import.meta.env.VITE_BACKEND_URL;
 
@@ -14,7 +14,7 @@ const getUserByRole = (
     .catch((err) => console.error(err));
 };
 
-const getUserProfilById = (
+const getUserById = (
   userId: number,
   setState: SetStateType<UserType | null>
 ) => {
@@ -25,22 +25,35 @@ const getUserProfilById = (
     .then(({ data }) => {
       setState(data);
     })
-    .catch((err) => console.error(err));
+    .catch((err) => {
+      setState(null);
+      console.error(err);
+    });
 };
 
-const editUser = (user: Partial<UserType> | null) => {
-  const { headers } = useHeaders();
+const editUser = (
+  user: Partial<UserType> | null,
+  setMessage: SetStateType<{ status: string; message: string } | null>
+) => {
+  const { token } = tokenApp();
+
+  const headers = {
+    "Content-Type": "multipart/form-data",
+    Authorization: `Bearer ${token}`,
+  };
+
   return axios
     .put(`${BASE_URL}/users/${user?.id}`, { ...user }, { headers })
     .then(({ data }) => {
-      const { token } = data;
-      sessionStorage.setItem("token", token);
+      const { token: newToken, messageSuccess } = data;
+      setMessage(messageSuccess);
+      sessionStorage.setItem("token", newToken);
     })
     .catch((err) => console.error(err));
 };
 
 export const userFetch = {
   getUserByRole,
-  getUserProfilById,
+  getUserById,
   editUser,
 };

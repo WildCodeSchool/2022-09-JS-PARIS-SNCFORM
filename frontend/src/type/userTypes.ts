@@ -12,6 +12,8 @@ export interface UserType {
   bio: string;
   manager_last_name: string;
   job_type_name: string;
+  avatar: File | string;
+  background_profil: File | string;
 }
 
 export interface UserSignUpType {
@@ -20,13 +22,13 @@ export interface UserSignUpType {
   genre: string;
   cpNumber: string;
   email: string;
-  manager: number | null | undefined;
-  grade: number | null | undefined;
-  jobType: number | null | undefined;
+  manager: string | null | undefined;
+  grade: string | null | undefined;
+  jobType: string | null | undefined;
   password: string;
 }
 
-export interface UserSignInType {
+export interface UserLoginType {
   cpNumber: string;
   password: string;
 }
