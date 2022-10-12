@@ -41,6 +41,7 @@ export const LearningDetailButton: React.FC<LearningDetailButtonProps> = ({
   const handleClickRemove = () => {
     userLearningFetch.deleteUserLearnings(userLearningId, backNavigate);
   };
+
   const handleClickEnd = () => {
     userLearningFetch.editStatusUserLearning({
       userLearningId,

@@ -7,12 +7,13 @@
   padding-top: 2rem;
   height: 100%;
 
-  .learning-detail-page__body {
+  &__body {
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    height: 95%;
   }
-  .learning-detail-page__header {
+
+  &__header {
     padding: 2rem;
     background-color: $cool-gray--09;
     color: $cool-gray--01;
@@ -28,7 +29,8 @@
       font-size: 12px;
     }
   }
-  .learning-detail-page__description {
+
+  &__description {
     padding: 2rem;
     background-color: $cool-gray--05;
     display: flex;
@@ -39,13 +41,20 @@
     line-height: 1.5rem;
     h4 {
       font-weight: bold;
-      margin-bottom: 3rem;
+      margin-bottom: 2rem;
     }
   }
-  .learning-detail-page__instructor {
+  &__instructor {
     padding: 2rem;
     display: flex;
     flex-direction: column;
     justify-content: center;
+  }
+}
+
+@media (min-width: 1024px) {
+  .learning-detail-page {
+    margin: 0 auto;
+    width: 70%;
   }
 }

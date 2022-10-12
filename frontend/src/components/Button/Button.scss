@@ -10,3 +10,10 @@
   font-weight: bold;
   letter-spacing: 0.1rem;
 }
+
+@media (min-width: 768px) {
+  .button {
+    margin: 0 auto;
+    width: 40%;
+  }
+}
