@@ -7,6 +7,8 @@ type ProfileCardProps = {
   user: UserType;
 };
 
+const BASE_URL_IMG = process.env.VITE_BACKEND_URL_IMG;
+
 export const ProfileCard: React.FC<ProfileCardProps> = ({ user }) => {
   const {
     first_name: firstName,
@@ -21,12 +23,10 @@ export const ProfileCard: React.FC<ProfileCardProps> = ({ user }) => {
 
   const userGenre = genre === "Homme" ? 1 : 2;
   let avatarDefault = `./assets/images/avatar-${userGenre}-${jobTypeId}.png`;
-  if (avatar) avatarDefault = `http://localhost:5000${avatar as string}`;
+  if (avatar) avatarDefault = `${BASE_URL_IMG}${avatar as string}`;
   let backgroundProfilDefault = `./assets/images/backP-${jobTypeId}.png`;
   if (backgroundProfil)
-    backgroundProfilDefault = `http://localhost:5000${
-      backgroundProfil as string
-    }`;
+    backgroundProfilDefault = `${BASE_URL_IMG}${backgroundProfil as string}`;
 
   return (
     <div className="profile-card">
