@@ -71,12 +71,15 @@ const fetchUserLearnings = (
 const fetchByJobAndGrade = (
   jobId: number | undefined,
   gradeId: number | undefined,
+  userId: number | undefined,
   setState: SetStateType<LearningType[] | null>
 ) => {
   const { headers } = useHeaders();
 
   axios
-    .get(`${BASE_URL}/learnings/job/${jobId}/grade/${gradeId}`, { headers })
+    .get(`${BASE_URL}/learnings/job/${jobId}/grade/${gradeId}/user/${userId}`, {
+      headers,
+    })
     .then(({ data }) => setState(data))
     .catch((err) => console.error(err));
 };

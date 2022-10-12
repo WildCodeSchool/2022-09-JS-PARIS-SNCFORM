@@ -98,7 +98,7 @@ router.get(
 );
 
 router.get(
-  "/api/learnings/job/:jobId/grade/:gradeId",
+  "/api/learnings/job/:jobId/grade/:gradeId/user/:userId",
   learningControllers.getByJobAndGrade
 );
 
