@@ -17,6 +17,7 @@ export const LearningPage: React.FC = () => {
     learningFetch.fetchByJobAndGrade(
       user?.job_type_id,
       user?.grade_id,
+      user?.id,
       setRecommendedLearnings
     );
   }, []);
