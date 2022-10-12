@@ -67,6 +67,7 @@ export const SignUpPage: React.FC = () => {
       .validate(userSignUp, { abortEarly: false })
       .then(() => {
         authFetch.signup(userSignUp, navigate);
+        setErrors(undefined);
       })
       .catch((err: ValidationError) => {
         const yupErrors: ErrorsType = {};

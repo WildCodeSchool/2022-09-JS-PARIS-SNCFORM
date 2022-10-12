@@ -23,10 +23,6 @@ export const editSchema = yup.object().shape({
     ),
   oldPassword: yup
     .string()
-    .matches(
-      passwordFormat,
-      "Doit contenir 8 caractères, une majuscule, une minuscule, un chiffre et un caractère spécial"
-    )
     .required(
       "Mot de passe actuel doit être saisi pour valider les modifications"
     ),
