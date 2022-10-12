@@ -49,10 +49,10 @@ const getUserLearnings = (req, res) => {
 };
 
 const getByJobAndGrade = (req, res) => {
-  const { jobId, gradeId } = req.params;
+  const { jobId, gradeId, userId } = req.params;
 
   models.learning
-    .findByJobAndGrade(jobId, gradeId)
+    .findByJobAndGrade(jobId, gradeId, userId)
     .then(([result]) => res.status(200).json(result))
     .catch((error) => {
       console.error(error);
