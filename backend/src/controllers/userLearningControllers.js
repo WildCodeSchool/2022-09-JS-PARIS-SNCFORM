@@ -55,7 +55,7 @@ const updateUserLearning = (req, res) => {
           message: "User_Learning updated",
           messageSuccess: {
             status: "success",
-            message: "Tu commence ta formation",
+            message: "Ta formation commence",
           },
         });
       }

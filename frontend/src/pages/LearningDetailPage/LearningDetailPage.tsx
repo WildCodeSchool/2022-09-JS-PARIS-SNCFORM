@@ -17,12 +17,8 @@ export const LearningDetailPage: React.FC = () => {
 
   const { learningId } = useParams();
   const { id } = tokenApp();
-  const startDateFormatted = moment(learning?.start_registration).format(
-    "DD-MM-YYYY"
-  );
-  const endDateFormatted = moment(learning?.end_registration).format(
-    "DD-MM-YYYY"
-  );
+
+  const formatDate = (date: Date) => moment(date).format("DD-MM-YYYY");
 
   const location = useLocation();
 
@@ -32,13 +28,14 @@ export const LearningDetailPage: React.FC = () => {
     } else {
       learningFetch.getLearningsByIdAndUserId(learningId, setLearning, id);
     }
-  }, []);
+  }, [messageInfo]);
 
   const navigate = useNavigate();
 
   const handleClickIcon = () => {
     navigate(-1);
   };
+
   return learning ? (
     <div className="learning-detail-page">
       <IconLink
@@ -50,7 +47,13 @@ export const LearningDetailPage: React.FC = () => {
       <div className="learning-detail-page__body">
         <div className="learning-detail-page__header">
           <h2>{learning.title}</h2>
-          <p>{`${startDateFormatted} au ${endDateFormatted}`}</p>
+          {learning.start_learning ? (
+            <p>{`Commencer le: ${formatDate(learning.start_learning)}`} </p>
+          ) : (
+            <p>{`${formatDate(learning.start_registration)} au ${formatDate(
+              learning.end_registration
+            )}`}</p>
+          )}
         </div>
         <div className="learning-detail-page__description">
           <h4>Description de la formation</h4>

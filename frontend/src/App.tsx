@@ -65,6 +65,10 @@ function App() {
                 element={<LearningDetailPage />}
               />
               <Route
+                path="profile/detail-formations/:learningId"
+                element={<LearningDetailPage />}
+              />
+              <Route
                 path="formations/detail-formations/:learningId"
                 element={<LearningDetailPage />}
               />

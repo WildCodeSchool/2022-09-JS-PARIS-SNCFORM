@@ -30,6 +30,7 @@ export const EditProfilePage: React.FC = () => {
       .validate(editUser, { abortEarly: false })
       .then(() => {
         userFetch.editUser(editUser, setMessageInfo);
+        setProfileErrors(undefined);
       })
       .catch((err: ValidationError) => {
         const yupErrors: ErrorsType = {};
