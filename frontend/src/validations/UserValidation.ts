@@ -1,8 +1,11 @@
 import * as yup from "yup";
 
-const mailFormat = /^[\w-.]+@([\w-]+\.)+[\w-]{2,4}$/g;
+export const mailFormat = /^[\w-.]+@([\w-]+\.)+[\w-]{2,4}$/g;
 // valid email example : a-z.A-Z_123@aZ123.1234
 const cpNumberFormat = /\b\d{7}[a-zA-Z]{1}\b/g;
+// valid cp example : 1234567a or 1234567A
+export const passwordFormat =
+  /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[\W]).{8,}/g;
 
 export const userSchema = yup.object().shape({
   firstName: yup
@@ -28,7 +31,10 @@ export const userSchema = yup.object().shape({
   jobType: yup.string().required("Selectionner votre métier"),
   password: yup
     .string()
-    .min(6, "6 charactères minimum")
+    .matches(
+      passwordFormat,
+      "Doit contenir 8 caractères, une majuscule, une minuscule, un chiffre et un caractère spécial"
+    )
     .required("Mot de passe est obligatoire"),
   confirmPassword: yup
     .string()
