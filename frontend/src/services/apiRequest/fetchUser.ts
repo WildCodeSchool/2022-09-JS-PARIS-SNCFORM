@@ -4,10 +4,7 @@ import { tokenApp, useHeaders } from "@tools/utils";
 
 const BASE_URL = import.meta.env.VITE_BACKEND_URL;
 
-const getUserByRole = (
-  role: string,
-  setState: SetStateType<UserType[] | null>
-) => {
+const getUserByRole = (role: string, setState: SetStateType<UserType[]>) => {
   axios
     .get(`${BASE_URL}/users/role/${role}`)
     .then(({ data }) => setState(data))

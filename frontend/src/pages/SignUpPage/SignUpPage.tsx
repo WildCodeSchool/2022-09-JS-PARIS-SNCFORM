@@ -1,8 +1,8 @@
-import React, { Dispatch, SetStateAction, useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import "./SignUpPage.scss";
 import { Field, Select, Button, RedirectLink } from "@components/index";
 import { userFetch, jobFetch, gradeFetch, authFetch } from "@services/index";
-import { UserSignUpType, UserType } from "@type/index";
+import { UserType } from "@type/index";
 import { useNavigate } from "react-router-dom";
 import { ValidationError } from "yup";
 import { userSchema } from "@validations/index";
@@ -16,18 +16,11 @@ export type ErrorsType = {
   [key: string]: string[]; // [firstname or lastname etcc : string] : string[]
 };
 
-export type SetUserSignUpType = Dispatch<SetStateAction<UserSignUpType>>;
-export type SetJobGradeType = Dispatch<SetStateAction<JobGradeType[]>>;
-export type SetUser = React.Dispatch<React.SetStateAction<UserType | null>>;
-export type SetUsersType = React.Dispatch<
-  React.SetStateAction<UserType[] | null>
->;
-
 export const SignUpPage: React.FC = () => {
   const [userSignUp, setUserSignUp] = useState<Partial<UserType> | null>(null);
   const [jobs, setJobs] = useState<JobGradeType[]>([]);
   const [grades, setGrades] = useState<JobGradeType[]>([]);
-  const [managers, setManagers] = useState<UserType[] | null>(null);
+  const [managers, setManagers] = useState<UserType[]>([]);
   const [errors, setErrors] = useState<ErrorsType>();
 
   const onChangeRadio = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -43,9 +36,7 @@ export const SignUpPage: React.FC = () => {
     };
   });
 
-  const managerOptions = managerData
-    ? [{ id: 0, name: "Manager" }, ...managerData]
-    : [{ id: 0, name: "Manager" }];
+  const managerOptions = [{ id: 0, name: "Manager" }, ...managerData];
 
   const selectOptions = [{ id: 0, name: "Corps de Métier" }, ...jobs];
 
