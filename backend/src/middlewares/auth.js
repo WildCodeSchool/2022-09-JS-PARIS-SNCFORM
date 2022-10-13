@@ -43,7 +43,9 @@ const verifyPassword = (req, res) => {
 
   argon2.verify(hashedPassword, password).then((isVerified) => {
     if (!isVerified) {
-      return res.sendStatus(401);
+      return res.status(401).json({
+        message: { status: "error", message: "Mot de passe incorrect" },
+      });
     }
     delete req.user.hashedPassword;
     const token = createToken(userId);
@@ -78,7 +80,9 @@ const verifyNewPassword = (req, res, next) => {
 
   return argon2.verify(hashedPassword, oldPassword).then((isVerified) => {
     if (!isVerified) {
-      res.sendStatus(401);
+      res.status(401).json({
+        message: { status: "error", message: "Mot de passe incorrect" },
+      });
     } else {
       if (newPassword) req.body.password = newPassword;
       next();

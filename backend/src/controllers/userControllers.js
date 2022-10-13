@@ -105,15 +105,18 @@ const login = (req, res, next) => {
   models.user
     .findByCp(cpNumber)
     .then(([data]) => {
-      if (!data) {
-        res.sendStatus(401);
+      if (!data.length) {
+        res.status(401).json({
+          message: { status: "error", message: "Utilisateur non trouvée" },
+        });
+      } else {
+        [req.user] = data;
+        next();
       }
-      [req.user] = data;
-      next();
     })
     .catch((err) => {
       console.error(err);
-      res.status(500).send("Error in user login request");
+      res.status(500).json("Error in user login request");
     });
 };
 
