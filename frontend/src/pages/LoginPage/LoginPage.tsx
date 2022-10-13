@@ -7,7 +7,7 @@ import { useNavigate } from "react-router-dom";
 
 export const LoginPage: React.FC = () => {
   const [userLogin, setUserLogin] = useState<Partial<UserType> | null>(null);
-  const [message, setMesage] = useState<{
+  const [message, setMessage] = useState<{
     status: string;
     message: string;
   } | null>(null);
@@ -31,7 +31,7 @@ export const LoginPage: React.FC = () => {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    authFetch.login(userLogin, navigate, setMesage);
+    authFetch.login(userLogin, navigate, setMessage);
   };
 
   return (

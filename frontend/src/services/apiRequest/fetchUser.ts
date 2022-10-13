@@ -49,7 +49,11 @@ const editUser = (
       setMessage(messageSuccess);
       sessionStorage.setItem("token", newToken);
     })
-    .catch((err) => console.error(err));
+    .catch((err) => {
+      const messageError = err.response.data.message;
+      setMessage(messageError);
+      console.error(err);
+    });
 };
 
 export const userFetch = {
