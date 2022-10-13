@@ -8,7 +8,6 @@ type ProfileCardProps = {
 };
 
 const BASE_URL_IMG = import.meta.env.VITE_BACKEND_URL_IMG;
-console.warn("BASE_URL_IMG:", BASE_URL_IMG);
 
 export const ProfileCard: React.FC<ProfileCardProps> = ({ user }) => {
   const {
