@@ -33,9 +33,9 @@ const login = (
       sessionStorage.setItem("token", token);
       navigate("/menu");
     })
-
     .catch((err) => {
-      setMessage({ status: "error", message: "CP ou mot de passe incorrect" });
+      const messageError = err.response.data.message;
+      setMessage(messageError);
       console.error(err);
     });
 };
